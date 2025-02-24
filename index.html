@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Harshit</title>
 <link rel="icon" href="https://gd-hbimg.huaban.com/4a411a905ab208d2f544719380f01e51a11e4d302dfe-mDnoEQ">
 <script src="https://cdn.tailwindcss.com"></script>
@@ -14,6 +14,13 @@
 tailwind.config = {
 theme: {
 extend: {
+screens: {
+'sm': '640px',
+'md': '768px',
+'lg': '1024px',
+'xl': '1280px',
+'2xl': '1536px'
+},
 colors: {
 primary: '#0047AB',
 secondary: '#FFD700'
@@ -38,17 +45,32 @@ DEFAULT: '8px',
 :where([class^="ri-"])::before { content: "\f3c2"; }
 html {
 scroll-behavior: smooth;
+-webkit-tap-highlight-color: transparent;
 }
 body {
 background: url('https://99designs-blog.imgix.net/blog/wp-content/uploads/2018/12/Gradient_builder_2.jpg?auto=format&q=60&w=1815&h=1020.9375&fit=crop&crop=faces') no-repeat center center fixed;
 background-size: cover;
+overflow-x: hidden;
 }
 section {
 min-height: auto;
-padding: 60px 40px;  /* Reduced padding from 80px to 60px */
+padding: 30px 20px;  /* Reduced padding */
+}
+@media (min-width: 768px) {
+section {
+padding: 30px 40px;  /* Reduced padding */
+}
 }
 section:first-of-type {
-padding-top: 140px;
+padding-top: 60px; /* Reduced padding for first section */
+border-radius: 50px;
+margin-top: -50px; /* Move up first section */
+}
+@media (min-width: 768px) {
+section:first-of-type {
+padding-top: 80px; /* Reduced padding for first section on desktop */
+margin-top: -50px; /* Move up first section more on desktop */
+}
 }
 .font-helvetica {
 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -144,6 +166,35 @@ scroll-snap-align: start;
 .timeline-container {
 padding-bottom: 1rem;
 }
+/* Mobile-specific styles */
+.text-6xl {
+font-size: 2.5rem;
+}
+.text-xl {
+font-size: 1.125rem;
+}
+.grid {
+grid-template-columns: 1fr;
+gap: 2rem;
+}
+.px-4 {
+padding-left: 1rem;
+padding-right: 1rem;
+}
+}
+/* Add touch-friendly tap targets */
+@media (max-width: 768px) {
+a, button {
+min-height: 44px;
+min-width: 44px;
+padding: 12px;
+}
+}
+/* Improve mobile form elements */
+@media (max-width: 768px) {
+input, select, textarea {
+font-size: 16px; /* Prevents iOS zoom on focus */
+}
 }
 </style>
 </head>
@@ -228,16 +279,16 @@ padding-bottom: 1rem;
 </div>
 <div class="relative">
 <img src="https://noah-ios.dev/content/images/2025/01/Notion-Face-Transparent.png"
-alt="Harshit"
-class="w-full h-[600px] object-cover object-top rounded-full shadow-lg">
-<div class="absolute -bottom-6 -right-6 bg-white/90 backdrop-blur-sm p-6 rounded-lg shadow-lg max-w-xs">
+alt="Harshit" 
+class="w-[400px] h-[400px] mx-auto object-cover object-top rounded-full shadow-lg">
+<div class="absolute -bottom-4 -right-4 bg-white/90 backdrop-blur-sm p-6 rounded-lg shadow-lg max-w-sm">
 <div class="flex items-center gap-4 mb-4">
 <i class="ri-map-pin-line text-xl text-primary"></i>
-<span class="font-inter">Delhi , India</span>
+<span class="font-inter text-lg">Delhi , India</span>
 </div>
 <div class="flex items-center gap-4">
 <i class="ri-time-line text-xl text-primary"></i>
-<span class="font-inter">Available for Job</span>
+<span class="font-inter text-lg">Available for Job</span>
 </div>
 </div>
 </div>
@@ -357,7 +408,7 @@ class="w-full h-48 object-cover">
 <div class="max-w-7xl mx-auto px-4">
 <div class="flex items-center justify-center gap-3 mb-12">
 <i class="ri-folder-line text-3xl text-primary"></i>
-<h2 class="font-helvetica text-4xl font-bold text-center">Featured Projects</h2>
+<h2 class="font-helvetica text-4xl font-bold text-center">Projects</h2>
 </div>
 <div class="grid md:grid-cols-3 gap-8">
 <div class="bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-white/20">
@@ -440,8 +491,8 @@ Send Message
 </main>
 <footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-8 mt-8">
 <div class="max-w-7xl mx-auto px-4">
-<div class="flex flex-col md:flex-row justify-between items-center">
-<p class="font-inter text-sm text-gray-400">© 2025 Harshit. All rights reserved.</p>
+<div class="flex justify-center items-center">
+<p class="font-inter text-sm text-gray-400 font-bold">© 2025 Harshit. All rights reserved.</p>
 </div>
 </div>
 </footer>
