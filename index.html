@@ -40,6 +40,41 @@ DEFAULT: '8px',
 }
 }
 }
+const skills = [
+  { name: 'HTML', level: 90, icon: 'ri-html5-line' },
+  { name: 'CSS', level: 85, icon: 'ri-css3-line' },
+  { name: 'JavaScript', level: 80, icon: 'ri-javascript-line' },
+  { name: 'React', level: 75, icon: 'ri-reactjs-line' },
+  { name: 'Node.js', level: 70, icon: 'ri-nodejs-line' },
+  { name: 'Python', level: 85, icon: 'ri-python-line' },
+  { name: 'VS Code', level: 85, icon: 'ri-code-box-line' },
+  { name: 'Photoshop', level: 75, icon: 'ri-photoshop-line' },
+  { name: 'Premiere Pro', level: 70, icon: 'ri-movie-line' },
+  { name: 'Notion', level: 80, icon: 'ri-file-list-line' }
+];
+function renderSkills() {
+  const skillsContainer = document.getElementById('skills-container');
+  if (!skillsContainer) return;
+  
+  skills.forEach(skill => {
+    const skillElement = document.createElement('div');
+    skillElement.className = 'skill-item p-4 bg-white/80 rounded-lg shadow-md hover:shadow-lg transition-all';
+    skillElement.innerHTML = `
+      <div class="flex items-center gap-3 mb-2">
+        <i class="${skill.icon} text-2xl text-primary"></i>
+        <h3 class="font-semibold text-sm md:text-base hidden md:block">${skill.name}</h3>
+      </div>
+      <div class="w-full bg-gray-200 rounded-full h-2.5">
+        <div class="bg-primary h-2.5 rounded-full transition-all duration-1000" style="width: 0%"></div>
+      </div>
+    `;
+    skillsContainer.appendChild(skillElement);
+    setTimeout(() => {
+      skillElement.querySelector('.bg-primary').style.width = `${skill.level}%`;
+    }, 200);
+  });
+}
+document.addEventListener('DOMContentLoaded', renderSkills);
 </script>
 <style>
 :where([class^="ri-"])::before { content: "\f3c2"; }
@@ -54,22 +89,22 @@ overflow-x: hidden;
 }
 section {
 min-height: auto;
-padding: 30px 20px;  /* Reduced padding */
+padding: 30px 20px;
 }
 @media (min-width: 768px) {
 section {
-padding: 30px 40px;  /* Reduced padding */
+padding: 30px 40px;
 }
 }
 section:first-of-type {
-padding-top: 60px; /* Reduced padding for first section */
+padding-top: 60px;
 border-radius: 50px;
-margin-top: -50px; /* Move up first section */
+margin-top: -50px;
 }
 @media (min-width: 768px) {
 section:first-of-type {
-padding-top: 80px; /* Reduced padding for first section on desktop */
-margin-top: -50px; /* Move up first section more on desktop */
+padding-top: 80px;
+margin-top: -50px;
 }
 }
 .font-helvetica {
@@ -166,7 +201,6 @@ scroll-snap-align: start;
 .timeline-container {
 padding-bottom: 1rem;
 }
-/* Mobile-specific styles */
 .text-6xl {
 font-size: 2.5rem;
 }
@@ -175,14 +209,52 @@ font-size: 1.125rem;
 }
 .grid {
 grid-template-columns: 1fr;
-gap: 2rem;
+gap: 1rem;
 }
 .px-4 {
 padding-left: 1rem;
 padding-right: 1rem;
 }
+.skill-item {
+padding: 0.75rem;
 }
-/* Add touch-friendly tap targets */
+.skill-item h3 {
+font-size: 0.875rem;
+}
+.tools-grid {
+display: grid !important;
+grid-template-columns: repeat(3, 1fr) !important;
+gap: 0.75rem !important;
+padding: 1rem !important;
+}
+.tools-grid > div {
+aspect-ratio: 1 !important;
+background: rgba(255, 255, 255, 0.9) !important;
+border-radius: 1rem !important;
+display: flex !important;
+align-items: center !important;
+justify-content: center !important;
+padding: 1rem !important;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+transition: transform 0.2s, box-shadow 0.2s !important;
+position: relative !important;
+}
+.tools-grid > div i {
+position: absolute !important;
+top: 50% !important;
+left: 50% !important;
+transform: translate(-50%, -50%) !important;
+}
+.tools-grid > div:hover {
+transform: translateY(-2px) !important;
+box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15) !important;
+}
+.tools-grid img {
+width: 2.5rem !important;
+height: 2.5rem !important;
+object-fit: contain !important;
+}
+}
 @media (max-width: 768px) {
 a, button {
 min-height: 44px;
@@ -190,12 +262,34 @@ min-width: 44px;
 padding: 12px;
 }
 }
-/* Improve mobile form elements */
 @media (max-width: 768px) {
 input, select, textarea {
-font-size: 16px; /* Prevents iOS zoom on focus */
+font-size: 16px;
 }
 }
+.skill-item {
+opacity: 0;
+transform: translateY(20px);
+animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+to {
+  opacity: 1;
+  transform: translateY(0);
+}
+}
+
+.skill-item:nth-child(1) { animation-delay: 0.1s; }
+.skill-item:nth-child(2) { animation-delay: 0.2s; }
+.skill-item:nth-child(3) { animation-delay: 0.3s; }
+.skill-item:nth-child(4) { animation-delay: 0.4s; }
+.skill-item:nth-child(5) { animation-delay: 0.5s; }
+.skill-item:nth-child(6) { animation-delay: 0.6s; }
+.skill-item:nth-child(7) { animation-delay: 0.7s; }
+.skill-item:nth-child(8) { animation-delay: 0.8s; }
+.skill-item:nth-child(9) { animation-delay: 0.9s; }
+.skill-item:nth-child(10) { animation-delay: 1s; }
 </style>
 </head>
 <body class="bg-[#F5F5F5] text-[#333333]">
@@ -245,7 +339,6 @@ font-size: 16px; /* Prevents iOS zoom on focus */
 </a>
 </div>
 </div>
-</nav>
 <main>
 <section id="home" class="min-h-[80vh] flex items-center bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-md rounded-3xl shadow-xl mx-4 mb-8 relative overflow-hidden">
 <div class="absolute inset-0 bg-[url('https://public.readdy.ai/ai/img_res/343c982e6386ebc666b67c4b8926bebb.jpg')] opacity-5"></div>
@@ -254,13 +347,13 @@ font-size: 16px; /* Prevents iOS zoom on focus */
 <h1 class="font-helvetica text-6xl font-bold mb-6 opacity-0 translate-y-4 transition-all duration-700" id="hero-title">Hi, I'm Harshit</h1>
 <p class="font-inter text-xl text-gray-600 mb-4 max-w-2xl mx-auto opacity-0 translate-y-4 transition-all duration-700 delay-100" id="hero-description">Aspiring AI & OS developer, tech enthusiast, and innovator passionate about futuristic design and like to reimagining technology. 🚀.</p>
 <p class="font-mono text-lg text-primary mb-8 max-w-2xl mx-auto opacity-0 translate-y-4 transition-all duration-700 delay-200" id="hero-tagline">Just another glitch in the matrix.</p>
-<button class="download-btn !rounded-button bg-primary text-white px-6 py-2 font-medium transition-all duration-300 flex items-center mx-auto relative overflow-hidden group">
+<a href="https://drive.google.com/file/d/1YOjHIgro5Vq1Rlt1Ejr32a4IuuIjlSm0/view?usp=sharing" class="download-btn bg-primary text-white px-8 py-2 font-medium transition-all duration-300 flex items-center mx-auto relative overflow-hidden group rounded-lg w-36">
 <span class="relative z-10 flex items-center">
-<i class="ri-download-line text-xl mr-2 transition-transform group-hover:translate-y-1"></i>
-<span>Download Resume</span>
+<i class="ri-download-line text-lg mr-1 transition-transform group-hover:translate-y-1"></i>
+<span>  Resume</span>
 </span>
 <div class="absolute inset-0 bg-black/10 transform translate-y-full transition-transform duration-300 group-hover:translate-y-0"></div>
-</button>
+</a>
 </div>
 </div>
 </section>
@@ -281,14 +374,14 @@ font-size: 16px; /* Prevents iOS zoom on focus */
 <img src="https://noah-ios.dev/content/images/2025/01/Notion-Face-Transparent.png"
 alt="Harshit" 
 class="w-[400px] h-[400px] mx-auto object-cover object-top rounded-full shadow-lg">
-<div class="absolute -bottom-4 -right-4 bg-white/90 backdrop-blur-sm p-6 rounded-lg shadow-lg max-w-sm">
+<div class="absolute -bottom-3 right-0 bg-white/90 backdrop-blur-sm p-3 rounded-lg shadow-lg w-56">
 <div class="flex items-center gap-4 mb-4">
-<i class="ri-map-pin-line text-xl text-primary"></i>
-<span class="font-inter text-lg">Delhi , India</span>
+<i class="ri-map-pin-line text-lg text-primary"></i>
+<span class="font-inter text-base">Delhi , India</span>
 </div>
 <div class="flex items-center gap-4">
-<i class="ri-time-line text-xl text-primary"></i>
-<span class="font-inter text-lg">Available for Job</span>
+<i class="ri-time-line text-lg text-primary"></i>
+<span class="font-inter text-base">Available for Job</span>
 </div>
 </div>
 </div>
@@ -385,19 +478,19 @@ class="w-full h-48 object-cover">
 <div class="grid grid-cols-2 gap-6">
 <div class="flex items-center space-x-4 p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/2048px-Visual_Studio_Code_1.35_icon.svg.png" class="w-8 h-8" alt="VS Code">
-<span class="font-inter">VS Code</span>
+<span class="font-inter hidden md:inline">VS Code</span>
 </div>
 <div class="flex items-center space-x-4 p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/640px-Adobe_Photoshop_CC_icon.svg.png" class="w-8 h-8" alt="Photoshop">
-<span class="font-inter">Photoshop</span>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Android_Studio_Logo_2024.svg/800px-Android_Studio_Logo_2024.svg.png" class="w-8 h-8" alt="Photoshop">
+<span class="font-inter hidden md:inline">Android studio</span>
 </div>
 <div class="flex items-center space-x-4 p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Adobe_Premiere_Pro_CC_icon.svg/800px-Adobe_Premiere_Pro_CC_icon.svg.png" class="w-8 h-8" alt="Premiere Pro">
-<span class="font-inter">Premiere Pro</span>
+<span class="font-inter hidden md:inline">Premiere Pro</span>
 </div>
 <div class="flex items-center space-x-4 p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
 <img src="https://numericcitizen.me/content/images/size/w1200/wp-content/uploads/2020/04/notion-logo.302c0d9f08f849f0805891d0c2b9b563.png" class="w-8 h-8" alt="Notion">
-<span class="font-inter">Notion</span>
+<span class="font-inter hidden md:inline">Notion</span>
 </div>
 </div>
 </div>
@@ -430,12 +523,12 @@ class="w-full h-48 object-cover">
 <div class="p-6">
 <h3 class="font-helvetica text-xl font-bold mb-2">Personal Portfolio</h3>
 <p class="font-inter text-gray-600 mb-4">A modern, responsive portfolio website built with HTML, CSS, and JavaScript.</p>
-<button class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap">
+<a href="https://github.com/Itsharshitgoat/Website" class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap inline-block">
 View Project
-</button>
+</a>
 </div>
 </div>
-<div class="bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-white/20">
+<div class="bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-white/20 animate-card delay-7">
 <img src="https://public.readdy.ai/ai/img_res/3472010d4a29768dd2fadaf52a9a6b37.jpg"
 alt="Project 3"
 class="w-full h-48 object-cover">
@@ -449,27 +542,32 @@ View Project
 </div>
 </div>
 </div>
-</section>
-<section id="contact" class="bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-md rounded-3xl shadow-xl mx-4 my-8 border border-white/20">
+</section><section id="contact" class="bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-md rounded-3xl shadow-xl mx-4 my-8 border border-white/20">
 <div class="max-w-7xl mx-auto px-4">
 <div class="flex items-center justify-center gap-3 mb-12">
 <i class="ri-mail-line text-3xl text-primary"></i>
 <h2 class="font-helvetica text-4xl font-bold text-center">Get in Touch</h2>
 </div>
 <div class="max-w-2xl mx-auto">
-<form id="contact-form" class="space-y-6">
+<form id="contact-form" action="https://formsubmit.co/itsharshitgoat@gmail.com" method="POST" class="space-y-6">
 <div>
 <label class="block font-inter font-medium mb-2" for="name">Name</label>
 <input type="text" id="name" name="name" class="w-full px-4 py-3 bg-white/60 backdrop-blur-sm border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 shadow-lg transition-all duration-300" required>
 </div>
 <div>
 <label class="block font-inter font-medium mb-2" for="email">Email</label>
-<input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+<input type="email" id="email" name="email" class="w-full px-4 py-3 bg-white/60 backdrop-blur-sm border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 shadow-lg transition-all duration-300" required>
 </div>
 <div>
 <label class="block font-inter font-medium mb-2" for="message">Message</label>
-<textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required></textarea>
+<textarea id="message" name="message" rows="5" class="w-full px-4 py-3 bg-white/60 backdrop-blur-sm border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 shadow-lg transition-all duration-300" required></textarea>
 </div>
+<!-- Honeypot to prevent spam -->
+<input type="text" name="_honey" style="display:none">
+<!-- Disable captcha -->
+<input type="hidden" name="_captcha" value="false">
+<!-- Redirect after submission -->
+<input type="hidden" name="_next" value="https://yourwebsite.com/thanks.html">
 <button type="submit" class="!rounded-button bg-primary text-white px-8 py-3 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap w-full">
 Send Message
 </button>
@@ -477,6 +575,9 @@ Send Message
 <div class="mt-12 flex justify-center space-x-8">
 <a href="https://github.com/Itsharshitgoat" class="text-gray-600 hover:text-primary transition-colors">
 <i class="ri-github-line text-3xl"></i>
+</a>
+<a href="https://www.reddit.com/user/itsharshitgoat" class="text-gray-600 hover:text-primary transition-colors">
+<i class="ri-reddit-line text-3xl"></i>
 </a>
 <a href="https://www.instagram.com/itsharshitgoat/" class="text-gray-600 hover:text-primary transition-colors">
 <i class="ri-instagram-line text-3xl"></i>
@@ -498,7 +599,6 @@ Send Message
 </footer>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-// Smooth scroll for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 anchor.addEventListener('click', function (e) {
 e.preventDefault();
@@ -577,10 +677,21 @@ document.documentElement.classList.remove('dark');
 localStorage.setItem('darkMode', 'false');
 }
 });
-// Initialize theme on page load
 initTheme();
+function checkScroll() {
+document.querySelectorAll('.animate-card').forEach(card => {
+const cardTop = card.getBoundingClientRect().top;
+const windowHeight = window.innerHeight;
+
+if (cardTop < windowHeight * 0.85) {
+card.classList.add('visible');
+}
 });
-</script>
+}
+checkScroll();
+window.addEventListener('scroll', checkScroll);
+window.addEventListener('resize', checkScroll);
+});
 </script>
 </body>
 </html>
