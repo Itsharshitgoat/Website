@@ -272,14 +272,12 @@ opacity: 0;
 transform: translateY(20px);
 animation: fadeInUp 0.5s ease forwards;
 }
-
 @keyframes fadeInUp {
 to {
   opacity: 1;
   transform: translateY(0);
 }
 }
-
 .skill-item:nth-child(1) { animation-delay: 0.1s; }
 .skill-item:nth-child(2) { animation-delay: 0.2s; }
 .skill-item:nth-child(3) { animation-delay: 0.3s; }
@@ -290,6 +288,123 @@ to {
 .skill-item:nth-child(8) { animation-delay: 0.8s; }
 .skill-item:nth-child(9) { animation-delay: 0.9s; }
 .skill-item:nth-child(10) { animation-delay: 1s; }
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4));
+  backdrop-filter: blur(10px);
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 90%;
+  max-width: 600px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: modalFadeIn 0.3s ease;
+  text-align: center;
+  margin: 0 auto;
+}
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.modal-close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.modal-close:hover {
+  color: #0047AB;
+}
+.modal-content h3 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #333;
+}
+.modal-content p {
+  font-family: "Inter", sans-serif;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    padding: 16px;
+  }
+  .modal-content h3 {
+    font-size: 1.25rem;
+  }
+}
+/* Reaction Pill Styles */
+.reaction-container {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 4px 8px;
+  margin-left: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.reaction-item {
+  display: flex;
+  align-items: center;
+  margin: 0 6px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.reaction-item:hover {
+  transform: scale(1.2);
+}
+.reaction-item img {
+  width: 20px;
+  height: 20px;
+}
+.reaction-item span {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: #333;
+  margin-left: 4px;
+}
+@media (max-width: 768px) {
+  .reaction-container {
+    padding: 3px 6px;
+  }
+  .reaction-item img {
+    width: 18px;
+    height: 18px;
+  }
+  .reaction-item span {
+    font-size: 12px;
+  }
+}
 </style>
 </head>
 <body class="bg-[#F5F5F5] text-[#333333]">
@@ -310,6 +425,9 @@ to {
 </a>
 <a href="#projects" class="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-primary transition-colors relative nav-link rounded-full hover:bg-gray-100" data-section="projects">
 <i class="ri-folder-line text-xl"></i>
+</a>
+<a href="#blog" class="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-primary transition-colors relative nav-link rounded-full hover:bg-gray-100" data-section="blog">
+<i class="ri-article-line text-xl"></i>
 </a>
 <a href="#contact" class="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-primary transition-colors relative nav-link rounded-full hover:bg-gray-100" data-section="contact">
 <i class="ri-mail-line text-xl"></i>
@@ -334,6 +452,9 @@ to {
 <a href="#projects" class="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-primary transition-colors rounded-full hover:bg-gray-100 mobile-nav-link">
 <i class="ri-folder-line text-xl"></i>
 </a>
+<a href="#blog" class="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-primary transition-colors rounded-full hover:bg-gray-100 mobile-nav-link">
+<i class="ri-article-line text-xl"></i>
+</a>
 <a href="#contact" class="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-primary transition-colors rounded-full hover:bg-gray-100 mobile-nav-link">
 <i class="ri-mail-line text-xl"></i>
 </a>
@@ -347,10 +468,10 @@ to {
 <h1 class="font-helvetica text-6xl font-bold mb-6 opacity-0 translate-y-4 transition-all duration-700" id="hero-title">Hi, I'm Harshit</h1>
 <p class="font-inter text-xl text-gray-600 mb-4 max-w-2xl mx-auto opacity-0 translate-y-4 transition-all duration-700 delay-100" id="hero-description">Aspiring AI & OS developer, tech enthusiast, and innovator passionate about futuristic design and like to reimagining technology. 🚀.</p>
 <p class="font-mono text-lg text-primary mb-8 max-w-2xl mx-auto opacity-0 translate-y-4 transition-all duration-700 delay-200" id="hero-tagline">Just another glitch in the matrix.</p>
-<a href="https://drive.google.com/file/d/1YOjHIgro5Vq1Rlt1Ejr32a4IuuIjlSm0/view?usp=sharing" class="download-btn bg-primary text-white px-8 py-2 font-medium transition-all duration-300 flex items-center mx-auto relative overflow-hidden group rounded-lg w-36">
+<a href="https://drive.google.com/file/d/1YOjHIgro5Vq1Rlt1Ejr32a4IuuI Ascendancy" class="download-btn bg-primary text-white px-8 py-2 font-medium transition-all duration-300 flex items-center mx-auto relative overflow-hidden group rounded-lg w-36">
 <span class="relative z-10 flex items-center">
 <i class="ri-download-line text-lg mr-1 transition-transform group-hover:translate-y-1"></i>
-<span>  Resume</span>
+<span>Resume</span>
 </span>
 <div class="absolute inset-0 bg-black/10 transform translate-y-full transition-transform duration-300 group-hover:translate-y-0"></div>
 </a>
@@ -377,7 +498,7 @@ class="w-[400px] h-[400px] mx-auto object-cover object-top rounded-full shadow-l
 <div class="absolute -bottom-3 right-0 bg-white/90 backdrop-blur-sm p-3 rounded-lg shadow-lg w-56">
 <div class="flex items-center gap-4 mb-4">
 <i class="ri-map-pin-line text-lg text-primary"></i>
-<span class="font-inter text-base">Delhi , India</span>
+<span class="font-inter text-base">Delhi, India</span>
 </div>
 <div class="flex items-center gap-4">
 <i class="ri-time-line text-lg text-primary"></i>
@@ -481,8 +602,8 @@ class="w-full h-48 object-cover">
 <span class="font-inter hidden md:inline">VS Code</span>
 </div>
 <div class="flex items-center space-x-4 p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Android_Studio_Logo_2024.svg/800px-Android_Studio_Logo_2024.svg.png" class="w-8 h-8" alt="Photoshop">
-<span class="font-inter hidden md:inline">Android studio</span>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Android_Studio_Logo_2024.svg/800px-Android_Studio_Logo_2024.svg.png" class="w-8 h-8" alt="Android Studio">
+<span class="font-inter hidden md:inline">Android Studio</span>
 </div>
 <div class="flex items-center space-x-4 p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Adobe_Premiere_Pro_CC_icon.svg/800px-Adobe_Premiere_Pro_CC_icon.svg.png" class="w-8 h-8" alt="Premiere Pro">
@@ -504,20 +625,20 @@ class="w-full h-48 object-cover">
 <h2 class="font-helvetica text-4xl font-bold text-center">Projects</h2>
 </div>
 <div class="grid md:grid-cols-3 gap-8">
-  <div class="bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-white/20">
-  <img src="https://i.imgur.com/MeMEvUY.png"
-  alt="Project 1"
-  class="w-full h-48 object-cover">
-  <div class="p-6">
-  <h3 class="font-helvetica text-xl font-bold mb-2">Novaweb</h3>
-  <p class="font-inter text-gray-600 mb-4">Novaweb is an AI-powered search engine that delivers instant answers "releaseing in early 2026"</p>
-  <a href="https://forms.gle/tNozmPQMHJAH6R1r5" target="_blank" rel="noopener noreferrer">
-  <button class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap">
-  View Form
-  </button>
-  </a>
-  </div>
-  </div>
+<div class="bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-white/20">
+<img src="https://i.imgur.com/MeMEvUY.png"
+alt="Project 1"
+class="w-full h-48 object-cover">
+<div class="p-6">
+<h3 class="font-helvetica text-xl font-bold mb-2">Novaweb</h3>
+<p class="font-inter text-gray-600 mb-4">Novaweb is an AI-powered search engine that delivers instant answers "releasing in early 2026"</p>
+<a href="https://forms.gle/tNozmPQMHJAH6R1r5" target="_blank" rel="noopener noreferrer">
+<button class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap">
+View Form
+</button>
+</a>
+</div>
+</div>
 <div class="bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-white/20">
 <img src="https://i.imgur.com/J0RXlcj.png"
 alt="Project 2"
@@ -544,7 +665,127 @@ View Project
 </div>
 </div>
 </div>
-</section><section id="contact" class="bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-md rounded-3xl shadow-xl mx-4 my-8 border border-white/20">
+</section>
+<section id="blog" class="bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-md rounded-3xl shadow-xl mx-4 my-8 border border-white/20">
+<div class="max-w-7xl mx-auto px-4">
+<div class="flex items-center justify-center gap-3 mb-12">
+<i class="ri-article-line text-3xl text-primary"></i>
+<h2 class="font-helvetica text-4xl font-bold text-center">Blog</h2>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-white/20">
+<img src="https://img.freepik.com/free-photo/representation-user-experience-interface-design_23-2150169862.jpg"
+alt="Blog 1"
+class="w-full h-48 object-cover">
+<div class="p-6">
+<h3 class="font-helvetica text-xl font-bold mb-2">The Future of UI/UX Design</h3>
+<p class="font-inter text-gray-600 mb-4">Exploring emerging trends in UI/UX design, including AI-driven interfaces and immersive experiences.</p>
+<div class="flex items-center">
+<button class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap inline-block" onclick="openModal('modal1')">
+Read More
+</button>
+<div class="reaction-container" data-blog-id="blog1">
+<div class="reaction-item" data-emoji="heart">
+<img src="https://static-00.iconduck.com/assets.00/smiling-face-with-heart-eyes-emoji-1024x1024-7jd5wy4d.png" alt="Heart">
+<span class="reaction-count">0</span>
+</div>
+<div class="reaction-item" data-emoji="rocket">
+<img src="https://images.emojiterra.com/microsoft/fluent-emoji/15.1/512px/1f680_color.png" alt="Rocket">
+<span class="reaction-count">0</span>
+</div>
+<div class="reaction-item" data-emoji="smile">
+<img src="https://static-00.iconduck.com/assets.00/grinning-squinting-face-emoji-512x512-6yuwa0op.png" alt="Smile">
+<span class="reaction-count">0</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-white/20">
+<img src="https://img.freepik.com/free-photo/programming-background-with-person-working-with-codes-computer_23-2150010125.jpg"
+alt="Blog 2"
+class="w-full h-48 object-cover">
+<div class="p-6">
+<h3 class="font-helvetica text-xl font-bold mb-2">Building Scalable Web Apps</h3>
+<p class="font-inter text-gray-600 mb-4">A deep dive into the tools and techniques for creating robust, scalable web applications.</p>
+<div class="flex items-center">
+<button class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap inline-block" onclick="openModal('modal2')">
+Read More
+</button>
+<div class="reaction-container" data-blog-id="blog2">
+<div class="reaction-item" data-emoji="heart">
+<img src="https://static-00.iconduck.com/assets.00/smiling-face-with-heart-eyes-emoji-1024x1024-7jd5wy4d.png" alt="Heart">
+<span class="reaction-count">0</span>
+</div>
+<div class="reaction-item" data-emoji="rocket">
+<img src="https://images.emojiterra.com/microsoft/fluent-emoji/15.1/512px/1f680_color.png" alt="Rocket">
+<span class="reaction-count">0</span>
+</div>
+<div class="reaction-item" data-emoji="smile">
+<img src="https://static-00.iconduck.com/assets.00/grinning-squinting-face-emoji-512x512-6yuwa0op.png" alt="Smile">
+<span class="reaction-count">0</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-white/20">
+<img src="https://img.freepik.com/free-photo/ai-technology-microchip-background-futuristic-innovation-technology-remix_53876-129794.jpg"
+alt="Blog 3"
+class="w-full h-48 object-cover">
+<div class="p-6">
+<h3 class="font-helvetica text-xl font-bold mb-2">AI in Everyday Tech</h3>
+<p class="font-inter text-gray-600 mb-4">How artificial intelligence is shaping the tools and technologies we use daily.</p>
+<div class="flex items-center">
+<button class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap inline-block" onclick="openModal('modal3')">
+Read More
+</button>
+<div class="reaction-container" data-blog-id="blog3">
+<div class="reaction-item" data-emoji="heart">
+  <img src="https://static-00.iconduck.com/assets.00/smiling-face-with-heart-eyes-emoji-1024x1024-7jd5wy4d.png" alt="Heart">
+<span class="reaction-count">0</span>
+</div>
+<div class="reaction-item" data-emoji="rocket">
+<img src="https://images.emojiterra.com/microsoft/fluent-emoji/15.1/512px/1f680_color.png" alt="Rocket">
+<span class="reaction-count">0</span>
+</div>
+<div class="reaction-item" data-emoji="smile">
+<img src="https://static-00.iconduck.com/assets.00/grinning-squinting-face-emoji-512x512-6yuwa0op.png" alt="Smile">
+<span class="reaction-count">0</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Modals -->
+<div id="modal1" class="modal">
+<div class="modal-content">
+<span class="modal-close" onclick="closeModal('modal1')">×</span>
+<h3>The Future of UI/UX Design</h3>
+<p>The landscape of UI/UX design is rapidly evolving with the integration of artificial intelligence and immersive technologies. AI-driven interfaces are becoming more intuitive, adapting to user behaviors in real-time to provide personalized experiences. Technologies like augmented reality (AR) and virtual reality (VR) are pushing the boundaries of immersion, allowing designers to create interactive and engaging environments. Furthermore, voice user interfaces (VUIs) and gesture-based controls are gaining traction, reducing reliance on traditional screen-based interactions. As these technologies mature, designers must focus on accessibility, ethical considerations, and seamless integration to ensure inclusive and user-centric experiences.</p>
+<p>Another exciting trend is the rise of no-code and low-code platforms, empowering non-technical users to create sophisticated interfaces. This democratization of design tools is fostering innovation and collaboration across disciplines. However, it also challenges designers to maintain high standards of usability and aesthetics in an increasingly crowded digital space.</p>
+</div>
+</div>
+<div id="modal2" class="modal">
+<div class="modal-content">
+<span class="modal-close" onclick="closeModal('modal2')">×</span>
+<h3>Building Scalable Web Apps</h3>
+<p>Creating scalable web applications requires a strategic combination of robust architecture, efficient tools, and best practices. Frameworks like React, Angular, and Vue.js provide the foundation for building dynamic, component-based interfaces, while backend technologies such as Node.js, Django, and Ruby on Rails enable rapid development and scalability. Adopting microservices architecture allows developers to break down applications into smaller, independent services, improving maintainability and scalability.</p>
+<p>Database optimization plays a critical role, with NoSQL databases like MongoDB and Cassandra offering flexibility for handling large datasets, while SQL databases like PostgreSQL ensure reliability for structured data. Cloud platforms like AWS, Azure, and Google Cloud provide scalable infrastructure, with tools like Kubernetes and Docker streamlining deployment and management. Additionally, implementing caching strategies (e.g., Redis) and load balancing ensures consistent performance under high traffic. Continuous integration and deployment (CI/CD) pipelines further enhance development efficiency, enabling rapid iteration and reliable updates.</p>
+</div>
+</div>
+<div id="modal3" class="modal">
+<div class="modal-content">
+<span class="modal-close" onclick="closeModal('modal3')">×</span>
+<h3>AI in Everyday Tech</h3>
+<p>Artificial intelligence is seamlessly integrating into our daily lives, transforming how we interact with technology. From virtual assistants like Siri and Alexa to recommendation algorithms on streaming platforms like Netflix and Spotify, AI enhances user experiences by predicting preferences and automating tasks. In healthcare, AI-powered diagnostics and personalized treatment plans are improving patient outcomes, while in transportation, autonomous vehicles and traffic optimization systems are redefining mobility.</p>
+<p>AI's impact extends to productivity tools, with applications like Grammarly and Notion leveraging natural language processing to enhance communication and organization. However, the widespread adoption of AI raises ethical questions around privacy, bias, and job displacement. As AI continues to evolve, striking a balance between innovation and responsibility will be crucial to maximizing its benefits while minimizing potential risks.</p>
+</div>
+</div>
+<section id="contact" class="bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-md rounded-3xl shadow-xl mx-4 my-8 border border-white/20">
 <div class="max-w-7xl mx-auto px-4">
 <div class="flex items-center justify-center gap-3 mb-12">
 <i class="ri-mail-line text-3xl text-primary"></i>
@@ -601,98 +842,169 @@ Send Message
 </footer>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-anchor.addEventListener('click', function (e) {
-e.preventDefault();
-const targetId = this.getAttribute('href');
-const targetElement = document.querySelector(targetId);
-const navHeight = document.querySelector('nav').offsetHeight;
-const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
-window.scrollTo({
-top: targetPosition,
-behavior: 'smooth'
-});
-});
-});
-const heroTitle = document.getElementById('hero-title');
-const heroDescription = document.getElementById('hero-description');
-const heroTagline = document.getElementById('hero-tagline');
-setTimeout(() => {
-heroTitle.classList.remove('opacity-0', 'translate-y-4');
-}, 300);
-setTimeout(() => {
-heroDescription.classList.remove('opacity-0', 'translate-y-4');
-}, 600);
-setTimeout(() => {
-heroTagline.classList.remove('opacity-0', 'translate-y-4');
-}, 900);
-const menuToggle = document.getElementById('menu-toggle');
-const mobileMenu = document.getElementById('mobile-menu');
-const hamburgerMenu = document.querySelector('.hamburger-menu');
-menuToggle.addEventListener('click', function() {
-mobileMenu.classList.toggle('hidden');
-hamburgerMenu.classList.toggle('active');
-});
-document.querySelectorAll('.mobile-nav-link').forEach(link => {
-link.addEventListener('click', () => {
-mobileMenu.classList.add('hidden');
-hamburgerMenu.classList.remove('active');
-});
-});
-const progressBar = document.getElementById('progress-indicator');
-const navLinks = document.querySelectorAll('.nav-link');
-window.addEventListener('scroll', () => {
-const windowHeight = window.innerHeight;
-const documentHeight = document.documentElement.scrollHeight - windowHeight;
-const scrolled = window.scrollY;
-const progress = (scrolled / documentHeight) * 100;
-progressBar.style.width = `${progress}%`;
-const current = Array.from(navLinks).find(link => {
-const section = document.querySelector(link.getAttribute('href'));
-const rect = section.getBoundingClientRect();
-return rect.top <= windowHeight/2 && rect.bottom >= windowHeight/2;
-});
-navLinks.forEach(link => link.classList.remove('active'));
-if (current) current.classList.add('active');
-});
-const initTheme = () => {
-const darkMode = localStorage.getItem('darkMode') === 'true';
-const icon = document.querySelector('#theme-toggle i');
-if (darkMode) {
-document.documentElement.classList.add('dark');
-icon.classList.replace('ri-sun-line', 'ri-moon-line');
-} else {
-document.documentElement.classList.remove('dark');
-icon.classList.replace('ri-moon-line', 'ri-sun-line');
-}
-};
-document.getElementById('theme-toggle').addEventListener('click', function() {
-const icon = this.querySelector('i');
-const isDark = document.documentElement.classList.contains('dark');
-if (!isDark) {
-icon.classList.replace('ri-sun-line', 'ri-moon-line');
-document.documentElement.classList.add('dark');
-localStorage.setItem('darkMode', 'true');
-} else {
-icon.classList.replace('ri-moon-line', 'ri-sun-line');
-document.documentElement.classList.remove('dark');
-localStorage.setItem('darkMode', 'false');
-}
-});
-initTheme();
-function checkScroll() {
-document.querySelectorAll('.animate-card').forEach(card => {
-const cardTop = card.getBoundingClientRect().top;
-const windowHeight = window.innerHeight;
+  // Smooth scrolling for navigation
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      const navHeight = document.querySelector('nav').offsetHeight;
+      const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    });
+  });
 
-if (cardTop < windowHeight * 0.85) {
-card.classList.add('visible');
-}
-});
-}
-checkScroll();
-window.addEventListener('scroll', checkScroll);
-window.addEventListener('resize', checkScroll);
+  // Hero section animations
+  const heroTitle = document.getElementById('hero-title');
+  const heroDescription = document.getElementById('hero-description');
+  const heroTagline = document.getElementById('hero-tagline');
+  setTimeout(() => {
+    heroTitle.classList.remove('opacity-0', 'translate-y-4');
+  }, 300);
+  setTimeout(() => {
+    heroDescription.classList.remove('opacity-0', 'translate-y-4');
+  }, 600);
+  setTimeout(() => {
+    heroTagline.classList.remove('opacity-0', 'translate-y-4');
+  }, 900);
+
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const hamburgerMenu = document.querySelector('.hamburger-menu');
+  if (menuToggle && mobileMenu && hamburgerMenu) {
+    menuToggle.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+      hamburgerMenu.classList.toggle('active');
+    });
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        hamburgerMenu.classList.remove('active');
+      });
+    });
+  }
+
+  // Scroll progress and active nav
+  const progressBar = document.getElementById('progress-indicator');
+  const navLinks = document.querySelectorAll('.nav-link');
+  window.addEventListener('scroll', () => {
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight - windowHeight;
+    const scrolled = window.scrollY;
+    const progress = (scrolled / documentHeight) * 100;
+    if (progressBar) {
+      progressBar.style.width = `${progress}%`;
+    }
+    const current = Array.from(navLinks).find(link => {
+      const section = document.querySelector(link.getAttribute('href'));
+      const rect = section.getBoundingClientRect();
+      return rect.top <= windowHeight/2 && rect.bottom >= windowHeight/2;
+    });
+    navLinks.forEach(link => link.classList.remove('active'));
+    if (current) current.classList.add('active');
+  });
+
+  // Theme toggle
+  const initTheme = () => {
+    const darkMode = localStorage.getItem('darkMode') === 'true';
+    const icon = document.querySelector('#theme-toggle i');
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+      if (icon) icon.classList.replace('ri-sun-line', 'ri-moon-line');
+    } else {
+      document.documentElement.classList.remove('dark');
+      if (icon) icon.classList.replace('ri-moon-line', 'ri-sun-line');
+    }
+  };
+  const themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function() {
+      const icon = this.querySelector('i');
+      const isDark = document.documentElement.classList.contains('dark');
+      if (!isDark) {
+        icon.classList.replace('ri-sun-line', 'ri-moon-line');
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('darkMode', 'true');
+      } else {
+        icon.classList.replace('ri-moon-line', 'ri-sun-line');
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('darkMode', 'false');
+      }
+    });
+  }
+  initTheme();
+
+  // Card animation on scroll
+  function checkScroll() {
+    document.querySelectorAll('.animate-card').forEach(card => {
+      const cardTop = card.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+      if (cardTop < windowHeight * 0.85) {
+        card.classList.add('visible');
+      }
+    });
+  }
+  checkScroll();
+  window.addEventListener('scroll', checkScroll);
+  window.addEventListener('resize', checkScroll);
+
+  // Modal Functions
+  window.openModal = function(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+  };
+  window.closeModal = function(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  };
+  document.querySelectorAll('.modal').forEach(modal => {
+    modal.addEventListener('click', function(e) {
+      if (e.target === this) {
+        this.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+  });
+
+  // Reaction System
+  const reactionData = JSON.parse(localStorage.getItem('reactionData')) || {
+    blog1: { heart: 0, rocket: 0, smile: 0 },
+    blog2: { heart: 0, rocket: 0, smile: 0 },
+    blog3: { heart: 0, rocket: 0, smile: 0 }
+  };
+
+  function updateReactionCounts() {
+    document.querySelectorAll('.reaction-container').forEach(container => {
+      const blogId = container.getAttribute('data-blog-id');
+      container.querySelectorAll('.reaction-item').forEach(item => {
+        const emoji = item.getAttribute('data-emoji');
+        const countElement = item.querySelector('.reaction-count');
+        countElement.textContent = reactionData[blogId][emoji];
+      });
+    });
+  }
+
+  document.querySelectorAll('.reaction-item').forEach(item => {
+    item.addEventListener('click', function() {
+      const blogId = this.closest('.reaction-container').getAttribute('data-blog-id');
+      const emoji = this.getAttribute('data-emoji');
+      reactionData[blogId][emoji]++;
+      localStorage.setItem('reactionData', JSON.stringify(reactionData));
+      updateReactionCounts();
+    });
+  });
+
+  updateReactionCounts();
 });
 </script>
 </body>
