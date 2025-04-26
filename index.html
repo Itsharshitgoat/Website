@@ -361,7 +361,7 @@ to {
     font-size: 1.25rem;
   }
 }
-/* Reaction Pill Styles */
+@media (max-width: 768px) {
 .reaction-container {
   display: inline-flex;
   align-items: center;
@@ -393,17 +393,6 @@ to {
   color: #333;
   margin-left: 4px;
 }
-@media (max-width: 768px) {
-  .reaction-container {
-    padding: 3px 6px;
-  }
-  .reaction-item img {
-    width: 18px;
-    height: 18px;
-  }
-  .reaction-item span {
-    font-size: 12px;
-  }
 }
 </style>
 </head>
@@ -658,8 +647,8 @@ class="w-full h-48 object-cover">
 <div class="p-6">
 <h3 class="font-helvetica text-xl font-bold mb-2">Big Question</h3>
 <p class="font-inter text-gray-600 mb-4">As an introvert, I built a website to do the brave thing because sometimes friendship needs code.</p>
-<a href="https://itsharshitgoat.github.io/Invite/" class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap inline-block">
-View Project
+<a href="https://itsharshitgoat.github.io/Invite/" class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap inline-flex items-center justify-center" onclick="openModal('modal1')">
+  Read More
 </a>
 </div>
 </div>
@@ -681,8 +670,8 @@ class="w-full h-48 object-cover">
 <h3 class="font-helvetica text-xl font-bold mb-2">Think AI is Cool Now..?</h3>
 <p class="font-inter text-gray-600 mb-4">AI is transforming our world, but the future promises even more Imagine AI that thinks, learns, and makes decisions like a human.</p>
 <div class="flex items-center">
-<button class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap inline-block" onclick="openModal('modal1')">
-Read More
+<button class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap inline-flex items-center justify-center" onclick="openModal('modal1')">
+  Read More
 </button>
 <div class="reaction-container" data-blog-id="blog1">
 <div class="reaction-item" data-emoji="heart">
@@ -709,8 +698,8 @@ class="w-full h-48 object-cover">
 <h3 class="font-helvetica text-xl font-bold mb-2">Nova Reimagining Search</h3>
 <p class="font-inter text-gray-600 mb-4">Nova Web is a next-gen search engine that combines AI, personalization to deliver faster, smarter, and more relevant results.</p>
 <div class="flex items-center">
-<button class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap inline-block" onclick="openModal('modal2')">
-Read More
+<button class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap inline-flex items-center justify-center" onclick="openModal('modal2')">
+  Read More
 </button>
 <div class="reaction-container" data-blog-id="blog2">
 <div class="reaction-item" data-emoji="heart">
@@ -737,8 +726,8 @@ class="w-full h-48 object-cover">
 <h3 class="font-helvetica text-xl font-bold mb-2">Software I Use as Developer</h3>
 <p class="font-inter text-gray-600 mb-4">I began coding out of curiosity now I build with tools that help me grow, create, inspire, learn, innovate, connect, and thrive.</p>
 <div class="flex items-center">
-<button class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap inline-block" onclick="openModal('modal3')">
-Read More
+<button class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap inline-flex items-center justify-center" onclick="openModal('modal3')">
+  Read More
 </button>
 <div class="reaction-container" data-blog-id="blog3">
 <div class="reaction-item" data-emoji="heart">
@@ -752,7 +741,6 @@ Read More
 <div class="reaction-item" data-emoji="smile">
 <img src="https://static-00.iconduck.com/assets.00/grinning-squinting-face-emoji-512x512-6yuwa0op.png" alt="Smile">
 <span class="reaction-count">0</span>
-</div>
 </div>
 </div>
 </div>
