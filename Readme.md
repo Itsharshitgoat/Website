@@ -116,7 +116,5 @@ Contributions, issues, and feature requests are welcome! Feel free to check [iss
 ## 📞 Contact
 
 - Website: [Your Website](https://itsharshitgoat.github.io/Website/)
-- Twitter: [@Itsharshitgoat](https://x.com/itsharshitgoat)
-
 ---
 Made with ❤️ by Harshit
