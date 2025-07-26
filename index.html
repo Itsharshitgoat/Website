@@ -515,10 +515,10 @@ to {
 </div>
 <div class="grid md:grid-cols-2 gap-16 items-center">
 <div>
-<div class="space-y-6">
-<p class="font-inter text-gray-600 leading-relaxed">I’m a tech enthusiast on a quest to make AI and OS development less of a headache and way cooler. I tinker with modern tech, treat UI/UX like both art and sport, and basically run on wireframes and caffeine. Obsessed with futuristic design and buttery-smooth experiences, I try to make tech feel like magic—with less smoke and more logic. I’m curious, dangerously detail-oriented, and fueled by Wi-Fi and bad puns, always asking: “What if we made it do this… but cooler?”</p>
-<p class="font-inter text-gray-600 leading-relaxed">I believe in the power of simplicity—because if a button needs a manual, we’ve already lost the plot. Every pixel and click should pull its weight, or it’s getting fired from the screen.</p>
-</div>
+  <div class="space-y-6 text-center">
+    <p class="font-inter text-gray-600 leading-relaxed">I’m a tech enthusiast on a quest to make AI and OS development less of a headache and way cooler. I tinker with modern tech, treat UI/UX like both art and sport, and basically run on wireframes and caffeine. Obsessed with futuristic design and buttery-smooth experiences, I try to make tech feel like magic—with less smoke and more logic. I’m curious, dangerously detail-oriented, and fueled by Wi-Fi and bad puns, always asking: “What if we made it do this… but cooler?”</p>
+    <p class="font-inter text-gray-600 leading-relaxed">I believe in the power of simplicity—because if a button needs a manual, we’ve already lost the plot. Every pixel and click should pull its weight, or it’s getting fired from the screen.</p>
+  </div>
 </div>
 <div class="relative group">
   <div class="relative w-fit mx-auto">
@@ -541,36 +541,30 @@ to {
 
 <!-- Timeline Section - Interactive journey visualization -->
 <div class="col-span-2 mt-16">
-    <!-- Navigation Controls Container -->
-    <div class="flex justify-center mb-12 mt-12">
-      <!-- Button Group with Journey Label -->
-      <div class="inline-flex items-center justify-center gap-6">
-        <!-- Left Navigation Button -->
-        <button class="scroll-btn flex items-center justify-center bg-white/80 hover:bg-white shadow-md hover:shadow-lg transition-all w-12 h-12 rounded-full text-primary" onclick="scrollTimeline('left')">
-          <i class="ri-arrow-left-s-line text-2xl"></i>
-        </button>
-        
-        <!-- Journey Label with Glassmorphism Effect -->
-        <div class="flex items-center justify-center bg-white/40 backdrop-blur-md rounded-full border border-white/30 shadow-lg px-8 h-12">
-          <span class="font-bold text-2xl text-primary" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Journey</span>
-        </div>
-        
-        <!-- Right Navigation Button -->
-        <button class="scroll-btn flex items-center justify-center bg-white/80 hover:bg-white shadow-md hover:shadow-lg transition-all w-12 h-12 rounded-full text-primary" onclick="scrollTimeline('right')">
-          <i class="ri-arrow-right-s-line text-2xl"></i>
-        </button>
-      </div>
+    <!-- Journey Label Container -->
+    <div class="flex justify-center mb-5 mt-5">
     </div>        
-    <div class="timeline-container overflow-x-hidden relative flex items-center">
+    <div class="relative mx-8">
+      <!-- Navigation Buttons - Outside container -->
+      <button class="scroll-btn flex items-center justify-center bg-white/90 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,71,171,0.2)] hover:shadow-[0_12px_40px_rgba(0,71,171,0.3)] transition-all w-7 h-12 rounded-full text-primary border border-white/50 hover:scale-105 transform duration-300 absolute -left-12 top-1/2 -translate-y-1/2 z-20 hover:bg-white group" onclick="scrollTimeline('left')">
+        <i class="ri-arrow-left-s-line text-3xl group-hover:text-primary/80"></i>
+      </button>
+      <button class="scroll-btn flex items-center justify-center bg-white/90 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,71,171,0.2)] hover:shadow-[0_12px_40px_rgba(0,71,171,0.3)] transition-all w-7 h-12 rounded-full text-primary border border-white/50 hover:scale-105 transform duration-300 absolute -right-12 top-1/2 -translate-y-1/2 z-20 hover:bg-white group" onclick="scrollTimeline('right')">
+        <i class="ri-arrow-right-s-line text-3xl group-hover:text-primary/80"></i>
+      </button>
+      
+      <!-- Timeline Container -->
+      <div class="timeline-container overflow-x-hidden relative flex items-center bg-white/80 backdrop-blur-xl rounded-[20px] px-8 py-10 border border-white/40 shadow-[0_16px_48px_rgba(0,0,0,0.12)]">
           <div class="relative w-full">
+            
             <!-- Timeline Line -->
-            <div class="absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-primary/20 via-primary to-primary/20"></div>
+            <div class="absolute top-1/2 left-0 w-full h-[2px] bg-primary/20"></div>
             
             <div class="timeline-wrapper flex gap-6 transition-transform duration-300 px-4" id="timelineWrapper">
                 <!-- Timeline Items -->
                 <div class="timeline-item flex-shrink-0 w-56 bg-white/80 backdrop-blur-md rounded-xl p-4 shadow-lg border border-white/20">
-                    <div class="text-primary mb-2"><i class="ri-rocket-line text-2xl"></i></div>
-                    <h3 class="font-bold text-lg mb-1">June 2012</h3>
+                  <div class="text-primary mb-2"><i class="ri-rocket-line text-xl"></i></div>
+                    <h3 class="font-bold text-base mb-1 text-gray-800">June 2012</h3>
                     <p class="text-gray-600 text-sm">Access To Computer</p>
                 </div>
 
@@ -751,7 +745,7 @@ to {
             const isMobile = window.innerWidth <= 768;
             const scrollAmount = isMobile ? 300 : 450; // Adjusted for mobile devices
             const currentTransform = wrapper.style.transform.replace('translateX(', '').replace('px)', '') * 1 || 0;
-            
+
             if (direction === 'left') {
                 const newTransform = Math.min(0, currentTransform + scrollAmount);
                 wrapper.style.transform = `translateX(${newTransform}px)`;
