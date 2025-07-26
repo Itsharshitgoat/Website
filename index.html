@@ -193,9 +193,15 @@ transform: rotate(-45deg) translate(6px, -6px);
 .timeline-container {
 scroll-snap-type: x mandatory;
 -webkit-overflow-scrolling: touch;
+-ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+.timeline-container::-webkit-scrollbar {
+display: none; /* Hide scrollbar for Chrome, Safari and Opera */
 }
 .timeline-item {
 scroll-snap-align: start;
+scroll-snap-stop: always; /* Ensure precise snapping */
 }
 @media (max-width: 768px) {
 .timeline-container {
@@ -502,7 +508,7 @@ to {
 </div>
 </section>
 <section id="about" class="bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-md rounded-3xl shadow-xl mx-4 my-8 border border-white/20">
-<div class="max-w-7xl mx-auto px-4">
+<div class="max-w-7xl mx-auto px-4 pb-16 md:pb-8">
 <div class="flex items-center justify-center gap-3 mb-12">
 <i class="ri-user-line text-3xl text-primary"></i>
 <h2 class="font-helvetica text-4xl font-bold text-center">About Me</h2>
@@ -515,20 +521,265 @@ to {
 </div>
 </div>
 <div class="relative group">
-  <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/djw36jd-406b8611-269e-44c8-972f-03322ab3f755.png/v1/fill/w_894,h_894,q_70,strp/profile_by_itsharshitgoat_djw36jd-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcLzVlYWYwYzU1LWE5Y2QtNDM3MS04NjAwLTY5NmY2MjQ4YjY3YVwvZGp3MzZqZC00MDZiODYxMS0yNjllLTQ0YzgtOTcyZi0wMzMyMmFiM2Y3NTUucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.lVBIo8BzR6xZUxgQBfrHgzSEeTT3ufbNAynQndE8DLU"
-    alt="Harshit" 
-    class="w-[300px] h-[300px] mx-auto object-cover object-top rounded-full shadow-lg transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl">
-  <div class="absolute -bottom-3 right-0 bg-white/90 backdrop-blur-sm p-3 rounded-lg shadow-lg w-50 transition-all duration-300">
-    <div class="flex items-center gap-4 mb-4">
+  <div class="relative w-fit mx-auto">
+    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/djw36jd-406b8611-269e-44c8-972f-03322ab3f755.png/v1/fill/w_894,h_894,q_70,strp/profile_by_itsharshitgoat_djw36jd-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcLzVlYWYwYzU1LWE5Y2QtNDM3MS04NjAwLTY5NmY2MjQ4YjY3YVwvZGp3MzZqZC00MDZiODYxMS0yNjllLTQ0YzgtOTcyZi0wMzMyMmFiM2Y3NTUucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.lVBIo8BzR6xZUxgQBfrHgzSEeTT3ufbNAynQndE8DLU"
+      alt="Harshit" 
+      class="w-[280px] h-[280px] md:w-[320px] md:h-[320px] object-cover object-top rounded-full shadow-lg transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl">
+    <div class="absolute md:right-[-90px] left-1/2 md:left-auto -translate-x-1/2 md:translate-x-0 bottom-[-100px] md:bottom-0 bg-white/90 backdrop-blur-sm p-3 rounded-xl shadow-lg border border-white/20 flex flex-col gap-2 w-[280px] md:w-auto md:min-w-[200px] transform md:translate-y-0 mt-4 md:mt-0 mb-16 md:mb-0">
+      <div class="flex items-center gap-3">
       <i class="ri-map-pin-line text-lg text-primary"></i>
       <span class="font-inter text-base">Delhi, India</span>
-    </div>
-    <div class="flex items-center gap-4">
+      </div>
+      <div class="flex items-center gap-3">
       <i class="ri-cup-line text-lg text-primary"></i>
       <span class="font-inter text-base">Working overtime</span>
+      </div>
+    </div>
     </div>
   </div>
 </div>
+
+<!-- Timeline Section - Interactive journey visualization -->
+<div class="col-span-2 mt-16">
+    <!-- Navigation Controls Container -->
+    <div class="flex justify-center mb-12 mt-12">
+      <!-- Button Group with Journey Label -->
+      <div class="inline-flex items-center justify-center gap-6">
+        <!-- Left Navigation Button -->
+        <button class="scroll-btn flex items-center justify-center bg-white/80 hover:bg-white shadow-md hover:shadow-lg transition-all w-12 h-12 rounded-full text-primary" onclick="scrollTimeline('left')">
+          <i class="ri-arrow-left-s-line text-2xl"></i>
+        </button>
+        
+        <!-- Journey Label with Glassmorphism Effect -->
+        <div class="flex items-center justify-center bg-white/40 backdrop-blur-md rounded-full border border-white/30 shadow-lg px-8 h-12">
+          <span class="font-bold text-2xl text-primary" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Journey</span>
+        </div>
+        
+        <!-- Right Navigation Button -->
+        <button class="scroll-btn flex items-center justify-center bg-white/80 hover:bg-white shadow-md hover:shadow-lg transition-all w-12 h-12 rounded-full text-primary" onclick="scrollTimeline('right')">
+          <i class="ri-arrow-right-s-line text-2xl"></i>
+        </button>
+      </div>
+    </div>        
+    <div class="timeline-container overflow-x-hidden relative flex items-center">
+          <div class="relative w-full">
+            <!-- Timeline Line -->
+            <div class="absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-primary/20 via-primary to-primary/20"></div>
+            
+            <div class="timeline-wrapper flex gap-6 transition-transform duration-300 px-4" id="timelineWrapper">
+                <!-- Timeline Items -->
+                <div class="timeline-item flex-shrink-0 w-56 bg-white/80 backdrop-blur-md rounded-xl p-4 shadow-lg border border-white/20">
+                    <div class="text-primary mb-2"><i class="ri-rocket-line text-2xl"></i></div>
+                    <h3 class="font-bold text-lg mb-1">June 2012</h3>
+                    <p class="text-gray-600 text-sm">Access To Computer</p>
+                </div>
+
+                <div class="timeline-item flex-shrink-0 w-56 bg-white/80 backdrop-blur-md rounded-xl p-4 shadow-lg border border-white/20">
+                  <div class="text-primary mb-2"><i class="ri-chrome-line text-2xl"></i></div>
+                  <h3 class="font-bold text-lg mb-1">Sep 2015</h3>
+                  <p class="text-gray-600 text-sm">Open Inspect Tab By Mistake</p>
+                </div>
+
+                <div class="timeline-item flex-shrink-0 w-56 bg-white/80 backdrop-blur-md rounded-xl p-4 shadow-lg border border-white/20">
+                  <div class="text-primary mb-2"><i class="ri-html5-line text-2xl"></i></div>
+                  <h3 class="font-bold text-lg mb-1">Nov 2015</h3>
+                  <p class="text-gray-600 text-sm">Learned HTML & CSS Basics</p>
+                </div>
+
+                <div class="timeline-item flex-shrink-0 w-56 bg-white/80 backdrop-blur-md rounded-xl p-4 shadow-lg border border-white/20">
+                    <div class="text-primary mb-2"><i class="ri-code-box-line text-2xl"></i></div>
+                    <h3 class="font-bold text-lg mb-1">Dec 2015</h3>
+                    <p class="text-gray-600 text-sm">Made The Big Question</p>
+                </div>
+                
+                <div class="timeline-item flex-shrink-0 w-56 bg-white/80 backdrop-blur-md rounded-xl p-4 shadow-lg border border-white/20">
+                    <div class="text-primary mb-2"><i class="ri-javascript-line text-2xl"></i></div>
+                    <h3 class="font-bold text-lg mb-1">Jul 2019</h3>
+                    <p class="text-gray-600 text-sm">Learned Java Script</p>
+                </div>
+                
+                <div class="timeline-item flex-shrink-0 w-56 bg-white/80 backdrop-blur-md rounded-xl p-4 shadow-lg border border-white/20">
+                  <div class="text-primary mb-2"><i class="ri-python-line text-2xl"></i></div>
+                  <h3 class="font-bold text-lg mb-1">Nov 2019</h3>
+                  <p class="text-gray-600 text-sm">Learned Python</p>
+                </div>
+
+                <div class="timeline-item flex-shrink-0 w-56 bg-white/80 backdrop-blur-md rounded-xl p-4 shadow-lg border border-white/20">
+                  <div class="text-primary mb-2"><i class="ri-layout-masonry-line text-2xl"></i></div>
+                  <h3 class="font-bold text-lg mb-1">Dec 2019</h3>
+                  <p class="text-gray-600 text-sm">Learned App & Web Design</p>
+                </div>
+
+                <div class="timeline-item flex-shrink-0 w-56 bg-white/80 backdrop-blur-md rounded-xl p-4 shadow-lg border border-white/20">
+                  <div class="text-primary mb-2"><i class="ri-apps-line text-2xl"></i></div>
+                  <h3 class="font-bold text-lg mb-1">Feb 2020</h3>
+                  <p class="text-gray-600 text-sm">Made Many App And Website</p>
+                </div>
+                
+                <div class="timeline-item flex-shrink-0 w-56 bg-white/80 backdrop-blur-md rounded-xl p-4 shadow-lg border border-white/20">
+                  <div class="text-primary mb-2"><i class="ri-file-code-line text-2xl"></i></div>
+                  <h3 class="font-bold text-lg mb-1">Jun 2020</h3>
+                  <p class="text-gray-600 text-sm">Learned TypeScript</p>
+                </div>
+                
+                <div class="timeline-item flex-shrink-0 w-56 bg-white/80 backdrop-blur-md rounded-xl p-4 shadow-lg border border-white/20">
+                  <div class="text-primary mb-2"><i class="ri-markdown-line text-2xl"></i></div>
+                  <h3 class="font-bold text-lg mb-1">Aug 2020</h3>
+                  <p class="text-gray-600 text-sm">Learned Markdown</p>
+                </div>
+                
+                <div class="timeline-item flex-shrink-0 w-56 bg-white/80 backdrop-blur-md rounded-xl p-4 shadow-lg border border-white/20">
+                  <div class="text-primary mb-2"><i class="ri-go-line text-2xl"></i></div>
+                  <h3 class="font-bold text-lg mb-1">Dec 2020</h3>
+                  <p class="text-gray-600 text-sm">Learned Go</p>
+                </div>
+
+                <div class="timeline-item flex-shrink-0 w-56 bg-white/80 backdrop-blur-md rounded-xl p-4 shadow-lg border border-white/20">
+                    <div class="text-primary mb-2"><i class="ri-code-s-slash-line text-2xl"></i></div>
+                    <h3 class="font-bold text-lg mb-1">Mar 2021</h3>
+                    <p class="text-gray-600 text-sm">Made Many Projects</p>
+                </div>
+
+                <div class="timeline-item flex-shrink-0 w-56 bg-white/80 backdrop-blur-md rounded-xl p-4 shadow-lg border border-white/20">
+                    <div class="text-primary mb-2"><i class="ri-cpu-line text-2xl"></i></div>
+                    <h3 class="font-bold text-lg mb-1">Dec 2021</h3>
+                    <p class="text-gray-600 text-sm">Learned How to Overclock</p>
+                </div>
+
+                <div class="timeline-item flex-shrink-0 w-56 bg-white/80 backdrop-blur-md rounded-xl p-4 shadow-lg border border-white/20">
+                  <div class="text-primary mb-2"><i class="ri-c-sharp-line text-2xl"></i></div>
+                  <h3 class="font-bold text-lg mb-1">Jan 2022</h3>
+                  <p class="text-gray-600 text-sm">Learned C#</p>
+                </div>
+                
+                <div class="timeline-item flex-shrink-0 w-56 bg-white/80 backdrop-blur-md rounded-xl p-4 shadow-lg border border-white/20">
+                  <div class="text-primary mb-2"><i class="ri-brain-line text-2xl"></i></div>
+                  <h3 class="font-bold text-lg mb-1">Dec 2022</h3>
+                  <p class="text-gray-600 text-sm">Machine Learning Basics</p>
+                </div>
+                
+                <div class="timeline-item flex-shrink-0 w-56 bg-white/80 backdrop-blur-md rounded-xl p-4 shadow-lg border border-white/20">
+                  <div class="text-primary mb-2"><i class="ri-newspaper-line text-2xl"></i></div>
+                  <h3 class="font-bold text-lg mb-1">2023 - Mar 2025</h3>
+                  <p class="text-gray-600 text-sm">Followed Tech World News</p>
+                </div>
+                
+                <div class="timeline-item flex-shrink-0 w-56 bg-white/80 backdrop-blur-md rounded-xl p-4 shadow-lg border border-white/20">
+                  <div class="text-primary mb-2"><i class="ri-global-line text-2xl"></i></div>
+                  <h3 class="font-bold text-lg mb-1">Apr 2025</h3>
+                  <p class="text-gray-600 text-sm">Made My Resume Website</p>
+                </div>
+                
+                <div class="timeline-item flex-shrink-0 w-56 bg-white/80 backdrop-blur-md rounded-xl p-4 shadow-lg border border-white/20">
+                  <div class="text-primary mb-2"><i class="ri-search-line text-2xl"></i></div>
+                  <h3 class="font-bold text-lg mb-1">Apr 2025</h3>
+                  <p class="text-gray-600 text-sm">Made a small search engine</p>
+                </div>
+                
+                <div class="timeline-item flex-shrink-0 w-56 bg-white/80 backdrop-blur-md rounded-xl p-4 shadow-lg border border-white/20">
+                  <div class="text-primary mb-2"><i class="ri-nodejs-line text-2xl"></i></div>
+                  <h3 class="font-bold text-lg mb-1">May 2025</h3>
+                  <p class="text-gray-600 text-sm">Learned Node.js</p>
+                </div>
+                
+                <div class="timeline-item flex-shrink-0 w-56 bg-white/80 backdrop-blur-md rounded-xl p-4 shadow-lg border border-white/20">
+                  <div class="text-primary mb-2"><i class="ri-school-line text-2xl"></i></div>
+                  <h3 class="font-bold text-lg mb-1">May 2025</h3>
+                  <p class="text-gray-600 text-sm">Passed Out Of School</p>
+                </div>
+                
+                <div class="timeline-item flex-shrink-0 w-56 bg-white/80 backdrop-blur-md rounded-xl p-4 shadow-lg border border-white/20">
+                  <div class="text-primary mb-2"><i class="ri-electron-line text-2xl"></i></div>
+                  <h3 class="font-bold text-lg mb-1">May 2025</h3>
+                  <p class="text-gray-600 text-sm">Learned Electron.js</p>
+                </div>
+                
+                <div class="timeline-item flex-shrink-0 w-56 bg-white/80 backdrop-blur-md rounded-xl p-4 shadow-lg border border-white/20">
+                    <div class="text-primary mb-2"><i class="ri-code-s-slash-line text-2xl"></i></div>
+                    <h3 class="font-bold text-lg mb-1">Jun 2025</h3>
+                    <p class="text-gray-600 text-sm">Made Projects Scroll Down</p>
+                </div>
+                
+                <div class="timeline-item flex-shrink-0 w-56 bg-white/80 backdrop-blur-md rounded-xl p-4 shadow-lg border border-white/20">
+                    <div class="text-primary mb-2"><i class="ri-robot-2-line text-2xl"></i></div>
+                    <h3 class="font-bold text-lg mb-1">July 2025</h3>
+                    <p class="text-gray-600 text-sm">Fine Tuned A LLM</p>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <style>
+        .timeline-container {
+            position: relative;
+            padding: 20px 0;
+            margin: 0 -1rem;
+        }
+        
+        .timeline-wrapper {
+            transform: translateX(0);
+            padding-bottom: 1rem;
+        }
+        
+        .timeline-item {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .timeline-item:hover {
+            transform: translateY(-8px);
+        }
+
+        .scroll-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scroll-btn i {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+    </style>
+
+    <script>
+        function scrollTimeline(direction) {
+            const wrapper = document.getElementById('timelineWrapper');
+            const isMobile = window.innerWidth <= 768;
+            const scrollAmount = isMobile ? 300 : 450; // Adjusted for mobile devices
+            const currentTransform = wrapper.style.transform.replace('translateX(', '').replace('px)', '') * 1 || 0;
+            
+            if (direction === 'left') {
+                const newTransform = Math.min(0, currentTransform + scrollAmount);
+                wrapper.style.transform = `translateX(${newTransform}px)`;
+                wrapper.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+            } else {
+                const maxScroll = wrapper.scrollWidth - wrapper.parentElement.offsetWidth + (isMobile ? 16 : 32);
+                const newTransform = Math.max(-maxScroll, currentTransform - scrollAmount);
+                wrapper.style.transform = `translateX(${newTransform}px)`;
+                wrapper.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+            }
+        }
+
+        // Add keyboard navigation with improved handling
+        document.addEventListener('keydown', function(event) {
+            // Don't scroll if user is typing in a form
+            if (document.activeElement.tagName === 'INPUT' || 
+                document.activeElement.tagName === 'TEXTAREA') {
+                return;
+            }
+
+            if (event.key === 'ArrowLeft') {
+                event.preventDefault(); // Prevent page scrolling
+                scrollTimeline('left');
+            } else if (event.key === 'ArrowRight') {
+                scrollTimeline('right');
+            }
+        });
+    </script>
 </div>
 </div>
 </section>
@@ -877,6 +1128,7 @@ Details
 </div>
 </div>
 </div>
+</div>
 </section>
 <div id="modal1" class="modal">
 <div class="modal-content">
@@ -932,20 +1184,23 @@ Send Message
 </button>
 </form>
 <div class="mt-12 flex justify-center">
-<div class="bg-white/60 backdrop-blur-sm rounded-full px-6 py-2 shadow-lg border border-white/20 flex items-center gap-6">
-<a href="https://www.reddit.com/user/itsharshitgoat" class="text-gray-600 hover:text-primary transition-colors">
-<i class="ri-reddit-line text-2xl"></i>
-</a>
-<div class="w-px h-6 bg-gray-300"></div>
-<a href="https://www.instagram.com/itsharshitgoat/" class="text-gray-600 hover:text-primary transition-colors">
-<i class="ri-instagram-line text-2xl"></i>
-</a>
-<div class="w-px h-6 bg-gray-300"></div>
-<a href="https://x.com/itsharshitgoat" class="text-gray-600 hover:text-primary transition-colors">
-<i class="ri-twitter-x-line text-2xl"></i>
-</a>
-</div>
-</div>
+  <div class="bg-white/60 backdrop-blur-sm rounded-full px-6 py-2 shadow-lg border border-white/20 flex items-center gap-6">
+    <a href="https://www.reddit.com/user/itsharshitgoat" class="text-gray-600 hover:text-primary transition-colors">
+      <i class="ri-reddit-line text-2xl"></i>
+    </a>
+    <div class="w-px h-6 bg-gray-300"></div>
+    <a href="https://www.instagram.com/itsharshitgoat/" class="text-gray-600 hover:text-primary transition-colors">
+      <i class="ri-instagram-line text-2xl"></i>
+    </a>
+    <div class="w-px h-6 bg-gray-300"></div>
+    <a href="https://x.com/itsharshitgoat" class="text-gray-600 hover:text-primary transition-colors">
+      <i class="ri-twitter-x-line text-2xl"></i>
+    </a>
+    <div class="w-px h-6 bg-gray-300"></div>
+    <a href="https://www.linkedin.com/in/harshit-prasad-833986370/" class="text-gray-600 hover:text-primary transition-colors">
+      <i class="ri-linkedin-box-line text-2xl"></i>
+    </a>
+  </div>
 </div>
 </section>
 </main>
