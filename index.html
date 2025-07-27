@@ -206,6 +206,11 @@ scroll-snap-stop: always; /* Ensure precise snapping */
 @media (max-width: 768px) {
 .timeline-container {
 padding-bottom: 1rem;
+overflow-x: auto !important; /* Enable horizontal scrolling */
+-webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+}
+.scroll-btn {
+display: none !important; /* Hide scroll buttons on mobile */
 }
 .text-6xl {
 font-size: 2.5rem;
@@ -554,7 +559,7 @@ to {
       </button>
       
       <!-- Timeline Container -->
-      <div class="timeline-container overflow-x-hidden relative flex items-center bg-white/80 backdrop-blur-xl rounded-[20px] px-8 py-10 border border-white/40 shadow-[0_16px_48px_rgba(0,0,0,0.12)]">
+      <div class="timeline-container md:overflow-x-hidden relative flex items-center bg-white/80 backdrop-blur-xl rounded-[20px] px-8 py-10 border border-white/40 shadow-[0_16px_48px_rgba(0,0,0,0.12)]">
           <div class="relative w-full">
             
             <!-- Timeline Line -->
