@@ -90,11 +90,17 @@ overflow-x: hidden;
 section {
 min-height: auto;
 padding: 30px 20px;
+position: relative;
+z-index: 1;
 }
 @media (min-width: 768px) {
 section {
 padding: 30px 40px;
 }
+}
+
+section:not(#home) {
+isolation: isolate;
 }
 section:first-of-type {
 padding-top: 60px;
@@ -299,6 +305,72 @@ to {
 .skill-item:nth-child(8) { animation-delay: 0.8s; }
 .skill-item:nth-child(9) { animation-delay: 0.9s; }
 .skill-item:nth-child(10) { animation-delay: 1s; }
+
+/* Section and Card animations */
+.animate-section {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-section.start-hidden {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.animate-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-card {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-card.start-hidden {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.animate-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-7 { transition-delay: 0.15s; }
+.delay-8 { transition-delay: 0.3s; }
+.delay-9 { transition-delay: 0.45s; }
+.delay-10 { transition-delay: 0.6s; }
+
+/* Project card animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.project-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-card:nth-child(3n+1) { transition-delay: 0.1s; }
+.project-card:nth-child(3n+2) { transition-delay: 0.2s; }
+.project-card:nth-child(3n+3) { transition-delay: 0.3s; }
+
 .modal {
   display: none;
   position: fixed;
@@ -512,7 +584,7 @@ to {
 </div>
 </div>
 </section>
-<section id="about" class="bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-md rounded-3xl shadow-xl mx-4 my-8 border border-white/20">
+<section id="about" class="bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-md rounded-3xl shadow-xl mx-4 my-8 border border-white/20 animate-section">
 <div class="max-w-7xl mx-auto px-4 pb-16 md:pb-8">
 <div class="flex items-center justify-center gap-3 mb-12">
 <i class="ri-user-line text-3xl text-primary"></i>
@@ -999,7 +1071,7 @@ class="w-full h-48 object-cover">
           </a>
         </div>
       </div>
-      <div class="bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-white/20">
+      <div class="bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-white/20 animate-card delay-8">
         <img src="https://i.imgur.com/YQCMBld.png" alt="Project 1" class="w-full h-48 object-cover">
         <div class="p-6">
           <h3 class="font-helvetica text-xl font-bold mb-2">Novaweb</h3>
@@ -1011,7 +1083,7 @@ class="w-full h-48 object-cover">
           </a>
         </div>
       </div>
-      <div class="bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-white/20">
+      <div class="bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-white/20 animate-card delay-9">
         <img src="https://i.imgur.com/J0RXlcj.png" alt="Project 2" class="w-full h-48 object-cover">
         <div class="p-6">
           <h3 class="font-helvetica text-xl font-bold mb-2">Personal Portfolio</h3>
@@ -1021,7 +1093,7 @@ class="w-full h-48 object-cover">
           </a>
         </div>
       </div>
-      <div class="bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-white/20 animate-card delay-7">
+      <div class="bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-white/20 animate-card delay-8">
         <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/djya8um-f0bdfcdf-9560-4248-a534-6762b85bfcc6.png/v1/fill/w_1259,h_635,q_70,strp/capture_by_itsharshitgoat_djya8um-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjQ2IiwicGF0aCI6IlwvZlwvNWVhZjBjNTUtYTljZC00MzcxLTg2MDAtNjk2ZjYyNDhiNjdhXC9kanlhOHVtLWYwYmRmY2RmLTk1NjAtNDI0OC1hNTM0LTY3NjJiODViZmNjNi5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.9SjhkezfEwJfcV36z_9AEqXmk0UlVAt9F_YlZqs-TPY" alt="Project 3" class="w-full h-48 object-cover">
         <div class="p-6">
           <h3 class="font-helvetica text-xl font-bold mb-2">Big Question</h3>
@@ -1346,19 +1418,42 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   initTheme();
 
-  // Card animation on scroll
-  function checkScroll() {
+  // Section and card animations with Intersection Observer
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.15
+  };
+
+  function initializeAnimations() {
+    // Add animation classes to sections
+    document.querySelectorAll('section:not(#home)').forEach(section => {
+      section.classList.add('animate-section', 'start-hidden');
+    });
+
+    // Add animation classes to cards
     document.querySelectorAll('.animate-card').forEach(card => {
-      const cardTop = card.getBoundingClientRect().top;
-      const windowHeight = window.innerHeight;
-      if (cardTop < windowHeight * 0.85) {
-        card.classList.add('visible');
-      }
+      card.classList.add('start-hidden');
+    });
+
+    // Create observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Start observing elements
+    document.querySelectorAll('.start-hidden').forEach(element => {
+      observer.observe(element);
     });
   }
-  checkScroll();
-  window.addEventListener('scroll', checkScroll);
-  window.addEventListener('resize', checkScroll);
+
+  // Initialize animations after a small delay to ensure everything is loaded
+  setTimeout(initializeAnimations, 100);
 
   // Modal Functions
   window.openModal = function(modalId) {
