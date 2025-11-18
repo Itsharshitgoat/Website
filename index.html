@@ -493,6 +493,17 @@ to {
   color: transparent;
   text-shadow: 0 0 3px rgba(255, 255, 255, 0.2);
 }
+@media (max-width: 768px) {
+  /* Prevent anchored sections from being hidden under the fixed nav on small screens */
+  section {
+    scroll-margin-top: 88px; /* mobile nav + small gap */
+  }
+  /* Ensure projects section stacks above any overlapping elements on mobile */
+  #projects {
+    position: relative;
+    z-index: 1;
+  }
+}
 </style>
 </head>
 <body class="bg-[#F5F5F5] text-[#333333]">
@@ -1310,8 +1321,11 @@ document.addEventListener('DOMContentLoaded', function() {
       e.preventDefault();
       const targetId = this.getAttribute('href');
       const targetElement = document.querySelector(targetId);
-      const navHeight = document.querySelector('nav').offsetHeight;
-      const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
+      const navEl = document.querySelector('nav');
+      let navHeight = navEl ? navEl.offsetHeight : 0;
+      // On small screens the nav can wrap or be taller; add a small extra offset
+      if (window.innerWidth <= 768) navHeight += 20;
+      const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight - 12;
       window.scrollTo({
         top: targetPosition,
         behavior: 'smooth'
@@ -1495,5 +1509,3 @@ document.addEventListener('DOMContentLoaded', function() {
 </body>
 
 </html>
-
-
