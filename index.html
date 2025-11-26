@@ -503,6 +503,40 @@ to {
     position: relative;
     z-index: 1;
   }
+  /* Fix project cards on mobile */
+  #projects .grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  #projects .bg-white\/90 {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+  }
+  #projects img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 200px !important;
+    object-fit: cover !important;
+  }
+  #projects .p-6 {
+    padding: 1rem !important;
+  }
+  #projects h3 {
+    font-size: 1rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  #projects p {
+    font-size: 0.875rem !important;
+    margin-bottom: 1rem !important;
+  }
+  #projects a button {
+    width: 100% !important;
+    padding: 0.75rem 1rem !important;
+    font-size: 0.875rem !important;
+  }
 }
 </style>
 </head>
