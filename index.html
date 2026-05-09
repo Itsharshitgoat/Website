@@ -548,6 +548,40 @@ to {
   transition: transform 0.5s ease;
 }
 
+/* Bento Grid Styles */
+.bento-grid {
+  display: grid;
+  gap: 16px;
+  border-radius: 32px;
+  overflow: hidden; 
+  isolation: isolate;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  mask-image: radial-gradient(white, black);
+}
+
+.bento-grid > div {
+  position: relative;
+  min-height: 240px;
+}
+
+.bento-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .bento-grid {
+    gap: 12px;
+    border-radius: 24px;
+  }
+  .bento-grid > div {
+    min-height: 200px;
+  }
+}
+
 /* Typewriter Cursor */
 .typewriter-cursor {
   font-weight: bold;
@@ -576,8 +610,11 @@ to {
 <a href="#skills" class="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-primary transition-colors relative nav-link rounded-full" data-section="skills">
 <i class="ri-tools-line text-xl"></i>
 </a>
+<a href="#certifications" class="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-primary transition-colors relative nav-link rounded-full" data-section="certifications">
+  <i class="ri-award-line text-xl"></i>
+</a>
 <a href="#projects" class="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-primary transition-colors relative nav-link rounded-full" data-section="projects">
-<i class="ri-folder-line text-xl"></i>
+  <i class="ri-folder-line text-xl"></i>
 </a>
 <a href="#blog" class="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-primary transition-colors relative nav-link rounded-full" data-section="blog">
 <i class="ri-article-line text-xl"></i>
@@ -604,8 +641,11 @@ to {
 <a href="#skills" class="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-primary transition-colors rounded-full mobile-nav-link">
 <i class="ri-tools-line text-xl"></i>
 </a>
+<a href="#certifications" class="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-primary transition-colors rounded-full mobile-nav-link">
+  <i class="ri-award-line text-xl"></i>
+</a>
 <a href="#projects" class="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-primary transition-colors rounded-full mobile-nav-link">
-<i class="ri-folder-line text-xl"></i>
+  <i class="ri-folder-line text-xl"></i>
 </a>
 <a href="#blog" class="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-primary transition-colors rounded-full mobile-nav-link">
 <i class="ri-article-line text-xl"></i>
@@ -962,10 +1002,10 @@ class="w-full h-48 object-cover" loading="lazy">
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Apache_NetBeans_Logo.svg/500px-Apache_NetBeans_Logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20180920122700" alt="Premiere Pro" class="w-12 h-12 object-contain" loading="lazy">
 </div>
 <div class="w-20 h-20 flex items-center justify-center bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/20">
-<img src="https://mvolkmann.github.io/blog/assets/warp-logo.png?v=1.1.1" alt="Notion" class="w-12 h-12 object-contain" loading="lazy">
+<img src="https://images.icon-icons.com/1381/PNG/512/mysqlworkbench_93532.png" alt="Figma" class="w-12 h-12 object-contain" loading="lazy">
 </div>
 <div class="w-20 h-20 flex items-center justify-center bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/20">
-<img src="https://images.icon-icons.com/1381/PNG/512/mysqlworkbench_93532.png" alt="Figma" class="w-12 h-12 object-contain" loading="lazy">
+<img src="https://mvolkmann.github.io/blog/assets/warp-logo.png?v=1.1.1" alt="Notion" class="w-12 h-12 object-contain" loading="lazy">
 </div>
 <div class="w-20 h-20 flex items-center justify-center bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/20">
 <img src="https://avatars.githubusercontent.com/u/18133?s=200&v=4" alt="GitHub" class="w-12 h-12 object-contain" loading="lazy">
@@ -984,6 +1024,98 @@ class="w-full h-48 object-cover" loading="lazy">
 </div>
 </div>
 </section>
+<section id="certifications" class="bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-md rounded-3xl shadow-xl mx-4 my-8 border border-white/20">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex items-center justify-center gap-3 mb-12">
+      <i class="ri-award-line text-3xl text-primary"></i>
+      <h2 class="font-helvetica text-4xl font-bold text-center">Certifications</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 bento-grid">
+      <!-- Top Section: Featured block on Left, stacked 1/3 blocks on Right -->
+
+      <!-- 1. Machine Learning (Left, 2/3 Wide, 2 Rows High) -->
+      <div class="md:col-span-2 md:row-span-2 group cursor-pointer h-full" onclick="openCertModal('https://media.licdn.com/dms/image/v2/D562DAQFqsY2cKdIx5g/profile-treasury-image-shrink_1920_1920/B56Z4JkwOvKoAc-/0/1778277091060?e=1778932800&v=beta&t=ZvVsxVQx0yIBiOe1E1P33dVrMgnsUmgGdbX5-H9gKCY')">
+        <img src="https://media.licdn.com/dms/image/v2/D562DAQFqsY2cKdIx5g/profile-treasury-image-shrink_1920_1920/B56Z4JkwOvKoAc-/0/1778277091060?e=1778932800&v=beta&t=ZvVsxVQx0yIBiOe1E1P33dVrMgnsUmgGdbX5-H9gKCY" alt="Machine Learning" class="w-full h-full object-cover" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+          <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-medium mb-3">Recent achievement</span>
+          <h3 class="font-helvetica text-xl md:text-2xl font-bold mb-1">Azure Fundamentals</h3>
+          <p class="font-inter text-xs md:text-sm text-white/70">Microsoft • 2026</p>
+        </div>
+      </div>
+      
+      <!-- 2. Data Science (Top Right, 1/3) -->
+      <div class="group cursor-pointer" onclick="openCertModal('https://media.licdn.com/dms/image/v2/D562DAQFwY_SkcXKi1g/profile-treasury-image-shrink_1920_1920/B56Z4JiksFGoAc-/0/1778276519571?e=1778932800&v=beta&t=FcW50dlg6rHZF4HXd6oz0vXqnC82rC3HliHSB1TcUWE')">
+        <img src="https://media.licdn.com/dms/image/v2/D562DAQFwY_SkcXKi1g/profile-treasury-image-shrink_1920_1920/B56Z4JiksFGoAc-/0/1778276519571?e=1778932800&v=beta&t=FcW50dlg6rHZF4HXd6oz0vXqnC82rC3HliHSB1TcUWE" alt="Data Science" class="object-cover" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+          <h3 class="font-helvetica text-lg font-bold">Java</h3>
+          <p class="font-inter text-xs text-white/70">Codédex • 2026</p>
+        </div>
+      </div>
+
+      <!-- 3. Java Programming (Bottom Right, 1/3, below Data Science) -->
+      <div class="group cursor-pointer" onclick="openCertModal('https://media.licdn.com/dms/image/v2/D562DAQFUXFzAIFxoxg/profile-treasury-image-shrink_1920_1920/B56Z4JiA_9KoAc-/0/1778276373360?e=1778936400&v=beta&t=9hbBqmxZNYWYjXBcGGjv3NXTVcMpd-tf1qD6kzuiDHM')">
+        <img src="https://media.licdn.com/dms/image/v2/D562DAQFUXFzAIFxoxg/profile-treasury-image-shrink_1920_1920/B56Z4JiA_9KoAc-/0/1778276373360?e=1778936400&v=beta&t=9hbBqmxZNYWYjXBcGGjv3NXTVcMpd-tf1qD6kzuiDHM" alt="Java" class="object-cover" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+          <h3 class="font-helvetica text-lg font-bold">Python</h3>
+          <p class="font-inter text-xs text-white/70">Codédex • 2026</p>
+        </div>
+      </div>
+
+      <!-- Bottom Row: Three 1/3 blocks -->
+      
+      <!-- 4. Python -->
+      <div class="group cursor-pointer" onclick="openCertModal('https://media.licdn.com/dms/image/v2/D562DAQFIwgRw0SNK6g/profile-treasury-image-shrink_1920_1920/B56Z4JhMi3H4Ac-/0/1778276158476?e=1778936400&v=beta&t=1lLlvBpCRZwjNkYVQQ_QJN3c9oPHnUXbUBcyoWt6TaE')">
+        <img src="https://media.licdn.com/dms/image/v2/D562DAQFIwgRw0SNK6g/profile-treasury-image-shrink_1920_1920/B56Z4JhMi3H4Ac-/0/1778276158476?e=1778936400&v=beta&t=1lLlvBpCRZwjNkYVQQ_QJN3c9oPHnUXbUBcyoWt6TaE" alt="Python" class="object-cover" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+          <h3 class="font-helvetica text-lg font-bold">JavaScript</h3>
+          <p class="font-inter text-xs text-white/70">Codédex • 2026</p>
+        </div>
+      </div>
+
+      <!-- 5. Web Development -->
+      <div class="group cursor-pointer" onclick="openCertModal('https://media.licdn.com/dms/image/v2/D562DAQEDVnK3mv_xZA/profile-treasury-image-shrink_1920_1920/B56Z4JgWp_IoAc-/0/1778275937815?e=1778936400&v=beta&t=CJ1pcEbv4H_QoHk5AsGk9GJ9JKg46g0oWfAOZFT8tD4')">
+        <img src="https://media.licdn.com/dms/image/v2/D562DAQEDVnK3mv_xZA/profile-treasury-image-shrink_1920_1920/B56Z4JgWp_IoAc-/0/1778275937815?e=1778936400&v=beta&t=CJ1pcEbv4H_QoHk5AsGk9GJ9JKg46g0oWfAOZFT8tD4" alt="Web Development" class="object-cover" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+          <h3 class="font-helvetica text-lg font-bold">Css</h3>
+          <p class="font-inter text-xs text-white/70">Codédex • 2025</p>
+        </div>
+      </div>
+
+      <!-- 6. Cybersecurity -->
+      <div class="group cursor-pointer" onclick="openCertModal('https://media.licdn.com/dms/image/v2/D562DAQFFzKiTVv2pWQ/profile-treasury-image-shrink_1920_1920/B56Z4JffikKEAc-/0/1778275712018?e=1778936400&v=beta&t=r27MbctKGRKpTDEUuoV_Kg4qnnmxNE_CLPhHuTBPewM')">
+        <img src="https://media.licdn.com/dms/image/v2/D562DAQFFzKiTVv2pWQ/profile-treasury-image-shrink_1920_1920/B56Z4JffikKEAc-/0/1778275712018?e=1778936400&v=beta&t=r27MbctKGRKpTDEUuoV_Kg4qnnmxNE_CLPhHuTBPewM" alt="Cybersecurity" class="object-cover" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+          <h3 class="font-helvetica text-lg font-bold">Html</h3>
+          <p class="font-inter text-xs text-white/70">Codédex • 2025</p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- Certification Modal -->
+<div id="cert-modal" class="modal">
+  <div class="modal-content !max-w-4xl p-0 overflow-hidden bg-transparent shadow-none border-none rounded-[48px]">
+    <span class="modal-close !text-white !top-6 !right-6 z-50 bg-black/50 w-12 h-12 flex items-center justify-center rounded-full hover:bg-black/70 transition-colors" onclick="closeCertModal()">×</span>
+    <div class="relative group">
+      <img id="modal-cert-img" src="" alt="Certificate" class="w-full h-auto max-h-[85vh] object-contain rounded-[48px] shadow-2xl">
+      <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/90 via-black/40 to-transparent text-left rounded-b-[48px]">
+        <h3 id="modal-cert-title" class="text-white text-3xl font-bold mb-2"></h3>
+        <p id="modal-cert-desc" class="text-white/90 text-lg font-inter"></p>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+</section>
 <section id="projects" class="bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-md rounded-3xl shadow-xl mx-4 my-8 border border-white/20">
   <div class="max-w-7xl mx-auto px-4">
     <div class="flex items-center justify-center gap-3 mb-12">
@@ -991,6 +1123,36 @@ class="w-full h-48 object-cover" loading="lazy">
       <h2 class="font-helvetica text-4xl font-bold text-center">Projects</h2>
     </div>
     <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-white/20 animate-card delay-8">
+        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/dm0jcsp-84044272-2af6-4580-badb-6290d92c8b37.png/v1/fill/w_1132,h_706,q_70,strp/screenshot_2026_05_09_at_6_53_11pm_by_itsharshitgoat_dm0jcsp-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9Nzk5IiwicGF0aCI6Ii9mLzVlYWYwYzU1LWE5Y2QtNDM3MS04NjAwLTY5NmY2MjQ4YjY3YS9kbTBqY3NwLTg0MDQ0MjcyLTJhZjYtNDU4MC1iYWRiLTYyOTBkOTJjOGIzNy5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.HnnST4BZ-LWLFV1sN5MrLiXtJAbfLC-4-mmXdONjsas" alt="Project 4" class="w-full h-48 object-cover" loading="lazy">
+        <div class="p-6">
+          <h3 class="font-helvetica text-xl font-bold mb-2">Sky For Redbrain</h3>
+          <p class="font-inter text-gray-600 mb-4">Devvit-based moderation assistant that scores, prioritizes, and explains risky posts and comments</p>
+          <a href="https://itsharshitgoat.github.io/Website/Cs.html" class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap inline-block">
+            Coming Soon
+          </a>
+        </div>
+      </div>
+                        <div class="bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-white/20 animate-card delay-8">
+        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/dm0jaqh-cb9a2b13-6c53-43d0-8129-acc6d84c5686.png/v1/fill/w_1132,h_706,q_70,strp/screenshot_2026_05_09_at_6_46_29pm_by_itsharshitgoat_dm0jaqh-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9Nzk5IiwicGF0aCI6Ii9mLzVlYWYwYzU1LWE5Y2QtNDM3MS04NjAwLTY5NmY2MjQ4YjY3YS9kbTBqYXFoLWNiOWEyYjEzLTZjNTMtNDNkMC04MTI5LWFjYzZkODRjNTY4Ni5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.SKRnSSiceb6mMezyJJEoNnKyrUQjUiTGNuGUb5_4QD4" alt="Project 4" class="w-full h-48 object-cover" loading="lazy">
+        <div class="p-6">
+          <h3 class="font-helvetica text-xl font-bold mb-2">Whiteboard</h3>
+          <p class="font-inter text-gray-600 mb-4">Organize boards, save useful links and images, and brainstorm visually inside one sleek digital whiteboard</p>
+          <a href="https://itsharshitgoat.github.io/Vibecode101/" class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap inline-block">
+            View Website
+          </a>
+        </div>
+      </div>
+                        <div class="bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-white/20 animate-card delay-8">
+        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/dm0j8e1-9c1358a4-95ff-495a-8fa4-c341dc6db11c.png/v1/fill/w_1132,h_706,q_70,strp/screenshot_2026_05_09_at_6_37_19pm_by_itsharshitgoat_dm0j8e1-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9Nzk5IiwicGF0aCI6Ii9mLzVlYWYwYzU1LWE5Y2QtNDM3MS04NjAwLTY5NmY2MjQ4YjY3YS9kbTBqOGUxLTljMTM1OGE0LTk1ZmYtNDk1YS04ZmE0LWMzNDFkYzZkYjExYy5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.7q1kHySHj3QVs91JNQ5BUayZdAN8JJFXkJ6F8Y5wSlc" alt="Project 4" class="w-full h-48 object-cover" loading="lazy">
+        <div class="p-6">
+          <h3 class="font-helvetica text-xl font-bold mb-2">PKM // TEAM BUILDER</h3>
+          <p class="font-inter text-gray-600 mb-4">competitive teams, analyze type coverage & synergy, and discover your trainer personality all in one toolkit.</p>
+          <a href="https://poke-match-five.vercel.app/" class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap inline-block">
+            View Website
+          </a>
+        </div>
+      </div>
                   <div class="bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-white/20 animate-card delay-8">
         <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/dk7wd03-2c2c3b47-3fa8-481d-a2e0-3da64da43c7e.png/v1/fill/w_1254,h_637,q_70,strp/capture_by_itsharshitgoat_dk7wd03-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjUxIiwicGF0aCI6IlwvZlwvNWVhZjBjNTUtYTljZC00MzcxLTg2MDAtNjk2ZjYyNDhiNjdhXC9kazd3ZDAzLTJjMmMzYjQ3LTNmYTgtNDgxZC1hMmUwLTNkYTY0ZGE0M2M3ZS5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.NV8jEnsEBi4uF9VGnDukIgLzMFCBf7w13aIKRnrBIBk" alt="Project 4" class="w-full h-48 object-cover" loading="lazy">
         <div class="p-6">
@@ -1097,7 +1259,7 @@ class="w-full h-48 object-cover" loading="lazy">
           <h3 class="font-helvetica text-xl font-bold mb-2">T AI</h3>
           <p class="font-inter text-gray-600 mb-4">T the ai is fine tuin version of a open source LLM models designed to be a agent in your local machin</p>
           <a href="https://itsharshitgoat.github.io/Website/Cs.html" class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap inline-block">
-            Coming soon
+            Coming Soon
           </a>
         </div>
       </div>
@@ -1105,7 +1267,7 @@ class="w-full h-48 object-cover" loading="lazy">
         <img src="https://i.imgur.com/YQCMBld.png" alt="Project 1" class="w-full h-48 object-cover" loading="lazy">
         <div class="p-6">
           <h3 class="font-helvetica text-xl font-bold mb-2">Novaweb</h3>
-          <p class="font-inter text-gray-600 mb-4">Novaweb is an AI-powered search engine that delivers instant answers "releasing in early 2026"</p>
+          <p class="font-inter text-gray-600 mb-4">Novaweb is an AI-powered search engine that delivers instant answers "releasing in end of 2026"</p>
           <a href="https://youtu.be/BtsuqDRf9rk" target="_blank" rel="noopener noreferrer">
             <button class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap ml-[-8px] md:ml-0">
               View Video
@@ -1186,7 +1348,7 @@ Details
 alt="Blog 2"
 class="w-full h-48 object-cover" loading="lazy">
 <div class="p-6">
-<h3 class="font-helvetica text-xl font-bold mb-2">How Human thing...?</h3>
+<h3 class="font-helvetica text-xl font-bold mb-2">How Human think...?</h3>
 <p class="font-inter text-gray-600 mb-4">Observe how humans, especially from different backgrounds and experiences, identify and classify everyday objects and symbols</p>
 <div class="flex items-center">
 <button class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap inline-block text-center" onclick="openModal('modal2')">
@@ -1807,8 +1969,42 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
+  // Certification Modal Functions
+  window.openCertModal = function(imgSrc, title, desc) {
+    const modal = document.getElementById('cert-modal');
+    const modalImg = document.getElementById('modal-cert-img');
+    const modalTitle = document.getElementById('modal-cert-title');
+    const modalDesc = document.getElementById('modal-cert-desc');
+    
+    if (modal && modalImg) {
+      modalImg.src = imgSrc;
+      modalTitle.textContent = title;
+      modalDesc.textContent = desc;
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  window.closeCertModal = function() {
+    const modal = document.getElementById('cert-modal');
+    if (modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  };
+
+  // Close certification modal on outside click
+  const certModal = document.getElementById('cert-modal');
+  if (certModal) {
+    certModal.addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeCertModal();
+      }
+    });
+  }
+
   // Typewriter effect
-  const phrases = ["Designing the Future", "Building OS & AI", "Creating A World Where You’re Happy"];
+  const phrases = ["I have come here to win, not to play", "Believe it or not, it's empty at the top", "Creating a World Where You're Happy Even If I Am Not","Welcome to my corner of the internet — have a seat"];
   const taglineEl = document.getElementById('hero-tagline');
   let phraseIndex = 0;
   let charIndex = 0;
