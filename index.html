@@ -591,6 +591,34 @@ to {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
+
+/* Game CSS */
+#social-pill {
+    -webkit-touch-callout: none; /* Prevent iOS long-press menu */
+    -webkit-user-select: none;
+    user-select: none;
+}
+@keyframes shake-pill {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px) rotate(-2deg); }
+    75% { transform: translateX(5px) rotate(2deg); }
+}
+.animate-shake-pill {
+    animation: shake-pill 0.4s ease-in-out infinite;
+}
+#chatbot-icon.game-x .bot-face { display: none; }
+#chatbot-icon.game-x::after {
+  content: '×';
+  font-size: 40px;
+  color: white;
+  font-family: monospace;
+  line-height: 1;
+}
+#chatbot-icon.game-x {
+  background: #ff4444;
+  border-color: #ff4444;
+  animation: none;
+}
 </style>
 </head>
 <body class="bg-[#F5F5F5] text-[#333333]">
@@ -1463,8 +1491,8 @@ Details
 <i class="ri-error-warning-line text-xl"></i> Oops! Something went wrong.
 </div>
 </form>
-<div class="mt-12 flex justify-center">
-  <div class="bg-white/60 backdrop-blur-sm rounded-full px-3 md:px-6 py-1.5 md:py-2 shadow-lg border border-white/20 flex items-center gap-3 md:gap-6">
+<div class="mt-12 flex justify-center relative z-[60]">
+  <div id="social-pill" class="bg-white/60 backdrop-blur-sm rounded-full px-3 md:px-6 py-1.5 md:py-2 shadow-lg border border-white/20 flex items-center gap-3 md:gap-6 transition-transform duration-300 select-none touch-none">
     <a href="https://www.reddit.com/user/itsharshitgoat" class="text-gray-600 hover:text-primary transition-colors">
       <i class="ri-reddit-line text-xl md:text-2xl"></i>
     </a>
@@ -2045,6 +2073,372 @@ document.addEventListener('DOMContentLoaded', function() {
   setTimeout(() => {
     typeWriter();
   }, 1100);
+});
+</script>
+<canvas id="game-canvas" class="fixed inset-0 pointer-events-none z-[9990] hidden backdrop-blur-md bg-black/40"></canvas>
+<script>
+// Game Engine Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const socialPill = document.getElementById('social-pill');
+    const chatbotIcon = document.getElementById('chatbot-icon');
+    const canvas = document.getElementById('game-canvas');
+    if(!socialPill || !chatbotIcon || !canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    
+    let hoverTimer = null;
+    let isShaking = false;
+    let isGameActive = false;
+    let isGameOver = false;
+
+    // Game State
+    let score = 0;
+    let balls = [];
+    let bullets = [];
+    let animationId = null;
+    let spawnTimer = null;
+    let shootTimer = null;
+    let originalChatbotClick = null;
+    let pillRect = null;
+    let pillX = 0;
+
+    // 1. Shaking Logic (Dwell for 2s)
+    let shakeTimeout = null;
+    
+    function startHover() {
+        if(isGameActive) return;
+        clearTimeout(hoverTimer);
+        clearTimeout(shakeTimeout);
+        hoverTimer = setTimeout(() => {
+            isShaking = true;
+            socialPill.classList.add('animate-shake-pill');
+        }, 2000);
+    }
+    
+    function endHover() {
+        if(isGameActive) return;
+        clearTimeout(hoverTimer);
+        
+        // Give mobile users a 3 second window to lift their finger and drag
+        if (isShaking) {
+            shakeTimeout = setTimeout(() => {
+                if (!isGameActive) {
+                    isShaking = false;
+                    socialPill.classList.remove('animate-shake-pill');
+                }
+            }, 3000);
+        } else {
+            isShaking = false;
+            socialPill.classList.remove('animate-shake-pill');
+        }
+    }
+
+    socialPill.addEventListener('mouseenter', startHover);
+    socialPill.addEventListener('mouseleave', endHover);
+    socialPill.addEventListener('touchstart', startHover, {passive: true});
+    socialPill.addEventListener('touchend', endHover, {passive: true});
+    socialPill.addEventListener('contextmenu', e => {
+        if (isShaking || isGameActive || hoverTimer) e.preventDefault();
+    });
+
+    // 2. Drag to Start
+    let startDragX = 0;
+
+    function handleDragStart(e) {
+        // Record start position and attach listeners regardless of shake state
+        // so that a user can press, hold (wait for shake), and drag in one smooth motion on mobile.
+        startDragX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+        
+        document.addEventListener('mousemove', handleDragMove);
+        document.addEventListener('touchmove', handleDragMove, {passive: false});
+        document.addEventListener('mouseup', handleDragEnd);
+        document.addEventListener('touchend', handleDragEnd);
+        document.addEventListener('touchcancel', handleDragEnd);
+    }
+
+    // Allow moving the pill by touching anywhere on the screen during gameplay
+    document.addEventListener('mousedown', (e) => {
+        if (isGameActive && chatbotIcon && !chatbotIcon.contains(e.target) && socialPill && !socialPill.contains(e.target)) {
+            handleDragStart(e);
+            handleDragMove(e);
+        }
+    });
+    document.addEventListener('touchstart', (e) => {
+        if (isGameActive && chatbotIcon && !chatbotIcon.contains(e.target) && socialPill && !socialPill.contains(e.target)) {
+            handleDragStart(e);
+            handleDragMove(e);
+        }
+    }, {passive: false});
+
+    let currentTranslateX = 0;
+    let originalPillLeft = 0;
+    let originalPillTop = 0;
+
+    function handleDragMove(e) {
+        if (!isShaking && !isGameActive) return;
+        
+        const clientX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+        
+        if (!isGameActive) {
+            const deltaX = clientX - startDragX;
+            if (Math.abs(deltaX) > 20) {
+                startGame();
+            }
+        }
+
+        if (isGameActive) {
+            e.preventDefault(); // Prevent scrolling
+            
+            const w = socialPill.offsetWidth * 0.6; // account for scaling
+            const screenCenter = window.innerWidth / 2;
+            
+            currentTranslateX = clientX - screenCenter;
+            
+            // Clamp to screen bounds relative to center
+            const maxTranslate = screenCenter - (w / 2);
+            currentTranslateX = Math.max(-maxTranslate, Math.min(currentTranslateX, maxTranslate));
+            
+            socialPill.style.transform = `translateX(calc(-50% + ${currentTranslateX}px)) scale(0.6)`;
+        }
+    }
+
+    function handleDragEnd() {
+        document.removeEventListener('mousemove', handleDragMove);
+        document.removeEventListener('touchmove', handleDragMove);
+        document.removeEventListener('mouseup', handleDragEnd);
+        document.removeEventListener('touchend', handleDragEnd);
+        document.removeEventListener('touchcancel', handleDragEnd);
+    }
+
+    socialPill.addEventListener('mousedown', handleDragStart);
+    socialPill.addEventListener('touchstart', handleDragStart, {passive: false});
+
+    // 3. Game Engine
+    function startGame() {
+        isGameActive = true;
+        isShaking = false;
+        isGameOver = false;
+        score = 0;
+        balls = [];
+        bullets = [];
+        currentTranslateX = 0;
+        
+        socialPill.classList.remove('animate-shake-pill');
+        socialPill.querySelectorAll('a').forEach(a => a.style.pointerEvents = 'none');
+        
+        // Lock scroll
+        document.body.style.overflow = 'hidden';
+        
+        pillRect = socialPill.getBoundingClientRect();
+        originalPillLeft = pillRect.left;
+        originalPillTop = pillRect.top;
+        
+        // Create placeholder to prevent footer layout collapse
+        const placeholder = document.createElement('div');
+        placeholder.id = 'pill-placeholder';
+        placeholder.style.width = pillRect.width + 'px';
+        placeholder.style.height = pillRect.height + 'px';
+        socialPill.parentElement.insertBefore(placeholder, socialPill);
+        
+        // Move pill to body so it escapes the backdrop-blur stacking context
+        document.body.appendChild(socialPill);
+
+        socialPill.style.position = 'fixed';
+        socialPill.style.top = originalPillTop + 'px';
+        socialPill.style.left = originalPillLeft + 'px';
+        socialPill.style.transform = 'translateX(0) scale(1)';
+        socialPill.style.margin = '0';
+        socialPill.style.zIndex = '9995';
+        socialPill.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+
+        // Setup Chatbot X
+        chatbotIcon.classList.add('game-x');
+        originalChatbotClick = chatbotIcon.onclick;
+        chatbotIcon.onclick = exitGame;
+
+        // Setup Canvas
+        canvas.classList.remove('hidden');
+        canvas.style.opacity = '0';
+        canvas.style.transition = 'opacity 0.5s ease';
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        
+        // Force reflow to ensure initial state is registered before animating
+        void socialPill.offsetWidth;
+        void canvas.offsetWidth;
+
+        // Animate Pill to center and scale down, fade in canvas
+        socialPill.style.left = '50%';
+        socialPill.style.transform = 'translateX(-50%) scale(0.6)';
+        canvas.style.opacity = '1';
+
+        setTimeout(() => {
+            socialPill.style.transition = 'none'; // remove transition for smooth dragging
+            
+            // Start Loops
+            shootTimer = setInterval(() => {
+                if(!isGameOver) {
+                    const currentRect = socialPill.getBoundingClientRect();
+                    bullets.push({
+                        x: currentRect.left + currentRect.width / 2,
+                        y: currentRect.top,
+                        r: 4,
+                        vy: -12
+                    });
+                }
+            }, 150);
+
+            spawnTimer = setInterval(() => {
+                if(!isGameOver) {
+                    // Spawn from Navbar (Top Center) with random trajectories
+                    balls.push({
+                        x: canvas.width / 2,
+                        y: 60, 
+                        r: 15 + Math.random() * 15,
+                        vx: (Math.random() - 0.5) * 8, // Shoot left or right
+                        vy: 2 + (score/50) + Math.random() * 2,
+                        color: `hsl(${Math.random() * 360}, 70%, 60%)`
+                    });
+                }
+            }, 800);
+
+            gameLoop();
+        }, 500);
+    }
+
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+
+    function exitGame() {
+        isGameActive = false;
+        isGameOver = false;
+        
+        // Stop Loops immediately
+        cancelAnimationFrame(animationId);
+        clearInterval(shootTimer);
+        clearInterval(spawnTimer);
+        ctx.clearRect(0, 0, canvas.width, canvas.height); // clear canvas
+
+        // Animate Pill Back
+        socialPill.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+        socialPill.style.left = originalPillLeft + 'px';
+        socialPill.style.top = originalPillTop + 'px';
+        socialPill.style.transform = 'translateX(0) scale(1)';
+        
+        canvas.style.opacity = '0';
+        
+        setTimeout(() => {
+            // Reset Layout
+            document.body.style.overflow = '';
+            
+            // Move pill back
+            const placeholder = document.getElementById('pill-placeholder');
+            if (placeholder) {
+                placeholder.parentElement.insertBefore(socialPill, placeholder);
+                placeholder.remove();
+            }
+            
+            // Reset Pill
+            socialPill.style.position = '';
+            socialPill.style.top = '';
+            socialPill.style.left = '';
+            socialPill.style.margin = '';
+            socialPill.style.zIndex = '';
+            socialPill.style.transition = '';
+            socialPill.style.transform = '';
+            socialPill.querySelectorAll('a').forEach(a => a.style.pointerEvents = '');
+            
+            // Reset Chatbot
+            chatbotIcon.classList.remove('game-x');
+            chatbotIcon.onclick = originalChatbotClick;
+            
+            // Hide Canvas
+            canvas.classList.add('hidden');
+            window.removeEventListener('resize', resizeCanvas);
+        }, 500);
+    }
+
+    function gameLoop() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        if (isGameOver) {
+            ctx.fillStyle = '#ff4444';
+            ctx.font = 'bold 64px Helvetica Neue, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('GAME OVER', canvas.width / 2, canvas.height / 2 - 60);
+            
+            ctx.fillStyle = '#fff';
+            ctx.font = 'bold 48px Helvetica Neue, sans-serif';
+            ctx.fillText(`Score: ${score}`, canvas.width / 2, canvas.height / 2 + 10);
+            
+            ctx.font = '24px sans-serif';
+            ctx.fillText('Click X to Exit', canvas.width / 2, canvas.height / 2 + 70);
+            animationId = requestAnimationFrame(gameLoop);
+            return;
+        }
+
+        // Update & Draw Bullets
+        for (let i = bullets.length - 1; i >= 0; i--) {
+            let b = bullets[i];
+            b.y += b.vy;
+            
+            ctx.beginPath();
+            ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+            ctx.fillStyle = '#FFD700'; // Secondary color
+            ctx.fill();
+            ctx.closePath();
+
+            // Remove if off-screen
+            if (b.y < -10) bullets.splice(i, 1);
+        }
+
+        // Update & Draw Balls
+        for (let i = balls.length - 1; i >= 0; i--) {
+            let ball = balls[i];
+            ball.x += ball.vx;
+            ball.y += ball.vy;
+            
+            // Wall Collision (Bounce)
+            if (ball.x - ball.r < 0) {
+                ball.x = ball.r;
+                ball.vx *= -1;
+            } else if (ball.x + ball.r > canvas.width) {
+                ball.x = canvas.width - ball.r;
+                ball.vx *= -1;
+            }
+            
+            ctx.beginPath();
+            ctx.arc(ball.x, ball.y, ball.r, 0, Math.PI * 2);
+            ctx.fillStyle = ball.color;
+            ctx.shadowColor = ball.color;
+            ctx.shadowBlur = 15;
+            ctx.fill();
+            ctx.closePath();
+            ctx.shadowBlur = 0; // reset
+
+            // Collision with bottom (Game Over)
+            if (ball.y + ball.r > canvas.height) {
+                isGameOver = true;
+            }
+
+            // Collision with bullets
+            for (let j = bullets.length - 1; j >= 0; j--) {
+                let bullet = bullets[j];
+                const dist = Math.hypot(ball.x - bullet.x, ball.y - bullet.y);
+                if (dist < ball.r + bullet.r) {
+                    // Hit!
+                    balls.splice(i, 1);
+                    bullets.splice(j, 1);
+                    score += 10;
+                    break; // Break bullet loop, ball is gone
+                }
+            }
+        }
+
+        animationId = requestAnimationFrame(gameLoop);
+    }
 });
 </script>
 </body>
