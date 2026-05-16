@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Harshit | itsharshitgoat - AI & OS Developer Portfolio</title>
+<title>Harshit | Portfolio</title>
 <meta name="description" content="Portfolio of Harshit (itsharshitgoat), an AI & OS developer and tech enthusiast. Discover my projects, skills, and journey in creating a world where you're happy.">
 <meta name="keywords" content="itsharshitgoat, Harshit, Harshit developer, AI developer, OS developer, Harshit portfolio, itsharshitgoat projects, itsharshitgoat portfolio, web developer">
 <meta name="author" content="Harshit (itsharshitgoat)">
@@ -12,6 +12,22 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://itsharshitgoat.github.io/">
 <link rel="icon" href="https://cdn-icons-png.freepik.com/512/9078/9078251.png">
+
+<!-- Performance Resource Hints -->
+<link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+<link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com" crossorigin>
+<link rel="dns-prefetch" href="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com">
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link rel="dns-prefetch" href="https://images.unsplash.com">
+<link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
+<link rel="dns-prefetch" href="https://raw.githubusercontent.com">
+<link rel="preload" as="image" href="https://99designs-blog.imgix.net/blog/wp-content/uploads/2018/12/Gradient_builder_2.jpg?auto=format&q=60&w=1815&h=1020.9375&fit=crop&crop=faces" fetchpriority="high">
+<link rel="preload" as="image" href="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/djw36jd-406b8611-269e-44c8-972f-03322ab3f755.png/v1/fill/w_894,h_894,q_70,strp/profile_by_itsharshitgoat_djw36jd-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcLzVlYWYwYzU1LWE5Y2QtNDM3MS04NjAwLTY5NmY2MjQ4YjY3YVwvZGp3MzZqZC00MDZiODYxMS0yNjllLTQ0YzgtOTcyZi0wMzMyMmFiM2Y3NTUucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.lVBIo8BzR6xZUxgQBfrHgzSEeTT3ufbNAynQndE8DLU" fetchpriority="high">
+<link rel="preload" as="image" href="https://public.readdy.ai/ai/img_res/343c982e6386ebc666b67c4b8926bebb.jpg" fetchpriority="high">
+
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -88,6 +104,12 @@ document.addEventListener('DOMContentLoaded', renderSkills);
 html {
 scroll-behavior: smooth;
 -webkit-tap-highlight-color: transparent;
+scroll-padding-top: 160px;
+}
+@media (min-width: 768px) {
+  html {
+    scroll-padding-top: 200px;
+  }
 }
 body {
 background: url('https://99designs-blog.imgix.net/blog/wp-content/uploads/2018/12/Gradient_builder_2.jpg?auto=format&q=60&w=1815&h=1020.9375&fit=crop&crop=faces') no-repeat center center fixed;
@@ -619,9 +641,60 @@ to {
   border-color: #ff4444;
   animation: none;
 }
+
+/* Now Playing Equalizer */
+.equalizer {
+  display: flex;
+  align-items: flex-end;
+  height: 10px;
+  gap: 1.5px;
+}
+.eq-bar {
+  width: 2px;
+  background-color: #0047AB; /* Primary color */
+  border-radius: 2px;
+  animation: equalize 1s ease-in-out infinite alternate;
+}
+.eq-bar:nth-child(1) { animation-delay: 0.1s; height: 60%; }
+.eq-bar:nth-child(2) { animation-delay: 0.3s; height: 100%; }
+.eq-bar:nth-child(3) { animation-delay: 0.5s; height: 75%; }
+.eq-bar:nth-child(4) { animation-delay: 0.2s; height: 40%; }
+
+@keyframes equalize {
+  0% { transform: scaleY(0.3); }
+  100% { transform: scaleY(1); }
+}
+
+/* Pause State */
+.equalizer.paused .eq-bar {
+  animation: none;
+  transform: scaleY(0.2);
+}
 </style>
+<!-- JSON-LD Structured Data for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Harshit",
+  "url": "https://itsharshitgoat.github.io/Website/",
+  "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/djw36jd-406b8611-269e-44c8-972f-03322ab3f755.png/v1/fill/w_894,h_894,q_70,strp/profile_by_itsharshitgoat_djw36jd-pre.jpg",
+  "jobTitle": "AI & OS Developer",
+  "sameAs": [
+    "https://github.com/Itsharshitgoat",
+    "https://x.com/itsharshitgoat",
+    "https://www.instagram.com/itsharshitgoat/",
+    "https://www.linkedin.com/in/harshit-prasad-833986370/",
+    "https://www.reddit.com/user/itsharshitgoat"
+  ]
+}
+</script>
 </head>
 <body class="bg-[#F5F5F5] text-[#333333]">
+
+<!-- Top Scroll Mask -->
+<div class="fixed top-0 left-0 right-0 h-32 md:h-40 z-30 pointer-events-none" style="background: linear-gradient(to bottom, rgba(245, 245, 245, 1) 10%, rgba(245, 245, 245, 0.6) 50%, rgba(245, 245, 245, 0) 100%); mask-image: linear-gradient(to bottom, black 40%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);"></div>
+
 <nav class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] md:w-auto bg-white/30 backdrop-blur-xl z-50 shadow-[0_8px_32px_rgba(0,0,0,0.1)] shadow-[inset_0_0_10px_rgba(255,255,255,0.5)] rounded-full border border-white/40 flex justify-center">
 <div class="px-2 md:px-4 py-2 relative" id="desktop-nav-container">
 <div id="nav-blob" class="absolute bg-white/40 backdrop-blur-md shadow-[0_4px_12px_rgba(0,0,0,0.1)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)] border border-white/50 rounded-full transition-all duration-300 ease-out opacity-0 pointer-events-none z-0 left-0 top-0 h-10 w-10"></div>
@@ -653,6 +726,25 @@ to {
 </div>
 </div>
 </nav>
+
+<!-- Now Playing Liquid Glass Pill -->
+<div id="now-playing-pill" class="fixed top-[85px] md:top-[90px] left-1/2 -translate-x-1/2 z-40 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] opacity-0 translate-y-[-10px] pointer-events-none scale-75 md:scale-95 origin-top">
+  <a id="lastfm-link" href="#" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-3 py-1.5 bg-white/30 backdrop-blur-2xl border border-white/40 shadow-[0_4px_15px_rgba(0,0,0,0.05)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.4)] rounded-full hover:bg-white/40 transition-colors pointer-events-auto">
+    <div class="equalizer" id="eq-animation">
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+    </div>
+    <div class="flex items-center gap-1 max-w-[150px] md:max-w-[200px] overflow-hidden">
+      <span id="np-song" class="font-inter font-semibold text-xs text-gray-800 truncate">Loading...</span>
+      <span id="np-bullet" class="text-gray-500 text-[10px]">•</span>
+      <span id="np-artist" class="font-inter text-[10px] text-gray-600 truncate">Connecting</span>
+    </div>
+    <i id="np-icon" class="ri-spotify-fill text-green-500 text-sm ml-0.5"></i>
+  </a>
+</div>
+
 <div id="mobile-menu" class="hidden md:hidden fixed bottom-4 left-1/2 -translate-x-1/2 bg-white/30 backdrop-blur-xl z-40 shadow-[0_8px_32px_rgba(0,0,0,0.1)] shadow-[inset_0_0_10px_rgba(255,255,255,0.5)] rounded-full border border-white/40">
 <div class="px-4 py-2 relative" id="mobile-nav-container">
 <div id="mobile-nav-blob" class="absolute bg-white/40 backdrop-blur-md shadow-[0_4px_12px_rgba(0,0,0,0.1)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)] border border-white/50 rounded-full transition-all duration-300 ease-out opacity-0 pointer-events-none z-0 left-0 top-0 h-10 w-10"></div>
@@ -688,7 +780,7 @@ to {
 <section id="home" class="min-h-[80vh] flex items-center bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-md rounded-3xl shadow-xl mx-4 mb-8 relative overflow-hidden">
 <div class="absolute inset-0 bg-[url('https://public.readdy.ai/ai/img_res/343c982e6386ebc666b67c4b8926bebb.jpg')] opacity-5"></div>
 <div class="max-w-7xl mx-auto px-4 w-full">
-<div class="text-center mt-16">
+<div class="text-center mt-28 md:mt-16">
 <h1 class="font-helvetica text-6xl font-bold mb-6 opacity-0 translate-y-4 transition-all duration-700" id="hero-title">Hi, I'm Harshit</h1>
 <p class="font-inter text-xl text-gray-600 mb-4 max-w-2xl mx-auto opacity-0 translate-y-4 transition-all duration-700 delay-100" id="hero-description">AI & OS developer, tech enthusiast, and part-time wizard trying to redesign the future because reality clearly needs a software update.</p>
 <p id="hero-tagline-container" class="font-mono text-lg text-primary mb-8 max-w-2xl mx-auto opacity-0 translate-y-4 transition-all duration-700 delay-200"><span id="hero-tagline"></span><span class="typewriter-cursor">|</span></p>
@@ -737,7 +829,7 @@ to {
   <div class="relative w-fit mx-auto">
     <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/djw36jd-406b8611-269e-44c8-972f-03322ab3f755.png/v1/fill/w_894,h_894,q_70,strp/profile_by_itsharshitgoat_djw36jd-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcLzVlYWYwYzU1LWE5Y2QtNDM3MS04NjAwLTY5NmY2MjQ4YjY3YVwvZGp3MzZqZC00MDZiODYxMS0yNjllLTQ0YzgtOTcyZi0wMzMyMmFiM2Y3NTUucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.lVBIo8BzR6xZUxgQBfrHgzSEeTT3ufbNAynQndE8DLU"
       alt="Harshit" 
-      class="w-[280px] h-[280px] md:w-[320px] md:h-[320px] object-cover object-top rounded-full shadow-lg transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl" loading="lazy">
+      class="w-[280px] h-[280px] md:w-[320px] md:h-[320px] object-cover object-top rounded-full shadow-lg transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl" fetchpriority="high" decoding="async">
     <div class="absolute md:right-[-90px] left-1/2 md:left-auto -translate-x-1/2 md:translate-x-0 bottom-[-100px] md:bottom-0 bg-white/90 backdrop-blur-sm p-3 rounded-xl shadow-lg border border-white/20 flex flex-col gap-2 w-[280px] md:w-auto md:min-w-[200px] transform md:translate-y-0 mt-4 md:mt-0 mb-16 md:mb-0">
       <div class="flex items-center gap-3">
       <i class="ri-map-pin-line text-lg text-primary"></i>
@@ -1039,7 +1131,7 @@ class="w-full h-48 object-cover" loading="lazy">
 <img src="https://avatars.githubusercontent.com/u/18133?s=200&v=4" alt="GitHub" class="w-12 h-12 object-contain" loading="lazy">
 </div>
 <div class="w-20 h-20 flex items-center justify-center bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/20">
-<img src="https://imagedelivery.net/-IT6z0z0Ec5yEiYj3DvVjg/a1594ef37368937e8964e2539ee19076a498df42/public" alt="Photoshop" class="w-12 h-12 object-contain" loading="lazy">
+<img src="https://play-lh.googleusercontent.com/t2xwoWAJPoIHZlYiw82J31fZl40kj962j5DVHohn-Pgn7ZiuoXCl-2_NMyMERa7cCFw" alt="Photoshop" class="w-12 h-12 object-contain" loading="lazy">
 </div>
 <div class="w-20 h-20 flex items-center justify-center bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/20">
 <img src="https://upload.wikimedia.org/wikipedia/en/f/f4/Raycast_App_Icon.png" alt="Chrome" class="w-12 h-12 object-contain" loading="lazy">
@@ -1062,8 +1154,8 @@ class="w-full h-48 object-cover" loading="lazy">
       <!-- Top Section: Featured block on Left, stacked 1/3 blocks on Right -->
 
       <!-- 1. Machine Learning (Left, 2/3 Wide, 2 Rows High) -->
-      <div class="md:col-span-2 md:row-span-2 group cursor-pointer h-full" onclick="openCertModal('https://media.licdn.com/dms/image/v2/D562DAQFqsY2cKdIx5g/profile-treasury-image-shrink_1920_1920/B56Z4JkwOvKoAc-/0/1778277091060?e=1778932800&v=beta&t=ZvVsxVQx0yIBiOe1E1P33dVrMgnsUmgGdbX5-H9gKCY')">
-        <img src="https://media.licdn.com/dms/image/v2/D562DAQFqsY2cKdIx5g/profile-treasury-image-shrink_1920_1920/B56Z4JkwOvKoAc-/0/1778277091060?e=1778932800&v=beta&t=ZvVsxVQx0yIBiOe1E1P33dVrMgnsUmgGdbX5-H9gKCY" alt="Machine Learning" class="w-full h-full object-cover" loading="lazy">
+      <div class="md:col-span-2 md:row-span-2 group cursor-pointer h-full" onclick="openCertModal('https://media.licdn.com/dms/image/v2/D562DAQFqsY2cKdIx5g/profile-treasury-image-shrink_1920_1920/B56Z4JkwOvKoAc-/0/1778277091060?e=1779555600&v=beta&t=syhtlz383oWbUpe_vVEwcPoUPVpZAzyw9zBduR5NJSE')">
+        <img src="https://media.licdn.com/dms/image/v2/D562DAQFqsY2cKdIx5g/profile-treasury-image-shrink_1920_1920/B56Z4JkwOvKoAc-/0/1778277091060?e=1779555600&v=beta&t=syhtlz383oWbUpe_vVEwcPoUPVpZAzyw9zBduR5NJSE" alt="Machine Learning" class="w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
         <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
           <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-medium mb-3">Recent achievement</span>
@@ -1073,8 +1165,8 @@ class="w-full h-48 object-cover" loading="lazy">
       </div>
       
       <!-- 2. Data Science (Top Right, 1/3) -->
-      <div class="group cursor-pointer" onclick="openCertModal('https://media.licdn.com/dms/image/v2/D562DAQFwY_SkcXKi1g/profile-treasury-image-shrink_1920_1920/B56Z4JiksFGoAc-/0/1778276519571?e=1778932800&v=beta&t=FcW50dlg6rHZF4HXd6oz0vXqnC82rC3HliHSB1TcUWE')">
-        <img src="https://media.licdn.com/dms/image/v2/D562DAQFwY_SkcXKi1g/profile-treasury-image-shrink_1920_1920/B56Z4JiksFGoAc-/0/1778276519571?e=1778932800&v=beta&t=FcW50dlg6rHZF4HXd6oz0vXqnC82rC3HliHSB1TcUWE" alt="Data Science" class="object-cover" loading="lazy">
+      <div class="group cursor-pointer" onclick="openCertModal('https://media.licdn.com/dms/image/v2/D562DAQFwY_SkcXKi1g/profile-treasury-image-shrink_1920_1920/B56Z4JiksFGoAc-/0/1778276519571?e=1779555600&v=beta&t=h22un_CKLFmwDLOiEJUvI3rLFIrGUdWLKOYusxitAnM')">
+        <img src="https://media.licdn.com/dms/image/v2/D562DAQFwY_SkcXKi1g/profile-treasury-image-shrink_1920_1920/B56Z4JiksFGoAc-/0/1778276519571?e=1779555600&v=beta&t=h22un_CKLFmwDLOiEJUvI3rLFIrGUdWLKOYusxitAnM" alt="Data Science" class="object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
         <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
           <h3 class="font-helvetica text-lg font-bold">Java</h3>
@@ -1083,8 +1175,8 @@ class="w-full h-48 object-cover" loading="lazy">
       </div>
 
       <!-- 3. Java Programming (Bottom Right, 1/3, below Data Science) -->
-      <div class="group cursor-pointer" onclick="openCertModal('https://media.licdn.com/dms/image/v2/D562DAQFUXFzAIFxoxg/profile-treasury-image-shrink_1920_1920/B56Z4JiA_9KoAc-/0/1778276373360?e=1778936400&v=beta&t=9hbBqmxZNYWYjXBcGGjv3NXTVcMpd-tf1qD6kzuiDHM')">
-        <img src="https://media.licdn.com/dms/image/v2/D562DAQFUXFzAIFxoxg/profile-treasury-image-shrink_1920_1920/B56Z4JiA_9KoAc-/0/1778276373360?e=1778936400&v=beta&t=9hbBqmxZNYWYjXBcGGjv3NXTVcMpd-tf1qD6kzuiDHM" alt="Java" class="object-cover" loading="lazy">
+      <div class="group cursor-pointer" onclick="openCertModal('https://media.licdn.com/dms/image/v2/D562DAQFUXFzAIFxoxg/profile-treasury-image-shrink_1920_1920/B56Z4JiA_9KoAc-/0/1778276373360?e=1779555600&v=beta&t=2B7m0dhqeyI0eG3x7Sodeavf88X7JE6lX2iFnvZ9dY4')">
+        <img src="https://media.licdn.com/dms/image/v2/D562DAQFUXFzAIFxoxg/profile-treasury-image-shrink_1920_1920/B56Z4JiA_9KoAc-/0/1778276373360?e=1779555600&v=beta&t=2B7m0dhqeyI0eG3x7Sodeavf88X7JE6lX2iFnvZ9dY4" alt="Java" class="object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
         <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
           <h3 class="font-helvetica text-lg font-bold">Python</h3>
@@ -1095,8 +1187,8 @@ class="w-full h-48 object-cover" loading="lazy">
       <!-- Bottom Row: Three 1/3 blocks -->
       
       <!-- 4. Python -->
-      <div class="group cursor-pointer" onclick="openCertModal('https://media.licdn.com/dms/image/v2/D562DAQFIwgRw0SNK6g/profile-treasury-image-shrink_1920_1920/B56Z4JhMi3H4Ac-/0/1778276158476?e=1778936400&v=beta&t=1lLlvBpCRZwjNkYVQQ_QJN3c9oPHnUXbUBcyoWt6TaE')">
-        <img src="https://media.licdn.com/dms/image/v2/D562DAQFIwgRw0SNK6g/profile-treasury-image-shrink_1920_1920/B56Z4JhMi3H4Ac-/0/1778276158476?e=1778936400&v=beta&t=1lLlvBpCRZwjNkYVQQ_QJN3c9oPHnUXbUBcyoWt6TaE" alt="Python" class="object-cover" loading="lazy">
+      <div class="group cursor-pointer" onclick="openCertModal('https://media.licdn.com/dms/image/v2/D562DAQFIwgRw0SNK6g/profile-treasury-image-shrink_1920_1920/B56Z4JhMi3H4Ac-/0/1778276158476?e=1779555600&v=beta&t=wi4r2l0IZAij1EWCOvW7DoHa7oGxaFLpTelI0UrrJmo')">
+        <img src="https://media.licdn.com/dms/image/v2/D562DAQFIwgRw0SNK6g/profile-treasury-image-shrink_1920_1920/B56Z4JhMi3H4Ac-/0/1778276158476?e=1779555600&v=beta&t=wi4r2l0IZAij1EWCOvW7DoHa7oGxaFLpTelI0UrrJmo" alt="Python" class="object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
         <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
           <h3 class="font-helvetica text-lg font-bold">JavaScript</h3>
@@ -1105,8 +1197,8 @@ class="w-full h-48 object-cover" loading="lazy">
       </div>
 
       <!-- 5. Web Development -->
-      <div class="group cursor-pointer" onclick="openCertModal('https://media.licdn.com/dms/image/v2/D562DAQEDVnK3mv_xZA/profile-treasury-image-shrink_1920_1920/B56Z4JgWp_IoAc-/0/1778275937815?e=1778936400&v=beta&t=CJ1pcEbv4H_QoHk5AsGk9GJ9JKg46g0oWfAOZFT8tD4')">
-        <img src="https://media.licdn.com/dms/image/v2/D562DAQEDVnK3mv_xZA/profile-treasury-image-shrink_1920_1920/B56Z4JgWp_IoAc-/0/1778275937815?e=1778936400&v=beta&t=CJ1pcEbv4H_QoHk5AsGk9GJ9JKg46g0oWfAOZFT8tD4" alt="Web Development" class="object-cover" loading="lazy">
+      <div class="group cursor-pointer" onclick="openCertModal('https://media.licdn.com/dms/image/v2/D562DAQEDVnK3mv_xZA/profile-treasury-image-shrink_1920_1920/B56Z4JgWp_IoAc-/0/1778275937815?e=1779555600&v=beta&t=G-DLwezyftCIDxU2ruCpLxNu9KQUi_o_AgNmx8fNqlM')">
+        <img src="https://media.licdn.com/dms/image/v2/D562DAQEDVnK3mv_xZA/profile-treasury-image-shrink_1920_1920/B56Z4JgWp_IoAc-/0/1778275937815?e=1779555600&v=beta&t=G-DLwezyftCIDxU2ruCpLxNu9KQUi_o_AgNmx8fNqlM" alt="Web Development" class="object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
         <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
           <h3 class="font-helvetica text-lg font-bold">Css</h3>
@@ -1115,8 +1207,8 @@ class="w-full h-48 object-cover" loading="lazy">
       </div>
 
       <!-- 6. Cybersecurity -->
-      <div class="group cursor-pointer" onclick="openCertModal('https://media.licdn.com/dms/image/v2/D562DAQFFzKiTVv2pWQ/profile-treasury-image-shrink_1920_1920/B56Z4JffikKEAc-/0/1778275712018?e=1778936400&v=beta&t=r27MbctKGRKpTDEUuoV_Kg4qnnmxNE_CLPhHuTBPewM')">
-        <img src="https://media.licdn.com/dms/image/v2/D562DAQFFzKiTVv2pWQ/profile-treasury-image-shrink_1920_1920/B56Z4JffikKEAc-/0/1778275712018?e=1778936400&v=beta&t=r27MbctKGRKpTDEUuoV_Kg4qnnmxNE_CLPhHuTBPewM" alt="Cybersecurity" class="object-cover" loading="lazy">
+      <div class="group cursor-pointer" onclick="openCertModal('https://media.licdn.com/dms/image/v2/D562DAQFFzKiTVv2pWQ/profile-treasury-image-shrink_1920_1920/B56Z4JffikKEAc-/0/1778275712018?e=1779555600&v=beta&t=BhvcTogFt9ndcibyfs2ulptxz4RnBLyY8Er5v8OpzXo')">
+        <img src="https://media.licdn.com/dms/image/v2/D562DAQFFzKiTVv2pWQ/profile-treasury-image-shrink_1920_1920/B56Z4JffikKEAc-/0/1778275712018?e=1779555600&v=beta&t=BhvcTogFt9ndcibyfs2ulptxz4RnBLyY8Er5v8OpzXo" alt="Cybersecurity" class="object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
         <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
           <h3 class="font-helvetica text-lg font-bold">Html</h3>
@@ -1156,8 +1248,8 @@ class="w-full h-48 object-cover" loading="lazy">
         <div class="p-6">
           <h3 class="font-helvetica text-xl font-bold mb-2">Sky For Redbrain</h3>
           <p class="font-inter text-gray-600 mb-4">Devvit-based moderation assistant that scores, prioritizes, and explains risky posts and comments</p>
-          <a href="https://itsharshitgoat.github.io/Website/Cs.html" class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap inline-block">
-            Coming Soon
+          <a href="https://developers.reddit.com/apps/skyforredbrain" class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap inline-block">
+            See on Reddit
           </a>
         </div>
       </div>
@@ -2075,36 +2167,53 @@ document.addEventListener('DOMContentLoaded', function() {
   }, 1100);
 });
 </script>
-<canvas id="game-canvas" class="fixed inset-0 pointer-events-none z-[9990] hidden backdrop-blur-md bg-black/40"></canvas>
+<!-- Premium Glassmorphism Game Overlay -->
+<div id="game-modal" class="fixed inset-0 z-[9999] hidden flex-col items-center justify-center bg-black/60 backdrop-blur-xl opacity-0 transition-opacity duration-500">
+    <div id="game-container" class="relative w-full max-w-2xl h-[80vh] max-h-[700px] mx-4 bg-white/10 border border-white/20 rounded-3xl shadow-2xl overflow-hidden flex flex-col transform scale-95 opacity-0 transition-all duration-500 origin-center">
+        <!-- Header -->
+        <div class="flex justify-between items-center px-6 py-4 border-b border-white/10 bg-black/20 z-10 relative">
+            <h3 class="text-white font-helvetica font-bold text-lg tracking-wider">HARSHIT ARCADE</h3>
+            <button id="close-game-btn" class="text-white/70 hover:text-white transition-colors">
+                <i class="ri-close-line text-2xl"></i>
+            </button>
+        </div>
+        <!-- Game Canvas Container -->
+        <div class="relative flex-1 w-full h-full bg-black/20" style="touch-action: none;">
+            <canvas id="game-canvas" class="block w-full h-full"></canvas>
+            <!-- Game Over UI -->
+            <div id="game-over-ui" class="absolute inset-0 hidden flex-col items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity duration-300 opacity-0">
+                <h2 class="text-4xl md:text-5xl font-bold text-red-500 mb-2 font-helvetica drop-shadow-lg">GAME OVER</h2>
+                <p id="final-score" class="text-2xl text-white mb-6 font-mono font-bold drop-shadow-md">Score: 0</p>
+                <button id="restart-btn" class="!rounded-button bg-primary text-white px-8 py-3 font-bold hover:bg-primary/90 transition-all hover:scale-105 shadow-[0_4px_20px_rgba(0,71,171,0.5)]">
+                    Play Again
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
-// Game Engine Logic
+// Canvas-Only Premium Game Engine with Seamless Transition
 document.addEventListener('DOMContentLoaded', () => {
     const socialPill = document.getElementById('social-pill');
-    const chatbotIcon = document.getElementById('chatbot-icon');
+    const gameModal = document.getElementById('game-modal');
+    const gameContainer = document.getElementById('game-container');
+    const closeBtn = document.getElementById('close-game-btn');
     const canvas = document.getElementById('game-canvas');
-    if(!socialPill || !chatbotIcon || !canvas) return;
+    const gameOverUI = document.getElementById('game-over-ui');
+    const finalScoreEl = document.getElementById('final-score');
+    const restartBtn = document.getElementById('restart-btn');
+    
+    if(!socialPill || !gameModal || !canvas) return;
 
     const ctx = canvas.getContext('2d');
     
     let hoverTimer = null;
     let isShaking = false;
-    let isGameActive = false;
-    let isGameOver = false;
-
-    // Game State
-    let score = 0;
-    let balls = [];
-    let bullets = [];
-    let animationId = null;
-    let spawnTimer = null;
-    let shootTimer = null;
-    let originalChatbotClick = null;
-    let pillRect = null;
-    let pillX = 0;
-
-    // 1. Shaking Logic (Dwell for 2s)
     let shakeTimeout = null;
-    
+    let pillClone = null;
+
+    // --- Trigger Logic ---
     function startHover() {
         if(isGameActive) return;
         clearTimeout(hoverTimer);
@@ -2112,20 +2221,20 @@ document.addEventListener('DOMContentLoaded', () => {
         hoverTimer = setTimeout(() => {
             isShaking = true;
             socialPill.classList.add('animate-shake-pill');
-        }, 2000);
+            socialPill.style.cursor = 'pointer'; 
+            socialPill.title = "Click to play a game!";
+        }, 10000);
     }
     
     function endHover() {
         if(isGameActive) return;
         clearTimeout(hoverTimer);
-        
-        // Give mobile users a 3 second window to lift their finger and drag
         if (isShaking) {
             shakeTimeout = setTimeout(() => {
-                if (!isGameActive) {
-                    isShaking = false;
-                    socialPill.classList.remove('animate-shake-pill');
-                }
+                isShaking = false;
+                socialPill.classList.remove('animate-shake-pill');
+                socialPill.style.cursor = '';
+                socialPill.title = "";
             }, 3000);
         } else {
             isShaking = false;
@@ -2137,270 +2246,415 @@ document.addEventListener('DOMContentLoaded', () => {
     socialPill.addEventListener('mouseleave', endHover);
     socialPill.addEventListener('touchstart', startHover, {passive: true});
     socialPill.addEventListener('touchend', endHover, {passive: true});
+
+    // Click pill to start the overlay game
+    socialPill.addEventListener('click', (e) => {
+        if (isShaking && !isGameActive) {
+            e.preventDefault(); 
+            openGame();
+        }
+    });
+
+    // Prevent context menu while shaking
     socialPill.addEventListener('contextmenu', e => {
-        if (isShaking || isGameActive || hoverTimer) e.preventDefault();
+        if (isShaking || hoverTimer) e.preventDefault();
     });
 
-    // 2. Drag to Start
-    let startDragX = 0;
+    // --- Game Engine ---
+    let isGameActive = false;
+    let isGameOver = false;
+    let score = 0;
+    let balls = [];
+    let bullets = [];
+    let animationId = null;
+    let spawnTimer = null;
+    let shootTimer = null;
+    let particles = [];
+    
+    // Player Ship State
+    const player = {
+        width: 80,
+        height: 20,
+        x: 0,
+        y: 0,
+        color: 'rgba(255, 255, 255, 0.95)',
+        glow: 'rgba(255, 255, 255, 0.6)'
+    };
 
-    function handleDragStart(e) {
-        // Record start position and attach listeners regardless of shake state
-        // so that a user can press, hold (wait for shake), and drag in one smooth motion on mobile.
-        startDragX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-        
-        document.addEventListener('mousemove', handleDragMove);
-        document.addEventListener('touchmove', handleDragMove, {passive: false});
-        document.addEventListener('mouseup', handleDragEnd);
-        document.addEventListener('touchend', handleDragEnd);
-        document.addEventListener('touchcancel', handleDragEnd);
+    function resizeCanvas() {
+        const rect = canvas.parentElement.getBoundingClientRect();
+        canvas.width = rect.width;
+        canvas.height = rect.height;
+        player.y = canvas.height - 40;
+        if (player.x > canvas.width || player.x === 0) {
+            player.x = canvas.width / 2;
+        }
     }
 
-    // Allow moving the pill by touching anywhere on the screen during gameplay
-    document.addEventListener('mousedown', (e) => {
-        if (isGameActive && chatbotIcon && !chatbotIcon.contains(e.target) && socialPill && !socialPill.contains(e.target)) {
-            handleDragStart(e);
-            handleDragMove(e);
+    function createExplosion(x, y, color) {
+        for (let i = 0; i < 12; i++) {
+            particles.push({
+                x: x,
+                y: y,
+                vx: (Math.random() - 0.5) * 8,
+                vy: (Math.random() - 0.5) * 8,
+                life: 1,
+                color: color,
+                size: Math.random() * 4 + 2
+            });
         }
-    });
-    document.addEventListener('touchstart', (e) => {
-        if (isGameActive && chatbotIcon && !chatbotIcon.contains(e.target) && socialPill && !socialPill.contains(e.target)) {
-            handleDragStart(e);
-            handleDragMove(e);
-        }
-    }, {passive: false});
+    }
 
-    let currentTranslateX = 0;
-    let originalPillLeft = 0;
-    let originalPillTop = 0;
-
-    function handleDragMove(e) {
-        if (!isShaking && !isGameActive) return;
-        
-        const clientX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-        
-        if (!isGameActive) {
-            const deltaX = clientX - startDragX;
-            if (Math.abs(deltaX) > 20) {
-                startGame();
+    function drawParticles() {
+        for (let i = particles.length - 1; i >= 0; i--) {
+            let p = particles[i];
+            p.x += p.vx;
+            p.y += p.vy;
+            p.life -= 0.03;
+            
+            if (p.life <= 0) {
+                particles.splice(i, 1);
+                continue;
             }
+            
+            ctx.globalAlpha = p.life;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fillStyle = p.color;
+            ctx.fill();
+            ctx.closePath();
         }
-
-        if (isGameActive) {
-            e.preventDefault(); // Prevent scrolling
-            
-            const w = socialPill.offsetWidth * 0.6; // account for scaling
-            const screenCenter = window.innerWidth / 2;
-            
-            currentTranslateX = clientX - screenCenter;
-            
-            // Clamp to screen bounds relative to center
-            const maxTranslate = screenCenter - (w / 2);
-            currentTranslateX = Math.max(-maxTranslate, Math.min(currentTranslateX, maxTranslate));
-            
-            socialPill.style.transform = `translateX(calc(-50% + ${currentTranslateX}px)) scale(0.6)`;
-        }
+        ctx.globalAlpha = 1.0;
     }
 
-    function handleDragEnd() {
-        document.removeEventListener('mousemove', handleDragMove);
-        document.removeEventListener('touchmove', handleDragMove);
-        document.removeEventListener('mouseup', handleDragEnd);
-        document.removeEventListener('touchend', handleDragEnd);
-        document.removeEventListener('touchcancel', handleDragEnd);
-    }
-
-    socialPill.addEventListener('mousedown', handleDragStart);
-    socialPill.addEventListener('touchstart', handleDragStart, {passive: false});
-
-    // 3. Game Engine
-    function startGame() {
+    function openGame() {
         isGameActive = true;
         isShaking = false;
+        socialPill.classList.remove('animate-shake-pill');
+        socialPill.style.cursor = '';
+        
+        const rect = socialPill.getBoundingClientRect();
+        
+        // Create Clone for animation
+        pillClone = socialPill.cloneNode(true);
+        pillClone.style.position = 'fixed';
+        pillClone.style.top = rect.top + 'px';
+        pillClone.style.left = rect.left + 'px';
+        pillClone.style.width = rect.width + 'px';
+        pillClone.style.height = rect.height + 'px';
+        pillClone.style.margin = '0';
+        pillClone.style.zIndex = '10000';
+        pillClone.style.transition = 'all 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
+        document.body.appendChild(pillClone);
+        
+        // Hide Original
+        socialPill.style.opacity = '0';
+        socialPill.style.pointerEvents = 'none';
+
+        // Force reflow
+        void pillClone.offsetWidth;
+
+        // Animate clone to center of screen
+        const targetX = window.innerWidth / 2 - rect.width / 2;
+        const targetY = window.innerHeight / 2 - rect.height / 2;
+        
+        pillClone.style.top = targetY + 'px';
+        pillClone.style.left = targetX + 'px';
+        pillClone.style.transform = 'scale(1.5)';
+        pillClone.style.opacity = '0';
+
+        document.body.style.overflow = 'hidden'; 
+
+        // Show Modal background
+        gameModal.classList.remove('hidden');
+        gameModal.classList.add('flex');
+        
+        setTimeout(() => {
+            gameModal.classList.remove('opacity-0');
+            gameModal.classList.add('opacity-100');
+            
+            gameContainer.classList.remove('scale-95', 'opacity-0');
+            gameContainer.classList.add('scale-100', 'opacity-100');
+        }, 50);
+
+        setTimeout(() => {
+            if (pillClone && pillClone.parentNode) {
+                pillClone.remove();
+                pillClone = null;
+            }
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+            startGame();
+        }, 600);
+    }
+
+    function closeGame() {
+        stopGameLoops();
+        window.removeEventListener('resize', resizeCanvas);
+        
+        // Recreate clone at center
+        const rect = socialPill.getBoundingClientRect();
+        pillClone = socialPill.cloneNode(true);
+        
+        const startX = window.innerWidth / 2 - rect.width / 2;
+        const startY = window.innerHeight / 2 - rect.height / 2;
+        
+        pillClone.style.position = 'fixed';
+        pillClone.style.top = startY + 'px';
+        pillClone.style.left = startX + 'px';
+        pillClone.style.width = rect.width + 'px';
+        pillClone.style.height = rect.height + 'px';
+        pillClone.style.margin = '0';
+        pillClone.style.zIndex = '10000';
+        pillClone.style.transform = 'scale(1.5)';
+        pillClone.style.opacity = '0';
+        pillClone.style.transition = 'all 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
+        document.body.appendChild(pillClone);
+
+        // Hide modal
+        gameContainer.classList.remove('scale-100', 'opacity-100');
+        gameContainer.classList.add('scale-95', 'opacity-0');
+        gameModal.classList.remove('opacity-100');
+        gameModal.classList.add('opacity-0');
+
+        void pillClone.offsetWidth;
+
+        // Animate clone back
+        pillClone.style.opacity = '1';
+        pillClone.style.top = rect.top + 'px';
+        pillClone.style.left = rect.left + 'px';
+        pillClone.style.transform = 'scale(1)';
+
+        setTimeout(() => {
+            gameModal.classList.add('hidden');
+            gameModal.classList.remove('flex');
+            document.body.style.overflow = '';
+            
+            socialPill.style.opacity = '1';
+            socialPill.style.pointerEvents = 'auto';
+            
+            if (pillClone && pillClone.parentNode) {
+                pillClone.remove();
+                pillClone = null;
+            }
+            isGameActive = false;
+        }, 600); 
+    }
+
+    function stopGameLoops() {
+        cancelAnimationFrame(animationId);
+        clearInterval(shootTimer);
+        clearInterval(spawnTimer);
+    }
+
+    function startGame() {
+        stopGameLoops();
+        isGameActive = true;
         isGameOver = false;
         score = 0;
         balls = [];
         bullets = [];
-        currentTranslateX = 0;
+        particles = [];
+        player.x = canvas.width / 2;
         
-        socialPill.classList.remove('animate-shake-pill');
-        socialPill.querySelectorAll('a').forEach(a => a.style.pointerEvents = 'none');
-        
-        // Lock scroll
-        document.body.style.overflow = 'hidden';
-        
-        pillRect = socialPill.getBoundingClientRect();
-        originalPillLeft = pillRect.left;
-        originalPillTop = pillRect.top;
-        
-        // Create placeholder to prevent footer layout collapse
-        const placeholder = document.createElement('div');
-        placeholder.id = 'pill-placeholder';
-        placeholder.style.width = pillRect.width + 'px';
-        placeholder.style.height = pillRect.height + 'px';
-        socialPill.parentElement.insertBefore(placeholder, socialPill);
-        
-        // Move pill to body so it escapes the backdrop-blur stacking context
-        document.body.appendChild(socialPill);
-
-        socialPill.style.position = 'fixed';
-        socialPill.style.top = originalPillTop + 'px';
-        socialPill.style.left = originalPillLeft + 'px';
-        socialPill.style.transform = 'translateX(0) scale(1)';
-        socialPill.style.margin = '0';
-        socialPill.style.zIndex = '9995';
-        socialPill.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
-
-        // Setup Chatbot X
-        chatbotIcon.classList.add('game-x');
-        originalChatbotClick = chatbotIcon.onclick;
-        chatbotIcon.onclick = exitGame;
-
-        // Setup Canvas
-        canvas.classList.remove('hidden');
-        canvas.style.opacity = '0';
-        canvas.style.transition = 'opacity 0.5s ease';
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas);
-        
-        // Force reflow to ensure initial state is registered before animating
-        void socialPill.offsetWidth;
-        void canvas.offsetWidth;
-
-        // Animate Pill to center and scale down, fade in canvas
-        socialPill.style.left = '50%';
-        socialPill.style.transform = 'translateX(-50%) scale(0.6)';
-        canvas.style.opacity = '1';
-
+        gameOverUI.classList.remove('opacity-100');
+        gameOverUI.classList.add('opacity-0');
         setTimeout(() => {
-            socialPill.style.transition = 'none'; // remove transition for smooth dragging
-            
-            // Start Loops
-            shootTimer = setInterval(() => {
-                if(!isGameOver) {
-                    const currentRect = socialPill.getBoundingClientRect();
-                    bullets.push({
-                        x: currentRect.left + currentRect.width / 2,
-                        y: currentRect.top,
-                        r: 4,
-                        vy: -12
-                    });
-                }
-            }, 150);
+            gameOverUI.classList.add('hidden');
+            gameOverUI.classList.remove('flex');
+        }, 300);
+        
+        // Auto-shoot
+        shootTimer = setInterval(() => {
+            if(isGameActive && !isGameOver) {
+                // Double shot for coolness
+                bullets.push({
+                    x: player.x - 10,
+                    y: player.y - player.height / 2,
+                    r: 4,
+                    vy: -15,
+                    color: '#FFD700'
+                });
+                bullets.push({
+                    x: player.x + 10,
+                    y: player.y - player.height / 2,
+                    r: 4,
+                    vy: -15,
+                    color: '#FFD700'
+                });
+            }
+        }, 180);
 
-            spawnTimer = setInterval(() => {
-                if(!isGameOver) {
-                    // Spawn from Navbar (Top Center) with random trajectories
-                    balls.push({
-                        x: canvas.width / 2,
-                        y: 60, 
-                        r: 15 + Math.random() * 15,
-                        vx: (Math.random() - 0.5) * 8, // Shoot left or right
-                        vy: 2 + (score/50) + Math.random() * 2,
-                        color: `hsl(${Math.random() * 360}, 70%, 60%)`
-                    });
-                }
-            }, 800);
+        // Spawn enemies
+        spawnTimer = setInterval(() => {
+            if(isGameActive && !isGameOver) {
+                let speedMultiplier = 1 + (score/200);
+                let dropSpeed = (2 + Math.random() * 2) * speedMultiplier;
+                
+                balls.push({
+                    x: Math.random() * (canvas.width - 40) + 20, 
+                    y: -20, 
+                    r: 15 + Math.random() * 15,
+                    vx: (Math.random() - 0.5) * 4 * speedMultiplier,
+                    vy: dropSpeed,
+                    color: `hsl(${Math.random() * 360}, 80%, 60%)`,
+                    hp: Math.random() > 0.8 ? 2 : 1 // 20% chance for a tough ball
+                });
+            }
+        }, 700);
 
-            gameLoop();
-        }, 500);
+        gameLoop();
     }
 
-    function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+    function triggerGameOver() {
+        isGameOver = true;
+        stopGameLoops(); 
+        
+        finalScoreEl.textContent = `Final Score: ${score}`;
+        gameOverUI.classList.remove('hidden');
+        gameOverUI.classList.add('flex');
+        
+        // Screen shake effect on Game Over
+        gameContainer.style.transform = 'translate(10px, 10px)';
+        setTimeout(() => gameContainer.style.transform = 'translate(-10px, -10px)', 50);
+        setTimeout(() => gameContainer.style.transform = 'translate(10px, -10px)', 100);
+        setTimeout(() => gameContainer.style.transform = 'translate(-10px, 10px)', 150);
+        setTimeout(() => {
+            gameContainer.style.transform = 'scale(100%)';
+            gameOverUI.classList.remove('opacity-0');
+            gameOverUI.classList.add('opacity-100');
+        }, 200);
+        
+        draw();
     }
 
-    function exitGame() {
-        isGameActive = false;
-        isGameOver = false;
+    function handleInput(clientX) {
+        if (!isGameActive || isGameOver) return;
+        const rect = canvas.getBoundingClientRect();
+        let x = clientX - rect.left;
         
-        // Stop Loops immediately
-        cancelAnimationFrame(animationId);
-        clearInterval(shootTimer);
-        clearInterval(spawnTimer);
-        ctx.clearRect(0, 0, canvas.width, canvas.height); // clear canvas
+        // Smoothly glide towards target
+        x = Math.max(player.width / 2, Math.min(x, canvas.width - player.width / 2));
+        player.x += (x - player.x) * 0.3; // ease
+    }
 
-        // Animate Pill Back
-        socialPill.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
-        socialPill.style.left = originalPillLeft + 'px';
-        socialPill.style.top = originalPillTop + 'px';
-        socialPill.style.transform = 'translateX(0) scale(1)';
+    canvas.addEventListener('mousemove', (e) => {
+        handleInput(e.clientX);
+    });
+
+    canvas.addEventListener('touchmove', (e) => {
+        e.preventDefault(); 
+        handleInput(e.touches[0].clientX);
+    }, {passive: false});
+    
+    canvas.addEventListener('touchstart', (e) => {
+        if (isGameOver) return;
+        e.preventDefault();
+        handleInput(e.touches[0].clientX);
+    }, {passive: false});
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
         
-        canvas.style.opacity = '0';
+        // Draw Player Ship
+        ctx.beginPath();
+        const radius = player.height / 2;
+        const px = player.x - player.width / 2;
+        const py = player.y - player.height / 2;
+        const pw = player.width;
+        const ph = player.height;
         
-        setTimeout(() => {
-            // Reset Layout
-            document.body.style.overflow = '';
+        ctx.moveTo(px + radius, py);
+        ctx.lineTo(px + pw - radius, py);
+        ctx.quadraticCurveTo(px + pw, py, px + pw, py + radius);
+        ctx.lineTo(px + pw, py + ph - radius);
+        ctx.quadraticCurveTo(px + pw, py + ph, px + pw - radius, py + ph);
+        ctx.lineTo(px + radius, py + ph);
+        ctx.quadraticCurveTo(px, py + ph, px, py + ph - radius);
+        ctx.lineTo(px, py + radius);
+        ctx.quadraticCurveTo(px, py, px + radius, py);
+        ctx.closePath();
+        
+        ctx.fillStyle = player.color;
+        ctx.shadowColor = player.glow;
+        ctx.shadowBlur = 15;
+        ctx.fill();
+        ctx.shadowBlur = 0; 
+        
+        // Draw thruster effect
+        if(!isGameOver) {
+            ctx.beginPath();
+            ctx.arc(player.x - 10, player.y + player.height/2 + Math.random()*5, 3, 0, Math.PI*2);
+            ctx.arc(player.x + 10, player.y + player.height/2 + Math.random()*5, 3, 0, Math.PI*2);
+            ctx.fillStyle = '#0047AB';
+            ctx.fill();
+        }
+
+        // Draw Bullets
+        for (let b of bullets) {
+            ctx.beginPath();
+            ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+            ctx.fillStyle = b.color;
+            ctx.shadowColor = b.color;
+            ctx.shadowBlur = 10;
+            ctx.fill();
+            ctx.closePath();
+            ctx.shadowBlur = 0;
+        }
+
+        // Draw Balls
+        for (let ball of balls) {
+            ctx.beginPath();
+            ctx.arc(ball.x, ball.y, ball.r, 0, Math.PI * 2);
+            ctx.fillStyle = ball.color;
+            // Stronger shadow for tough balls
+            ctx.shadowColor = ball.color;
+            ctx.shadowBlur = ball.hp > 1 ? 25 : 10;
+            ctx.fill();
             
-            // Move pill back
-            const placeholder = document.getElementById('pill-placeholder');
-            if (placeholder) {
-                placeholder.parentElement.insertBefore(socialPill, placeholder);
-                placeholder.remove();
+            // Draw inner core for tough balls
+            if (ball.hp > 1) {
+                ctx.beginPath();
+                ctx.arc(ball.x, ball.y, ball.r * 0.5, 0, Math.PI * 2);
+                ctx.fillStyle = '#fff';
+                ctx.fill();
             }
             
-            // Reset Pill
-            socialPill.style.position = '';
-            socialPill.style.top = '';
-            socialPill.style.left = '';
-            socialPill.style.margin = '';
-            socialPill.style.zIndex = '';
-            socialPill.style.transition = '';
-            socialPill.style.transform = '';
-            socialPill.querySelectorAll('a').forEach(a => a.style.pointerEvents = '');
-            
-            // Reset Chatbot
-            chatbotIcon.classList.remove('game-x');
-            chatbotIcon.onclick = originalChatbotClick;
-            
-            // Hide Canvas
-            canvas.classList.add('hidden');
-            window.removeEventListener('resize', resizeCanvas);
-        }, 500);
+            ctx.closePath();
+            ctx.shadowBlur = 0;
+        }
+        
+        drawParticles();
+
+        // Draw HUD Score
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+        ctx.font = 'bold 24px "Helvetica Neue", Helvetica, sans-serif';
+        ctx.textAlign = 'left';
+        ctx.shadowColor = 'rgba(0,0,0,0.5)';
+        ctx.shadowBlur = 4;
+        ctx.fillText(`Score: ${score}`, 20, 40);
+        ctx.shadowBlur = 0;
     }
 
     function gameLoop() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        if (!isGameActive) return;
         
         if (isGameOver) {
-            ctx.fillStyle = '#ff4444';
-            ctx.font = 'bold 64px Helvetica Neue, sans-serif';
-            ctx.textAlign = 'center';
-            ctx.fillText('GAME OVER', canvas.width / 2, canvas.height / 2 - 60);
-            
-            ctx.fillStyle = '#fff';
-            ctx.font = 'bold 48px Helvetica Neue, sans-serif';
-            ctx.fillText(`Score: ${score}`, canvas.width / 2, canvas.height / 2 + 10);
-            
-            ctx.font = '24px sans-serif';
-            ctx.fillText('Click X to Exit', canvas.width / 2, canvas.height / 2 + 70);
-            animationId = requestAnimationFrame(gameLoop);
-            return;
+            draw(); 
+            return; 
         }
 
-        // Update & Draw Bullets
         for (let i = bullets.length - 1; i >= 0; i--) {
             let b = bullets[i];
             b.y += b.vy;
-            
-            ctx.beginPath();
-            ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
-            ctx.fillStyle = '#FFD700'; // Secondary color
-            ctx.fill();
-            ctx.closePath();
-
-            // Remove if off-screen
             if (b.y < -10) bullets.splice(i, 1);
         }
 
-        // Update & Draw Balls
         for (let i = balls.length - 1; i >= 0; i--) {
             let ball = balls[i];
             ball.x += ball.vx;
             ball.y += ball.vy;
             
-            // Wall Collision (Bounce)
             if (ball.x - ball.r < 0) {
                 ball.x = ball.r;
                 ball.vx *= -1;
@@ -2409,37 +2663,132 @@ document.addEventListener('DOMContentLoaded', () => {
                 ball.vx *= -1;
             }
             
-            ctx.beginPath();
-            ctx.arc(ball.x, ball.y, ball.r, 0, Math.PI * 2);
-            ctx.fillStyle = ball.color;
-            ctx.shadowColor = ball.color;
-            ctx.shadowBlur = 15;
-            ctx.fill();
-            ctx.closePath();
-            ctx.shadowBlur = 0; // reset
-
-            // Collision with bottom (Game Over)
             if (ball.y + ball.r > canvas.height) {
-                isGameOver = true;
+                triggerGameOver();
+                return; 
             }
 
-            // Collision with bullets
+            let hit = false;
             for (let j = bullets.length - 1; j >= 0; j--) {
                 let bullet = bullets[j];
                 const dist = Math.hypot(ball.x - bullet.x, ball.y - bullet.y);
                 if (dist < ball.r + bullet.r) {
-                    // Hit!
-                    balls.splice(i, 1);
+                    ball.hp--;
                     bullets.splice(j, 1);
-                    score += 10;
-                    break; // Break bullet loop, ball is gone
+                    createExplosion(bullet.x, bullet.y, '#FFD700'); // Bullet impact sparks
+                    
+                    if (ball.hp <= 0) {
+                        createExplosion(ball.x, ball.y, ball.color); // Ball explosion
+                        balls.splice(i, 1);
+                        score += 10;
+                        hit = true;
+                    }
+                    break; 
                 }
             }
+            if(hit) continue;
         }
 
+        draw();
         animationId = requestAnimationFrame(gameLoop);
     }
+
+    closeBtn.addEventListener('click', closeGame);
+    restartBtn.addEventListener('click', startGame);
 });
+
+// --- Now Playing (Last.fm) Logic ---
+document.addEventListener('DOMContentLoaded', () => {
+    const LASTFM_USERNAME = 'Itsharshitgoat'; // User must replace this
+    const LASTFM_API_KEY = '935f198a44651aeb4a91805de0234b05';   // User must replace this
+    
+    const npPill = document.getElementById('now-playing-pill');
+    const npSong = document.getElementById('np-song');
+    const npArtist = document.getElementById('np-artist');
+    const eqAnimation = document.getElementById('eq-animation');
+    const lastfmLink = document.getElementById('lastfm-link');
+    const npBullet = document.getElementById('np-bullet');
+    const npIcon = document.getElementById('np-icon');
+    
+    let isPillVisible = false;
+
+    async function fetchNowPlaying() {
+        if (!npPill || LASTFM_USERNAME === 'YOUR_USERNAME_HERE' || LASTFM_API_KEY === 'YOUR_API_KEY_HERE') return;
+
+        try {
+            const response = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${LASTFM_USERNAME}&api_key=${LASTFM_API_KEY}&format=json&limit=1`);
+            const data = await response.json();
+            
+            if (data.recenttracks && data.recenttracks.track && data.recenttracks.track.length > 0) {
+                const track = data.recenttracks.track[0];
+                
+                // Check if currently playing
+                const isPlaying = track['@attr'] && track['@attr'].nowplaying === 'true';
+                
+                // Extract first artist if multiple exist (split by comma or ampersand)
+                const fullArtist = track.artist['#text'];
+                const firstArtist = fullArtist.split(/,|&/)[0].trim();
+                const songName = track.name;
+                
+                if (isPlaying) {
+                    // Update UI for playing state
+                    npSong.textContent = songName;
+                    npArtist.textContent = firstArtist;
+                    npArtist.style.display = 'block';
+                    if (npBullet) npBullet.style.display = 'block';
+                    if (npIcon) npIcon.style.display = 'block';
+                    lastfmLink.href = track.url;
+                    eqAnimation.classList.remove('paused');
+                } else {
+                    showNotPlaying();
+                }
+
+                // Show pill if hidden
+                if (!isPillVisible && isPlaying) {
+                    npPill.classList.remove('opacity-0', 'translate-y-[-10px]', 'pointer-events-none');
+                    npPill.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                    isPillVisible = true;
+                }
+
+            } else {
+                showNotPlaying();
+            }
+        } catch (error) {
+            console.error("Last.fm Error:", error);
+            showNotPlaying();
+        }
+    }
+
+    function showNotPlaying() {
+        npSong.textContent = "Haven't listened to anything lately";
+        npArtist.style.display = 'none';
+        if (npBullet) npBullet.style.display = 'none';
+        if (npIcon) npIcon.style.display = 'none';
+        lastfmLink.href = "https://open.spotify.com";
+        eqAnimation.classList.add('paused');
+        
+        if (!isPillVisible) {
+            npPill.classList.remove('opacity-0', 'translate-y-[-10px]', 'pointer-events-none');
+            npPill.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+            isPillVisible = true;
+        }
+    }
+
+    function hidePill() {
+        if (isPillVisible) {
+            npPill.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+            npPill.classList.add('opacity-0', 'translate-y-[-10px]', 'pointer-events-none');
+            isPillVisible = false;
+        }
+    }
+
+    // Initial fetch and polling every 15 seconds
+    if (LASTFM_USERNAME !== 'YOUR_USERNAME_HERE') {
+        fetchNowPlaying();
+        setInterval(fetchNowPlaying, 15000);
+    }
+});
+    
 </script>
 </body>
 
