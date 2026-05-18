@@ -2399,7 +2399,9 @@ document.addEventListener('DOMContentLoaded', function() {
       let navHeight = navEl ? navEl.offsetHeight : 0;
       // On small screens the nav can wrap or be taller; add a small extra offset
       if (window.innerWidth <= 768) navHeight += 20;
-      const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight - 12;
+      // Add extra offset for the music pill (approx 120px)
+      const pillOffset = 93;
+      const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight - pillOffset;
       window.scrollTo({
         top: targetPosition,
         behavior: 'smooth'
