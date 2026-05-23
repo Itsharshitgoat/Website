@@ -38,7 +38,7 @@ graph TD
     User((User)) -->|Visits Site| Browser[Web Browser]
     Browser --> Host[GitHub Pages / Edge CDN]
     
-    subgraph Frontend Application
+    subgraph Frontend[Frontend Application]
         HTML[HTML5 Structure]
         CSS[Tailwind CSS CDN]
         JS[Vanilla JavaScript ES6+]
@@ -49,9 +49,9 @@ graph TD
         JS --- Canvas
     end
     
-    Host --> Frontend Application
+    Host --> Frontend
     
-    subgraph External Integrations & APIs
+    subgraph External[External Integrations & APIs]
         LastFM[Last.fm API]
         FormSubmit[FormSubmit.co]
         LocalStorage[(Browser LocalStorage)]
@@ -78,7 +78,7 @@ graph TD
 flowchart LR
     User([Website Visitor])
     
-    subgraph Core Interactions
+    subgraph Core[Core Interactions]
         Nav[Magnetic Navigation]
         Music[Live Music Pill]
         Projects[Bento Grid & Project Cards]
