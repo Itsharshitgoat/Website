@@ -45,6 +45,8 @@
 <link rel="preload" as="image" href="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/djw36jd-406b8611-269e-44c8-972f-03322ab3f755.png/v1/fill/w_894,h_894,q_70,strp/profile_by_itsharshitgoat_djw36jd-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcLzVlYWYwYzU1LWE5Y2QtNDM3MS04NjAwLTY5NmY2MjQ4YjY3YVwvZGp3MzZqZC00MDZiODYxMS0yNjllLTQ0YzgtOTcyZi0wMzMyMmFiM2Y3NTUucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.lVBIo8BzR6xZUxgQBfrHgzSEeTT3ufbNAynQndE8DLU" fetchpriority="high">
 <link rel="preload" as="image" href="https://public.readdy.ai/ai/img_res/343c982e6386ebc666b67c4b8926bebb.jpg" fetchpriority="high">
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -310,92 +312,7 @@ input, select, textarea {
 font-size: 16px;
 }
 }
-.skill-item {
-opacity: 0;
-transform: translateY(20px);
-animation: fadeInUp 0.5s ease forwards;
-}
-@keyframes fadeInUp {
-to {
-  opacity: 1;
-  transform: translateY(0);
-}
-}
-.skill-item:nth-child(1) { animation-delay: 0.1s; }
-.skill-item:nth-child(2) { animation-delay: 0.2s; }
-.skill-item:nth-child(3) { animation-delay: 0.3s; }
-.skill-item:nth-child(4) { animation-delay: 0.4s; }
-.skill-item:nth-child(5) { animation-delay: 0.5s; }
-.skill-item:nth-child(6) { animation-delay: 0.6s; }
-.skill-item:nth-child(7) { animation-delay: 0.7s; }
-.skill-item:nth-child(8) { animation-delay: 0.8s; }
-.skill-item:nth-child(9) { animation-delay: 0.9s; }
-.skill-item:nth-child(10) { animation-delay: 1s; }
-
-/* Section and Card animations */
-.animate-section {
-  opacity: 1;
-  transform: translateY(0);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.animate-section.start-hidden {
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-.animate-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.animate-card {
-  opacity: 1;
-  transform: translateY(0);
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.animate-card.start-hidden {
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.animate-card.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.delay-7 { transition-delay: 0.15s; }
-.delay-8 { transition-delay: 0.3s; }
-.delay-9 { transition-delay: 0.45s; }
-.delay-10 { transition-delay: 0.6s; }
-
-/* Project card animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.project-card {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.project-card.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.project-card:nth-child(3n+1) { transition-delay: 0.1s; }
-.project-card:nth-child(3n+2) { transition-delay: 0.2s; }
-.project-card:nth-child(3n+3) { transition-delay: 0.3s; }
+/* Animations handled by GSAP */
 
 .modal {
   display: none;
@@ -3061,36 +2978,56 @@ document.addEventListener('DOMContentLoaded', function() {
   initTheme();
 
   // Section and card animations with Intersection Observer
-  const observerOptions = {
-    root: null,
-    rootMargin: '50px',
-    threshold: 0.02
-  };
-
   function initializeAnimations() {
-    // Add animation classes to sections
-    document.querySelectorAll('section:not(#home)').forEach(section => {
-      section.classList.add('animate-section', 'start-hidden');
-    });
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        setTimeout(initializeAnimations, 100);
+        return;
+    }
+    gsap.registerPlugin(ScrollTrigger);
 
-    // Add animation classes to cards
-    document.querySelectorAll('.animate-card').forEach(card => {
-      card.classList.add('start-hidden');
-    });
-
-    // Create observer
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+    // Section reveal animations
+    gsap.utils.toArray('section:not(#home)').forEach(section => {
+      gsap.fromTo(section, 
+        { opacity: 0, y: 50 },
+        {
+          scrollTrigger: {
+            trigger: section,
+            start: "top 85%",
+            toggleActions: "play none none none"
+          },
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power3.out"
         }
-      });
-    }, observerOptions);
+      );
+    });
 
-    // Start observing elements
-    document.querySelectorAll('.start-hidden').forEach(element => {
-      observer.observe(element);
+    // Premium Card stagger reveals inside grids
+    const grids = document.querySelectorAll('.grid, .bento-grid, .tools-grid, #skills-container');
+    grids.forEach(grid => {
+      const cards = grid.querySelectorAll('.animate-card, .project-card, .flip-card, .skill-item');
+      
+      if(cards.length > 0) {
+        gsap.fromTo(cards, 
+          { opacity: 0, y: 40, scale: 0.9, rotation: 2, filter: "blur(5px)" },
+          {
+            scrollTrigger: {
+              trigger: grid,
+              start: "top 85%",
+              toggleActions: "play none none reverse"
+            },
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            rotation: 0,
+            filter: "blur(0px)",
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "back.out(1.2)"
+          }
+        );
+      }
     });
   }
 
