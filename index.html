@@ -40,12 +40,15 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Pacifico&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Pacifico&family=Roboto+Mono:wght@400;500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
 <script>
 tailwind.config = {
 theme: {
 extend: {
+fontFamily: {
+'serif': ['Lora', 'serif'],
+},
 screens: {
 'sm': '640px',
 'md': '768px',
@@ -769,11 +772,398 @@ to {
   justify-content: space-between;
 }
 </style>
+<style>
+/* The Quiet Layer Atmosphere */
+.quiet-bg-gradient {
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.9) 100%);
+    opacity: 0;
+    transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.quiet-fog {
+    background-image: radial-gradient(ellipse at center, rgba(255,255,255,0.4) 0%, transparent 60%);
+    mix-blend-mode: screen;
+    opacity: 0;
+    transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.quiet-fog-1 {
+    width: 200%; height: 200%;
+    top: -50%; left: -50%;
+    animation: drift 100s linear infinite;
+    transform-origin: center;
+}
+.quiet-fog-2 {
+    width: 150%; height: 150%;
+    top: -25%; left: -25%;
+    animation: drift 70s linear infinite reverse;
+    transform-origin: center;
+}
+@keyframes drift {
+    0% { transform: rotate(0deg) translate(0, 0); }
+    100% { transform: rotate(360deg) translate(5%, 5%); }
+}
+
+/* Glassmorphism Islands */
+.quiet-island {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.4);
+    will-change: transform;
+}
+
+/* Motion Hierarchy */
+@media (min-width: 768px) {
+    .quiet-float-1 { animation: float-island 14s ease-in-out infinite; }
+    .quiet-float-2 { animation: float-island 12s ease-in-out infinite 0.5s; }
+    .quiet-float-3 { animation: float-island 16s ease-in-out infinite 1s; }
+}
+
+@keyframes float-island {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* State Classes for Main Content */
+main {
+    transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1), filter 1s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: opacity, transform, filter;
+    transform-origin: center top;
+}
+body.quiet-intent-1 main {
+    transform: translateY(-30px) scale(0.98);
+    filter: blur(2px);
+}
+body.quiet-intent-2 main {
+    transform: translateY(-60px) scale(0.96);
+    opacity: 0.8;
+    filter: blur(5px);
+}
+body.quiet-active main {
+    opacity: 0;
+    transform: translateY(-120px) scale(0.90);
+    pointer-events: none;
+    filter: blur(15px);
+}
+
+/* Fade out fixed UI elements */
+nav, #now-playing-pill, #mobile-menu, #top-scroll-mask {
+    transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1), filter 0.5s cubic-bezier(0.25, 1, 0.5, 1), transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+body.quiet-intent-1 nav,
+body.quiet-intent-1 #now-playing-pill,
+body.quiet-intent-1 #mobile-menu {
+    opacity: 0.5;
+    filter: blur(2px);
+    transform: translateX(-50%) translateY(-10px);
+}
+body.quiet-intent-1 #top-scroll-mask {
+    opacity: 0.5;
+    filter: blur(2px);
+    transform: translateY(-10px);
+}
+
+body.quiet-intent-2 nav,
+body.quiet-intent-2 #now-playing-pill,
+body.quiet-intent-2 #mobile-menu,
+body.quiet-active nav,
+body.quiet-active #now-playing-pill,
+body.quiet-active #mobile-menu {
+    opacity: 0 !important;
+    filter: blur(10px) !important;
+    transform: translateX(-50%) translateY(-30px) !important;
+    pointer-events: none !important;
+}
+
+body.quiet-intent-2 #top-scroll-mask,
+body.quiet-active #top-scroll-mask {
+    opacity: 0 !important;
+    filter: blur(10px) !important;
+    transform: translateY(-30px) !important;
+    pointer-events: none !important;
+}
+
+/* State Classes for Quiet Layer */
+#quiet-content {
+    opacity: 0;
+    transform: translateY(60px) scale(1.05);
+    filter: blur(15px);
+    transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1), filter 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+body.quiet-active #quiet-layer {
+    pointer-events: all;
+}
+body.quiet-active .quiet-bg-gradient { opacity: 0.9; }
+body.quiet-active .quiet-fog { opacity: 0.6; }
+body.quiet-active #quiet-content {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+}
+#scroll-to-return-indicator {
+    opacity: 0;
+    transform: translateY(20px) translateX(-50%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+body.quiet-active #scroll-to-return-indicator {
+    opacity: 1;
+    transform: translateY(0) translateX(-50%);
+    transition: opacity 1s ease 0.8s, transform 1s ease 0.8s;
+}
+
+/* Descent state handling (Symmetry) */
+body.quiet-descent-1 #quiet-content {
+    opacity: 0.8;
+    transform: translateY(20px) scale(1.02);
+    filter: blur(4px);
+}
+body.quiet-descent-1 .quiet-bg-gradient { opacity: 1; }
+body.quiet-descent-2 #quiet-content {
+    opacity: 0.4;
+    transform: translateY(40px) scale(1.04);
+    filter: blur(10px);
+}
+body.quiet-descent-2 .quiet-bg-gradient { opacity: 0.95; }
+
+/* Utilities */
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Atmospheric Book Heaven Classes */
+.quiet-island-atmospheric {
+    border-radius: 38px 38px 30px 30px;
+    background: radial-gradient(circle at top left, rgba(255,255,255,0.25), transparent 60%), rgba(255,255,255,0.02);
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.4), 0 20px 40px rgba(180, 160, 255, 0.08);
+    position: relative;
+}
+
+.quiet-book-container {
+    perspective: 1200px;
+    position: relative;
+}
+
+.quiet-book-3d {
+    position: relative;
+    width: 150px;
+    height: 220px;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.book-pos-1 { transform: rotateY(-12deg) rotateX(4deg) translateZ(0); }
+.book-pos-2 { transform: rotateY(-6deg) rotateX(2deg) rotateZ(1deg) translateZ(0); margin-top: 15px; }
+.book-pos-3 { transform: rotateY(-18deg) rotateX(5deg) rotateZ(-2deg) translateZ(0); margin-top: -10px; }
+
+.quiet-book-container:hover .book-pos-1 { transform: rotateY(-4deg) rotateX(2deg) scale(1.02) translateY(-8px); }
+.quiet-book-container:hover .book-pos-2 { transform: rotateY(-2deg) rotateX(1deg) scale(1.02) translateY(-8px); }
+.quiet-book-container:hover .book-pos-3 { transform: rotateY(-8deg) rotateX(3deg) scale(1.02) translateY(-8px); }
+
+.book-front {
+    position: absolute;
+    inset: 0;
+    border-radius: 2px 12px 12px 2px;
+    transform: translateZ(1px);
+    background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 100%);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-left: 1px solid rgba(0,0,0,0.05);
+    box-shadow: inset 2px 0 5px rgba(255,255,255,0.5);
+}
+
+.book-front > img,
+.book-front > div.absolute.inset-0 {
+    border-radius: inherit;
+}
+
+.quiet-book-3d::before {
+    content: '';
+    position: absolute;
+    right: 1px;
+    top: 4px;
+    bottom: 4px;
+    width: 20px;
+    background: repeating-linear-gradient(to right, #f4f4f4, #f4f4f4 2px, #e8e8e8 2px, #e8e8e8 4px);
+    transform-origin: right center;
+    transform: rotateY(90deg);
+}
+
+.quiet-book-3d::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    bottom: 2px;
+    width: 20px;
+    background: linear-gradient(to right, rgba(150,150,150,0.6), rgba(220,220,220,0.4));
+    transform-origin: left center;
+    transform: rotateY(-90deg);
+    border-radius: 4px 0 0 4px;
+}
+
+.book-shadow-ambient {
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    right: 0%;
+    bottom: -5%;
+    background: rgba(180, 160, 255, 0.15);
+    filter: blur(25px);
+    transform: translateZ(-20px);
+    transition: all 0.8s ease;
+    border-radius: 12px;
+}
+.quiet-book-container:hover .book-shadow-ambient {
+    background: rgba(180, 160, 255, 0.25);
+    filter: blur(35px);
+    transform: translateZ(-30px) translateY(12px) scale(1.05);
+}
+
+.dust-particle {
+    position: absolute;
+    background: rgba(255,255,255,0.9);
+    border-radius: 50%;
+    filter: blur(1px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+}
+.quiet-book-container:hover .dust-particle {
+    animation: float-dust 3s ease-in-out infinite alternate;
+}
+.dust-1 { width: 4px; height: 4px; left: -10px; top: 30%; animation-delay: 0s; }
+.dust-2 { width: 3px; height: 3px; right: -20px; top: 60%; animation-delay: 1.2s; }
+.dust-3 { width: 5px; height: 5px; left: 40%; top: -15px; animation-delay: 0.5s; }
+
+@keyframes float-dust {
+    0% { transform: translateY(0) translateX(0); opacity: 0; }
+    20% { opacity: 0.5; }
+    80% { opacity: 0.5; }
+    100% { transform: translateY(-20px) translateX(10px); opacity: 0; }
+}
+</style>
 </head>
 <body class="bg-[#F5F5F5] text-[#333333]">
 
+<div id="quiet-layer" class="fixed inset-0 z-[9999] pointer-events-none flex flex-col items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 quiet-bg-gradient"></div>
+    
+    <div id="quiet-content" class="relative z-10 w-full max-w-6xl p-0 md:p-8 flex flex-col items-center overflow-hidden md:overflow-visible -mt-16 md:mt-0">
+        
+        <!-- Welcome Header -->
+        <div class="w-full text-center mb-4 md:mb-10 px-8 flex flex-col items-center justify-center pt-4 md:pt-0">
+            <h1 class="text-5xl md:text-6xl lg:text-[72px] text-gray-900 tracking-tight font-serif" style="font-weight: 500; text-shadow: 0 4px 24px rgba(255,255,255,0.8);">Welcome to Heaven</h1>
+            <p class="text-gray-600 font-inter text-sm md:text-base tracking-wide max-w-lg mt-4" style="text-shadow: 0 2px 12px rgba(255,255,255,0.8);">These are my favorite books that I love reading.</p>
+            <div class="w-16 h-1 bg-gray-900/10 mt-6 md:mt-8 rounded-full"></div>
+        </div>
+
+        <!-- Stacked Cards Container -->
+        <div id="cards-container" class="relative md:static w-[300px] h-[520px] mx-auto md:w-full md:h-auto md:grid md:grid-cols-3 gap-0 md:gap-8 pb-10 pt-4 mt-2 md:mt-0">
+
+            <div class="quiet-island quiet-island-atmospheric quiet-float-1 p-6 md:p-10 flex flex-col items-center text-center absolute md:relative inset-0 md:inset-auto stack-card bg-white/95 md:!bg-transparent backdrop-blur-2xl md:!backdrop-blur-none border border-black/5 md:!border-white/20 rounded-3xl transition-all duration-500 ease-out cursor-grab active:cursor-grabbing" data-index="0">
+            <h3 class="text-gray-800 font-inter font-medium uppercase tracking-[0.25em] text-[13px] opacity-65 mb-10">The Art Of Game Design</h3>
+            
+            <div class="quiet-book-container group cursor-pointer">
+                <div class="book-shadow-ambient"></div>
+                <div class="dust-particle dust-1"></div>
+                <div class="dust-particle dust-2"></div>
+                <div class="dust-particle dust-3"></div>
+                
+                <div class="quiet-book-3d book-pos-1">
+                    <div class="book-front">
+                        <img src="https://m.media-amazon.com/images/I/81FjSaTN0AL._AC_UF1000,1000_QL80_.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Star Wars Book Cover">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                        <div class="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-black/20"></div>
+                        <div class="absolute top-0 bottom-0 left-0 w-[2px] bg-black/40"></div>
+                        
+                        <div class="absolute top-0 right-6 w-3 h-12 bg-amber-600/80 backdrop-blur-sm rounded-b-sm shadow-[0_2px_4px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:translate-y-1 z-20"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-10 text-center transition-all duration-700 group-hover:-translate-y-2 flex flex-col items-center">
+                <p class="text-gray-600 font-serif text-sm italic leading-relaxed max-w-xs">
+                    "Masterpiece exploring creativity, strategy, storytelling, and innovation behind iconic game design"
+                </p>
+            </div>
+        </div>
+
+            <div class="quiet-island quiet-island-atmospheric quiet-float-2 p-6 md:p-12 flex flex-col items-center text-center mt-0 absolute md:relative inset-0 md:inset-auto stack-card bg-white/95 md:!bg-transparent backdrop-blur-2xl md:!backdrop-blur-none border border-black/5 md:!border-white/20 rounded-3xl transition-all duration-500 ease-out cursor-grab active:cursor-grabbing" data-index="1">
+            <h3 class="text-gray-800 font-inter font-medium uppercase tracking-[0.25em] text-[13px] opacity-65 mb-10">Snow Crash</h3>
+            
+            <div class="quiet-book-container group cursor-pointer">
+                <div class="book-shadow-ambient"></div>
+                <div class="dust-particle dust-1"></div>
+                <div class="dust-particle dust-2"></div>
+                <div class="dust-particle dust-3"></div>
+                
+                <div class="quiet-book-3d book-pos-2" style="width: 160px; height: 230px;">
+                    <div class="book-front">
+                        <img src="snowcrash.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Snow Crash Book Cover">
+                        
+                        <!-- Shadows and gradients for book realism and text readability -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                        <div class="absolute inset-0 bg-gradient-to-bl from-white/20 via-transparent to-black/20"></div>
+                        <div class="absolute top-0 bottom-0 left-0 w-[2px] bg-black/40"></div>
+                        
+                        <div class="absolute top-0 right-8 w-3.5 h-14 bg-rose-700/80 backdrop-blur-sm rounded-b-sm shadow-[0_2px_4px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:translate-y-1 z-20"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-10 text-center transition-all duration-700 group-hover:-translate-y-2 flex flex-col items-center">
+                <p class="text-gray-600 font-serif text-sm italic leading-relaxed max-w-xs">
+                    "Cyberpunk classic blending virtual reality, linguistics, hacking, and anarchic futuristic culture"
+                </p>
+            </div>
+        </div>
+
+            <div class="quiet-island quiet-island-atmospheric quiet-float-3 p-6 md:p-10 flex flex-col items-center text-center absolute md:relative inset-0 md:inset-auto stack-card bg-white/95 md:!bg-transparent backdrop-blur-2xl md:!backdrop-blur-none border border-black/5 md:!border-white/20 rounded-3xl transition-all duration-500 ease-out cursor-grab active:cursor-grabbing" data-index="2">
+            <h3 class="text-gray-800 font-inter font-medium uppercase tracking-[0.25em] text-[13px] opacity-65 mb-10">Ready Player One</h3>
+            
+            <div class="quiet-book-container group cursor-pointer">
+                <div class="book-shadow-ambient"></div>
+                <div class="dust-particle dust-1"></div>
+                <div class="dust-particle dust-2"></div>
+                <div class="dust-particle dust-3"></div>
+                
+                <div class="quiet-book-3d book-pos-3">
+                    <div class="book-front">
+                        <img src="https://m.media-amazon.com/images/I/91FGDm7MfIL._AC_UF1000,1000_QL80_.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Ready Player One Book Cover">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                        <div class="absolute inset-0 bg-gradient-to-tr from-white/20 via-transparent to-black/20"></div>
+                        <div class="absolute top-0 bottom-0 left-0 w-[2px] bg-black/40"></div>
+                        
+                        <div class="absolute top-0 right-6 w-3 h-10 bg-emerald-600/80 backdrop-blur-sm rounded-b-sm shadow-[0_2px_4px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:translate-y-1 z-20"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-10 text-center transition-all duration-700 group-hover:-translate-y-2 flex flex-col items-center">
+                <p class="text-gray-600 font-serif text-sm italic leading-relaxed max-w-xs">
+                    "Thrilling virtual adventure celebrating gaming, nostalgia, friendship, and immersive digital worlds."
+                </p>
+            </div>
+        </div>
+
+        </div>
+    </div>
+    </div>
+    
+    <!-- Ethereal Scroll Down Indicator -->
+    <div id="scroll-to-return-indicator" class="absolute bottom-2 left-1/2 flex flex-col items-center pointer-events-none z-20">
+        <span class="text-gray-900 font-bold font-inter text-[10px] tracking-[0.3em] uppercase mb-1 md:mb-3 text-center drop-shadow-md">Scroll Down<br>To Elysium</span>
+        <i class="ri-arrow-down-double-line text-gray-900 font-bold text-2xl animate-bounce drop-shadow-md"></i>
+    </div>
+</div>
+
 <!-- Top Scroll Mask -->
-<div class="fixed top-0 left-0 right-0 h-32 md:h-40 z-30 pointer-events-none" style="background: linear-gradient(to bottom, rgba(245, 245, 245, 1) 10%, rgba(245, 245, 245, 0.6) 50%, rgba(245, 245, 245, 0) 100%); mask-image: linear-gradient(to bottom, black 40%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);"></div>
+<div id="top-scroll-mask" class="fixed top-0 left-0 right-0 h-32 md:h-40 z-30 pointer-events-none" style="background: linear-gradient(to bottom, rgba(245, 245, 245, 1) 10%, rgba(245, 245, 245, 0.6) 50%, rgba(245, 245, 245, 0) 100%); mask-image: linear-gradient(to bottom, black 40%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);"></div>
 
 <nav class="fixed top-4 left-1/2 -translate-x-1/2 w-[max-content] max-w-[95vw] sm:max-w-none bg-white/30 backdrop-blur-xl z-50 shadow-[0_8px_32px_rgba(0,0,0,0.1)] shadow-[inset_0_0_10px_rgba(255,255,255,0.5)] rounded-full border border-white/40 flex justify-center">
 <div class="px-1.5 sm:px-2 md:px-4 py-1.5 sm:py-2 relative" id="desktop-nav-container">
@@ -817,7 +1207,7 @@ to {
       <div class="eq-bar"></div>
     </div>
     <div class="flex items-center gap-1 max-w-[150px] md:max-w-[200px] overflow-hidden">
-      <span id="np-status" class="hidden px-1.5 py-0.5 rounded-md bg-blue-500/20 text-blue-600 text-[8px] font-bold uppercase tracking-wider border border-blue-500/30 backdrop-blur-sm whitespace-nowrap">Last Listen</span>
+      <span id="np-status" class="hidden flex items-center justify-center w-5 h-5 shrink-0 rounded-full bg-blue-500/20 text-blue-600 text-[11px] border border-blue-500/30 backdrop-blur-sm"><i class="ri-history-line"></i></span>
       <span id="np-song" class="font-inter font-semibold text-xs text-gray-800 truncate">Loading...</span>
       <span id="np-bullet" class="text-gray-500 text-[10px]">•</span>
       <span id="np-artist" class="font-inter text-[10px] text-gray-600 truncate">Connecting</span>
@@ -3512,6 +3902,260 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
     
+</script>
+
+<script>
+// Quiet Layer Logic
+const quietLayer = document.getElementById('quiet-layer');
+let quietState = 0; 
+// 0: normal
+// 1: ascent intent 1
+// 2: ascent intent 2
+// 3: active
+// 4: descent intent 1
+// 5: descent intent 2
+
+let lastQuietScrollTime = 0;
+const intentCooldown = 400; // ms
+const timeWindow = 2000; // ms window to complete sequence
+let sequenceTimeout;
+let audioCtx, droneNode, windNode, mainGain;
+
+function initAudio() {
+    if (audioCtx) return;
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContext) return;
+    audioCtx = new AudioContext();
+    mainGain = audioCtx.createGain();
+    mainGain.gain.value = 0;
+    mainGain.connect(audioCtx.destination);
+
+    // Soft Drone
+    droneNode = audioCtx.createOscillator();
+    droneNode.type = 'sine';
+    droneNode.frequency.value = 55; // Low A
+    const droneGain = audioCtx.createGain();
+    droneGain.gain.value = 0.5;
+    droneNode.connect(droneGain).connect(mainGain);
+    droneNode.start();
+
+    // Wind Noise
+    const bufferSize = audioCtx.sampleRate * 2;
+    const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+    const data = buffer.getChannelData(0);
+    for (let i = 0; i < bufferSize; i++) {
+        data[i] = Math.random() * 2 - 1;
+    }
+    windNode = audioCtx.createBufferSource();
+    windNode.buffer = buffer;
+    windNode.loop = true;
+    const windFilter = audioCtx.createBiquadFilter();
+    windFilter.type = 'lowpass';
+    windFilter.frequency.value = 400;
+    const windGain = audioCtx.createGain();
+    windGain.gain.value = 0.1;
+    windNode.connect(windFilter).connect(windGain).connect(mainGain);
+    windNode.start();
+}
+
+function updateAudioGain(targetValue, duration) {
+    if (!mainGain || !audioCtx) return;
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+    const now = audioCtx.currentTime;
+    mainGain.gain.cancelScheduledValues(now);
+    mainGain.gain.setValueAtTime(mainGain.gain.value, now);
+    mainGain.gain.linearRampToValueAtTime(targetValue, now + duration);
+}
+
+let isQuietSequencePlaying = false;
+
+function setQuietState(newState) {
+    if (newState === quietState) return;
+    quietState = newState;
+    
+    document.body.classList.remove('quiet-intent-1', 'quiet-intent-2', 'quiet-active', 'quiet-descent-1', 'quiet-descent-2');
+    
+    if (quietState === 1) {
+        document.body.classList.add('quiet-intent-1');
+    } else if (quietState === 2) {
+        document.body.classList.add('quiet-intent-2');
+        initAudio();
+        updateAudioGain(0.2, 0.4);
+    } else if (quietState === 3) {
+        document.body.classList.add('quiet-active');
+        updateAudioGain(1.0, 1.0);
+    } else if (quietState === 4) {
+        document.body.classList.add('quiet-active', 'quiet-descent-1');
+        updateAudioGain(0.6, 0.4);
+    } else if (quietState === 5) {
+        document.body.classList.add('quiet-active', 'quiet-descent-2');
+        updateAudioGain(0.3, 0.4);
+    } else if (quietState === 0) {
+        updateAudioGain(0, 1.0);
+    }
+}
+
+function playQuietAscent() {
+    if (isQuietSequencePlaying || quietState >= 3) return;
+    isQuietSequencePlaying = true;
+    
+    // Go directly to the active state for a seamless, continuous CSS transition
+    setQuietState(3);
+    setTimeout(() => {
+        isQuietSequencePlaying = false;
+    }, 2000); // Wait for the 2s CSS transition to finish
+}
+
+function playQuietDescent() {
+    if (isQuietSequencePlaying || quietState === 0) return;
+    isQuietSequencePlaying = true;
+    
+    // Go directly to the normal state for a seamless, continuous CSS transition
+    setQuietState(0);
+    setTimeout(() => {
+        isQuietSequencePlaying = false;
+    }, 2000); // Wait for the 2s CSS transition to finish
+}
+
+// Mouse Wheel Overscroll Detection
+window.addEventListener('wheel', (e) => {
+    const now = Date.now();
+    const atTop = window.scrollY === 0;
+    
+    if (isQuietSequencePlaying) {
+        e.preventDefault();
+        return;
+    }
+    
+    // Only detect overscroll if we are at the top of the page
+    if (atTop && now - lastQuietScrollTime > intentCooldown) {
+        if (e.deltaY < -40) {
+            // Upward overscroll (pushing past top)
+            if (quietState === 0) {
+                lastQuietScrollTime = now;
+                playQuietAscent();
+                e.preventDefault();
+            }
+        } else if (e.deltaY > 40 && quietState === 3) {
+            // Downward overscroll from Quiet Layer
+            lastQuietScrollTime = now;
+            playQuietDescent();
+            e.preventDefault();
+        }
+    }
+
+    // Prevent default scroll if active
+    if (quietState >= 3) {
+        e.preventDefault();
+    }
+}, { passive: false });
+
+// Touch Overscroll Detection
+let qTouchStartY = 0;
+window.addEventListener('touchstart', (e) => {
+    qTouchStartY = e.touches[0].clientY;
+}, { passive: true });
+
+window.addEventListener('touchmove', (e) => {
+    const touchY = e.touches[0].clientY;
+    const deltaY = qTouchStartY - touchY; // Positive if dragging UP (scrolling down), Negative if dragging DOWN (scrolling up past top)
+    const atTop = window.scrollY === 0;
+    const now = Date.now();
+    
+    if (isQuietSequencePlaying) {
+        e.preventDefault();
+        return;
+    }
+    
+    if (atTop && now - lastQuietScrollTime > intentCooldown) {
+        if (deltaY < -40) { // Dragged down = upward scroll past top
+            if (quietState === 0) {
+                lastQuietScrollTime = now;
+                playQuietAscent();
+                e.preventDefault();
+            }
+        } else if (deltaY > 40 && quietState === 3) {
+            lastQuietScrollTime = now;
+            playQuietDescent();
+            e.preventDefault();
+        }
+    }
+
+    if (quietState >= 3) {
+        e.preventDefault();
+    }
+}, { passive: false });
+
+// Mobile Card Stack Logic (Vanilla JS)
+let currentStackIndex = 0;
+const stackCards = document.querySelectorAll('.stack-card');
+const stackContainer = document.getElementById('cards-container');
+
+function updateCardStack() {
+    if (window.innerWidth >= 768) {
+        // Desktop: Let Tailwind handle grid positioning
+        stackCards.forEach(card => {
+            card.style.transform = '';
+            card.style.zIndex = '';
+            card.style.opacity = '';
+        });
+        return;
+    }
+
+    // Mobile: Apply Fanned Deck Stack
+    stackCards.forEach((card, i) => {
+        let state = (i - currentStackIndex + stackCards.length) % stackCards.length;
+        if (state === 0) { // Active Center Card
+            card.style.zIndex = 30;
+            card.style.transform = 'translateX(0) scale(1) rotate(0deg)';
+            card.style.opacity = 1;
+        } else if (state === 1) { // Next Card (Right Fan)
+            card.style.zIndex = 20;
+            card.style.transform = 'translateX(180px) translateY(15px) rotate(14deg) scale(0.9)';
+            card.style.opacity = 0.95;
+        } else if (state === 2) { // Prev Card (Left Fan)
+            card.style.zIndex = 10;
+            card.style.transform = 'translateX(-180px) translateY(15px) rotate(-14deg) scale(0.9)';
+            card.style.opacity = 0.95;
+        }
+    });
+}
+
+// Touch Swipe Logic
+let stackStartX = 0;
+let stackStartY = 0;
+
+stackContainer.addEventListener('touchstart', e => {
+    if (window.innerWidth >= 768) return;
+    stackStartX = e.touches[0].clientX;
+    stackStartY = e.touches[0].clientY;
+}, {passive: true});
+
+stackContainer.addEventListener('touchend', e => {
+    if (window.innerWidth >= 768) return;
+    let endX = e.changedTouches[0].clientX;
+    let endY = e.changedTouches[0].clientY;
+    
+    let diffX = stackStartX - endX;
+    let diffY = stackStartY - endY;
+
+    // Detect if swipe is significant
+    if (Math.abs(diffX) > 40 || Math.abs(diffY) > 40) {
+        // If swipe UP or swipe LEFT -> Next Card
+        if (diffY > 40 || diffX > 40) {
+            currentStackIndex = (currentStackIndex + 1) % stackCards.length;
+            updateCardStack();
+        } 
+        // If swipe DOWN or swipe RIGHT -> Prev Card
+        else if (diffY < -40 || diffX < -40) {
+            currentStackIndex = (currentStackIndex - 1 + stackCards.length) % stackCards.length;
+            updateCardStack();
+        }
+    }
+}, {passive: true});
+
+window.addEventListener('resize', updateCardStack);
+updateCardStack(); // Call immediately on load to apply styles instantly
 </script>
 </body>
 
