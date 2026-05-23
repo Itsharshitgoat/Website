@@ -716,6 +716,22 @@ to {
     0% { opacity: 0; width: 0; transform: scaleX(0); transform-origin: left; }
     100% { opacity: 1; width: 12.5px; transform: scaleX(1); transform-origin: left; }
 }
+
+.input-error-glow {
+    border-color: transparent !important;
+    background-image: none;
+    animation: redGlowSpin 2s linear infinite;
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.7), 0 0 15px rgba(239, 68, 68, 0.4), 0 0 30px rgba(239, 68, 68, 0.15);
+}
+
+@keyframes redGlowSpin {
+    0%   { box-shadow: 0 -2px 8px 1px rgba(239,68,68,0.8), 2px 0 8px 1px rgba(239,68,68,0.2), 0 2px 8px 1px rgba(239,68,68,0.2), -2px 0 8px 1px rgba(239,68,68,0.2); }
+    25%  { box-shadow: 0 -2px 8px 1px rgba(239,68,68,0.2), 2px 0 8px 1px rgba(239,68,68,0.8), 0 2px 8px 1px rgba(239,68,68,0.2), -2px 0 8px 1px rgba(239,68,68,0.2); }
+    50%  { box-shadow: 0 -2px 8px 1px rgba(239,68,68,0.2), 2px 0 8px 1px rgba(239,68,68,0.2), 0 2px 8px 1px rgba(239,68,68,0.8), -2px 0 8px 1px rgba(239,68,68,0.2); }
+    75%  { box-shadow: 0 -2px 8px 1px rgba(239,68,68,0.2), 2px 0 8px 1px rgba(239,68,68,0.2), 0 2px 8px 1px rgba(239,68,68,0.2), -2px 0 8px 1px rgba(239,68,68,0.8); }
+    100% { box-shadow: 0 -2px 8px 1px rgba(239,68,68,0.8), 2px 0 8px 1px rgba(239,68,68,0.2), 0 2px 8px 1px rgba(239,68,68,0.2), -2px 0 8px 1px rgba(239,68,68,0.2); }
+}
+
 </style>
 <!-- JSON-LD Structured Data for SEO -->
 <script type="application/ld+json">
@@ -1046,6 +1062,14 @@ body.quiet-descent-2 .quiet-bg-gradient { opacity: 0.95; }
     80% { opacity: 0.5; }
     100% { transform: translateY(-20px) translateX(10px); opacity: 0; }
 }
+
+.heaven-gradient-text {
+    background: linear-gradient(to right, rgba(79, 153, 223, 0.9), rgba(155, 65, 219, 0.9), rgba(128, 97, 129, 0.9)) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+}
 </style>
 </head>
 <body class="bg-[#F5F5F5] text-[#333333]">
@@ -1057,7 +1081,7 @@ body.quiet-descent-2 .quiet-bg-gradient { opacity: 0.95; }
         
         <!-- Welcome Header -->
         <div class="w-full text-center mb-4 md:mb-10 px-8 flex flex-col items-center justify-center pt-4 md:pt-0">
-            <h1 class="text-5xl md:text-6xl lg:text-[72px] text-gray-900 tracking-tight font-serif" style="font-weight: 500; text-shadow: 0 4px 24px rgba(255,255,255,0.8);">Welcome to Heaven</h1>
+            <h1 class="text-5xl md:text-6xl lg:text-[72px] tracking-tight font-serif heaven-gradient-text" style="font-weight: 500;">Welcome to Heaven</h1>
             <p class="text-gray-600 font-inter text-sm md:text-base tracking-wide max-w-lg mt-4" style="text-shadow: 0 2px 12px rgba(255,255,255,0.8);">These are my favorite books that I love reading.</p>
             <div class="w-16 h-1 bg-gray-900/10 mt-6 md:mt-8 rounded-full"></div>
         </div>
@@ -2628,14 +2652,20 @@ Details
 <h2 class="font-helvetica text-4xl font-bold text-center">Get in Touch</h2>
 </div>
 <div class="max-w-2xl mx-auto">
-<form id="contact-form" action="https://formspree.io/f/xwvzkrzq" method="POST" class="space-y-6">
+<form id="contact-form" action="https://formspree.io/f/xwvzkrzq" method="POST" class="space-y-6" novalidate>
 <div>
 <label class="block font-inter font-medium mb-2" for="name">Name</label>
-<input type="text" id="name" name="name" class="w-full px-4 py-3 bg-white/60 backdrop-blur-sm border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 shadow-lg transition-all duration-300" required>
+<div class="relative">
+<input type="text" id="name" name="name" class="w-full px-4 py-3 pr-10 bg-white/60 backdrop-blur-sm border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 shadow-lg transition-all duration-300" required>
+<div id="name-error" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-red-500 text-xl pointer-events-none"><i class="ri-error-warning-line"></i></div>
+</div>
 </div>
 <div>
 <label class="block font-inter font-medium mb-2" for="email">Email</label>
-<input type="email" id="email" name="email" class="w-full px-4 py-3 bg-white/60 backdrop-blur-sm border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 shadow-lg transition-all duration-300" required>
+<div class="relative">
+<input type="email" id="email" name="email" class="w-full px-4 py-3 pr-10 bg-white/60 backdrop-blur-sm border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 shadow-lg transition-all duration-300" required>
+<div id="email-error" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-red-500 text-xl pointer-events-none"><i class="ri-error-warning-line"></i></div>
+</div>
 </div>
 <div>
 <label class="block font-inter font-medium mb-2" for="message">Message</label>
@@ -3125,8 +3155,52 @@ document.addEventListener('DOMContentLoaded', function() {
   const formError = document.getElementById('form-error');
 
   if (contactForm) {
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const nameError = document.getElementById('name-error');
+    const emailError = document.getElementById('email-error');
+
+    nameInput.addEventListener('input', function() {
+        if (this.value.trim()) {
+            this.classList.remove('input-error-glow');
+            nameError.classList.add('hidden');
+        }
+    });
+
+    emailInput.addEventListener('input', function() {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (this.value.trim() && emailRegex.test(this.value.trim())) {
+            this.classList.remove('input-error-glow');
+            emailError.classList.add('hidden');
+        }
+    });
+
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
+
+      // Validation
+      let isValid = true;
+
+      // Reset errors
+      nameError.classList.add('hidden');
+      emailError.classList.add('hidden');
+      nameInput.classList.remove('input-error-glow');
+      emailInput.classList.remove('input-error-glow');
+
+      if (!nameInput.value.trim()) {
+        nameError.classList.remove('hidden');
+        nameInput.classList.add('input-error-glow');
+        isValid = false;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailInput.value.trim() || !emailRegex.test(emailInput.value.trim())) {
+        emailError.classList.remove('hidden');
+        emailInput.classList.add('input-error-glow');
+        isValid = false;
+      }
+
+      if (!isValid) return;
       
       // Update UI to loading state
       submitBtn.disabled = true;
