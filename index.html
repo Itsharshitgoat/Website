@@ -52,6 +52,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Pacifico&family=Roboto+Mono:wght@400;500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+
 <script>
 tailwind.config = {
 theme: {
@@ -657,6 +658,135 @@ font-size: 16px;
     100% { box-shadow: 0 -2px 8px 1px rgba(239,68,68,0.8), 2px 0 8px 1px rgba(239,68,68,0.2), 0 2px 8px 1px rgba(239,68,68,0.2), -2px 0 8px 1px rgba(239,68,68,0.2); }
 }
 
+/* ── GitHub Contribution Graph (Full Width) ── */
+.gh-full-card {
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 24px;
+  padding: 12px 16px;
+  box-shadow: 0 10px 40px rgba(0,71,171,0.08), inset 0 1px 0 rgba(255,255,255,0.6);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.gh-full-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 50px rgba(0,71,171,0.12), inset 0 1px 0 rgba(255,255,255,0.8);
+}
+.gh-full-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.gh-full-title {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.gh-full-title i { color: #0047AB; font-size: 1.4rem; }
+.gh-live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #22c55e;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.gh-live-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: #22c55e;
+  border-radius: 50%;
+  animation: ghDot 2s ease-in-out infinite;
+}
+.gh-full-link {
+  font-family: "Inter", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #0047AB;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 18px;
+  border-radius: 99px;
+  background: rgba(0,71,171,0.06);
+  border: 1px solid rgba(0,71,171,0.15);
+  transition: all 0.3s;
+}
+.gh-full-link:hover {
+  background: rgba(0,71,171,0.12);
+  transform: translateY(-1px);
+}
+.gh-content-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.gh-graph-box {
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 16px;
+  padding: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  align-items: center;
+}
+.gh-graph-box::-webkit-scrollbar { display: none; }
+.gh-graph-box svg, .gh-graph-box img {
+  display: block;
+  height: auto;
+  min-width: 680px;
+  margin: 0 auto;
+}
+.gh-stats-box {
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+.gh-stats-box img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 1024px) {
+  .gh-content-flex {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  .gh-graph-box {
+    flex: 65%;
+    justify-content: center;
+  }
+  .gh-stats-box {
+    flex: 35%;
+  }
+}
+
+@media (max-width: 768px) {
+  .gh-full-card { padding: 20px 16px; border-radius: 20px; margin-top: 32px; }
+  .gh-graph-box { padding: 12px; border-radius: 12px; }
+  .gh-stats-box { border-radius: 12px; }
+}
+
 </style>
 <!-- JSON-LD Structured Data for SEO -->
 <script type="application/ld+json">
@@ -995,6 +1125,226 @@ body.quiet-descent-2 .quiet-bg-gradient { opacity: 0.95; }
     color: transparent !important;
     -webkit-text-fill-color: transparent !important;
 }
+
+/* ═══════════════════════════════════════════ */
+/* ██  HELL LAYER — The Infernal Realm  ██ */
+/* ═══════════════════════════════════════════ */
+
+.hell-bg-gradient {
+    background: radial-gradient(ellipse at 50% 100%, rgba(20, 0, 0, 0.98) 0%, rgba(40, 5, 5, 0.95) 30%, rgba(10, 0, 0, 0.99) 100%);
+    opacity: 0;
+    transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.hell-lava-glow {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: radial-gradient(ellipse at 50% 100%, rgba(255, 60, 0, 0.25) 0%, rgba(255, 120, 0, 0.08) 40%, transparent 70%);
+    opacity: 0;
+    transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+    pointer-events: none;
+}
+
+@keyframes lava-pulse {
+    0% { opacity: 0.5; transform: scaleY(1); }
+    50% { opacity: 0.8; transform: scaleY(1.05); }
+    100% { opacity: 0.5; transform: scaleY(1); }
+}
+
+.hell-ember {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+}
+
+@keyframes ember-rise {
+    0% {
+        transform: translateY(0) translateX(0) scale(1);
+        opacity: 0;
+    }
+    10% { opacity: 0.9; }
+    60% { opacity: 0.6; }
+    100% {
+        transform: translateY(-80vh) translateX(var(--ember-drift)) scale(0.2);
+        opacity: 0;
+    }
+}
+
+.hell-gradient-text {
+    background: linear-gradient(to right, rgba(255, 60, 0, 0.95), rgba(255, 160, 0, 0.9), rgba(200, 30, 0, 0.95)) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+    text-shadow: none !important;
+}
+
+.hell-smoke {
+    position: absolute;
+    background-image: radial-gradient(ellipse at center, rgba(80, 20, 0, 0.3) 0%, transparent 60%);
+    mix-blend-mode: screen;
+    opacity: 0;
+    transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.hell-smoke-1 {
+    width: 200%; height: 200%;
+    bottom: -50%; left: -50%;
+    animation: smoke-drift 80s linear infinite;
+    transform-origin: center;
+}
+
+.hell-smoke-2 {
+    width: 150%; height: 150%;
+    bottom: -25%; right: -25%;
+    animation: smoke-drift 60s linear infinite reverse;
+    transform-origin: center;
+}
+
+@keyframes smoke-drift {
+    0% { transform: rotate(0deg) translate(0, 0); }
+    100% { transform: rotate(360deg) translate(3%, -3%); }
+}
+
+/* Hell Island / Card Styles */
+.hell-island {
+    background: rgba(30, 5, 5, 0.6);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 60, 0, 0.15);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 100, 0, 0.15);
+    will-change: transform;
+}
+
+.hell-island-atmospheric {
+    border-radius: 38px 38px 30px 30px;
+    background: radial-gradient(circle at top left, rgba(255, 60, 0, 0.08), transparent 60%), rgba(20, 5, 5, 0.4);
+    box-shadow: inset 0 1px 1px rgba(255, 100, 0, 0.2), 0 20px 40px rgba(200, 50, 0, 0.12);
+    position: relative;
+}
+
+/* Hell floating animation */
+@media (min-width: 768px) {
+    .hell-float-1 { animation: hell-float 10s ease-in-out infinite; }
+    .hell-float-2 { animation: hell-float 8s ease-in-out infinite 0.3s; }
+    .hell-float-3 { animation: hell-float 12s ease-in-out infinite 0.7s; }
+}
+
+@keyframes hell-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Hell State Classes */
+#hell-content {
+    opacity: 0;
+    transform: translateY(-60px) scale(1.05);
+    filter: blur(15px);
+    transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1), filter 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+body.hell-active #hell-layer {
+    pointer-events: all;
+}
+body.hell-active .hell-bg-gradient { opacity: 1; }
+body.hell-active .hell-lava-glow { 
+    opacity: 1;
+    animation: lava-pulse 4s ease-in-out infinite alternate; 
+}
+body.hell-active .hell-smoke { opacity: 0.5; }
+body.hell-active .hell-ember { animation: ember-rise var(--ember-dur) ease-out infinite; animation-delay: var(--ember-delay); }
+body.hell-active #hell-content {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+}
+#hell-scroll-indicator {
+    opacity: 0;
+    transform: translateY(-20px) translateX(-50%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+body.hell-active #hell-scroll-indicator {
+    opacity: 1;
+    transform: translateY(0) translateX(-50%);
+    transition: opacity 1s ease 0.8s, transform 1s ease 0.8s;
+}
+
+/* Fade/blur main when Hell is active */
+body.hell-active main {
+    opacity: 0;
+    transform: translateY(120px) scale(0.90);
+    pointer-events: none;
+    filter: blur(15px);
+}
+
+/* Fade fixed UI for Hell */
+body.hell-active nav,
+body.hell-active #now-playing-pill,
+body.hell-active #mobile-menu {
+    opacity: 0 !important;
+    filter: blur(10px) !important;
+    transform: translateX(-50%) translateY(30px) !important;
+    pointer-events: none !important;
+}
+
+body.hell-active #top-scroll-mask,
+body.hell-active #bottom-scroll-mask {
+    opacity: 0 !important;
+    filter: blur(10px) !important;
+    transform: translateY(30px) !important;
+    pointer-events: none !important;
+}
+
+/* Hell descent (leaving hell) */
+body.hell-descent-1 #hell-content {
+    opacity: 0.8;
+    transform: translateY(-20px) scale(1.02);
+    filter: blur(4px);
+}
+body.hell-descent-1 .hell-bg-gradient { opacity: 1; }
+body.hell-descent-2 #hell-content {
+    opacity: 0.4;
+    transform: translateY(-40px) scale(1.04);
+    filter: blur(10px);
+}
+body.hell-descent-2 .hell-bg-gradient { opacity: 0.95; }
+
+/* Skull card glow effect */
+.skull-glow {
+    filter: drop-shadow(0 0 20px rgba(255, 60, 0, 0.4));
+    transition: filter 0.5s ease;
+}
+.skull-glow:hover {
+    filter: drop-shadow(0 0 35px rgba(255, 80, 0, 0.6));
+}
+
+/* Chain link decoration */
+.chain-link {
+    display: inline-block;
+    width: 12px;
+    height: 20px;
+    border: 2px solid rgba(255, 150, 50, 0.4);
+    border-radius: 6px;
+    margin: 0 2px;
+}
+
+/* Flickering fire text effect */
+@keyframes fire-flicker {
+    0%, 100% { text-shadow: 0 0 10px rgba(255, 100, 0, 0.6), 0 0 20px rgba(255, 60, 0, 0.3), 0 0 40px rgba(255, 30, 0, 0.1); }
+    25% { text-shadow: 0 0 15px rgba(255, 120, 0, 0.7), 0 0 30px rgba(255, 80, 0, 0.4), 0 0 50px rgba(255, 40, 0, 0.15); }
+    50% { text-shadow: 0 0 8px rgba(255, 80, 0, 0.5), 0 0 18px rgba(255, 50, 0, 0.25), 0 0 35px rgba(255, 20, 0, 0.08); }
+    75% { text-shadow: 0 0 12px rgba(255, 110, 0, 0.65), 0 0 25px rgba(255, 70, 0, 0.35), 0 0 45px rgba(255, 35, 0, 0.12); }
+}
+
+.fire-text {
+    animation: fire-flicker 3s ease-in-out infinite;
+}
+
+
 </style>
 </head>
 <body class="bg-[#F5F5F5] text-[#333333]">
@@ -1585,8 +1935,8 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
 <div class="absolute inset-x-0 bottom-0 p-6 z-10 flex flex-col justify-end text-white">
 <div class="flex items-center gap-3 mb-0 transform transition-transform duration-500 group-hover:-translate-y-3">
-<div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center shrink-0">
-<i class="ri-tv-line text-xl text-white"></i>
+<div class="w-12 h-12 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center shrink-0">
+<i class="ri-tv-line text-xl text-primary"></i>
 </div>
 <h3 class="font-helvetica text-xl font-bold">Binge Watcher</h3>
 </div>
@@ -1602,8 +1952,8 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
 <div class="absolute inset-x-0 bottom-0 p-6 z-10 flex flex-col justify-end text-white">
 <div class="flex items-center gap-3 mb-0 transform transition-transform duration-500 group-hover:-translate-y-3">
-<div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center shrink-0">
-<i class="ri-music-2-line text-xl text-white"></i>
+<div class="w-12 h-12 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center shrink-0">
+<i class="ri-music-2-line text-xl text-primary"></i>
 </div>
 <h3 class="font-helvetica text-xl font-bold">Music Listening</h3>
 </div>
@@ -1619,8 +1969,8 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
 <div class="absolute inset-x-0 bottom-0 p-6 z-10 flex flex-col justify-end text-white">
 <div class="flex items-center gap-3 mb-0 transform transition-transform duration-500 group-hover:-translate-y-3">
-<div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center shrink-0">
-<i class="ri-book-line text-xl text-white"></i>
+<div class="w-12 h-12 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center shrink-0">
+<i class="ri-book-line text-xl text-primary"></i>
 </div>
 <h3 class="font-helvetica text-xl font-bold">Reading</h3>
 </div>
@@ -1660,24 +2010,26 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 <div>
 </div>
 </div>
+
+
 </div>
 <div>
 <h3 class="font-helvetica text-2xl font-bold mb-6">Useful Tools</h3>
 <div class="flex flex-wrap gap-4 justify-center">
 <div class="w-20 h-20 flex items-center justify-center bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/20">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/500px-Visual_Studio_Code_1.35_icon.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" alt="VS Code" class="w-12 h-12 object-contain" loading="lazy">
+<img src="https://user-images.githubusercontent.com/85056161/221151383-dee5374b-03d9-4548-a0fd-35dfc7ea0f5b.png" alt="VS Code" class="w-12 h-12 object-contain" loading="lazy">
 </div>
 <div class="w-20 h-20 flex items-center justify-center bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/20">
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_Notes_icon.svg/3840px-Apple_Notes_icon.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" alt="Android Studio" class="w-12 h-12 object-contain" loading="lazy">
 </div>
 <div class="w-20 h-20 flex items-center justify-center bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/20">
-<img src="https://news.tuxmachines.org/i/2025/01/ghostty-logo.png" alt="Premiere Pro" class="w-12 h-12 object-contain" loading="lazy">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/250px-Visual_Studio_Code_1.35_icon.svg.png" alt="Premiere Pro" class="w-12 h-12 object-contain" loading="lazy">
 </div>
 <div class="w-20 h-20 flex items-center justify-center bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/20">
 <img src="https://images.icon-icons.com/1381/PNG/512/mysqlworkbench_93532.png" alt="Figma" class="w-12 h-12 object-contain" loading="lazy">
 </div>
 <div class="w-20 h-20 flex items-center justify-center bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/20">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Spotify_icon.svg/1280px-Spotify_icon.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" alt="Notion" class="w-12 h-12 object-contain" loading="lazy">
+<img src="https://antigravity.google/assets/image/brand/antigravity-icon__full-color.png" alt="Notion" class="w-12 h-12 object-contain" loading="lazy">
 </div>
 <div class="w-20 h-20 flex items-center justify-center bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/20">
 <img src="https://avatars.githubusercontent.com/u/18133?s=200&v=4" alt="GitHub" class="w-12 h-12 object-contain" loading="lazy">
@@ -1686,16 +2038,64 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 <img src="https://play-lh.googleusercontent.com/t2xwoWAJPoIHZlYiw82J31fZl40kj962j5DVHohn-Pgn7ZiuoXCl-2_NMyMERa7cCFw" alt="Photoshop" class="w-12 h-12 object-contain" loading="lazy">
 </div>
 <div class="w-20 h-20 flex items-center justify-center bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/20">
-<img src="https://upload.wikimedia.org/wikipedia/en/f/f4/Raycast_App_Icon.png" alt="Chrome" class="w-12 h-12 object-contain" loading="lazy">
+<img src="https://github.com/sozercan/kaset/blob/main/Sources/Kaset/Resources/AppIcon.icon/Assets/Image%20Layer.png?raw=true" alt="Chrome" class="w-12 h-12 object-contain" loading="lazy">
 </div>
 <div class="w-20 h-20 flex items-center justify-center bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/20">
-<img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/GitHub_Invertocat_Logo.svg" alt="Photoshop" class="w-12 h-12 object-contain" loading="lazy">
+<img src="https://upload.wikimedia.org/wikipedia/en/f/f4/Raycast_App_Icon.png" alt="Photoshop" class="w-12 h-12 object-contain" loading="lazy">
 </div>
 </div>
 </div>
 </div>
+</div>
+
+<!-- GitHub Contribution Graph (Full Width at Bottom) -->
+<h3 class="font-helvetica text-2xl font-bold mb-6 mt-16 text-center text-gray-900">Open Source Contributions</h3>
+<div class="gh-full-card" id="gh-contribution-graph">
+  <div class="gh-content-flex">
+    <div class="gh-graph-box" id="gh-graph-target">
+      <img src="https://ghchart.rshah.org/0047AB/Itsharshitgoat" alt="GitHub contributions" />
+    </div>
+    <div class="gh-stats-box">
+      <img src="https://streak-stats.demolab.com?user=Itsharshitgoat&theme=transparent&hide_border=true&date_format=j%20M%5B%20Y%5D&ring=0047AB&fire=0047AB&currStreakLabel=0047AB&sideLabels=6b7280&currStreakNum=1f2937&sideNums=1f2937&dates=9ca3af" alt="GitHub Streak Stats" />
+    </div>
+  </div>
+</div>
+
 </div>
 </section>
+
+<!-- Inline script to fetch SVG and round contribution squares -->
+<script>
+(function() {
+  // Use a reliable proxy to bypass CORS and fetch the SVG as text
+  fetch('https://api.codetabs.com/v1/proxy/?quest=https://ghchart.rshah.org/0047AB/Itsharshitgoat')
+    .then(function(r) { return r.text(); })
+    .then(function(svgText) {
+      if (svgText.indexOf('<svg') === -1) return;
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(svgText, 'image/svg+xml');
+      var svg = doc.querySelector('svg');
+      if (!svg) return;
+      
+      // Round all contribution day rects
+      var rects = svg.querySelectorAll('rect');
+      rects.forEach(function(rect) {
+        rect.setAttribute('rx', '3');
+        rect.setAttribute('ry', '3');
+      });
+      
+      // Retain natural size for perfect centering
+      // CSS text-align: center handles the layout
+      
+      var container = document.getElementById('gh-graph-target');
+      if (container) {
+        container.innerHTML = '';
+        container.appendChild(svg);
+      }
+    })
+    .catch(function(e) { console.log("GH Chart Fallback:", e); });
+})();
+</script>
 <section id="certifications" class="bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-md rounded-3xl shadow-xl mx-4 my-8 border border-white/20">
   <div class="max-w-7xl mx-auto px-4">
     <div class="flex items-center justify-center gap-3 mb-12">
@@ -2608,7 +3008,7 @@ Details
 </div>
 </form>
 <div class="mt-12 flex justify-center relative z-[60]">
-  <div id="social-pill" class="bg-white/60 backdrop-blur-sm rounded-full px-3 md:px-6 py-1.5 md:py-2 shadow-lg border border-white/20 flex items-center gap-3 md:gap-6 transition-transform duration-300 select-none touch-none">
+  <div id="social-pill" class="bg-white/60 backdrop-blur-sm rounded-full px-3 md:px-6 py-1.5 md:py-2 shadow-lg border border-white/20 flex items-center gap-3 md:gap-6 transition-transform duration-300 select-none">
     <a href="https://www.reddit.com/user/itsharshitgoat" class="text-gray-600 hover:text-primary transition-colors">
       <i class="ri-reddit-line text-xl md:text-2xl"></i>
     </a>
@@ -2628,13 +3028,135 @@ Details
 </div>
 </section>
 </main>
-<footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-8 mt-8">
-<div class="max-w-7xl mx-auto px-4">
+<footer class="bg-gray-900 text-white py-8 mt-8 relative overflow-hidden">
+<!-- Dark Cloud/Smoke confined inside the footer -->
+<div class="absolute inset-0 pointer-events-none z-0" style="background: radial-gradient(ellipse at bottom, rgba(255,60,0,0.15) 0%, transparent 70%);"></div>
+<div class="absolute inset-0 hell-smoke hell-smoke-1 opacity-30 pointer-events-none z-0"></div>
+<div class="max-w-7xl mx-auto px-4 relative z-10">
 <div class="flex justify-center items-center">
 <p class="font-inter text-sm text-gray-400 font-bold">Created with ❤️ by Harshit</p>
 </div>
 </div>
 </footer>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- ██  HELL LAYER — The Infernal Realm  ██ -->
+<!-- ═══════════════════════════════════════════ -->
+<div id="hell-layer" class="fixed inset-0 z-[9999] pointer-events-none flex flex-col items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 hell-bg-gradient"></div>
+    <div class="absolute inset-0 hell-smoke hell-smoke-1"></div>
+    <div class="absolute inset-0 hell-smoke hell-smoke-2"></div>
+    <div class="hell-lava-glow"></div>
+
+
+    <!-- Fire Embers (generated programmatically but seeded here) -->
+    <div class="hell-ember" style="left: 10%; bottom: 0; width: 4px; height: 4px; background: #ff6600; --ember-drift: 30px; --ember-dur: 6s; --ember-delay: 0s;"></div>
+    <div class="hell-ember" style="left: 25%; bottom: 0; width: 3px; height: 3px; background: #ff4400; --ember-drift: -20px; --ember-dur: 5s; --ember-delay: 1s;"></div>
+    <div class="hell-ember" style="left: 40%; bottom: 0; width: 5px; height: 5px; background: #ff8800; --ember-drift: 15px; --ember-dur: 7s; --ember-delay: 0.5s;"></div>
+    <div class="hell-ember" style="left: 55%; bottom: 0; width: 3px; height: 3px; background: #ff5500; --ember-drift: -25px; --ember-dur: 4.5s; --ember-delay: 2s;"></div>
+    <div class="hell-ember" style="left: 70%; bottom: 0; width: 4px; height: 4px; background: #ff7700; --ember-drift: 35px; --ember-dur: 6.5s; --ember-delay: 1.5s;"></div>
+    <div class="hell-ember" style="left: 85%; bottom: 0; width: 3px; height: 3px; background: #ff3300; --ember-drift: -15px; --ember-dur: 5.5s; --ember-delay: 0.8s;"></div>
+    <div class="hell-ember" style="left: 15%; bottom: 0; width: 2px; height: 2px; background: #ffaa00; --ember-drift: 20px; --ember-dur: 8s; --ember-delay: 3s;"></div>
+    <div class="hell-ember" style="left: 50%; bottom: 0; width: 4px; height: 4px; background: #ff6600; --ember-drift: -30px; --ember-dur: 5s; --ember-delay: 2.5s;"></div>
+    <div class="hell-ember" style="left: 65%; bottom: 0; width: 2px; height: 2px; background: #ff9900; --ember-drift: 10px; --ember-dur: 7.5s; --ember-delay: 1.2s;"></div>
+    <div class="hell-ember" style="left: 80%; bottom: 0; width: 5px; height: 5px; background: #ff4400; --ember-drift: -40px; --ember-dur: 6s; --ember-delay: 0.3s;"></div>
+    <div class="hell-ember" style="left: 35%; bottom: 0; width: 3px; height: 3px; background: #ff7700; --ember-drift: 25px; --ember-dur: 9s; --ember-delay: 4s;"></div>
+    <div class="hell-ember" style="left: 90%; bottom: 0; width: 2px; height: 2px; background: #ff5500; --ember-drift: -18px; --ember-dur: 4s; --ember-delay: 1.8s;"></div>
+
+    <div id="hell-content" class="relative z-10 w-full max-w-5xl p-0 md:p-8 flex flex-col items-center overflow-hidden md:overflow-visible -mt-16 md:mt-0">
+
+        <!-- Welcome Header -->
+        <div class="w-full text-center mb-4 md:mb-10 px-8 flex flex-col items-center justify-center pt-4 md:pt-0">
+            <h1 class="text-5xl md:text-6xl lg:text-[72px] tracking-tight font-serif hell-gradient-text fire-text" style="font-weight: 500;">Welcome to Hell</h1>
+            <p class="text-red-300/70 font-inter text-sm md:text-base tracking-wide max-w-lg mt-4">The sins of bad code that haunt me forever.</p>
+            <div class="w-16 h-1 bg-red-500/30 mt-6 md:mt-8 rounded-full"></div>
+        </div>
+
+        <!-- Infernal Cards Container -->
+        <div id="hell-cards-container" class="relative md:static w-[260px] h-[400px] mx-auto md:w-full md:h-auto md:grid md:grid-cols-3 gap-0 md:gap-8 pb-10 pt-4 mt-8 md:mt-0 shrink-0">
+
+            <!-- Sin Card 1 -->
+            <div class="hell-island hell-island-atmospheric hell-float-1 p-6 flex flex-col items-center text-center hell-stack-card absolute md:relative inset-0 md:inset-auto bg-black/60 md:bg-black/40 backdrop-blur-2xl border border-red-500/20 md:border-red-500/20 rounded-3xl transition-all duration-500 ease-out cursor-grab active:cursor-grabbing justify-center group hover:-translate-y-2 hover:border-red-500/40 hover:shadow-[0_0_30px_rgba(255,0,0,0.2)] z-10 hover:z-20">
+                <div class="w-16 h-16 mb-2 flex items-center justify-center transform transition-transform duration-500 group-hover:scale-110">
+                    <i class="ri-macbook-line text-[50px] text-orange-500/90" style="filter: drop-shadow(0 0 20px rgba(255,100,0,0.6));"></i>
+                </div>
+                <h3 class="text-red-300/90 font-inter font-bold uppercase tracking-[0.2em] text-[13px] mb-4 group-hover:text-red-200 transition-colors">Works On My Machine</h3>
+                
+                <div class="bg-[#0a0a0a] border border-red-500/20 rounded-xl w-full text-left mb-4 overflow-hidden shadow-[inset_0_0_20px_rgba(255,0,0,0.05)] flex flex-col">
+                    <div class="bg-[#1a1a1a] border-b border-red-500/20 px-3 py-1.5 flex items-center space-x-1.5">
+                        <div class="w-2 h-2 rounded-full bg-red-500/50"></div>
+                        <div class="w-2 h-2 rounded-full bg-orange-500/50"></div>
+                        <div class="w-2 h-2 rounded-full bg-yellow-500/50"></div>
+                        <span class="ml-2 text-[8px] md:text-[9px] text-gray-500 font-mono tracking-widest uppercase">bash</span>
+                    </div>
+                    <div class="p-3 font-mono text-[10px] md:text-[11px] text-red-400/80 leading-relaxed overflow-x-auto">
+<pre><code><span class="text-green-500">$</span> npm start
+<span class="text-green-400">✓ Running perfectly</span></code></pre>
+                    </div>
+                </div>
+                <p class="text-red-200/50 font-serif text-xs italic leading-relaxed group-hover:text-red-200/70 transition-colors">
+                    "The application runs flawlessly... on exactly one computer."
+                </p>
+            </div>
+
+            <!-- Sin Card 2 -->
+            <div class="hell-island hell-island-atmospheric hell-float-2 p-6 flex flex-col items-center text-center hell-stack-card absolute md:relative inset-0 md:inset-auto bg-black/60 md:bg-black/40 backdrop-blur-2xl border border-red-500/20 md:border-red-500/20 rounded-3xl transition-all duration-500 ease-out cursor-grab active:cursor-grabbing justify-center group hover:-translate-y-2 hover:border-red-500/40 hover:shadow-[0_0_30px_rgba(255,0,0,0.2)] z-10 hover:z-20">
+                <div class="w-16 h-16 mb-2 flex items-center justify-center transform transition-transform duration-500 group-hover:scale-110">
+                    <i class="ri-ghost-line text-[50px] text-red-500/90" style="filter: drop-shadow(0 0 20px rgba(255,0,0,0.6));"></i>
+                </div>
+                <h3 class="text-red-300/90 font-inter font-bold uppercase tracking-[0.2em] text-[13px] mb-4 group-hover:text-red-200 transition-colors">The Untouchable Function</h3>
+                
+                <div class="bg-[#0a0a0a] border border-red-500/20 rounded-xl w-full text-left mb-4 overflow-hidden shadow-[inset_0_0_20px_rgba(255,0,0,0.05)] flex flex-col">
+                    <div class="bg-[#1a1a1a] border-b border-red-500/20 px-3 py-1.5 flex items-center space-x-1.5">
+                        <div class="w-2 h-2 rounded-full bg-red-500/50"></div>
+                        <div class="w-2 h-2 rounded-full bg-orange-500/50"></div>
+                        <div class="w-2 h-2 rounded-full bg-yellow-500/50"></div>
+                        <span class="ml-2 text-[8px] md:text-[9px] text-gray-500 font-mono tracking-widest uppercase">legacy.js</span>
+                    </div>
+                    <div class="p-3 font-mono text-[10px] md:text-[11px] text-red-400/80 leading-relaxed overflow-x-auto">
+<pre><code><span class="text-pink-500">function</span> <span class="text-blue-400">processData</span>() {
+    <span class="text-gray-500">// 1,847 lines of code</span>
+}</code></pre>
+                    </div>
+                </div>
+                <p class="text-red-200/50 font-serif text-xs italic leading-relaxed group-hover:text-red-200/70 transition-colors">
+                    "Nobody knows what it does. Nobody dares to edit it."
+                </p>
+            </div>
+
+            <!-- Sin Card 3 -->
+            <div class="hell-island hell-island-atmospheric hell-float-3 p-6 flex flex-col items-center text-center hell-stack-card absolute md:relative inset-0 md:inset-auto bg-black/60 md:bg-black/40 backdrop-blur-2xl border border-red-500/20 md:border-red-500/20 rounded-3xl transition-all duration-500 ease-out cursor-grab active:cursor-grabbing justify-center group hover:-translate-y-2 hover:border-red-500/40 hover:shadow-[0_0_30px_rgba(255,0,0,0.2)] z-10 hover:z-20">
+                <div class="w-16 h-16 mb-2 flex items-center justify-center transform transition-transform duration-500 group-hover:scale-110">
+                    <i class="ri-rocket-2-line text-[50px] text-red-600/90" style="filter: drop-shadow(0 0 20px rgba(200,0,0,0.6));"></i>
+                </div>
+                <h3 class="text-red-300/90 font-inter font-bold uppercase tracking-[0.2em] text-[13px] mb-4 group-hover:text-red-200 transition-colors">Friday Deployment</h3>
+                
+                <div class="bg-[#0a0a0a] border border-red-500/20 rounded-xl w-full text-left mb-4 overflow-hidden shadow-[inset_0_0_20px_rgba(255,0,0,0.05)] flex flex-col">
+                    <div class="bg-[#1a1a1a] border-b border-red-500/20 px-3 py-1.5 flex items-center space-x-1.5">
+                        <div class="w-2 h-2 rounded-full bg-red-500/50"></div>
+                        <div class="w-2 h-2 rounded-full bg-orange-500/50"></div>
+                        <div class="w-2 h-2 rounded-full bg-yellow-500/50"></div>
+                        <span class="ml-2 text-[8px] md:text-[9px] text-gray-500 font-mono tracking-widest uppercase">terminal</span>
+                    </div>
+                    <div class="p-3 font-mono text-[10px] md:text-[11px] text-red-400/80 leading-relaxed overflow-x-auto">
+<pre><code><span class="text-pink-500">$</span> git push origin main</code></pre>
+                    </div>
+                </div>
+                <p class="text-red-200/50 font-serif text-xs italic leading-relaxed group-hover:text-red-200/70 transition-colors">
+                    "What could possibly go wrong?"
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Scroll Up To Return Indicator -->
+    <div id="hell-scroll-indicator" class="absolute top-6 left-1/2 flex flex-col items-center pointer-events-none z-40 w-full">
+        <i class="ri-arrow-up-double-line text-red-400/80 font-bold text-2xl animate-bounce drop-shadow-md" style="filter: drop-shadow(0 0 8px rgba(255, 60, 0, 0.4));"></i>
+        <span class="text-red-400/80 font-bold font-inter text-[10px] tracking-[0.3em] uppercase mt-1 md:mt-3 text-center drop-shadow-md">Scroll Up To Escape</span>
+    </div>
+</div>
+
 <!-- Chatbot Icon Button -->
 <style>
 #chatbot-icon {
@@ -3308,6 +3830,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let pillClone = null;
 
     // --- Trigger Logic ---
+    let longPressTimer = null;
+
     function startHover() {
         if(isGameActive) return;
         clearTimeout(hoverTimer);
@@ -3317,7 +3841,7 @@ document.addEventListener('DOMContentLoaded', () => {
             socialPill.classList.add('animate-shake-pill');
             socialPill.style.cursor = 'pointer'; 
             socialPill.title = "Click to play a game!";
-        }, 10000);
+        }, 2000);
     }
     
     function endHover() {
@@ -3329,7 +3853,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 socialPill.classList.remove('animate-shake-pill');
                 socialPill.style.cursor = '';
                 socialPill.title = "";
-            }, 3000);
+            }, 5000);
         } else {
             isShaking = false;
             socialPill.classList.remove('animate-shake-pill');
@@ -3338,15 +3862,59 @@ document.addEventListener('DOMContentLoaded', () => {
 
     socialPill.addEventListener('mouseenter', startHover);
     socialPill.addEventListener('mouseleave', endHover);
-    socialPill.addEventListener('touchstart', startHover, {passive: true});
-    socialPill.addEventListener('touchend', endHover, {passive: true});
 
-    // Click pill to start the overlay game
+    // Mobile: long-press (1.5s) triggers the shake, then tap to play
+    socialPill.addEventListener('touchstart', (e) => {
+        if(isGameActive) return;
+        if (isShaking) return; // already shaking, let click handler deal with it
+        clearTimeout(longPressTimer);
+        longPressTimer = setTimeout(() => {
+            isShaking = true;
+            socialPill.classList.add('animate-shake-pill');
+            socialPill.style.cursor = 'pointer';
+            socialPill.title = "Tap to play a game!";
+            // Vibrate if supported
+            if (navigator.vibrate) navigator.vibrate(100);
+        }, 1500);
+    }, {passive: true});
+
+    socialPill.addEventListener('touchend', () => {
+        clearTimeout(longPressTimer);
+        if(isGameActive) return;
+        if (isShaking) {
+            // Give user time to tap again
+            clearTimeout(shakeTimeout);
+            shakeTimeout = setTimeout(() => {
+                isShaking = false;
+                socialPill.classList.remove('animate-shake-pill');
+                socialPill.style.cursor = '';
+                socialPill.title = "";
+            }, 5000);
+        }
+    }, {passive: true});
+
+    socialPill.addEventListener('touchmove', () => {
+        clearTimeout(longPressTimer);
+    }, {passive: true});
+
+    // When shaking, intercept ALL clicks (including social links) to open game
     socialPill.addEventListener('click', (e) => {
         if (isShaking && !isGameActive) {
-            e.preventDefault(); 
+            e.preventDefault();
+            e.stopPropagation();
             openGame();
         }
+    }, true); // capture phase to intercept before <a> links
+
+    // Also block social links individually when shaking
+    socialPill.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            if (isShaking && !isGameActive) {
+                e.preventDefault();
+                e.stopPropagation();
+                openGame();
+            }
+        });
     });
 
     // Prevent context menu while shaking
@@ -3859,7 +4427,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const fullArtist = track.artist['#text'];
                 const firstArtist = fullArtist.split(/,|&/)[0].trim();
                 const songName = track.name;
-                const spotifySearchUrl = `https://open.spotify.com/search/${encodeURIComponent(' track:' + songName)}`;
+                const spotifySearchUrl = `https://open.spotify.com/search/${encodeURIComponent(songName)}`;
 
                 if (isPlaying) {
                     updateContent(songName, firstArtist, false, spotifySearchUrl);
@@ -3885,7 +4453,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const fullArtist = track.artist['#text'];
             const firstArtist = fullArtist.split(/,|&/)[0].trim();
             const songName = track.name;
-            const spotifySearchUrl = `https://open.spotify.com/search/${encodeURIComponent('artist:' + firstArtist + ' track:' + songName)}`;
+            const spotifySearchUrl = `https://open.spotify.com/search/${encodeURIComponent(songName)}`;
             
             updateContent(songName, firstArtist, true, spotifySearchUrl);
             if (npArtist) npArtist.style.display = 'block';
@@ -4104,99 +4672,221 @@ window.addEventListener('touchmove', (e) => {
     }
 }, { passive: false });
 
-// Mobile Card Stack Logic (Vanilla JS)
-let currentStackIndex = 0;
-const stackCards = document.querySelectorAll('.stack-card');
-const stackContainer = document.getElementById('cards-container');
+// ═══════════════════════════════════════════
+// ██  HELL LAYER — Bottom Overscroll Logic  ██
+// ═══════════════════════════════════════════
+let hellState = 0;
+// 0: normal, 3: active (mirroring quiet layer states)
+let lastHellScrollTime = 0;
+let isHellSequencePlaying = false;
+let hellAudioCtx, hellDroneNode, hellRumbleNode, hellMainGain; // Variables kept but unused, or can be removed completely.
+let bottomOverscrollCount = 0;
+let hellIntentTimeout;
 
-function updateCardStack() {
-    if (window.innerWidth >= 768) {
-        // Desktop: Let Tailwind handle grid positioning
-        stackCards.forEach(card => {
-            card.style.transform = '';
-            card.style.zIndex = '';
-            card.style.opacity = '';
-            let textDiv = card.querySelector('.card-desc');
-            if (textDiv) {
-                textDiv.style.opacity = '';
-                textDiv.style.visibility = '';
-                textDiv.style.transition = '';
-            }
-        });
+function setHellState(newState) {
+    if (newState === hellState) return;
+    hellState = newState;
+
+    document.body.classList.remove('hell-intent-1', 'hell-intent-2', 'hell-active', 'hell-descent-1', 'hell-descent-2');
+
+    if (hellState === 3) {
+        document.body.classList.add('hell-active');
+    }
+}
+
+function playHellAscent() {
+    if (isHellSequencePlaying || hellState >= 3) return;
+    isHellSequencePlaying = true;
+    setHellState(3);
+    setTimeout(() => {
+        isHellSequencePlaying = false;
+    }, 2000);
+}
+
+function playHellDescent() {
+    if (isHellSequencePlaying || hellState === 0) return;
+    isHellSequencePlaying = true;
+    setHellState(0);
+    
+    // Reset intent state securely
+    bottomOverscrollCount = 0;
+    const indicator = document.getElementById('hell-scroll-indicator');
+    if (indicator) {
+        const span = indicator.querySelector('span');
+        if (span) span.innerText = 'SCROLL UP TO ESCAPE';
+    }
+
+    setTimeout(() => {
+        isHellSequencePlaying = false;
+    }, 2000);
+}
+
+function isAtBottom() {
+    // 50px threshold to account for rounding issues and mobile UI shifts
+    return (window.innerHeight + window.scrollY) >= (document.body.scrollHeight - 50);
+}
+
+function handleHellBottomOverscroll(now) {
+    if (hellState === 0 && quietState === 0) {
+        lastHellScrollTime = now;
+        playHellAscent();
+        return true;
+    }
+    return false;
+}
+
+// Mouse Wheel — Bottom Overscroll
+window.addEventListener('wheel', (e) => {
+    const now = Date.now();
+    const atBottom = isAtBottom();
+
+    if (isHellSequencePlaying) {
+        e.preventDefault();
         return;
     }
 
-    // Mobile: Apply Fanned Deck Stack
-    stackCards.forEach((card, i) => {
-        let state = (i - currentStackIndex + stackCards.length) % stackCards.length;
-        let textDiv = card.querySelector('.card-desc');
-        
-        if (state === 0) { // Active Center Card
-            card.style.zIndex = 30;
-            card.style.transform = 'translateX(0) scale(0.9) rotate(0deg)';
-            card.style.opacity = 1;
-            if (textDiv) {
-                textDiv.style.opacity = 1;
-                textDiv.style.visibility = 'visible';
-                textDiv.style.transition = 'opacity 0.3s ease';
+    if (atBottom && now - lastHellScrollTime > intentCooldown) {
+        if (e.deltaY > 40) {
+            // Downward overscroll past bottom
+            if (handleHellBottomOverscroll(now)) {
+                e.preventDefault();
             }
-        } else if (state === 1) { // Next Card (Right Fan)
-            card.style.zIndex = 20;
-            card.style.transform = 'translateX(110px) translateY(20px) rotate(10deg) scale(0.75)';
-            card.style.opacity = 0.6;
-            if (textDiv) {
-                textDiv.style.opacity = 0;
-                textDiv.style.visibility = 'hidden';
-                textDiv.style.transition = 'opacity 0.3s ease, visibility 0.3s ease';
-            }
-        } else if (state === 2) { // Prev Card (Left Fan)
-            card.style.zIndex = 10;
-            card.style.transform = 'translateX(-110px) translateY(20px) rotate(-10deg) scale(0.75)';
-            card.style.opacity = 0.6;
-            if (textDiv) {
-                textDiv.style.opacity = 0;
-                textDiv.style.visibility = 'hidden';
-                textDiv.style.transition = 'opacity 0.3s ease, visibility 0.3s ease';
-            }
-        }
-    });
-}
-
-// Touch Swipe Logic
-let stackStartX = 0;
-let stackStartY = 0;
-
-stackContainer.addEventListener('touchstart', e => {
-    if (window.innerWidth >= 768) return;
-    stackStartX = e.touches[0].clientX;
-    stackStartY = e.touches[0].clientY;
-}, {passive: true});
-
-stackContainer.addEventListener('touchend', e => {
-    if (window.innerWidth >= 768) return;
-    let endX = e.changedTouches[0].clientX;
-    let endY = e.changedTouches[0].clientY;
-    
-    let diffX = stackStartX - endX;
-    let diffY = stackStartY - endY;
-
-    // Detect if swipe is significant
-    if (Math.abs(diffX) > 40 || Math.abs(diffY) > 40) {
-        // If swipe UP or swipe LEFT -> Next Card
-        if (diffY > 40 || diffX > 40) {
-            currentStackIndex = (currentStackIndex + 1) % stackCards.length;
-            updateCardStack();
-        } 
-        // If swipe DOWN or swipe RIGHT -> Prev Card
-        else if (diffY < -40 || diffX < -40) {
-            currentStackIndex = (currentStackIndex - 1 + stackCards.length) % stackCards.length;
-            updateCardStack();
+        } else if (e.deltaY < -40 && hellState === 3) {
+            // Upward scroll to leave Hell
+            lastHellScrollTime = now;
+            playHellDescent();
+            e.preventDefault();
         }
     }
-}, {passive: true});
 
-window.addEventListener('resize', updateCardStack);
-updateCardStack(); // Call immediately on load to apply styles instantly
+    if (hellState >= 3) {
+        e.preventDefault();
+    }
+}, { passive: false });
+
+// Touch — Bottom Overscroll
+let hTouchStartY = 0;
+window.addEventListener('touchstart', (e) => {
+    hTouchStartY = e.touches[0].clientY;
+}, { passive: true });
+
+window.addEventListener('touchmove', (e) => {
+    const touchY = e.touches[0].clientY;
+    const deltaY = hTouchStartY - touchY; // Positive = dragging UP (scroll content down)
+    const atBottom = isAtBottom();
+    const now = Date.now();
+
+    if (isHellSequencePlaying) {
+        e.preventDefault();
+        return;
+    }
+
+    if (atBottom && now - lastHellScrollTime > intentCooldown) {
+        if (deltaY > 40) { // Dragged up = scrolling down past bottom
+            if (handleHellBottomOverscroll(now)) {
+                e.preventDefault();
+            }
+        } else if (deltaY < -40 && hellState === 3) {
+            lastHellScrollTime = now;
+            playHellDescent();
+            e.preventDefault();
+        }
+    }
+
+    if (hellState >= 3) {
+        e.preventDefault();
+    }
+}, { passive: false });
+
+class MobileCardStack {
+    constructor(containerId, cardSelector) {
+        this.container = document.getElementById(containerId);
+        this.cards = document.querySelectorAll(cardSelector);
+        this.currentIndex = 0;
+        if (!this.container || this.cards.length === 0) return;
+
+        this.update();
+        window.addEventListener('resize', () => this.update());
+        
+        let startX = 0, startY = 0;
+        this.container.addEventListener('touchstart', e => {
+            if (window.innerWidth >= 768) return;
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+        }, {passive: true});
+
+        this.container.addEventListener('touchend', e => {
+            if (window.innerWidth >= 768) return;
+            let diffX = startX - e.changedTouches[0].clientX;
+            let diffY = startY - e.changedTouches[0].clientY;
+
+            if (Math.abs(diffX) > 40 || Math.abs(diffY) > 40) {
+                if (diffY > 40 || diffX > 40) {
+                    this.currentIndex = (this.currentIndex + 1) % this.cards.length;
+                    this.update();
+                } else if (diffY < -40 || diffX < -40) {
+                    this.currentIndex = (this.currentIndex - 1 + this.cards.length) % this.cards.length;
+                    this.update();
+                }
+            }
+        }, {passive: true});
+    }
+
+    update() {
+        if (window.innerWidth >= 768) {
+            this.cards.forEach(card => {
+                card.style.transform = '';
+                card.style.zIndex = '';
+                card.style.opacity = '';
+                let textDiv = card.querySelector('.card-desc') || card.querySelector('p');
+                if (textDiv) {
+                    textDiv.style.opacity = '';
+                    textDiv.style.visibility = '';
+                    textDiv.style.transition = '';
+                }
+            });
+            return;
+        }
+
+        this.cards.forEach((card, i) => {
+            let state = (i - this.currentIndex + this.cards.length) % this.cards.length;
+            let textDiv = card.querySelector('.card-desc') || card.querySelector('p');
+            
+            if (state === 0) { // Active Center Card
+                card.style.zIndex = 30;
+                card.style.transform = 'translateX(0) scale(0.9) rotate(0deg)';
+                card.style.opacity = 1;
+                if (textDiv) {
+                    textDiv.style.opacity = 1;
+                    textDiv.style.visibility = 'visible';
+                    textDiv.style.transition = 'opacity 0.3s ease';
+                }
+            } else if (state === 1) { // Next Card (Right Fan)
+                card.style.zIndex = 20;
+                card.style.transform = 'translateX(110px) translateY(20px) rotate(10deg) scale(0.75)';
+                card.style.opacity = 0.6;
+                if (textDiv) {
+                    textDiv.style.opacity = 0;
+                    textDiv.style.visibility = 'hidden';
+                    textDiv.style.transition = 'opacity 0.3s ease, visibility 0.3s ease';
+                }
+            } else if (state === 2) { // Prev Card (Left Fan)
+                card.style.zIndex = 10;
+                card.style.transform = 'translateX(-110px) translateY(20px) rotate(-10deg) scale(0.75)';
+                card.style.opacity = 0.6;
+                if (textDiv) {
+                    textDiv.style.opacity = 0;
+                    textDiv.style.visibility = 'hidden';
+                    textDiv.style.transition = 'opacity 0.3s ease, visibility 0.3s ease';
+                }
+            }
+        });
+    }
+}
+
+// Initialize stacks
+new MobileCardStack('cards-container', '.stack-card');
+new MobileCardStack('hell-cards-container', '.hell-stack-card');
 </script>
 <!-- Certification Modal -->
 <div id="cert-modal" class="modal">
@@ -4211,6 +4901,7 @@ updateCardStack(); // Call immediately on load to apply styles instantly
     </div>
   </div>
 </div>
+
 </body>
 
 </html>
