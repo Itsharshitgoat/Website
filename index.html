@@ -3021,9 +3021,12 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
     </div>
   </div>
   <div class="w-full lg:flex-1 flex-col items-start lg:items-end">
-    <label class="block font-inter font-medium mb-2 lg:opacity-0 lg:select-none text-gray-800">Rating</label>
-    <div id="rating-pill-container" class="w-full lg:w-[max-content] lg:min-w-[300px] py-3 lg:py-0 lg:h-[50px] relative px-4 lg:px-6 bg-white/60 lg:bg-white/40 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg lg:shadow-inner flex items-center justify-between gap-4 lg:gap-6 transition-all duration-300">
-      <span class="text-base lg:text-sm font-inter font-medium text-gray-700 select-none whitespace-nowrap">Rate the website</span>
+    <label class="block font-inter font-medium mb-2 lg:opacity-0 lg:select-none text-gray-800">
+      <span class="lg:hidden">Rate the website</span>
+      <span class="hidden lg:inline">Rating</span>
+    </label>
+    <div id="rating-pill-container" class="w-full lg:w-[max-content] lg:min-w-[300px] py-3 lg:py-0 lg:h-[50px] relative px-4 lg:px-6 bg-white/60 lg:bg-white/40 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg lg:shadow-inner flex items-center justify-center lg:justify-between lg:gap-6 transition-all duration-300">
+      <span class="hidden lg:inline text-base lg:text-sm font-inter font-medium text-gray-700 select-none whitespace-nowrap">Rate the website</span>
       <div id="rating-tooltip" class="absolute -top-12 -translate-x-1/2 bg-white/70 backdrop-blur-md border border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.1)] text-gray-800 text-xs font-inter font-bold px-4 py-2 rounded-full opacity-0 pointer-events-none transition-all duration-300 transform translate-y-2 whitespace-nowrap z-20 flex items-center gap-2" style="left: 70%;">
         <span>Rate the website</span>
         <svg class="absolute top-[calc(100%-1px)] left-1/2 -translate-x-1/2 w-3.5 drop-shadow-sm" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
