@@ -137,9 +137,16 @@ scroll-padding-top: 240px;
 }
 body {
 overscroll-behavior-y: none;
-background: url('https://99designs-blog.imgix.net/blog/wp-content/uploads/2018/12/Gradient_builder_2.jpg?auto=format&q=60&w=1815&h=1020.9375&fit=crop&crop=faces') no-repeat center center fixed;
-background-size: cover;
 overflow-x: hidden;
+}
+body::before {
+content: "";
+position: fixed;
+top: 0; left: 0; right: 0; bottom: 0;
+z-index: -1;
+background: url('https://99designs-blog.imgix.net/blog/wp-content/uploads/2018/12/Gradient_builder_2.jpg?auto=format&q=60&w=1815&h=1020.9375&fit=crop&crop=faces') no-repeat center center;
+background-size: cover;
+will-change: transform;
 }
 section {
 min-height: auto;
@@ -1233,8 +1240,7 @@ body.quiet-descent-2 .quiet-bg-gradient { opacity: 0.95; }
 #hell-content {
     opacity: 0;
     transform: translateY(-60px) scale(1.05);
-    filter: blur(15px);
-    transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1), filter 1s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 body.hell-active #hell-layer {
@@ -1250,7 +1256,6 @@ body.hell-active .hell-ember { animation: ember-rise var(--ember-dur) ease-out i
 body.hell-active #hell-content {
     opacity: 1;
     transform: translateY(0) scale(1);
-    filter: blur(0);
 }
 #hell-scroll-indicator {
     opacity: 0;
@@ -1268,7 +1273,6 @@ body.hell-active main {
     opacity: 0;
     transform: translateY(120px) scale(0.90);
     pointer-events: none;
-    filter: blur(15px);
 }
 
 /* Fade fixed UI for Hell */
@@ -1276,7 +1280,6 @@ body.hell-active nav,
 body.hell-active #now-playing-pill,
 body.hell-active #mobile-menu {
     opacity: 0 !important;
-    filter: blur(10px) !important;
     transform: translateX(-50%) translateY(30px) !important;
     pointer-events: none !important;
 }
@@ -1284,7 +1287,6 @@ body.hell-active #mobile-menu {
 body.hell-active #top-scroll-mask,
 body.hell-active #bottom-scroll-mask {
     opacity: 0 !important;
-    filter: blur(10px) !important;
     transform: translateY(30px) !important;
     pointer-events: none !important;
 }
@@ -1293,13 +1295,11 @@ body.hell-active #bottom-scroll-mask {
 body.hell-descent-1 #hell-content {
     opacity: 0.8;
     transform: translateY(-20px) scale(1.02);
-    filter: blur(4px);
 }
 body.hell-descent-1 .hell-bg-gradient { opacity: 1; }
 body.hell-descent-2 #hell-content {
     opacity: 0.4;
     transform: translateY(-40px) scale(1.04);
-    filter: blur(10px);
 }
 body.hell-descent-2 .hell-bg-gradient { opacity: 0.95; }
 
@@ -1454,7 +1454,7 @@ body.hell-descent-2 .hell-bg-gradient { opacity: 0.95; }
 </div>
 
 <!-- Top Scroll Mask -->
-<div id="top-scroll-mask" class="fixed top-0 left-0 right-0 h-32 md:h-40 z-30 pointer-events-none" style="background: linear-gradient(to bottom, rgba(245, 245, 245, 1) 10%, rgba(245, 245, 245, 0.6) 50%, rgba(245, 245, 245, 0) 100%); mask-image: linear-gradient(to bottom, black 40%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);"></div>
+<div id="top-scroll-mask" class="fixed top-0 left-0 right-0 h-32 md:h-40 z-30 pointer-events-none" style="background: linear-gradient(to bottom, rgba(245, 245, 245, 1) 10%, rgba(245, 245, 245, 0.6) 50%, rgba(245, 245, 245, 0) 100%); mask-image: linear-gradient(to bottom, black 40%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);"></div>
 
 <nav class="fixed top-4 left-1/2 -translate-x-1/2 w-[max-content] max-w-[95vw] sm:max-w-none bg-white/30 backdrop-blur-xl z-50 shadow-[0_8px_32px_rgba(0,0,0,0.1)] shadow-[inset_0_0_10px_rgba(255,255,255,0.5)] rounded-full border border-white/40 flex justify-center">
 <div class="px-1.5 sm:px-2 md:px-4 py-1.5 sm:py-2 relative" id="desktop-nav-container">
@@ -3536,7 +3536,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
       if(cards.length > 0) {
         gsap.fromTo(cards, 
-          { opacity: 0, y: 40, scale: 0.9, rotation: 2, filter: "blur(5px)" },
+          { opacity: 0, y: 40, scale: 0.9, rotation: 2 },
           {
             scrollTrigger: {
               trigger: grid,
@@ -3547,10 +3547,15 @@ document.addEventListener('DOMContentLoaded', function() {
             opacity: 1,
             scale: 1,
             rotation: 0,
-            filter: "blur(0px)",
             duration: 0.8,
             stagger: 0.15,
-            ease: "back.out(1.2)"
+            ease: "back.out(1.2)",
+            onStart: () => {
+              gsap.set(cards, { willChange: "transform, opacity" });
+            },
+            onComplete: () => {
+              gsap.set(cards, { clearProps: "willChange" });
+            }
           }
         );
       }
@@ -4157,11 +4162,28 @@ function isAtBottom() {
     return (window.innerHeight + window.scrollY) >= (document.body.scrollHeight - 50);
 }
 
-function handleHellBottomOverscroll(now) {
+function handleHellBottomOverscroll(now, isTouch = false) {
     if (hellState === 0 && quietState === 0) {
-        lastHellScrollTime = now;
-        playHellAscent();
-        return true;
+        if (isTouch) {
+            bottomOverscrollCount++;
+            lastHellScrollTime = now;
+            clearTimeout(hellIntentTimeout);
+            
+            if (bottomOverscrollCount >= 2) {
+                playHellAscent();
+                bottomOverscrollCount = 0;
+                return true;
+            } else {
+                hellIntentTimeout = setTimeout(() => {
+                    bottomOverscrollCount = 0;
+                }, 2000);
+                return true;
+            }
+        } else {
+            lastHellScrollTime = now;
+            playHellAscent();
+            return true;
+        }
     }
     return false;
 }
@@ -4179,7 +4201,7 @@ window.addEventListener('wheel', (e) => {
     if (atBottom && now - lastHellScrollTime > intentCooldown) {
         if (e.deltaY > 40) {
             // Downward overscroll past bottom
-            if (handleHellBottomOverscroll(now)) {
+            if (handleHellBottomOverscroll(now, false)) {
                 e.preventDefault();
             }
         } else if (e.deltaY < -40 && hellState === 3) {
@@ -4214,7 +4236,8 @@ window.addEventListener('touchmove', (e) => {
 
     if (atBottom && now - lastHellScrollTime > intentCooldown) {
         if (deltaY > 40) { // Dragged up = scrolling down past bottom
-            if (handleHellBottomOverscroll(now)) {
+            if (handleHellBottomOverscroll(now, true)) {
+                hTouchStartY = touchY; // Reset to require another swipe/drag
                 e.preventDefault();
             }
         } else if (deltaY < -40 && hellState === 3) {
