@@ -128,11 +128,11 @@ html {
 scroll-behavior: smooth;
 overscroll-behavior-y: none;
 -webkit-tap-highlight-color: transparent;
-scroll-padding-top: 240px;
+scroll-padding-top: 100px;
 }
 @media (min-width: 768px) {
   html {
-    scroll-padding-top: 1060px;
+    scroll-padding-top: 120px;
   }
 }
 body {
@@ -447,7 +447,7 @@ font-size: 16px;
 @media (max-width: 768px) {
   /* Prevent anchored sections from being hidden under the fixed nav on small screens */
   section {
-    scroll-margin-top: 5000px; /* mobile nav + pill gap */
+    scroll-margin-top: 0px; /* Handled by scroll-padding-top on html */
   }
   /* Ensure projects section stacks above any overlapping elements on mobile */
   #projects {
@@ -3391,174 +3391,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
     </div>
 </div>
 
-<!-- Chatbot Icon Button -->
-<style>
-#chatbot-icon {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  width: 70px;
-  height: 70px;
-  background: linear-gradient(135deg, #0047AB, #9B41DB, #FFD700);
-  background-size: 200% 200%;
-  animation: gradient-shift 5s ease infinite;
-  border-radius: 50%;
-  box-shadow: inset -4px -4px 10px rgba(0,0,0,0.2), inset 4px 4px 10px rgba(255,255,255,0.4), 0 8px 24px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 9999;
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
-  border: 3px solid #fff;
-}
-@keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-#chatbot-icon:hover {
-  box-shadow: inset -4px -4px 10px rgba(0,0,0,0.2), inset 4px 4px 10px rgba(255,255,255,0.4), 0 12px 32px rgba(0,0,0,0.3);
-  transform: scale(1.1);
-}
-.bot-face {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  transform: translateY(2px);
-}
-.eyes-container {
-  display: flex;
-  gap: 8px;
-}
-.googly-eye {
-  width: 18px;
-  height: 22px;
-  background: radial-gradient(circle at 30% 30%, #fff, #e0e0e0);
-  border-radius: 50%;
-  position: relative;
-  overflow: hidden;
-  box-shadow: inset 0 2px 4px rgba(0,0,0,0.3), 0 2px 4px rgba(0,0,0,0.1);
-}
-.googly-pupil {
-  width: 10px;
-  height: 10px;
-  background: radial-gradient(circle at 30% 30%, #444, #000);
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s ease-out;
-}
-.eyelid {
-  position: absolute;
-  top: -5%;
-  left: -5%;
-  width: 110%;
-  height: 110%;
-  background: #222;
-  transform-origin: top;
-  transform: scaleY(0);
-  animation: shutter-blink 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
-  border-bottom: 2px solid #111;
-}
-@keyframes shutter-blink {
-  0%, 45% { transform: scaleY(0); }
-  48% { transform: scaleY(1); }
-  51%, 100% { transform: scaleY(0); }
-}
-.mouth {
-  width: 14px;
-  height: 6px;
-  border: 2px solid rgba(255, 255, 255, 0.9);
-  border-top: 0;
-  border-radius: 0 0 10px 10px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-#chatbot-icon:hover .mouth {
-  width: 18px;
-  height: 10px;
-  border-radius: 0 0 18px 18px;
-  background: rgba(255, 255, 255, 0.3);
-  transform: translateY(2px);
-}
-</style>
-<div id="chatbot-icon" title="Chat with us!">
-  <div class="bot-face">
-    <div class="eyes-container">
-      <div class="googly-eye" id="eye-left">
-        <div class="googly-pupil pupil-left"></div>
-        <div class="eyelid"></div>
-      </div>
-      <div class="googly-eye" id="eye-right">
-        <div class="googly-pupil pupil-right"></div>
-        <div class="eyelid"></div>
-      </div>
-    </div>
-    <div class="mouth"></div>
-  </div>
-</div>
-<script>
-document.getElementById('chatbot-icon').onclick = function() {
-  window.open('', '_blank');
-};
 
-document.addEventListener('DOMContentLoaded', function() {
-  const eyeLeft = document.getElementById('eye-left');
-  const eyeRight = document.getElementById('eye-right');
-  const pupils = document.querySelectorAll('.googly-pupil');
-  
-  if (!eyeLeft || !eyeRight || pupils.length < 2) return;
-
-  const isMobile = window.matchMedia("(max-width: 768px)").matches;
-
-  function movePupils(clientX, clientY) {
-    [eyeLeft, eyeRight].forEach((eye, index) => {
-      const pupil = pupils[index];
-      const eyeRect = eye.getBoundingClientRect();
-      const eyeCenterX = eyeRect.left + eyeRect.width / 2;
-      const eyeCenterY = eyeRect.top + eyeRect.height / 2;
-      
-      const angle = Math.atan2(clientY - eyeCenterY, clientX - eyeCenterX);
-      
-      const maxDistanceX = (eyeRect.width / 2) - (pupil.offsetWidth / 2) - 1;
-      const maxDistanceY = (eyeRect.height / 2) - (pupil.offsetHeight / 2) - 1;
-      
-      const distance = Math.min(
-        Math.hypot(clientX - eyeCenterX, clientY - eyeCenterY) / 12,
-        Math.min(maxDistanceX, maxDistanceY)
-      );
-
-      const x = Math.cos(angle) * distance;
-      const y = Math.sin(angle) * distance;
-
-      pupil.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
-    });
-  }
-
-  if (!isMobile) {
-    document.addEventListener('mousemove', (e) => {
-      movePupils(e.clientX, e.clientY);
-    });
-  } else {
-    window.addEventListener('scroll', () => {
-      const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-      
-      [eyeLeft, eyeRight].forEach((eye, index) => {
-        const pupil = pupils[index];
-        const eyeRect = eye.getBoundingClientRect();
-        const maxDistanceY = (eyeRect.height / 2) - (pupil.offsetHeight / 2) - 1;
-        
-        const y = (scrollPercent * 2 - 1) * maxDistanceY;
-        
-        pupil.style.transform = `translate(-50%, calc(-50% + ${y}px))`;
-      });
-    });
-  }
-});
-</script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   // Magnetic Nav Hover Logic
