@@ -1,196 +1,315 @@
+
+```
+    ██╗  ██╗ █████╗ ██████╗ ███████╗██╗  ██╗██╗████████╗
+    ██║  ██║██╔══██╗██╔══██╗██╔════╝██║  ██║██║╚══██╔══╝
+    ███████║███████║██████╔╝███████╗███████║██║   ██║   
+    ██╔══██║██╔══██║██╔══██╗╚════██║██╔══██║██║   ██║   
+    ██║  ██║██║  ██║██║  ██║███████║██║  ██║██║   ██║   
+    ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝   
+```
+
 <div align="center">
 
-# 🚀 Harshit's Digital Universe
-### *The Ultimate AI & OS Developer Portfolio Experience*
+### _Where pixels meet philosophy._
 
-*“Code is poetry, but performance is the rhythm. Design is the soul, but logic is the mind.”*
+A digital portfolio that doesn't just show work — it **tells a story**.<br/>
+Scroll up to find Heaven. Scroll down to discover Hell.<br/>
+Somewhere in between, there's code.
 
-[![Live Preview](https://img.shields.io/badge/Live_Portfolio-View_Here-0047AB?style=for-the-badge&logo=vercel)](https://itsharshitgoat.github.io/Website/)
-[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github)](https://github.com/itsharshitgoat/Website)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](#-license)
-[![Vanilla JS](https://img.shields.io/badge/Built_with-Vanilla_JS-f7df1e?style=for-the-badge&logo=javascript)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![TailwindCSS](https://img.shields.io/badge/Styled_with-TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+<br/>
+
+[![Enter the Universe](https://img.shields.io/badge/%E2%86%92_ENTER_THE_UNIVERSE-%230047AB?style=for-the-badge&logoColor=white)](https://itsharshitgoat.github.io/Website/)
+&nbsp;&nbsp;
+[![Source](https://img.shields.io/badge/SOURCE_CODE-%23181717?style=for-the-badge&logo=github)](https://github.com/itsharshitgoat/Website)
+&nbsp;&nbsp;
+[![MIT](https://img.shields.io/badge/MIT_LICENSE-%23f5c211?style=for-the-badge)](LICENSE)
+
+<br/>
+
+**`5000 lines`** of hand-written code &nbsp;·&nbsp; **`Zero`** frameworks &nbsp;·&nbsp; **`One`** HTML file &nbsp;·&nbsp; **`Infinite`** vibes
 
 </div>
 
 ---
 
-## 📖 Executive Overview
+<br/>
 
-Welcome to the comprehensive technical documentation for my digital portfolio. This is not a standard static website; it is a **living, breathing, interactive digital ecosystem** meticulously engineered to showcase my philosophy, design aesthetics, and hardcore development skills.
+## I. The Premise
 
-Designed with a strict **"Performance-First & Zero-Build"** philosophy, this application actively avoids the bloated ecosystems of modern JavaScript frameworks like React, Vue, or Angular. Instead, it relies on the raw power of **Vanilla JavaScript (ES6+)**, deeply integrated **Tailwind CSS**, and the **HTML5 Canvas API** to deliver a beautifully fluid, hardware-accelerated user experience. 
+> _"What if a portfolio wasn't a resume on a screen — but a **place** you could explore?"_
 
-It is an experimental playground where web standards are pushed to their absolute limits to create magic without the overhead.
+This isn't a website. It's a world engine disguised as a single `index.html` file.
 
----
+Built entirely in **Vanilla JavaScript**, **Tailwind CSS via CDN**, and the **HTML5 Canvas API**, this portfolio rejects the modern framework rat race and instead bets everything on raw browser power. No React. No Vue. No Angular. No build step. Just the DOM and I.
 
-## 📑 Table of Contents
-1. [✨ Core Interactive Features](#-core-interactive-features)
-2. [🏗️ System Architecture & Stack](#-system-architecture--stack)
-3. [🌌 The Dual Realms: Heaven & Hell](#-the-dual-realms-heaven--hell)
-4. [🎮 Hidden Easter Eggs & Mini-Games](#-hidden-easter-eggs--mini-games)
-5. [🌊 Deep Dive: Component Breakdown](#-deep-dive-component-breakdown)
-6. [⚡ Performance & Design Philosophy](#-performance--design-philosophy)
-7. [🔮 Future Roadmap](#-future-roadmap)
-8. [💻 Local Setup & Deployment](#-local-setup--deployment)
-9. [📜 License & Credits](#-license--credits)
+The result? A sub-second Time to Interactive, GPU-accelerated animations, and a user experience that feels like navigating through a living, breathing digital space.
 
----
+<br/>
 
-## ✨ Core Interactive Features
+## II. The Architecture
 
-- **The Dual Realms (Heaven & Hell):** Dynamic, atmospheric state changes. Scroll into "Heaven" to explore my favorite books within an ethereal, dusty, 3D card layout. Trigger the "Hell Layer" to descend into a fiery underworld representing the ultimate "sins of bad code" complete with glowing embers and CSS-driven smoke.
-- **Interactive Social Media Pill Game:** The footer isn't just a static link hub. It houses an attention-based mechanic that transforms the UI into a fully playable, physics-driven Canvas mini-game.
-- **Liquid Glass Music Pill (Last.fm):** A dynamic, floating widget that tracks my live Last.fm listening history. It features real-time CSS equalizer animations and smart cache-busting fetching.
-- **Global AI Chatbot Assistant:** An ever-present, glowing chatbot bubble leveraging a 200% gradient pan (`#0047AB` to `#9B41DB` to `#FFD700`). It features a unique blinking animated face and handles conversational intent smoothly.
-- **Command Palette (Terminal):** Pressing `⌘ + K` triggers an interactive, styled web terminal that acts as a power-user navigation tool.
-- **Live GitHub Contribution Graph:** Seamless integration with the GitHub API to render my live commit history and contribution streak directly into the UI's glassmorphic cards.
-- **Magnetic Navigation Blob:** A smart navigation shell where a frosted-glass element mathematically interpolates to track your cursor's hover state across all anchor links.
-
----
-
-## 🏗️ System Architecture & Stack
-
-By eliminating the Virtual DOM, this project achieves a Time to Interactive (TTI) and First Contentful Paint (FCP) that rivals statically generated sites, while maintaining the interactivity of an SPA.
-
-```mermaid
-graph TD
-    User((Visitor)) -->|HTTPS| Edge[GitHub Pages / Edge CDN]
-    Edge --> Frontend[Client-Side Application]
-    
-    subgraph Frontend[Client-Side Engine]
-        HTML[Semantic HTML5]
-        CSS[Tailwind CSS + Custom Utilities]
-        JS[Vanilla JavaScript ES6+]
-        Canvas[HTML5 Canvas Game Loop]
-        
-        HTML --- CSS
-        HTML --- JS
-        JS --- Canvas
-    end
-    
-    subgraph External_APIs[Live Integrations]
-        LastFM[Last.fm REST API]
-        GitHub[GitHub GraphQL/REST API]
-        FormSubmit[FormSubmit API]
-    end
-    
-    JS -->|Fetch current track| LastFM
-    JS -->|Fetch live commits| GitHub
-    JS -->|Serverless POST| FormSubmit
+```
+╭─────────────────────────────────────────────────────────────╮
+│                     THE BROWSER ENGINE                      │
+│                                                             │
+│  ┌─────────────┐  ┌──────────────┐  ┌───────────────────┐   │
+│  │  Semantic   │  │  Tailwind    │  │  Vanilla JS       │   │
+│  │  HTML5      │──│  CSS (CDN)   │──│  (ES6+)           │   │ 
+│  │             │  │  + Custom    │  │  + GSAP           │   │
+│  └─────────────┘  └──────────────┘  └─────────┬─────────┘   │
+│                                               │             │
+│  ┌─────────────┐  ┌──────────────┐  ┌─────────▼─────────┐   │
+│  │  Canvas 2D  │  │  Intersection│  │  ScrollTrigger    │   │
+│  │  Game Loop  │  │  Observer    │  │  (GSAP Plugin)    │   │
+│  └─────────────┘  └──────────────┘  └───────────────────┘   │
+╰───────────────────────────┬─────────────────────────────────╯
+                            │
+              ╭─────────────▼─────────────╮
+              │     LIVE INTEGRATIONS     │
+              │                           │
+              │  🎵 Last.fm API           │
+              │  📊 GitHub GraphQL API    │
+              │  📬 FormSubmit API        │
+              │  📈 Google Analytics      │
+              ╰───────────────────────────╯
 ```
 
-### The Tech Stack
-* **DOM Manipulation:** 100% Vanilla JavaScript. No jQuery, no React. Native DOM APIs `querySelector`, `classList`, and `IntersectionObserver` drive the interactions.
-* **Styling Engine:** Tailwind CSS via CDN. I use custom inline configuration to inject advanced styling parameters (e.g., specific `box-shadow` inset glows, custom fonts).
-* **Animations:** A hybrid approach using GSAP (GreenSock) for complex, orchestrated scroll sequences, and native CSS `transform` / `opacity` transitions for micro-interactions to leverage GPU hardware acceleration.
+### Zero-Build Philosophy
+
+There is no `webpack.config.js`. There is no `vite.config.ts`. There is no `node_modules` folder swallowing your disk space.
+
+You open `index.html`. It works. That's the entire deployment story.
+
+<br/>
+
+## III. The Two Realms
+
+The centerpiece of this portfolio is its **thematic state machine** — two hidden dimensions that exist above and below the main content.
+
+### 🕊 HEAVEN — _The Quiet Layer_
+
+Scroll past the top of the page and the world dissolves. The main content blurs, shrinks, and fades away. A new realm emerges: a white, ethereal library shrouded in drifting fog.
+
+**What lives here:**
+- 3D perspective-rendered book cards floating in space
+- *Snow Crash*, *Ready Player One*, *The Art of Game Design* — each with physically modeled page thickness and spine shadows
+- Ambient dust particles that drift on hover
+- A glassmorphism atmosphere built from layered `backdrop-filter: blur(24px)` and radial gradients
+
+**The transition** uses a 3-phase intent system:
+```
+quiet-intent-1  →  Main content shifts, blurs slightly
+quiet-intent-2  →  Main content fades, nav disappears  
+quiet-active    →  Heaven layer takes full control
+```
+
+### 🔥 HELL — _The Infernal Realm_
+
+Scroll past the bottom. The world catches fire.
+
+**What lives here:**
+- Lava glow pulsing from the bottom of the viewport
+- CSS-driven smoke using `mix-blend-mode: screen` on rotating radial gradients
+- Ember particles with randomized physics (`--ember-drift`, `--ember-dur`)
+- The **"Sins of Code"** — floating cards with titles like:
+  - *The Untouchable Function*
+  - *Friday Deployment*
+  - *Works on My Machine*
+  - *TODO: Fix Later*
+- A fire-flicker text effect with layered `text-shadow` animations
+- Chain-link decorative elements in oxidized orange
+
+Both realms feature full fade-out of fixed UI elements (nav, music pill, scroll masks) and reversible descent animations for smooth re-entry.
+
+<br/>
+
+## IV. The Interactions
+
+### 🧭 Magnetic Navigation
+A frosted-glass blob that mathematically tracks your cursor across nav links, smoothly interpolating position and dimensions. Desktop has a top-center pill; mobile gets a bottom-anchored bar.
+
+### ⌨️ Command Palette (`⌘ + K`)
+A full terminal emulator rendered in the browser. Not just a gimmick — it supports real commands:
+
+| Command | Action |
+|---|---|
+| `about` | Display bio & summary |
+| `projects` | List all featured works |
+| `skills` | Show technical proficiency |
+| `contact` | Open contact form |
+| `social` | Display social links |
+| `theme` | Toggle visual modes |
+| `resume` | Download the resume |
+| `help` | Show all available commands |
+| `clear` | Clear terminal history |
+
+The terminal features a glowing hint on the hero section — a pulsing `⌘ K` badge that radiates a `box-shadow` animation in the primary blue (`#0047AB`).
+
+### 🎵 Live Music Pill (Last.fm)
+A floating "liquid glass" widget that polls the Last.fm API every 15 seconds:
+- **Playing:** 4-bar CSS equalizer dances, song name + artist scroll
+- **Paused:** Gracefully swaps to a "Last Listened" badge with timestamp
+- Links directly to Spotify for the current track
+
+
+<br/>
+
+## V. The Sections
+
+| # | Section | What's Inside |
+|---|---|---|
+| 1 | **Hero** | Gradient title, typewriter loop cycling philosophies, `⌘K` terminal hint, resume download, GitHub + SoftStack links |
+| 2 | **About** | Horizontal scroll timeline (`scroll-snap-type: x mandatory`) with milestone cards and programmatic navigation |
+| 3 | **Hobbies** | Bento grid of interests with rich imagery |
+| 4 | **Skills** | Animated progress bars for HTML, CSS, JS, React, Node.js, Python, VS Code, Photoshop, Premiere Pro, Notion |
+| 5 | **Certifications** | Flip-card gallery: Az-900, HTML, CSS, JavaScript, Java, Python certs |
+| 6 | **Projects** | 18+ flip-card project showcases with "Why I Built It" back-face reveals |
+| 7 | **Blog** | Articles and thoughts feed |
+| 8 | **Contact** | FormSubmit-powered contact form with spinning red glow validation errors |
+
+<br/>
+
+## VI. The Gallery — Featured Projects
+
+Every project card flips on click to reveal the reasoning behind it.
+
+| Project | What It Does |
+|---|---|
+| **General Store** | CLI tool + MCP server that indexes study materials into a local vector database with source citations |
+| **Tasks Master** | Speed-built todo app — sleek, efficient daily task management |
+| **Carbon Path** | Carbon footprint tracker: emissions saved vs. emitted with greener choice highlights |
+| **Redbrain** | AI safety net for Reddit — context-aware moderation using tone analysis |
+| **Board** | Limitless canvas for visual idea mapping and creative organization |
+| **PKM** | Pokémon team builder with instant type synergy visualization |
+| **Wrap** | Discord bot for invisible server event logging and audit trails |
+| **View** | Distraction-free Unsplash gallery for finding the perfect wallpaper |
+| **Quest** | Discord quest automation script — unlocking perks without the grind |
+| **Asana** | Minimalist focus timer with aesthetic themes and motivating quotes |
+| **R P S** | Rock Paper Scissors with a modern, snappy interface |
+| **Junction** | Digital tea shop storefront with cozy, responsive design |
+| **To Mind** | Another creation in the SoftStack ecosystem |
+| **+ more** | The grid keeps growing... |
+
+<br/>
+
+## VII. Under The Hood
+
+### Typography Strategy
+| Font | Role |
+|---|---|
+| **Helvetica Neue** | High-impact headers |
+| **Inter** | Body text, UI labels |
+| **Roboto Mono** | Terminal, code snippets, structural data |
+| **Lora** | Serif elegance in the Heaven layer |
+| **Pacifico** | Decorative accents |
+
+### Animation Philosophy
+All animations are locked to `transform` and `opacity` — the only two CSS properties that trigger GPU compositing without layout recalculation. This guarantees 60fps on mid-range hardware.
+
+Complex sequences use **GSAP + ScrollTrigger** for orchestrated scroll-based choreography. Simple hover states use native CSS transitions.
+
+### Color System
+| Token | Hex | Usage |
+|---|---|---|
+| Primary | `#0047AB` | Buttons, links, scrollbar, accents |
+| Secondary | `#FFD700` | Highlights, lightbulb icons |
+| Heaven | White / Lavender gradients | The Quiet Layer |
+| Hell | `#FF3C00` → `#FFA000` | The Infernal Realm |
+
+### Performance
+- **Resource Hints:** `preconnect` and `dns-prefetch` for all CDN origins
+- **Image Preloading:** Hero and profile images are `fetchpriority="high"`
+- **Lazy Loading:** All project images use `loading="lazy"`
+- **Custom Scrollbar:** Styled `#0047AB` thumb on blurred white track
+- **Touch Optimization:** `min-height: 44px` touch targets, `16px` minimum font for inputs on mobile
+
+<br/>
+
+## VIII. The Files
+
+```
+Website/
+├── index.html          ← The entire application (5000 lines)
+├── Readme.md           ← You are here
+├── LICENSE             ← MIT
+├── og.png              ← Open Graph social preview image
+├── snowcrash.jpg       ← Snow Crash book cover
+├── thanks.html         ← VIP Thank You page (post-contact)
+├── Cs.html             ← Coming Soon page (T AI Agent)
+└── Certificate/        ← Certification images
+    ├── Az-900.png
+    ├── CSS.png
+    ├── HTML.png
+    ├── JAVA.png
+    ├── JS.png
+    └── Python.png
+```
+
+<br/>
+
+## IX. Run It
+
+```bash
+# Clone
+git clone https://github.com/itsharshitgoat/Website.git
+
+# Enter
+cd Website
+
+# Launch (pick your poison)
+open index.html              # macOS
+xdg-open index.html          # Linux
+start index.html             # Windows
+
+# Or spin up a local server for the full experience
+npx serve .
+# → http://localhost:3000
+```
+
+No `npm install`. No `yarn`. No `pnpm`. No `bun`. Just a browser.
+
+<br/>
+
+## X. Deployment
+
+Push to `main`. GitHub Pages does the rest. That's it. That's the CI/CD pipeline.
+
+<br/>
+
+## XI. What's Next
+
+- [ ] **WebGL Particle Mesh** — Porting the hero background to interactive Three.js
+- [ ] **True OLED Dark Mode** — `#000000` blacks with neon accent lines
+- [ ] **Headless CMS** — Decouple project data from hardcoded HTML
+- [ ] **Firebase Leaderboard** — Global high scores for the hidden Canvas game
+- [ ] **LLM-Powered Chatbot** — Upgrade from deterministic paths to autonomous AI responses
+- [ ] **T AI Agent** — Something exciting. Coming soon. Sooner than you think.
+
+<br/>
+
+## XII. License
+
+**MIT** — Do what you want. But if this architecture inspires you, a credit back would mean the world.
+
+<br/>
 
 ---
-
-## 🌌 The Dual Realms: Heaven & Hell
-
-One of the most ambitious features of the site is its thematic state transitions, creating entirely new worlds within the DOM.
-
-### 🕊️ The Heaven Layer
-- **Aesthetic:** Clean, white, highly blurred frosted glass.
-- **Content:** Represents a quiet library. It houses 3D-rendered book cards (e.g., *Snow Crash*, *Ready Player One*, *The Art of Game Design*).
-- **Physics:** Uses custom ambient dust particles (`.dust-particle`) that drift infinitely across the screen.
-
-### 🔥 The Hell Layer
-- **Aesthetic:** Dark, intense, featuring deep reds, oranges, and absolute blacks.
-- **Content:** The "Infernal Realm". It showcases the "Sins of Code" (e.g., *The Untouchable Function*, *Friday Deployment*, *Works on my Machine*) as violently floating cards.
-- **Physics:** Employs `.hell-ember` spans that calculate randomized drift variables (`--ember-drift`, `--ember-dur`) to create a hauntingly accurate fire-particle simulation.
-
----
-
-## 🎮 Hidden Easter Eggs & Mini-Games
-
-I strongly believe a portfolio should reward curious users.
-
-1. **The Social Pill Game:** If a user hovers or interacts with the social media pill for a continuous duration, a hidden HTML5 Canvas game engine initiates. Complete with circle-to-point collision physics, particle lifecycles (explosions/thrusters), and screen-shake feedback.
-2. **The `⌘ + K` Terminal:** A power-user feature prominently hinted at in the Hero section via a glowing keyboard pulse. Activating this brings up a functional command-line interface within the browser.
-
----
-
-## 🌊 Deep Dive: Component Breakdown
-
-### 1. The Hero Section
-- **Typewriter Loop:** A meticulously crafted string-manipulation function that types out personal philosophies, handles pauses, backspaces, and controls a custom blinking CSS cursor.
-- **Staggered Waterfall Entrance:** Every element (titles, descriptions, buttons) is bound to an `IntersectionObserver` that injects them into the view using sequentially delayed CSS transforms.
-
-### 2. Bento Grid Projects
-- Utilizes an asymmetrical, highly modern layout system (`display: grid`) that automatically adjusts column spans based on viewport breakpoints. 
-- Integrated with a custom **Modal Engine** that intercepts clicks, freezes body scrolling (`overflow: hidden`), and pops out the project details with a heavy background blur.
-
-### 3. About & Horizontal Journey
-- **Horizontal Scrolling Engine:** Instead of vertical scrolling, this section uses `scroll-snap-type: x mandatory` to create a paged, horizontal timeline. It calculates precise `scrollLeft` offsets for programmatic button navigation.
-
-### 4. Dynamic Music Pill
-- **Polling System:** Pings the `user.getrecenttracks` Last.fm endpoint every 15 seconds.
-- **UI Swaps:** If music is playing, an intricate 4-bar CSS equalizer (`.eq-bar`) dances to the rhythm. If paused, it gracefully degrades to a "Last Listened" timestamp.
-
----
-
-## ⚡ Performance & Design Philosophy
-
-1. **Micro-Interactions are King:** From the soft lift of "Squircle" UI buttons to the deep drop-shadow of the Heaven book cards, every hover state provides tactile, visual feedback.
-2. **Hardware Acceleration:** Animations are strictly limited to `transform` and `opacity` properties. This ensures the browser offloads the work to the GPU, preventing layout thrashing and maintaining a stable 60 FPS.
-3. **Typography Strategy:** 
-   - *Helvetica Neue*: For high-impact, bold headers.
-   - *Inter*: For buttery-smooth, legible body text.
-   - *Roboto Mono*: Exclusively for terminal commands, code snippets, and structural data.
-4. **Mobile First:** The application naturally degrades into single-column layouts. Touch targets are expanded (`min-height: 44px`), and `hover` states are smartly disabled or replaced with `active` tap-states on mobile devices.
-
----
-
-## 🔮 Future Roadmap
-
-The ecosystem is always evolving. Here is the active pipeline:
-
-- [ ] **WebGL Background:** Porting the static Hero background into an interactive `Three.js` particle mesh.
-- [ ] **Dark Mode V2 (OLED):** True absolute blacks `#000000` combined with neon-accent lines for OLED displays.
-- [ ] **Headless CMS Integration:** Decoupling the project definitions into a CMS (Contentful / Sanity) so I don't have to push code to update my portfolio.
-- [ ] **Firebase Leaderboard:** Hooking up the hidden Social Pill game to a serverless real-time database to track global high scores.
-- [ ] **LLM Brain for Chatbot:** Upgrading the Chatbot from deterministic logic paths to an integration with OpenAI/Gemini to provide fully autonomous responses.
-
----
-
-## 💻 Local Setup & Deployment
-
-The beauty of a zero-build pipeline is the frictionless developer experience. 
-
-1. **Clone the Source:**
-   ```bash
-   git clone https://github.com/itsharshitgoat/Website.git
-   ```
-2. **Navigate:**
-   ```bash
-   cd Website
-   ```
-3. **Run Locally:**
-   Because there is no Webpack, Vite, or Babel, you can literally just open the file:
-   - Double click `index.html`
-   - Or, for a better experience, spin up a local server:
-     ```bash
-     npx serve .
-     # OR
-     python -m http.server 8000
-     ```
-
-**Deployment** is handled automatically by pushing to the `main` branch, served instantly via GitHub Pages.
-
----
-
-## 📜 License & Credits
-
-This project is open-sourced under the **[MIT License](LICENSE)**. 
-
-I built this to inspire and be inspired. If you find my structural approach, the dual-realm thematic switching, or the vanilla JS physics engine useful, feel free to fork it. However, I kindly request that you credit the original design and architecture back to me.
 
 <div align="center">
-  <br/>
-  <b>Engineered & Designed with ☕ and ❤️ by Harshit</b>
-  <br/>
-  <i>"What if we made it do this… but cooler?"</i>
+
+<br/>
+
+```
+     Built with raw JavaScript, questionable sleep schedules,
+              and an unreasonable amount of CSS blur.
+```
+
+<br/>
+
+**[@itsharshitgoat](https://github.com/Itsharshitgoat)** · [X/Twitter](https://x.com/itsharshitgoat) · [Instagram](https://www.instagram.com/itsharshitgoat/) · [LinkedIn](https://www.linkedin.com/in/harshit-prasad-833986370/) · [Reddit](https://www.reddit.com/user/itsharshitgoat)
+
+<br/>
+
+_"What if we made it do this… but cooler?"_
+
 </div>
