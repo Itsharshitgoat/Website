@@ -789,6 +789,146 @@ font-size: 16px;
   .gh-stats-box { border-radius: 12px; }
 }
 
+/* ── Skill Pill Components ── */
+.skill-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 16px 6px 6px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+.skill-pill::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.6), rgba(255,255,255,0.1));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.skill-pill:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 71, 171, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(0, 71, 171, 0.15);
+}
+.skill-pill-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+}
+.skill-pill:hover .skill-pill-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+.skill-pill-icon img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.skill-pill-name {
+  font-family: "Inter", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1f2937;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+.skill-pill:hover .skill-pill-name {
+  color: #0047AB;
+}
+
+/* Mobile adjustments for skill pills */
+@media (max-width: 768px) {
+  .skill-pill {
+    padding: 5px 12px 5px 5px;
+    gap: 8px;
+  }
+  .skill-pill-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .skill-pill-icon img {
+    width: 16px;
+    height: 16px;
+  }
+  .skill-pill-name {
+    font-size: 0.78rem;
+  }
+}
+
+/* ── Section Sub-Titles ── */
+.section-sub-title {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1f2937;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 1.25rem;
+  white-space: nowrap;
+}
+.section-sub-icon {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  border-radius: 10px;
+  background: rgba(0, 71, 171, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.section-sub-icon i {
+  font-size: 1rem;
+  color: #0047AB;
+  line-height: 1;
+}
+.section-sub-title:hover .section-sub-icon {
+  transform: scale(1.1);
+  background: rgba(0, 71, 171, 0.14);
+}
+
+@media (min-width: 768px) {
+  .section-sub-title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    gap: 12px;
+  }
+  .section-sub-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 12px;
+  }
+  .section-sub-icon i {
+    font-size: 1.15rem;
+  }
+}
+
 </style>
 <!-- JSON-LD Structured Data for SEO -->
 <script type="application/ld+json">
@@ -1998,69 +2138,163 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 </section>
 <section id="skills" class="bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-md rounded-3xl shadow-xl mx-4 my-8 border border-white/20">
 <div class="max-w-7xl mx-auto px-4">
-<div class="flex items-center justify-center gap-3 mb-12">
-<i class="ri-tools-line text-3xl text-primary"></i>
-<h2 class="font-helvetica text-4xl font-bold text-center">Languages & Tools</h2>
+<div class="flex items-center justify-center gap-3 mb-8 md:mb-12">
+<i class="ri-tools-line text-2xl md:text-3xl text-primary"></i>
+<h2 class="font-helvetica text-2xl md:text-4xl font-bold text-center whitespace-nowrap">Languages & Tools</h2>
 </div>
 <div class="grid md:grid-cols-2 gap-16">
 <div>
-<h3 class="font-helvetica text-2xl font-bold mb-6">Programming Languages</h3>
+<h3 class="section-sub-title"><span class="section-sub-icon"><i class="ri-code-s-slash-line"></i></span>Programming Languages</h3>
 <div class="flex flex-wrap gap-3 mb-8 justify-center">
-<span class="text-sm rounded-full inline-block px-3 py-2 border border-white/20 bg-white/60 backdrop-blur-sm text-gray-800 hover:bg-white/80 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer flex items-center gap-1"><img src="https://em-content.zobj.net/source/microsoft/379/alien-monster_1f47e.png" alt="C" class="w-5 h-5" loading="lazy"> C</span>
-<span class="text-sm rounded-full inline-block px-3 py-2 border border-white/20 bg-white/60 backdrop-blur-sm text-gray-800 hover:bg-white/80 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer flex items-center gap-1"><img src="https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Teacup%20without%20handle/3D/teacup_without_handle_3d.png" alt="Rust" class="w-5 h-5" loading="lazy"> Java</span>
-<span class="text-sm rounded-full inline-block px-3 py-2 border border-white/20 bg-white/60 backdrop-blur-sm text-gray-800 hover:bg-white/80 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer flex items-center gap-1"><img src="https://em-content.zobj.net/source/microsoft/379/snake_1f40d.png" alt="Python" class="w-5 h-5" loading="lazy"> Python</span>
-<span class="text-sm rounded-full inline-block px-3 py-2 border border-white/20 bg-white/60 backdrop-blur-sm text-gray-800 hover:bg-white/80 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer flex items-center gap-1"><img src="https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Page%20facing%20up/3D/page_facing_up_3d.png" alt="HTML" class="w-5 h-5" loading="lazy"> HTML</span>
-<span class="text-sm rounded-full inline-block px-3 py-2 border border-white/20 bg-white/60 backdrop-blur-sm text-gray-800 hover:bg-white/80 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer flex items-center gap-1"><img src="https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Artist%20palette/3D/artist_palette_3d.png" alt="CSS" class="w-5 h-5" loading="lazy"> CSS</span>
-<span class="text-sm rounded-full inline-block px-3 py-2 border border-white/20 bg-white/60 backdrop-blur-sm text-gray-800 hover:bg-white/80 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer flex items-center gap-1"><img src="https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/High%20voltage/3D/high_voltage_3d.png" alt="JavaScript" class="w-5 h-5" loading="lazy"> JavaScript</span>
-<span class="text-sm rounded-full inline-block px-3 py-2 border border-white/20 bg-white/60 backdrop-blur-sm text-gray-800 hover:bg-white/80 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer flex items-center gap-1"><img src="https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Full%20moon/3D/full_moon_3d.png" alt="SQL" class="w-6 h-6" loading="lazy"> Lua</span>
-<span class="text-sm rounded-full inline-block px-3 py-2 border border-white/20 bg-white/60 backdrop-blur-sm text-gray-800 hover:bg-white/80 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer flex items-center gap-1"><img src="https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Alien/3D/alien_3d.png" alt="SQL" class="w-6 h-6" loading="lazy"> Phaser</span>
-<span class="text-sm rounded-full inline-block px-3 py-2 border border-white/20 bg-white/60 backdrop-blur-sm text-gray-800 hover:bg-white/80 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer flex items-center gap-1"><img src="https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Card%20file%20box/3D/card_file_box_3d.png" alt="SQL" class="w-5 h-5" loading="lazy"> SQL</span>
-<span class="text-sm rounded-full inline-block px-3 py-2 border border-white/20 bg-white/60 backdrop-blur-sm text-gray-800 hover:bg-white/80 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer flex items-center gap-1"><img src="https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Man%20technologist/Light/3D/man_technologist_3d_light.png" alt="SQL" class="w-6 h-6" loading="lazy"> CLI</span>
+
+<div class="skill-pill group">
+<div class="skill-pill-icon" style="background: rgba(0, 89, 178, 0.08);">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/C_Programming_Language.svg/1920px-C_Programming_Language.svg.png" alt="C" loading="lazy">
 </div>
-<div class="space-y-6">
-<div>
+<span class="skill-pill-name">C</span>
 </div>
+
+<div class="skill-pill group">
+<div class="skill-pill-icon" style="background: rgba(183, 65, 14, 0.08);">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Rust_programming_language_black_logo.svg/250px-Rust_programming_language_black_logo.svg.png" alt="Rust" loading="lazy">
+</div>
+<span class="skill-pill-name">Rust</span>
+</div>
+
+<div class="skill-pill group">
+<div class="skill-pill-icon" style="background: rgba(237, 139, 0, 0.08);">
+<img src="https://static.vecteezy.com/system/resources/previews/048/332/150/non_2x/java-programming-language-java-logo-free-png.png" alt="Java" loading="lazy">
+</div>
+<span class="skill-pill-name">Java</span>
+</div>
+
+<div class="skill-pill group">
+<div class="skill-pill-icon" style="background: rgba(55, 118, 171, 0.08);">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/250px-Python-logo-notext.svg.png" alt="Python" loading="lazy">
+</div>
+<span class="skill-pill-name">Python</span>
+</div>
+
+<div class="skill-pill group">
+<div class="skill-pill-icon" style="background: rgba(228, 77, 38, 0.08);">
+<img src="https://images.icon-icons.com/112/PNG/512/html5_18891.png" alt="HTML" loading="lazy">
+</div>
+<span class="skill-pill-name">HTML</span>
+</div>
+
+<div class="skill-pill group">
+<div class="skill-pill-icon" style="background: rgba(38, 77, 228, 0.08);">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/960px-CSS3_logo.svg.png" alt="CSS" loading="lazy">
+</div>
+<span class="skill-pill-name">CSS</span>
+</div>
+
+<div class="skill-pill group">
+<div class="skill-pill-icon" style="background: rgba(247, 223, 30, 0.1);">
+<img src="https://static.vecteezy.com/system/resources/previews/066/386/002/non_2x/javascript-programming-icon-logo-free-png.png" alt="JavaScript" loading="lazy">
+</div>
+<span class="skill-pill-name">JavaScript</span>
+</div>
+
+<div class="skill-pill group">
+<div class="skill-pill-icon" style="background: rgba(0, 0, 128, 0.08);">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Lua-Logo.svg/3840px-Lua-Logo.svg.png" alt="Lua" loading="lazy">
+</div>
+<span class="skill-pill-name">Lua</span>
+</div>
+
+<div class="skill-pill group">
+<div class="skill-pill-icon" style="background: rgba(0, 116, 217, 0.08);">
+<img src="https://umangsoftware.com/wp-content/uploads/2020/05/SQL-logo.png" alt="SQL" loading="lazy">
+</div>
+<span class="skill-pill-name">SQL</span>
+</div>
+
+<div class="skill-pill group">
+<div class="skill-pill-icon" style="background: rgba(78, 154, 6, 0.08);">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Bash_Logo_Colored.svg/960px-Bash_Logo_Colored.svg.png?_=20180723054350" alt="CLI" loading="lazy">
+</div>
+<span class="skill-pill-name">CLI</span>
+</div>
+
 </div>
 
 
 </div>
 <div>
-<h3 class="font-helvetica text-2xl font-bold mb-6">Useful Tools</h3>
-<div class="flex flex-wrap gap-4 justify-center">
-<div class="w-20 h-20 flex items-center justify-center bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/20">
-<img src="https://user-images.githubusercontent.com/85056161/221151383-dee5374b-03d9-4548-a0fd-35dfc7ea0f5b.png" alt="VS Code" class="w-12 h-12 object-contain" loading="lazy">
+<h3 class="section-sub-title"><span class="section-sub-icon"><i class="ri-tools-line"></i></span>Useful Tools</h3>
+<div class="flex flex-wrap gap-3 justify-center">
+
+<div class="skill-pill group">
+<div class="skill-pill-icon" style="background: rgba(0, 120, 212, 0.08);">
+<img src="https://user-images.githubusercontent.com/85056161/221151383-dee5374b-03d9-4548-a0fd-35dfc7ea0f5b.png" alt="VS Code" loading="lazy">
 </div>
-<div class="w-20 h-20 flex items-center justify-center bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/20">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_Notes_icon.svg/3840px-Apple_Notes_icon.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" alt="Android Studio" class="w-12 h-12 object-contain" loading="lazy">
+<span class="skill-pill-name">VS Code</span>
 </div>
-<div class="w-20 h-20 flex items-center justify-center bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/20">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/250px-Visual_Studio_Code_1.35_icon.svg.png" alt="Premiere Pro" class="w-12 h-12 object-contain" loading="lazy">
+
+<div class="skill-pill group">
+<div class="skill-pill-icon" style="background: rgba(255, 214, 0, 0.08);">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_Notes_icon.svg/3840px-Apple_Notes_icon.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" alt="Notes" loading="lazy">
 </div>
-<div class="w-20 h-20 flex items-center justify-center bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/20">
-<img src="https://images.icon-icons.com/1381/PNG/512/mysqlworkbench_93532.png" alt="Figma" class="w-12 h-12 object-contain" loading="lazy">
+<span class="skill-pill-name">Notes</span>
 </div>
-<div class="w-20 h-20 flex items-center justify-center bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/20">
-<img src="https://antigravity.google/assets/image/brand/antigravity-icon__full-color.png" alt="Notion" class="w-12 h-12 object-contain" loading="lazy">
+
+<div class="skill-pill group">
+<div class="skill-pill-icon" style="background: rgba(0, 120, 212, 0.08);">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/250px-Visual_Studio_Code_1.35_icon.svg.png" alt="VS Code" loading="lazy">
 </div>
-<div class="w-20 h-20 flex items-center justify-center bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/20">
-<img src="https://avatars.githubusercontent.com/u/18133?s=200&v=4" alt="GitHub" class="w-12 h-12 object-contain" loading="lazy">
+<span class="skill-pill-name">VS Code</span>
 </div>
-<div class="w-20 h-20 flex items-center justify-center bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/20">
-<img src="https://play-lh.googleusercontent.com/t2xwoWAJPoIHZlYiw82J31fZl40kj962j5DVHohn-Pgn7ZiuoXCl-2_NMyMERa7cCFw" alt="Photoshop" class="w-12 h-12 object-contain" loading="lazy">
+
+<div class="skill-pill group">
+<div class="skill-pill-icon" style="background: rgba(0, 121, 131, 0.08);">
+<img src="https://images.icon-icons.com/1381/PNG/512/mysqlworkbench_93532.png" alt="MySQL" loading="lazy">
 </div>
-<div class="w-20 h-20 flex items-center justify-center bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/20">
-<img src="https://github.com/sozercan/kaset/blob/main/Sources/Kaset/Resources/AppIcon.icon/Assets/Image%20Layer.png?raw=true" alt="Chrome" class="w-12 h-12 object-contain" loading="lazy">
+<span class="skill-pill-name">MySQL</span>
 </div>
-<div class="w-20 h-20 flex items-center justify-center bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/20">
-<img src="https://upload.wikimedia.org/wikipedia/en/f/f4/Raycast_App_Icon.png" alt="Photoshop" class="w-12 h-12 object-contain" loading="lazy">
+
+<div class="skill-pill group">
+<div class="skill-pill-icon" style="background: rgba(66, 133, 244, 0.08);">
+<img src="https://antigravity.google/assets/image/brand/antigravity-icon__full-color.png" alt="Antigravity" loading="lazy">
 </div>
+<span class="skill-pill-name">Antigravity</span>
+</div>
+
+<div class="skill-pill group">
+<div class="skill-pill-icon" style="background: rgba(36, 41, 47, 0.08);">
+<img src="https://avatars.githubusercontent.com/u/18133?s=200&v=4" alt="GitHub" loading="lazy">
+</div>
+<span class="skill-pill-name">GitHub</span>
+</div>
+
+<div class="skill-pill group">
+<div class="skill-pill-icon" style="background: rgba(0, 30, 128, 0.08);">
+<img src="https://play-lh.googleusercontent.com/t2xwoWAJPoIHZlYiw82J31fZl40kj962j5DVHohn-Pgn7ZiuoXCl-2_NMyMERa7cCFw" alt="Photoshop" loading="lazy">
+</div>
+<span class="skill-pill-name">Local Send</span>
+</div>
+
+<div class="skill-pill group">
+<div class="skill-pill-icon" style="background: rgba(130, 87, 229, 0.08);">
+<img src="https://github.com/sozercan/kaset/blob/main/Sources/Kaset/Resources/AppIcon.icon/Assets/Image%20Layer.png?raw=true" alt="Kaset" loading="lazy">
+</div>
+<span class="skill-pill-name">Kaset</span>
+</div>
+
+<div class="skill-pill group">
+<div class="skill-pill-icon" style="background: rgba(255, 98, 48, 0.08);">
+<img src="https://upload.wikimedia.org/wikipedia/en/f/f4/Raycast_App_Icon.png" alt="Raycast" loading="lazy">
+</div>
+<span class="skill-pill-name">Raycast</span>
+</div>
+
 </div>
 </div>
 </div>
 </div>
 
 <!-- GitHub Contribution Graph (Full Width at Bottom) -->
-<h3 class="font-helvetica text-2xl font-bold mb-6 mt-16 text-center text-gray-900">Open Source Contributions</h3>
+<h3 class="section-sub-title justify-center mt-12 md:mt-16"><span class="section-sub-icon"><i class="ri-git-merge-line"></i></span>Open Source Contributions</h3>
 <div class="gh-full-card" id="gh-contribution-graph">
   <div class="gh-content-flex">
     <div class="gh-graph-box" id="gh-graph-target">
