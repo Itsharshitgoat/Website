@@ -1751,11 +1751,11 @@ body.hell-descent-2 .hell-bg-gradient { opacity: 0.95; }
     <p class="font-inter text-gray-600 leading-relaxed">I believe in the power of simplicity—because if a button needs a manual, we’ve already lost the plot. Every pixel and click should pull its weight, or it’s getting fired from the screen.</p>
   </div>
 </div>
-<div class="relative group">
+<div class="relative">
   <div class="relative w-fit mx-auto">
     <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/djw36jd-406b8611-269e-44c8-972f-03322ab3f755.png/v1/fill/w_894,h_894,q_70,strp/profile_by_itsharshitgoat_djw36jd-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcLzVlYWYwYzU1LWE5Y2QtNDM3MS04NjAwLTY5NmY2MjQ4YjY3YVwvZGp3MzZqZC00MDZiODYxMS0yNjllLTQ0YzgtOTcyZi0wMzMyMmFiM2Y3NTUucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.lVBIo8BzR6xZUxgQBfrHgzSEeTT3ufbNAynQndE8DLU"
       alt="Harshit" 
-      class="w-[280px] h-[280px] md:w-[320px] md:h-[320px] object-cover object-top rounded-full shadow-lg transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl" fetchpriority="high" decoding="async">
+      class="w-[320px] h-[320px] md:w-[400px] md:h-[400px] object-cover object-top rounded-full" style="-webkit-mask-image: radial-gradient(circle closest-side, black 50%, transparent 100%); mask-image: radial-gradient(circle closest-side, black 50%, transparent 100%);" fetchpriority="high" decoding="async">
     <div class="absolute md:right-[-90px] left-1/2 md:left-auto -translate-x-1/2 md:translate-x-0 bottom-[-100px] md:bottom-0 bg-white/90 backdrop-blur-sm p-3 rounded-xl shadow-lg border border-white/20 flex flex-col gap-2 w-[280px] md:w-auto md:min-w-[200px] transform md:translate-y-0 mt-4 md:mt-0 mb-16 md:mb-0">
       <div class="flex items-center gap-3">
       <i class="ri-map-pin-line text-lg text-primary"></i>
@@ -3384,60 +3384,49 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 </div>
 </section>
 
-<section id="contact" class="bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-md rounded-3xl shadow-xl mx-4 my-8 border border-white/20">
-<div class="max-w-7xl mx-auto px-4">
+<style>
+  @media (min-width: 1024px) {
+    #contact.contact-split {
+      border-radius: 24px 0 0 24px !important;
+      padding: 0 !important;
+      border-right: none !important;
+    }
+  }
+</style>
+<section id="contact" class="contact-split bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-md rounded-3xl shadow-xl mx-4 my-8 border border-white/20 overflow-hidden">
+<!-- Desktop: two-column layout | Mobile: single column (image hidden) -->
+<div class="flex flex-col lg:flex-row lg:items-stretch">
+
+<!-- LEFT COLUMN: Image (desktop only) -->
+<div class="hidden lg:block lg:w-1/2 relative" style="min-height: 500px; -webkit-mask-image: linear-gradient(to right, black 70%, transparent 100%); mask-image: linear-gradient(to right, black 70%, transparent 100%);">
+  <img src="1.jpeg" alt="Beautiful sky" class="absolute inset-0 w-full h-full object-cover object-bottom">
+</div>
+<!-- END LEFT COLUMN -->
+
+<!-- RIGHT COLUMN: Form + Social -->
+<div class="w-full lg:w-1/2 flex flex-col px-6 lg:px-10 py-8 lg:py-10">
 <div class="flex items-center justify-center gap-3 mb-12">
 <i class="ri-mail-line text-3xl text-primary"></i>
 <h2 class="font-helvetica text-4xl font-bold text-center">Get in Touch</h2>
 </div>
-<div class="max-w-2xl mx-auto">
-<form id="contact-form" action="https://formspree.io/f/xwvzkrzq" method="POST" class="space-y-6" novalidate>
-<div class="flex flex-col lg:flex-row gap-6 lg:gap-12">
-  <div class="w-full lg:w-1/2">
-    <label class="block font-inter font-medium mb-2" for="name">Name</label>
-    <div class="relative">
-      <input type="text" id="name" name="name" class="w-full px-4 py-3 pr-10 bg-white/60 backdrop-blur-sm border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 shadow-lg transition-all duration-300" required>
-      <div id="name-error" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-red-500 text-xl pointer-events-none"><i class="ri-error-warning-line"></i></div>
-    </div>
-  </div>
-  <div class="w-full lg:flex-1 flex-col items-start lg:items-end">
-    <label class="block font-inter font-medium mb-2 lg:opacity-0 lg:select-none text-gray-800">
-      <span class="lg:hidden">Rate the website</span>
-      <span class="hidden lg:inline">Rating</span>
-    </label>
-    <div id="rating-pill-container" class="w-full lg:w-[max-content] lg:min-w-[300px] py-3 lg:py-0 lg:h-[50px] relative px-4 lg:px-6 bg-white/60 lg:bg-white/40 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg lg:shadow-inner flex items-center justify-center lg:justify-between lg:gap-6 transition-all duration-300">
-      <span class="hidden lg:inline text-base lg:text-sm font-inter font-medium text-gray-700 select-none whitespace-nowrap">Rate the website</span>
-      <div id="rating-tooltip" class="absolute -top-12 -translate-x-1/2 bg-white/70 backdrop-blur-md border border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.1)] text-gray-800 text-xs font-inter font-bold px-4 py-2 rounded-full opacity-0 pointer-events-none transition-all duration-300 transform translate-y-2 whitespace-nowrap z-20 flex items-center gap-2" style="left: 70%;">
-        <span>Rate the website</span>
-        <svg class="absolute top-[calc(100%-1px)] left-1/2 -translate-x-1/2 w-3.5 drop-shadow-sm" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 0L7 7L14 0" fill="rgba(255, 255, 255, 0.7)" stroke="rgba(255, 255, 255, 0.4)" stroke-width="1" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <div class="flex gap-1.5" id="website-rating">
-        <svg class="w-7 h-7 text-gray-400 cursor-pointer hover:scale-110 transition-transform" data-rating="1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-        <svg class="w-7 h-7 text-gray-400 cursor-pointer hover:scale-110 transition-transform" data-rating="2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-        <svg class="w-7 h-7 text-gray-400 cursor-pointer hover:scale-110 transition-transform" data-rating="3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-        <svg class="w-7 h-7 text-gray-400 cursor-pointer hover:scale-110 transition-transform" data-rating="4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-        <svg class="w-7 h-7 text-gray-400 cursor-pointer hover:scale-110 transition-transform" data-rating="5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-      </div>
-      <input type="hidden" name="website_rating" id="website_rating_input" value="Not Rated">
-    </div>
+<div class="w-full">
+<form id="contact-form" method="POST" class="space-y-6" novalidate>
+<div>
+  <div class="relative">
+    <input type="text" id="name" name="name" placeholder="Name" class="w-full px-4 py-3 pr-10 bg-white/60 backdrop-blur-sm border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 shadow-lg transition-all duration-300 placeholder-gray-500 font-medium" required>
+    <div id="name-error" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-red-500 text-xl pointer-events-none"><i class="ri-error-warning-line"></i></div>
   </div>
 </div>
 <div>
-<label class="block font-inter font-medium mb-2" for="email">Email</label>
 <div class="relative">
-<input type="email" id="email" name="email" class="w-full px-4 py-3 pr-10 bg-white/60 backdrop-blur-sm border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 shadow-lg transition-all duration-300" required>
+<input type="email" id="email" name="email" placeholder="Email" class="w-full px-4 py-3 pr-10 bg-white/60 backdrop-blur-sm border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 shadow-lg transition-all duration-300 placeholder-gray-500 font-medium" required>
 <div id="email-error" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-red-500 text-xl pointer-events-none"><i class="ri-error-warning-line"></i></div>
 </div>
 </div>
 <div>
-<label class="block font-inter font-medium mb-2" for="message">Message</label>
-<textarea id="message" name="message" rows="5" class="w-full px-4 py-3 bg-white/60 backdrop-blur-sm border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 shadow-lg transition-all duration-300" required></textarea>
+<textarea id="message" name="message" rows="5" placeholder="Message" class="w-full px-4 py-3 bg-white/60 backdrop-blur-sm border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 shadow-lg transition-all duration-300 placeholder-gray-500 font-medium" required></textarea>
 </div>
-<input type="text" name="_honey" style="display:none">
-<input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_next" value="https://itsharshitgoat.github.io/Website/thanks.html">
+
 <button type="submit" id="submit-btn" class="!rounded-button bg-primary text-white px-8 py-3 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap w-full relative group">
 <span id="btn-text">Send Message</span>
 <i id="btn-spinner" class="ri-loader-4-line animate-spin absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden text-xl"></i>
@@ -3467,6 +3456,11 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
       <i class="ri-linkedin-box-line text-2xl"></i>
     </a>
   </div>
+</div>
+</div>
+</div>
+<!-- END RIGHT COLUMN -->
+
 </div>
 </section>
 </main>
@@ -5116,80 +5110,7 @@ new MobileCardStack('hell-cards-container', '.hell-stack-card');
     appendOutput('<div class="bg-white/5 pb-3 rounded-b-lg mb-4">' + userBlock + responseHTML + '</div>');
   }
 
-  // Website Rating Interaction
-  document.addEventListener('DOMContentLoaded', () => {
-    const stars = document.querySelectorAll('#website-rating svg');
-    const ratingInput = document.getElementById('website_rating_input');
-    const tooltip = document.getElementById('rating-tooltip');
-    const tooltipText = tooltip.querySelector('span');
-    const pillContainer = document.getElementById('rating-pill-container');
-    let currentRating = 0;
-    
-    const ratingTexts = {
-      1: "Needs Work 😕",
-      2: "Could be Better 😐",
-      3: "It's Good! 🙂",
-      4: "Really Great! 🤩",
-      5: "Absolutely Amazing! 🚀"
-    };
 
-    function showTooltip(rating, targetStar = null) {
-      if(rating > 0) {
-        tooltipText.textContent = ratingTexts[rating];
-        tooltip.classList.remove('opacity-0', 'translate-y-2');
-        tooltip.classList.add('opacity-100', 'translate-y-0');
-        
-        if(targetStar && pillContainer) {
-          const pillRect = pillContainer.getBoundingClientRect();
-          const starRect = targetStar.getBoundingClientRect();
-          const centerLeft = starRect.left - pillRect.left + (starRect.width / 2);
-          tooltip.style.left = `${centerLeft}px`;
-        }
-      } else {
-        tooltip.classList.remove('opacity-100', 'translate-y-0');
-        tooltip.classList.add('opacity-0', 'translate-y-2');
-      }
-    }
-    
-    stars.forEach(star => {
-      star.addEventListener('mouseenter', function() {
-        const rating = parseInt(this.getAttribute('data-rating'));
-        highlightStars(rating);
-        showTooltip(rating, this);
-      });
-      
-      star.addEventListener('mouseleave', function() {
-        highlightStars(currentRating);
-        let selectedStar = null;
-        if(currentRating > 0) {
-           selectedStar = document.querySelector(`#website-rating svg[data-rating="${currentRating}"]`);
-        }
-        showTooltip(currentRating, selectedStar);
-      });
-      
-      star.addEventListener('click', function() {
-        currentRating = parseInt(this.getAttribute('data-rating'));
-        ratingInput.value = `${currentRating} - ${ratingTexts[currentRating]}`;
-        highlightStars(currentRating);
-        showTooltip(currentRating, this);
-      });
-    });
-    
-    function highlightStars(rating) {
-      stars.forEach(star => {
-        const starRating = parseInt(star.getAttribute('data-rating'));
-        if (starRating <= rating) {
-          star.classList.remove('text-gray-400');
-          star.classList.add('text-yellow-400');
-          star.setAttribute('fill', 'currentColor');
-        } else {
-          star.classList.remove('text-yellow-400');
-          star.classList.add('text-gray-400');
-          star.setAttribute('fill', 'none');
-        }
-      });
-    }
-  });
 </script>
 
 </body>
