@@ -50,8 +50,8 @@
 <link rel="preload" as="image" href="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/djw36jd-406b8611-269e-44c8-972f-03322ab3f755.png/v1/fill/w_894,h_894,q_70,strp/profile_by_itsharshitgoat_djw36jd-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcLzVlYWYwYzU1LWE5Y2QtNDM3MS04NjAwLTY5NmY2MjQ4YjY3YVwvZGp3MzZqZC00MDZiODYxMS0yNjllLTQ0YzgtOTcyZi0wMzMyMmFiM2Y3NTUucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.lVBIo8BzR6xZUxgQBfrHgzSEeTT3ufbNAynQndE8DLU" fetchpriority="high">
 <link rel="preload" as="image" href="https://public.readdy.ai/ai/img_res/343c982e6386ebc666b67c4b8926bebb.jpg" fetchpriority="high">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1519,7 +1519,7 @@ body.hell-descent-2 .hell-bg-gradient { opacity: 0.95; }
                 
                 <div class="quiet-book-3d book-pos-1">
                     <div class="book-front">
-                        <img src="https://m.media-amazon.com/images/I/81FjSaTN0AL._AC_UF1000,1000_QL80_.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Star Wars Book Cover">
+                        <img loading="lazy" src="https://m.media-amazon.com/images/I/81FjSaTN0AL._AC_UF1000,1000_QL80_.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Star Wars Book Cover">
                         
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                         <div class="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-black/20"></div>
@@ -1548,7 +1548,7 @@ body.hell-descent-2 .hell-bg-gradient { opacity: 0.95; }
                 
                 <div class="quiet-book-3d book-pos-2" style="width: 160px; height: 230px;">
                     <div class="book-front">
-                        <img src="snowcrash.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Snow Crash Book Cover">
+                        <img loading="lazy" src="snowcrash.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Snow Crash Book Cover">
                         
                         <!-- Shadows and gradients for book realism and text readability -->
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
@@ -1578,7 +1578,7 @@ body.hell-descent-2 .hell-bg-gradient { opacity: 0.95; }
                 
                 <div class="quiet-book-3d book-pos-3">
                     <div class="book-front">
-                        <img src="https://m.media-amazon.com/images/I/91FGDm7MfIL._AC_UF1000,1000_QL80_.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Ready Player One Book Cover">
+                        <img loading="lazy" src="https://m.media-amazon.com/images/I/91FGDm7MfIL._AC_UF1000,1000_QL80_.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Ready Player One Book Cover">
                         
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                         <div class="absolute inset-0 bg-gradient-to-tr from-white/20 via-transparent to-black/20"></div>
@@ -1726,7 +1726,7 @@ body.hell-descent-2 .hell-bg-gradient { opacity: 0.95; }
   </a>
 </div>
 
-<div class="mt-8 flex justify-center opacity-0 translate-y-4 transition-all duration-700 delay-300" id="hero-terminal-hint">
+<div class="mt-8 hidden md:flex justify-center opacity-0 translate-y-4 transition-all duration-700 delay-300" id="hero-terminal-hint">
   <button type="button" onclick="openTerminal()" class="flex items-center gap-2 text-[13px] font-mono cursor-pointer transition-all hover:scale-105 active:scale-95 group bg-transparent border-none outline-none p-2 terminal-hint-glow">
     <span class="text-[#0047AB] font-medium" style="text-shadow: 0 0 6px rgba(0,71,171,0.6), 0 0 15px rgba(0,71,171,0.4), 0 0 30px rgba(0,71,171,0.2);">Press</span>
     <kbd class="text-[#0047AB] font-sans font-semibold text-[11px] rounded px-2 py-0.5 transform group-hover:-translate-y-0.5 group-active:translate-y-0.5 group-active:shadow-none transition-all backdrop-blur-sm" style="background: rgba(255,255,255,0.85); border: 1px solid rgba(0,71,171,0.25); box-shadow: 0 2px 0 rgba(0,71,171,0.2), 0 0 12px rgba(0,71,171,0.35), 0 0 25px rgba(0,71,171,0.15);">⌘</kbd>
@@ -1744,7 +1744,7 @@ body.hell-descent-2 .hell-bg-gradient { opacity: 0.95; }
 <i class="ri-user-line text-3xl text-primary"></i>
 <h2 class="font-helvetica text-4xl font-bold text-center">About Me</h2>
 </div>
-<div class="grid md:grid-cols-2 gap-16 items-center">
+<div class="grid md:grid-cols-2 gap-16 items-center relative z-10">
 <div>
   <div class="space-y-6 text-center">
     <p class="font-inter text-gray-600 leading-relaxed">I’m a tech enthusiast on a quest to make AI and OS development less of a headache and way cooler. I tinker with modern tech, treat UI/UX like both art and sport, and basically run on wireframes and caffeine. Obsessed with futuristic design and buttery-smooth experiences, I try to make tech feel like magic—with less smoke and more logic. I’m curious, dangerously detail-oriented, and fueled by Wi-Fi and bad puns, always asking: “What if we made it do this… but cooler?”</p>
@@ -1755,17 +1755,8 @@ body.hell-descent-2 .hell-bg-gradient { opacity: 0.95; }
   <div class="relative w-fit mx-auto">
     <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/djw36jd-406b8611-269e-44c8-972f-03322ab3f755.png/v1/fill/w_894,h_894,q_70,strp/profile_by_itsharshitgoat_djw36jd-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcLzVlYWYwYzU1LWE5Y2QtNDM3MS04NjAwLTY5NmY2MjQ4YjY3YVwvZGp3MzZqZC00MDZiODYxMS0yNjllLTQ0YzgtOTcyZi0wMzMyMmFiM2Y3NTUucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.lVBIo8BzR6xZUxgQBfrHgzSEeTT3ufbNAynQndE8DLU"
       alt="Harshit" 
-      class="w-[320px] h-[320px] md:w-[400px] md:h-[400px] object-cover object-top rounded-full" style="-webkit-mask-image: radial-gradient(circle closest-side, black 50%, transparent 100%); mask-image: radial-gradient(circle closest-side, black 50%, transparent 100%);" fetchpriority="high" decoding="async">
-    <div class="absolute md:right-[-90px] left-1/2 md:left-auto -translate-x-1/2 md:translate-x-0 bottom-[-100px] md:bottom-0 bg-white/90 backdrop-blur-sm p-3 rounded-xl shadow-lg border border-white/20 flex flex-col gap-2 w-[280px] md:w-auto md:min-w-[200px] transform md:translate-y-0 mt-4 md:mt-0 mb-16 md:mb-0">
-      <div class="flex items-center gap-3">
-      <i class="ri-map-pin-line text-lg text-primary"></i>
-      <span class="font-inter text-base">Delhi, India</span>
-      </div>
-      <div class="flex items-center gap-3">
-      <i class="ri-cup-line text-lg text-primary"></i>
-      <span class="font-inter text-base">Working overtime</span>
-      </div>
-    </div>
+      class="w-[320px] h-[320px] md:w-[400px] md:h-[400px] object-cover object-top rounded-full" style="-webkit-mask-image: radial-gradient(circle closest-side, black 75%, transparent 100%); mask-image: radial-gradient(circle closest-side, black 75%, transparent 100%);" fetchpriority="high" decoding="async">
+
     </div>
   </div>
 </div>
@@ -1773,15 +1764,15 @@ body.hell-descent-2 .hell-bg-gradient { opacity: 0.95; }
 <!-- Timeline Section - Interactive journey visualization -->
 <div class="col-span-2 mt-20 relative">
 
-    <div class="relative max-w-5xl mx-auto px-4 py-10 overflow-hidden">
+    <div class="relative max-w-5xl mx-auto px-4 py-10">
         <!-- Vertical Winding Path Line -->
-        <div class="absolute left-10 md:left-1/2 top-0 bottom-0 w-[4px] transform -translate-x-1/2 bg-gradient-to-b from-transparent via-primary/40 to-transparent rounded-full shadow-[0_0_15px_rgba(0,71,171,0.5)]"></div>
+        <div class="absolute left-1/2 -top-48 md:-top-32 bottom-0 w-[4px] transform -translate-x-1/2 bg-gradient-to-b from-transparent via-primary/40 to-transparent rounded-full shadow-[0_0_15px_rgba(0,71,171,0.5)] z-0"></div>
 
         <div class="journey-items flex flex-col relative w-full">
             <!-- Item 1 (Odd) -->
-            <div class="journey-item relative w-full group opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out flex md:justify-between items-center mb-16 last:mb-0">
+            <div class="journey-item relative w-full group opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out flex flex-col md:flex-row md:justify-between items-center mb-24 md:mb-16 last:mb-0">
                 <!-- Desktop Left / Mobile Right -->
-                <div class="w-full pl-16 md:pl-0 md:w-5/12 md:text-right z-10">
+                <div class="w-11/12 md:w-5/12 md:text-right text-center z-10 mt-16 md:mt-0">
                    <div class="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-white/60 hover:shadow-[0_0_40px_rgba(0,71,171,0.25)] transition-all duration-300 relative overflow-hidden transform group-hover:-translate-y-2 group-hover:scale-[1.02]">
                        <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                        <h3 class="font-bold text-xl mb-1 text-gray-900 relative z-10">June 2012</h3>
@@ -1789,22 +1780,22 @@ body.hell-descent-2 .hell-bg-gradient { opacity: 0.95; }
                    </div>
                 </div>
                 <!-- Center Icon -->
-                <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center z-20 group-hover:scale-125 group-hover:shadow-[0_0_30px_rgba(0,71,171,0.6)] transition-all duration-500">
+                <div class="absolute top-0 md:top-1/2 left-1/2 transform -translate-x-1/2 md:-translate-y-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center z-20 group-hover:scale-125 group-hover:shadow-[0_0_30px_rgba(0,71,171,0.6)] transition-all duration-500">
                     <i class="ri-rocket-line text-xl text-primary"></i>
                 </div>
                 <!-- Empty Desktop Right -->
                 <div class="hidden md:block md:w-5/12"></div>
             </div>
             <!-- Item 2 (Even) -->
-            <div class="journey-item relative w-full group opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out flex md:justify-between items-center mb-16 last:mb-0">
+            <div class="journey-item relative w-full group opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out flex flex-col md:flex-row md:justify-between items-center mb-24 md:mb-16 last:mb-0">
                 <!-- Empty Desktop Left -->
                 <div class="hidden md:block md:w-5/12"></div>
                 <!-- Center Icon -->
-                <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center z-20 group-hover:scale-125 group-hover:shadow-[0_0_30px_rgba(0,71,171,0.6)] transition-all duration-500">
+                <div class="absolute top-0 md:top-1/2 left-1/2 transform -translate-x-1/2 md:-translate-y-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center z-20 group-hover:scale-125 group-hover:shadow-[0_0_30px_rgba(0,71,171,0.6)] transition-all duration-500">
                     <i class="ri-chrome-line text-2xl text-primary"></i>
                 </div>
                 <!-- Right Content -->
-                <div class="w-full pl-16 md:pl-0 md:w-5/12 md:text-left z-10">
+                <div class="w-11/12 md:w-5/12 md:text-left text-center z-10 mt-16 md:mt-0">
                    <div class="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-white/60 hover:shadow-[0_0_40px_rgba(0,71,171,0.25)] transition-all duration-300 relative overflow-hidden transform group-hover:-translate-y-2 group-hover:scale-[1.02]">
                        <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                        <h3 class="font-bold text-xl mb-1 text-gray-900 relative z-10">Sep 2015</h3>
@@ -1813,9 +1804,9 @@ body.hell-descent-2 .hell-bg-gradient { opacity: 0.95; }
                 </div>
             </div>
             <!-- Item 3 (Odd) -->
-            <div class="journey-item relative w-full group opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out flex md:justify-between items-center mb-16 last:mb-0">
+            <div class="journey-item relative w-full group opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out flex flex-col md:flex-row md:justify-between items-center mb-24 md:mb-16 last:mb-0">
                 <!-- Desktop Left / Mobile Right -->
-                <div class="w-full pl-16 md:pl-0 md:w-5/12 md:text-right z-10">
+                <div class="w-11/12 md:w-5/12 md:text-right text-center z-10 mt-16 md:mt-0">
                    <div class="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-white/60 hover:shadow-[0_0_40px_rgba(0,71,171,0.25)] transition-all duration-300 relative overflow-hidden transform group-hover:-translate-y-2 group-hover:scale-[1.02]">
                        <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                        <h3 class="font-bold text-xl mb-1 text-gray-900 relative z-10">Nov 2015</h3>
@@ -1823,22 +1814,22 @@ body.hell-descent-2 .hell-bg-gradient { opacity: 0.95; }
                    </div>
                 </div>
                 <!-- Center Icon -->
-                <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center z-20 group-hover:scale-125 group-hover:shadow-[0_0_30px_rgba(0,71,171,0.6)] transition-all duration-500">
+                <div class="absolute top-0 md:top-1/2 left-1/2 transform -translate-x-1/2 md:-translate-y-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center z-20 group-hover:scale-125 group-hover:shadow-[0_0_30px_rgba(0,71,171,0.6)] transition-all duration-500">
                     <i class="ri-html5-line text-2xl text-primary"></i>
                 </div>
                 <!-- Empty Desktop Right -->
                 <div class="hidden md:block md:w-5/12"></div>
             </div>
             <!-- Item 4 (Even) -->
-            <div class="journey-item relative w-full group opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out flex md:justify-between items-center mb-16 last:mb-0">
+            <div class="journey-item relative w-full group opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out flex flex-col md:flex-row md:justify-between items-center mb-24 md:mb-16 last:mb-0">
                 <!-- Empty Desktop Left -->
                 <div class="hidden md:block md:w-5/12"></div>
                 <!-- Center Icon -->
-                <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center z-20 group-hover:scale-125 group-hover:shadow-[0_0_30px_rgba(0,71,171,0.6)] transition-all duration-500">
+                <div class="absolute top-0 md:top-1/2 left-1/2 transform -translate-x-1/2 md:-translate-y-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center z-20 group-hover:scale-125 group-hover:shadow-[0_0_30px_rgba(0,71,171,0.6)] transition-all duration-500">
                     <i class="ri-code-box-line text-2xl text-primary"></i>
                 </div>
                 <!-- Right Content -->
-                <div class="w-full pl-16 md:pl-0 md:w-5/12 md:text-left z-10">
+                <div class="w-11/12 md:w-5/12 md:text-left text-center z-10 mt-16 md:mt-0">
                    <div class="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-white/60 hover:shadow-[0_0_40px_rgba(0,71,171,0.25)] transition-all duration-300 relative overflow-hidden transform group-hover:-translate-y-2 group-hover:scale-[1.02]">
                        <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                        <h3 class="font-bold text-xl mb-1 text-gray-900 relative z-10">Dec 2015</h3>
@@ -1847,9 +1838,9 @@ body.hell-descent-2 .hell-bg-gradient { opacity: 0.95; }
                 </div>
             </div>
             <!-- Item 5 (Odd) -->
-            <div class="journey-item relative w-full group opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out flex md:justify-between items-center mb-16 last:mb-0">
+            <div class="journey-item relative w-full group opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out flex flex-col md:flex-row md:justify-between items-center mb-24 md:mb-16 last:mb-0">
                 <!-- Desktop Left / Mobile Right -->
-                <div class="w-full pl-16 md:pl-0 md:w-5/12 md:text-right z-10">
+                <div class="w-11/12 md:w-5/12 md:text-right text-center z-10 mt-16 md:mt-0">
                    <div class="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-white/60 hover:shadow-[0_0_40px_rgba(0,71,171,0.25)] transition-all duration-300 relative overflow-hidden transform group-hover:-translate-y-2 group-hover:scale-[1.02]">
                        <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                        <h3 class="font-bold text-xl mb-1 text-gray-900 relative z-10">Jul 2019</h3>
@@ -1857,22 +1848,22 @@ body.hell-descent-2 .hell-bg-gradient { opacity: 0.95; }
                    </div>
                 </div>
                 <!-- Center Icon -->
-                <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center z-20 group-hover:scale-125 group-hover:shadow-[0_0_30px_rgba(0,71,171,0.6)] transition-all duration-500">
+                <div class="absolute top-0 md:top-1/2 left-1/2 transform -translate-x-1/2 md:-translate-y-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center z-20 group-hover:scale-125 group-hover:shadow-[0_0_30px_rgba(0,71,171,0.6)] transition-all duration-500">
                     <i class="ri-javascript-line text-2xl text-primary"></i>
                 </div>
                 <!-- Empty Desktop Right -->
                 <div class="hidden md:block md:w-5/12"></div>
             </div>
             <!-- Item 6 (Even) -->
-            <div class="journey-item relative w-full group opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out flex md:justify-between items-center mb-16 last:mb-0">
+            <div class="journey-item relative w-full group opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out flex flex-col md:flex-row md:justify-between items-center mb-24 md:mb-16 last:mb-0">
                 <!-- Empty Desktop Left -->
                 <div class="hidden md:block md:w-5/12"></div>
                 <!-- Center Icon -->
-                <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center z-20 group-hover:scale-125 group-hover:shadow-[0_0_30px_rgba(0,71,171,0.6)] transition-all duration-500">
+                <div class="absolute top-0 md:top-1/2 left-1/2 transform -translate-x-1/2 md:-translate-y-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center z-20 group-hover:scale-125 group-hover:shadow-[0_0_30px_rgba(0,71,171,0.6)] transition-all duration-500">
                     <i class="ri-brush-line text-2xl text-primary"></i>
                 </div>
                 <!-- Right Content -->
-                <div class="w-full pl-16 md:pl-0 md:w-5/12 md:text-left z-10">
+                <div class="w-11/12 md:w-5/12 md:text-left text-center z-10 mt-16 md:mt-0">
                    <div class="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-white/60 hover:shadow-[0_0_40px_rgba(0,71,171,0.25)] transition-all duration-300 relative overflow-hidden transform group-hover:-translate-y-2 group-hover:scale-[1.02]">
                        <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                        <h3 class="font-bold text-xl mb-1 text-gray-900 relative z-10">Dec 2019</h3>
@@ -1881,9 +1872,9 @@ body.hell-descent-2 .hell-bg-gradient { opacity: 0.95; }
                 </div>
             </div>
             <!-- Item 7 (Odd) -->
-            <div class="journey-item relative w-full group opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out flex md:justify-between items-center mb-16 last:mb-0">
+            <div class="journey-item relative w-full group opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out flex flex-col md:flex-row md:justify-between items-center mb-24 md:mb-16 last:mb-0">
                 <!-- Desktop Left / Mobile Right -->
-                <div class="w-full pl-16 md:pl-0 md:w-5/12 md:text-right z-10">
+                <div class="w-11/12 md:w-5/12 md:text-right text-center z-10 mt-16 md:mt-0">
                    <div class="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-white/60 hover:shadow-[0_0_40px_rgba(0,71,171,0.25)] transition-all duration-300 relative overflow-hidden transform group-hover:-translate-y-2 group-hover:scale-[1.02]">
                        <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                        <h3 class="font-bold text-xl mb-1 text-gray-900 relative z-10">Jan 2020</h3>
@@ -1891,22 +1882,22 @@ body.hell-descent-2 .hell-bg-gradient { opacity: 0.95; }
                    </div>
                 </div>
                 <!-- Center Icon -->
-                <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center z-20 group-hover:scale-125 group-hover:shadow-[0_0_30px_rgba(0,71,171,0.6)] transition-all duration-500">
+                <div class="absolute top-0 md:top-1/2 left-1/2 transform -translate-x-1/2 md:-translate-y-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center z-20 group-hover:scale-125 group-hover:shadow-[0_0_30px_rgba(0,71,171,0.6)] transition-all duration-500">
                     <i class="ri-markdown-line text-2xl text-primary"></i>
                 </div>
                 <!-- Empty Desktop Right -->
                 <div class="hidden md:block md:w-5/12"></div>
             </div>
             <!-- Item 8 (Even) -->
-            <div class="journey-item relative w-full group opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out flex md:justify-between items-center mb-16 last:mb-0">
+            <div class="journey-item relative w-full group opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out flex flex-col md:flex-row md:justify-between items-center mb-24 md:mb-16 last:mb-0">
                 <!-- Empty Desktop Left -->
                 <div class="hidden md:block md:w-5/12"></div>
                 <!-- Center Icon -->
-                <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center z-20 group-hover:scale-125 group-hover:shadow-[0_0_30px_rgba(0,71,171,0.6)] transition-all duration-500">
+                <div class="absolute top-0 md:top-1/2 left-1/2 transform -translate-x-1/2 md:-translate-y-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center z-20 group-hover:scale-125 group-hover:shadow-[0_0_30px_rgba(0,71,171,0.6)] transition-all duration-500">
                     <i class="ri-code-s-slash-line text-2xl text-primary"></i>
                 </div>
                 <!-- Right Content -->
-                <div class="w-full pl-16 md:pl-0 md:w-5/12 md:text-left z-10">
+                <div class="w-11/12 md:w-5/12 md:text-left text-center z-10 mt-16 md:mt-0">
                    <div class="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-white/60 hover:shadow-[0_0_40px_rgba(0,71,171,0.25)] transition-all duration-300 relative overflow-hidden transform group-hover:-translate-y-2 group-hover:scale-[1.02]">
                        <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                        <h3 class="font-bold text-xl mb-1 text-gray-900 relative z-10">Jun 2020</h3>
@@ -1915,9 +1906,9 @@ body.hell-descent-2 .hell-bg-gradient { opacity: 0.95; }
                 </div>
             </div>
             <!-- Item 9 (Odd) -->
-            <div class="journey-item relative w-full group opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out flex md:justify-between items-center mb-16 last:mb-0">
+            <div class="journey-item relative w-full group opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out flex flex-col md:flex-row md:justify-between items-center mb-24 md:mb-16 last:mb-0">
                 <!-- Desktop Left / Mobile Right -->
-                <div class="w-full pl-16 md:pl-0 md:w-5/12 md:text-right z-10">
+                <div class="w-11/12 md:w-5/12 md:text-right text-center z-10 mt-16 md:mt-0">
                    <div class="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-white/60 hover:shadow-[0_0_40px_rgba(0,71,171,0.25)] transition-all duration-300 relative overflow-hidden transform group-hover:-translate-y-2 group-hover:scale-[1.02]">
                        <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                        <h3 class="font-bold text-xl mb-1 text-gray-900 relative z-10">Jan 2021</h3>
@@ -1925,22 +1916,22 @@ body.hell-descent-2 .hell-bg-gradient { opacity: 0.95; }
                    </div>
                 </div>
                 <!-- Center Icon -->
-                <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center z-20 group-hover:scale-125 group-hover:shadow-[0_0_30px_rgba(0,71,171,0.6)] transition-all duration-500">
+                <div class="absolute top-0 md:top-1/2 left-1/2 transform -translate-x-1/2 md:-translate-y-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center z-20 group-hover:scale-125 group-hover:shadow-[0_0_30px_rgba(0,71,171,0.6)] transition-all duration-500">
                     <i class="ri-nodejs-line text-2xl text-primary"></i>
                 </div>
                 <!-- Empty Desktop Right -->
                 <div class="hidden md:block md:w-5/12"></div>
             </div>
             <!-- Item 10 (Even) -->
-            <div class="journey-item relative w-full group opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out flex md:justify-between items-center mb-16 last:mb-0">
+            <div class="journey-item relative w-full group opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out flex flex-col md:flex-row md:justify-between items-center mb-24 md:mb-16 last:mb-0">
                 <!-- Empty Desktop Left -->
                 <div class="hidden md:block md:w-5/12"></div>
                 <!-- Center Icon -->
-                <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center z-20 group-hover:scale-125 group-hover:shadow-[0_0_30px_rgba(0,71,171,0.6)] transition-all duration-500">
+                <div class="absolute top-0 md:top-1/2 left-1/2 transform -translate-x-1/2 md:-translate-y-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center z-20 group-hover:scale-125 group-hover:shadow-[0_0_30px_rgba(0,71,171,0.6)] transition-all duration-500">
                     <i class="ri-c-sharp-line text-2xl text-primary"></i>
                 </div>
                 <!-- Right Content -->
-                <div class="w-full pl-16 md:pl-0 md:w-5/12 md:text-left z-10">
+                <div class="w-11/12 md:w-5/12 md:text-left text-center z-10 mt-16 md:mt-0">
                    <div class="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-white/60 hover:shadow-[0_0_40px_rgba(0,71,171,0.25)] transition-all duration-300 relative overflow-hidden transform group-hover:-translate-y-2 group-hover:scale-[1.02]">
                        <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                        <h3 class="font-bold text-xl mb-1 text-gray-900 relative z-10">Aug 2021</h3>
@@ -1949,9 +1940,9 @@ body.hell-descent-2 .hell-bg-gradient { opacity: 0.95; }
                 </div>
             </div>
             <!-- Item 11 (Odd) -->
-            <div class="journey-item relative w-full group opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out flex md:justify-between items-center mb-16 last:mb-0">
+            <div class="journey-item relative w-full group opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out flex flex-col md:flex-row md:justify-between items-center mb-24 md:mb-16 last:mb-0">
                 <!-- Desktop Left / Mobile Right -->
-                <div class="w-full pl-16 md:pl-0 md:w-5/12 md:text-right z-10">
+                <div class="w-11/12 md:w-5/12 md:text-right text-center z-10 mt-16 md:mt-0">
                    <div class="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-white/60 hover:shadow-[0_0_40px_rgba(0,71,171,0.25)] transition-all duration-300 relative overflow-hidden transform group-hover:-translate-y-2 group-hover:scale-[1.02]">
                        <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                        <h3 class="font-bold text-xl mb-1 text-gray-900 relative z-10">Dec 2022</h3>
@@ -1959,22 +1950,22 @@ body.hell-descent-2 .hell-bg-gradient { opacity: 0.95; }
                    </div>
                 </div>
                 <!-- Center Icon -->
-                <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center z-20 group-hover:scale-125 group-hover:shadow-[0_0_30px_rgba(0,71,171,0.6)] transition-all duration-500">
+                <div class="absolute top-0 md:top-1/2 left-1/2 transform -translate-x-1/2 md:-translate-y-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center z-20 group-hover:scale-125 group-hover:shadow-[0_0_30px_rgba(0,71,171,0.6)] transition-all duration-500">
                     <i class="ri-brain-line text-2xl text-primary"></i>
                 </div>
                 <!-- Empty Desktop Right -->
                 <div class="hidden md:block md:w-5/12"></div>
             </div>
             <!-- Item 12 (Even) -->
-            <div class="journey-item relative w-full group opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out flex md:justify-between items-center mb-16 last:mb-0">
+            <div class="journey-item relative w-full group opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out flex flex-col md:flex-row md:justify-between items-center mb-24 md:mb-16 last:mb-0">
                 <!-- Empty Desktop Left -->
                 <div class="hidden md:block md:w-5/12"></div>
                 <!-- Center Icon -->
-                <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center z-20 group-hover:scale-125 group-hover:shadow-[0_0_30px_rgba(0,71,171,0.6)] transition-all duration-500">
+                <div class="absolute top-0 md:top-1/2 left-1/2 transform -translate-x-1/2 md:-translate-y-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center z-20 group-hover:scale-125 group-hover:shadow-[0_0_30px_rgba(0,71,171,0.6)] transition-all duration-500">
                     <i class="ri-newspaper-line text-2xl text-primary"></i>
                 </div>
                 <!-- Right Content -->
-                <div class="w-full pl-16 md:pl-0 md:w-5/12 md:text-left z-10">
+                <div class="w-11/12 md:w-5/12 md:text-left text-center z-10 mt-16 md:mt-0">
                    <div class="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-white/60 hover:shadow-[0_0_40px_rgba(0,71,171,0.25)] transition-all duration-300 relative overflow-hidden transform group-hover:-translate-y-2 group-hover:scale-[1.02]">
                        <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                        <h3 class="font-bold text-xl mb-1 text-gray-900 relative z-10">2023 - Mar 2025</h3>
@@ -1983,9 +1974,9 @@ body.hell-descent-2 .hell-bg-gradient { opacity: 0.95; }
                 </div>
             </div>
             <!-- Item 13 (Odd) -->
-            <div class="journey-item relative w-full group opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out flex md:justify-between items-center mb-16 last:mb-0">
+            <div class="journey-item relative w-full group opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out flex flex-col md:flex-row md:justify-between items-center mb-24 md:mb-16 last:mb-0">
                 <!-- Desktop Left / Mobile Right -->
-                <div class="w-full pl-16 md:pl-0 md:w-5/12 md:text-right z-10">
+                <div class="w-11/12 md:w-5/12 md:text-right text-center z-10 mt-16 md:mt-0">
                    <div class="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-white/60 hover:shadow-[0_0_40px_rgba(0,71,171,0.25)] transition-all duration-300 relative overflow-hidden transform group-hover:-translate-y-2 group-hover:scale-[1.02]">
                        <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                        <h3 class="font-bold text-xl mb-1 text-gray-900 relative z-10">Apr 2025</h3>
@@ -1993,22 +1984,22 @@ body.hell-descent-2 .hell-bg-gradient { opacity: 0.95; }
                    </div>
                 </div>
                 <!-- Center Icon -->
-                <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center z-20 group-hover:scale-125 group-hover:shadow-[0_0_30px_rgba(0,71,171,0.6)] transition-all duration-500">
+                <div class="absolute top-0 md:top-1/2 left-1/2 transform -translate-x-1/2 md:-translate-y-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center z-20 group-hover:scale-125 group-hover:shadow-[0_0_30px_rgba(0,71,171,0.6)] transition-all duration-500">
                     <i class="ri-code-s-slash-line text-2xl text-primary"></i>
                 </div>
                 <!-- Empty Desktop Right -->
                 <div class="hidden md:block md:w-5/12"></div>
             </div>
             <!-- Item 14 (Even) -->
-            <div class="journey-item relative w-full group opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out flex md:justify-between items-center mb-16 last:mb-0">
+            <div class="journey-item relative w-full group opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out flex flex-col md:flex-row md:justify-between items-center mb-24 md:mb-16 last:mb-0">
                 <!-- Empty Desktop Left -->
                 <div class="hidden md:block md:w-5/12"></div>
                 <!-- Center Icon -->
-                <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center z-20 group-hover:scale-125 group-hover:shadow-[0_0_30px_rgba(0,71,171,0.6)] transition-all duration-500">
+                <div class="absolute top-0 md:top-1/2 left-1/2 transform -translate-x-1/2 md:-translate-y-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center z-20 group-hover:scale-125 group-hover:shadow-[0_0_30px_rgba(0,71,171,0.6)] transition-all duration-500">
                     <i class="ri-school-line text-2xl text-primary"></i>
                 </div>
                 <!-- Right Content -->
-                <div class="w-full pl-16 md:pl-0 md:w-5/12 md:text-left z-10">
+                <div class="w-11/12 md:w-5/12 md:text-left text-center z-10 mt-16 md:mt-0">
                    <div class="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-white/60 hover:shadow-[0_0_40px_rgba(0,71,171,0.25)] transition-all duration-300 relative overflow-hidden transform group-hover:-translate-y-2 group-hover:scale-[1.02]">
                        <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                        <h3 class="font-bold text-xl mb-1 text-gray-900 relative z-10">May 2025</h3>
@@ -2017,9 +2008,9 @@ body.hell-descent-2 .hell-bg-gradient { opacity: 0.95; }
                 </div>
             </div>
             <!-- Item 15 (Odd) -->
-            <div class="journey-item relative w-full group opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out flex md:justify-between items-center mb-16 last:mb-0">
+            <div class="journey-item relative w-full group opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out flex flex-col md:flex-row md:justify-between items-center mb-24 md:mb-16 last:mb-0">
                 <!-- Desktop Left / Mobile Right -->
-                <div class="w-full pl-16 md:pl-0 md:w-5/12 md:text-right z-10">
+                <div class="w-11/12 md:w-5/12 md:text-right text-center z-10 mt-16 md:mt-0">
                    <div class="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-white/60 hover:shadow-[0_0_40px_rgba(0,71,171,0.25)] transition-all duration-300 relative overflow-hidden transform group-hover:-translate-y-2 group-hover:scale-[1.02]">
                        <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                        <h3 class="font-bold text-xl mb-1 text-gray-900 relative z-10">July 2025</h3>
@@ -2027,22 +2018,22 @@ body.hell-descent-2 .hell-bg-gradient { opacity: 0.95; }
                    </div>
                 </div>
                 <!-- Center Icon -->
-                <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center z-20 group-hover:scale-125 group-hover:shadow-[0_0_30px_rgba(0,71,171,0.6)] transition-all duration-500">
+                <div class="absolute top-0 md:top-1/2 left-1/2 transform -translate-x-1/2 md:-translate-y-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center z-20 group-hover:scale-125 group-hover:shadow-[0_0_30px_rgba(0,71,171,0.6)] transition-all duration-500">
                     <i class="ri-robot-2-line text-2xl text-primary"></i>
                 </div>
                 <!-- Empty Desktop Right -->
                 <div class="hidden md:block md:w-5/12"></div>
             </div>
             <!-- Item 16 (Even) -->
-            <div class="journey-item relative w-full group opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out flex md:justify-between items-center mb-16 last:mb-0">
+            <div class="journey-item relative w-full group opacity-0 translate-y-10 scale-95 transition-all duration-1000 ease-out flex flex-col md:flex-row md:justify-between items-center mb-24 md:mb-16 last:mb-0">
                 <!-- Empty Desktop Left -->
                 <div class="hidden md:block md:w-5/12"></div>
                 <!-- Center Icon -->
-                <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center z-20 group-hover:scale-125 group-hover:shadow-[0_0_30px_rgba(0,71,171,0.6)] transition-all duration-500">
+                <div class="absolute top-0 md:top-1/2 left-1/2 transform -translate-x-1/2 md:-translate-y-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full shadow-[0_0_20px_rgba(0,71,171,0.3)] border-4 border-blue-50 flex items-center justify-center z-20 group-hover:scale-125 group-hover:shadow-[0_0_30px_rgba(0,71,171,0.6)] transition-all duration-500">
                     <i class="ri-graduation-cap-line text-2xl text-primary"></i>
                 </div>
                 <!-- Right Content -->
-                <div class="w-full pl-16 md:pl-0 md:w-5/12 md:text-left z-10">
+                <div class="w-11/12 md:w-5/12 md:text-left text-center z-10 mt-16 md:mt-0">
                    <div class="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-white/60 hover:shadow-[0_0_40px_rgba(0,71,171,0.25)] transition-all duration-300 relative overflow-hidden transform group-hover:-translate-y-2 group-hover:scale-[1.02]">
                        <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                        <h3 class="font-bold text-xl mb-1 text-gray-900 relative z-10">Aug 2025</h3>
@@ -2083,7 +2074,7 @@ body.hell-descent-2 .hell-bg-gradient { opacity: 0.95; }
 </div>
 <div class="grid md:grid-cols-3 gap-8">
 <div class="relative group rounded-xl overflow-hidden shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl border border-white/20 h-80">
-<img src="https://images.unsplash.com/photo-1648737966326-eb0770cec304?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+<img loading="lazy" src="https://images.unsplash.com/photo-1648737966326-eb0770cec304?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 alt="Photography"
 class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -2100,7 +2091,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 </div>
 </div>
 <div class="relative group rounded-xl overflow-hidden shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl border border-white/20 h-80">
-<img src="https://images.unsplash.com/photo-1631642130860-4ee662475333?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+<img loading="lazy" src="https://images.unsplash.com/photo-1631642130860-4ee662475333?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 alt="Music"
 class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -2117,7 +2108,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 </div>
 </div>
 <div class="relative group rounded-xl overflow-hidden shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl border border-white/20 h-80">
-<img src="https://images.unsplash.com/photo-1639705123772-14bf5c45925b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+<img loading="lazy" src="https://images.unsplash.com/photo-1639705123772-14bf5c45925b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 alt="Reading"
 class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -2298,10 +2289,10 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 <div class="gh-full-card" id="gh-contribution-graph">
   <div class="gh-content-flex">
     <div class="gh-graph-box" id="gh-graph-target">
-      <img src="https://ghchart.rshah.org/0047AB/Itsharshitgoat" alt="GitHub contributions" />
+      <img loading="lazy" src="https://ghchart.rshah.org/0047AB/Itsharshitgoat" alt="GitHub contributions" />
     </div>
     <div class="gh-stats-box">
-      <img src="https://streak-stats.demolab.com?user=Itsharshitgoat&theme=transparent&hide_border=true&date_format=j%20M%5B%20Y%5D&ring=0047AB&fire=0047AB&currStreakLabel=0047AB&sideLabels=6b7280&currStreakNum=1f2937&sideNums=1f2937&dates=9ca3af" alt="GitHub Streak Stats" />
+      <img loading="lazy" src="https://streak-stats.demolab.com?user=Itsharshitgoat&theme=transparent&hide_border=true&date_format=j%20M%5B%20Y%5D&ring=0047AB&fire=0047AB&currStreakLabel=0047AB&sideLabels=6b7280&currStreakNum=1f2937&sideNums=1f2937&dates=9ca3af" alt="GitHub Streak Stats" />
     </div>
   </div>
 </div>
@@ -3399,7 +3390,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 
 <!-- LEFT COLUMN: Image (desktop only) -->
 <div class="hidden lg:block lg:w-1/2 relative" style="min-height: 500px; -webkit-mask-image: linear-gradient(to right, black 70%, transparent 100%); mask-image: linear-gradient(to right, black 70%, transparent 100%);">
-  <img src="1.jpeg" alt="Beautiful sky" class="absolute inset-0 w-full h-full object-cover object-bottom">
+  <img loading="lazy" src="1.jpeg" alt="Beautiful sky" class="absolute inset-0 w-full h-full object-cover object-bottom">
 </div>
 <!-- END LEFT COLUMN -->
 
@@ -4663,7 +4654,7 @@ new MobileCardStack('hell-cards-container', '.hell-stack-card');
   <div class="modal-content !max-w-4xl p-0 overflow-hidden bg-transparent shadow-none border-none rounded-[48px]">
     <span class="modal-close !text-white !top-6 !right-6 z-50 bg-black/50 w-12 h-12 flex items-center justify-center rounded-full hover:bg-black/70 transition-colors" onclick="closeCertModal()">×</span>
     <div class="relative group">
-      <img id="modal-cert-img" src="" alt="Certificate" class="w-full h-auto max-h-[85vh] object-contain rounded-[48px] shadow-2xl">
+      <img loading="lazy" id="modal-cert-img" src="" alt="Certificate" class="w-full h-auto max-h-[85vh] object-contain rounded-[48px] shadow-2xl">
       <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/90 via-black/40 to-transparent text-left rounded-b-[48px]">
         <h3 id="modal-cert-title" class="text-white text-3xl font-bold mb-2"></h3>
         <p id="modal-cert-desc" class="text-white/90 text-lg font-inter"></p>
