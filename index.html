@@ -928,6 +928,18 @@ font-size: 16px;
   }
 }
 
+/* Project Section Load More styles */
+#projects .grid > .flip-card:nth-child(n+7) {
+  display: none;
+}
+@keyframes fadeInUpProject {
+  0% { opacity: 0; transform: translateY(30px) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+#projects .grid > .flip-card.show-project {
+  display: block;
+  animation: fadeInUpProject 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
 </style>
 <!-- JSON-LD Structured Data for SEO -->
 <script type="application/ld+json">
@@ -2486,8 +2498,8 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
     </div>
   </div>
 </section>
-<section id="projects" class="bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-md rounded-3xl shadow-xl mx-4 my-8 border border-white/20">
-  <div class="max-w-7xl mx-auto px-4">
+<section id="projects" class="relative overflow-hidden bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-md rounded-3xl shadow-xl mx-4 my-8 border border-white/20">
+  <div class="max-w-7xl mx-auto px-4 pb-20">
     <div class="flex items-center justify-center gap-3 mb-12">
       <i class="ri-folder-line text-3xl text-primary"></i>
       <h2 class="font-helvetica text-4xl font-bold text-center">Projects</h2>
@@ -2495,6 +2507,252 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
     <div class="grid md:grid-cols-3 gap-8">
 
         <div class="flip-card animate-card delay-8">
+      <div class="flip-card-inner">
+        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+          
+        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/dm5xj5p-caf05e6d-8304-4618-88ed-1eef98716619.jpg/v1/fill/w_1108,h_721,q_70,strp/harshit_prasad_profile_by_itsharshitgoat_dm5xj5p-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODMzIiwicGF0aCI6Ii9mLzVlYWYwYzU1LWE5Y2QtNDM3MS04NjAwLTY5NmY2MjQ4YjY3YS9kbTV4ajVwLWNhZjA1ZTZkLTgzMDQtNDYxOC04OGVkLTFlZWY5ODcxNjYxOS5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.3y_Yq7czXmpEPVKsEaCPtYgxvG8sGNqyhLqmCrLRQZ8" alt="Project 4" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
+        <div class="absolute top-4 left-4 z-20 flex items-center gap-1 px-3 py-1 bg-white/20 backdrop-blur-md border border-white/30 shadow-[0_2px_8px_rgba(0,0,0,0.1)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.3)] rounded-full text-white text-[10px] font-bold tracking-wider uppercase">
+          Featured
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-6 z-10 flex flex-col md:flex-row md:justify-between md:items-center justify-end">
+          <h3 class="font-helvetica text-xl font-bold text-white mb-3 md:mb-0 text-center md:text-left">General Store</h3>
+          
+      <div class="flex items-center justify-center gap-3 mt-1 md:mt-0 shrink-0">
+        <a href="https://itsharshitgoat.github.io/Vibecode101/" class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap flex items-center justify-center md:px-0 md:w-10 md:h-10 md:rounded-full group">
+            <span class="md:hidden">View Website</span>
+            <i class="ri-arrow-right-up-line hidden md:block text-xl transition-transform duration-300 group-hover:rotate-45"></i>
+          </a>
+        <button onclick="this.closest('.flip-card-inner').classList.add('flipped'); event.stopPropagation();" class="w-10 h-10 rounded-full bg-white text-primary flex items-center justify-center shadow-md hover:bg-yellow-400 hover:text-white hover:border-yellow-400 border border-gray-100 transition-all duration-300 hover:shadow-[0_0_20px_rgba(250,204,21,0.8)] hover:scale-110 shrink-0" title="Idea behind General Store">
+          <i class="ri-lightbulb-line text-lg"></i>
+        </button>
+      </div>
+    
+        </div>
+      
+        </div>
+        <div class="flip-card-back">
+          <div>
+            <h3 class="font-helvetica text-xl font-bold mb-4 flex items-center gap-2 text-gray-800">
+              <i class="ri-lightbulb-fill text-secondary text-2xl"></i> So, why I made it?
+            </h3>
+            <p class="font-inter text-gray-600 text-sm">
+              Because I was always hitting the file upload limit of AI models since I have a free plan, so I made this local vector database and MCP server to just index all my study materials and let Claude query my local files directly without any limits.
+            </p>
+          </div>
+          <button onclick="this.closest('.flip-card-inner').classList.remove('flipped'); event.stopPropagation();" class="!rounded-button bg-gray-800 text-white px-6 py-2 font-medium hover:bg-gray-700 transition-colors w-full mt-4 flex items-center justify-center group">
+            <i class="ri-arrow-go-back-line mr-2"></i> Back
+          </button>
+        </div>
+      </div>
+    </div>
+
+<div class="flip-card animate-card delay-8">
+      <div class="flip-card-inner">
+        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+          
+        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/dm0jcsp-84044272-2af6-4580-badb-6290d92c8b37.png/v1/fill/w_1132,h_706,q_70,strp/screenshot_2026_05_09_at_6_53_11pm_by_itsharshitgoat_dm0jcsp-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9Nzk5IiwicGF0aCI6Ii9mLzVlYWYwYzU1LWE5Y2QtNDM3MS04NjAwLTY5NmY2MjQ4YjY3YS9kbTBqY3NwLTg0MDQ0MjcyLTJhZjYtNDU4MC1iYWRiLTYyOTBkOTJjOGIzNy5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.HnnST4BZ-LWLFV1sN5MrLiXtJAbfLC-4-mmXdONjsas" alt="Project 4" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
+        <div class="absolute top-4 left-4 z-20 flex items-center gap-1 px-3 py-1 bg-white/20 backdrop-blur-md border border-white/30 shadow-[0_2px_8px_rgba(0,0,0,0.1)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.3)] rounded-full text-white text-[10px] font-bold tracking-wider uppercase">
+          Featured
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-6 z-10 flex flex-col md:flex-row md:justify-between md:items-center justify-end">
+          <h3 class="font-helvetica text-xl font-bold text-white mb-3 md:mb-0 text-center md:text-left">Redbrain</h3>
+          
+      <div class="flex items-center justify-center gap-3 mt-1 md:mt-0 shrink-0">
+        <a href="https://developers.reddit.com/apps/skyforredbrain" class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap flex items-center justify-center md:px-0 md:w-10 md:h-10 md:rounded-full group">
+            <span class="md:hidden">See on Reddit</span>
+            <i class="ri-arrow-right-up-line hidden md:block text-xl transition-transform duration-300 group-hover:rotate-45"></i>
+          </a>
+        <button onclick="this.closest('.flip-card-inner').classList.add('flipped'); event.stopPropagation();" class="w-10 h-10 rounded-full bg-white text-primary flex items-center justify-center shadow-md hover:bg-yellow-400 hover:text-white hover:border-yellow-400 border border-gray-100 transition-all duration-300 hover:shadow-[0_0_20px_rgba(250,204,21,0.8)] hover:scale-110 shrink-0" title="Idea behind Sky For Redbrain">
+          <i class="ri-lightbulb-line text-lg"></i>
+        </button>
+      </div>
+    
+        </div>
+      
+        </div>
+        <div class="flip-card-back">
+          <div>
+            <h3 class="font-helvetica text-xl font-bold mb-4 flex items-center gap-2 text-gray-800">
+              <i class="ri-lightbulb-fill text-secondary text-2xl"></i> So, why I made it?
+            </h3>
+            <p class="font-inter text-gray-600 text-sm">
+              Because I saw how community management is always just reactive firefighting, so I built this intelligent safety net using AI to analyze tone and context, helping Reddit mods catch risks early before things blow up.
+            </p>
+          </div>
+          <button onclick="this.closest('.flip-card-inner').classList.remove('flipped'); event.stopPropagation();" class="!rounded-button bg-gray-800 text-white px-6 py-2 font-medium hover:bg-gray-700 transition-colors w-full mt-4 flex items-center justify-center group">
+            <i class="ri-arrow-go-back-line mr-2"></i> Back
+          </button>
+        </div>
+      </div>
+    </div>
+
+<div class="flip-card animate-card delay-8">
+      <div class="flip-card-inner">
+        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+          
+        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/dk7wd03-2c2c3b47-3fa8-481d-a2e0-3da64da43c7e.png/v1/fill/w_1254,h_637,q_70,strp/capture_by_itsharshitgoat_dk7wd03-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjUxIiwicGF0aCI6IlwvZlwvNWVhZjBjNTUtYTljZC00MzcxLTg2MDAtNjk2ZjYyNDhiNjdhXC9kazd3ZDAzLTJjMmMzYjQ3LTNmYTgtNDgxZC1hMmUwLTNkYTY0ZGE0M2M3ZS5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.NV8jEnsEBi4uF9VGnDukIgLzMFCBf7w13aIKRnrBIBk" alt="Project 4" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
+        <div class="absolute top-4 left-4 z-20 flex items-center gap-1 px-3 py-1 bg-white/20 backdrop-blur-md border border-white/30 shadow-[0_2px_8px_rgba(0,0,0,0.1)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.3)] rounded-full text-white text-[10px] font-bold tracking-wider uppercase">
+          Featured
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-6 z-10 flex flex-col md:flex-row md:justify-between md:items-center justify-end">
+          <h3 class="font-helvetica text-xl font-bold text-white mb-3 md:mb-0 text-center md:text-left">Wrap</h3>
+          
+      <div class="flex items-center justify-center gap-3 mt-1 md:mt-0 shrink-0">
+        <a href="https://github.com/Itsharshitgoat/Wrap-Discord-Bot" class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap flex items-center justify-center md:px-0 md:w-10 md:h-10 md:rounded-full group">
+            <span class="md:hidden">Instructions</span>
+            <i class="ri-arrow-right-up-line hidden md:block text-xl transition-transform duration-300 group-hover:rotate-45"></i>
+          </a>
+        <button onclick="this.closest('.flip-card-inner').classList.add('flipped'); event.stopPropagation();" class="w-10 h-10 rounded-full bg-white text-primary flex items-center justify-center shadow-md hover:bg-yellow-400 hover:text-white hover:border-yellow-400 border border-gray-100 transition-all duration-300 hover:shadow-[0_0_20px_rgba(250,204,21,0.8)] hover:scale-110 shrink-0" title="Idea behind Wrap ( By Harshit )">
+          <i class="ri-lightbulb-line text-lg"></i>
+        </button>
+      </div>
+    
+        </div>
+      
+        </div>
+        <div class="flip-card-back">
+          <div>
+            <h3 class="font-helvetica text-xl font-bold mb-4 flex items-center gap-2 text-gray-800">
+              <i class="ri-lightbulb-fill text-secondary text-2xl"></i> So, why I made it?
+            </h3>
+            <p class="font-inter text-gray-600 text-sm">
+              Because I thought it'd be super fun to see a yearly recap for Discord communities, so I designed this bot that not only invisibly logs server events for admins, but on December 31st it uses an AI model to post a whole "Spotify Wrapped" style story of everything that happened in the server all year.
+            </p>
+          </div>
+          <button onclick="this.closest('.flip-card-inner').classList.remove('flipped'); event.stopPropagation();" class="!rounded-button bg-gray-800 text-white px-6 py-2 font-medium hover:bg-gray-700 transition-colors w-full mt-4 flex items-center justify-center group">
+            <i class="ri-arrow-go-back-line mr-2"></i> Back
+          </button>
+        </div>
+      </div>
+    </div>
+
+<div class="flip-card animate-card delay-9">
+      <div class="flip-card-inner">
+        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+          
+        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/djot3da-7726a9c7-4c16-4e01-9c86-027762cf91aa.png/v1/fit/w_828,h_616,q_70,strp/z_by_itsharshitgoat_djot3da-414w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzI1IiwicGF0aCI6IlwvZlwvNWVhZjBjNTUtYTljZC00MzcxLTg2MDAtNjk2ZjYyNDhiNjdhXC9kam90M2RhLTc3MjZhOWM3LTRjMTYtNGUwMS05Yzg2LTAyNzc2MmNmOTFhYS5wbmciLCJ3aWR0aCI6Ijw9OTczIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.7M7Y5CEobGXFZmTerMpN7jl3pmM68-Z-CL2rgmfgxCQ" alt="Project 5" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
+        <div class="absolute top-4 left-4 z-20 flex items-center gap-1 px-3 py-1 bg-white/20 backdrop-blur-md border border-white/30 shadow-[0_2px_8px_rgba(0,0,0,0.1)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.3)] rounded-full text-white text-[10px] font-bold tracking-wider uppercase">
+          Featured
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-6 z-10 flex flex-col md:flex-row md:justify-between md:items-center justify-end">
+          <h3 class="font-helvetica text-xl font-bold text-white mb-3 md:mb-0 text-center md:text-left">Quickset</h3>
+          
+      <div class="flex items-center justify-center gap-3 mt-1 md:mt-0 shrink-0">
+        <a href="https://itsharshitgoat.github.io/Softstack/quickset.html" class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap flex items-center justify-center md:px-0 md:w-10 md:h-10 md:rounded-full group">
+            <span class="md:hidden">Download</span>
+            <i class="ri-arrow-right-up-line hidden md:block text-xl transition-transform duration-300 group-hover:rotate-45"></i>
+          </a>
+        <button onclick="this.closest('.flip-card-inner').classList.add('flipped'); event.stopPropagation();" class="w-10 h-10 rounded-full bg-white text-primary flex items-center justify-center shadow-md hover:bg-yellow-400 hover:text-white hover:border-yellow-400 border border-gray-100 transition-all duration-300 hover:shadow-[0_0_20px_rgba(250,204,21,0.8)] hover:scale-110 shrink-0" title="Idea behind Quickset">
+          <i class="ri-lightbulb-line text-lg"></i>
+        </button>
+      </div>
+    
+        </div>
+      
+        </div>
+        <div class="flip-card-back">
+          <div>
+            <h3 class="font-helvetica text-xl font-bold mb-4 flex items-center gap-2 text-gray-800">
+              <i class="ri-lightbulb-fill text-secondary text-2xl"></i> So, why I made it?
+            </h3>
+            <p class="font-inter text-gray-600 text-sm">
+              Because my focus gets so easily shattered by complex setups, so I engineered this zero-friction tool to let me jump straight into deep work with just a single click, totally eliminating setup time.
+            </p>
+          </div>
+          <button onclick="this.closest('.flip-card-inner').classList.remove('flipped'); event.stopPropagation();" class="!rounded-button bg-gray-800 text-white px-6 py-2 font-medium hover:bg-gray-700 transition-colors w-full mt-4 flex items-center justify-center group">
+            <i class="ri-arrow-go-back-line mr-2"></i> Back
+          </button>
+        </div>
+      </div>
+    </div>
+
+<div class="flip-card animate-card delay-8">
+      <div class="flip-card-inner">
+        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+          
+        <img src="https://i.imgur.com/YQCMBld.png" alt="Project 1" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
+        <div class="absolute top-4 left-4 z-20 flex items-center gap-1 px-3 py-1 bg-white/20 backdrop-blur-md border border-white/30 shadow-[0_2px_8px_rgba(0,0,0,0.1)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.3)] rounded-full text-white text-[10px] font-bold tracking-wider uppercase">
+          Featured
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-6 z-10 flex flex-col md:flex-row md:justify-between md:items-center justify-end">
+          <h3 class="font-helvetica text-xl font-bold text-white mb-3 md:mb-0 text-center md:text-left">Novaweb</h3>
+          
+      <div class="flex items-center justify-center gap-3 mt-1 md:mt-0 shrink-0">
+          <a href="https://youtu.be/BtsuqDRf9rk" target="_blank" rel="noopener noreferrer" class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap flex items-center justify-center md:px-0 md:w-10 md:h-10 md:rounded-full group">
+            <span class="md:hidden">View Video</span>
+            <i class="ri-arrow-right-up-line hidden md:block text-xl transition-transform duration-300 group-hover:rotate-45"></i>
+          </a>
+          <button onclick="this.closest('.flip-card-inner').classList.add('flipped'); event.stopPropagation();" class="w-10 h-10 rounded-full bg-white text-primary flex items-center justify-center shadow-md hover:bg-yellow-400 hover:text-white hover:border-yellow-400 border border-gray-100 transition-all duration-300 hover:shadow-[0_0_20px_rgba(250,204,21,0.8)] hover:scale-110 shrink-0" title="Idea behind Novaweb">
+            <i class="ri-lightbulb-line text-lg"></i>
+          </button>
+        </div>
+    
+        </div>
+      
+        </div>
+        <div class="flip-card-back">
+          <div>
+            <h3 class="font-helvetica text-xl font-bold mb-4 flex items-center gap-2 text-gray-800">
+              <i class="ri-lightbulb-fill text-secondary text-2xl"></i> So, why I made it?
+            </h3>
+            <p class="font-inter text-gray-600 text-sm">
+              Because the way we look up info is fundamentally shifting, so I envisioned a search engine that doesn't just give you links but actually synthesizes answers, drastically cutting down the time it takes to resolve a question.
+            </p>
+          </div>
+          <button onclick="this.closest('.flip-card-inner').classList.remove('flipped'); event.stopPropagation();" class="!rounded-button bg-gray-800 text-white px-6 py-2 font-medium hover:bg-gray-700 transition-colors w-full mt-4 flex items-center justify-center group">
+            <i class="ri-arrow-go-back-line mr-2"></i> Back
+          </button>
+        </div>
+      </div>
+    </div>
+
+<div class="flip-card animate-card delay-9">
+      <div class="flip-card-inner">
+        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+          
+        <img src="https://i.imgur.com/J0RXlcj.png" alt="Project 2" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
+        <div class="absolute top-4 left-4 z-20 flex items-center gap-1 px-3 py-1 bg-white/20 backdrop-blur-md border border-white/30 shadow-[0_2px_8px_rgba(0,0,0,0.1)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.3)] rounded-full text-white text-[10px] font-bold tracking-wider uppercase">
+          Featured
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-6 z-10 flex flex-col md:flex-row md:justify-between md:items-center justify-end">
+          <h3 class="font-helvetica text-xl font-bold text-white mb-3 md:mb-0 text-center md:text-left">Portfolio</h3>
+          
+      <div class="flex items-center justify-center gap-3 mt-1 md:mt-0 shrink-0">
+        <a href="https://itsharshitgoat.github.io/Website/" class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap flex items-center justify-center md:px-0 md:w-10 md:h-10 md:rounded-full group">
+            <span class="md:hidden">View Website</span>
+            <i class="ri-arrow-right-up-line hidden md:block text-xl transition-transform duration-300 group-hover:rotate-45"></i>
+          </a>
+        <button onclick="this.closest('.flip-card-inner').classList.add('flipped'); event.stopPropagation();" class="w-10 h-10 rounded-full bg-white text-primary flex items-center justify-center shadow-md hover:bg-yellow-400 hover:text-white hover:border-yellow-400 border border-gray-100 transition-all duration-300 hover:shadow-[0_0_20px_rgba(250,204,21,0.8)] hover:scale-110 shrink-0" title="Idea behind Personal Portfolio">
+          <i class="ri-lightbulb-line text-lg"></i>
+        </button>
+      </div>
+    
+        </div>
+      
+        </div>
+        <div class="flip-card-back">
+          <div>
+            <h3 class="font-helvetica text-xl font-bold mb-4 flex items-center gap-2 text-gray-800">
+              <i class="ri-lightbulb-fill text-secondary text-2xl"></i> So, why I made it?
+            </h3>
+            <p class="font-inter text-gray-600 text-sm">
+              Because your portfolio is basically your digital handshake, so I wanted to build a space that doesn't just list my skills but actually proves them through smooth animations, responsive layouts, and a really clean user experience.
+            </p>
+          </div>
+          <button onclick="this.closest('.flip-card-inner').classList.remove('flipped'); event.stopPropagation();" class="!rounded-button bg-gray-800 text-white px-6 py-2 font-medium hover:bg-gray-700 transition-colors w-full mt-4 flex items-center justify-center group">
+            <i class="ri-arrow-go-back-line mr-2"></i> Back
+          </button>
+        </div>
+      </div>
+    </div>
+
+<div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
         <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
           
@@ -2532,7 +2790,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
       </div>
     </div>
 
-        <div class="flip-card animate-card delay-8">
+<div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
         <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
           
@@ -2570,7 +2828,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
       </div>
     </div>
 
-        <div class="flip-card animate-card delay-8">
+<div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
         <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
           
@@ -2608,47 +2866,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
       </div>
     </div>
 
-    <div class="flip-card animate-card delay-8">
-      <div class="flip-card-inner">
-        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
-          
-        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/dm5xj5p-caf05e6d-8304-4618-88ed-1eef98716619.jpg/v1/fill/w_1108,h_721,q_70,strp/harshit_prasad_profile_by_itsharshitgoat_dm5xj5p-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODMzIiwicGF0aCI6Ii9mLzVlYWYwYzU1LWE5Y2QtNDM3MS04NjAwLTY5NmY2MjQ4YjY3YS9kbTV4ajVwLWNhZjA1ZTZkLTgzMDQtNDYxOC04OGVkLTFlZWY5ODcxNjYxOS5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.3y_Yq7czXmpEPVKsEaCPtYgxvG8sGNqyhLqmCrLRQZ8" alt="Project 4" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-6 z-10 flex flex-col md:flex-row md:justify-between md:items-center justify-end">
-          <h3 class="font-helvetica text-xl font-bold text-white mb-3 md:mb-0 text-center md:text-left">General Store</h3>
-          
-      <div class="flex items-center justify-center gap-3 mt-1 md:mt-0 shrink-0">
-        <a href="https://itsharshitgoat.github.io/Vibecode101/" class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap flex items-center justify-center md:px-0 md:w-10 md:h-10 md:rounded-full group">
-            <span class="md:hidden">View Website</span>
-            <i class="ri-arrow-right-up-line hidden md:block text-xl transition-transform duration-300 group-hover:rotate-45"></i>
-          </a>
-        <button onclick="this.closest('.flip-card-inner').classList.add('flipped'); event.stopPropagation();" class="w-10 h-10 rounded-full bg-white text-primary flex items-center justify-center shadow-md hover:bg-yellow-400 hover:text-white hover:border-yellow-400 border border-gray-100 transition-all duration-300 hover:shadow-[0_0_20px_rgba(250,204,21,0.8)] hover:scale-110 shrink-0" title="Idea behind General Store">
-          <i class="ri-lightbulb-line text-lg"></i>
-        </button>
-      </div>
-    
-        </div>
-      
-        </div>
-        <div class="flip-card-back">
-          <div>
-            <h3 class="font-helvetica text-xl font-bold mb-4 flex items-center gap-2 text-gray-800">
-              <i class="ri-lightbulb-fill text-secondary text-2xl"></i> So, why I made it?
-            </h3>
-            <p class="font-inter text-gray-600 text-sm">
-              Because I was always hitting the file upload limit of AI models since I have a free plan, so I made this local vector database and MCP server to just index all my study materials and let Claude query my local files directly without any limits.
-            </p>
-          </div>
-          <button onclick="this.closest('.flip-card-inner').classList.remove('flipped'); event.stopPropagation();" class="!rounded-button bg-gray-800 text-white px-6 py-2 font-medium hover:bg-gray-700 transition-colors w-full mt-4 flex items-center justify-center group">
-            <i class="ri-arrow-go-back-line mr-2"></i> Back
-          </button>
-        </div>
-      </div>
-    </div>
-
-    
-
-    <div class="flip-card animate-card delay-8">
+<div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
         <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
           
@@ -2686,7 +2904,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
       </div>
     </div>
 
-    <div class="flip-card animate-card delay-8">
+<div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
         <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
           
@@ -2724,45 +2942,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
       </div>
     </div>
 
-    <div class="flip-card animate-card delay-8">
-      <div class="flip-card-inner">
-        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
-          
-        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/dm0jcsp-84044272-2af6-4580-badb-6290d92c8b37.png/v1/fill/w_1132,h_706,q_70,strp/screenshot_2026_05_09_at_6_53_11pm_by_itsharshitgoat_dm0jcsp-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9Nzk5IiwicGF0aCI6Ii9mLzVlYWYwYzU1LWE5Y2QtNDM3MS04NjAwLTY5NmY2MjQ4YjY3YS9kbTBqY3NwLTg0MDQ0MjcyLTJhZjYtNDU4MC1iYWRiLTYyOTBkOTJjOGIzNy5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.HnnST4BZ-LWLFV1sN5MrLiXtJAbfLC-4-mmXdONjsas" alt="Project 4" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-6 z-10 flex flex-col md:flex-row md:justify-between md:items-center justify-end">
-          <h3 class="font-helvetica text-xl font-bold text-white mb-3 md:mb-0 text-center md:text-left">Redbrain</h3>
-          
-      <div class="flex items-center justify-center gap-3 mt-1 md:mt-0 shrink-0">
-        <a href="https://developers.reddit.com/apps/skyforredbrain" class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap flex items-center justify-center md:px-0 md:w-10 md:h-10 md:rounded-full group">
-            <span class="md:hidden">See on Reddit</span>
-            <i class="ri-arrow-right-up-line hidden md:block text-xl transition-transform duration-300 group-hover:rotate-45"></i>
-          </a>
-        <button onclick="this.closest('.flip-card-inner').classList.add('flipped'); event.stopPropagation();" class="w-10 h-10 rounded-full bg-white text-primary flex items-center justify-center shadow-md hover:bg-yellow-400 hover:text-white hover:border-yellow-400 border border-gray-100 transition-all duration-300 hover:shadow-[0_0_20px_rgba(250,204,21,0.8)] hover:scale-110 shrink-0" title="Idea behind Sky For Redbrain">
-          <i class="ri-lightbulb-line text-lg"></i>
-        </button>
-      </div>
-    
-        </div>
-      
-        </div>
-        <div class="flip-card-back">
-          <div>
-            <h3 class="font-helvetica text-xl font-bold mb-4 flex items-center gap-2 text-gray-800">
-              <i class="ri-lightbulb-fill text-secondary text-2xl"></i> So, why I made it?
-            </h3>
-            <p class="font-inter text-gray-600 text-sm">
-              Because I saw how community management is always just reactive firefighting, so I built this intelligent safety net using AI to analyze tone and context, helping Reddit mods catch risks early before things blow up.
-            </p>
-          </div>
-          <button onclick="this.closest('.flip-card-inner').classList.remove('flipped'); event.stopPropagation();" class="!rounded-button bg-gray-800 text-white px-6 py-2 font-medium hover:bg-gray-700 transition-colors w-full mt-4 flex items-center justify-center group">
-            <i class="ri-arrow-go-back-line mr-2"></i> Back
-          </button>
-        </div>
-      </div>
-    </div>
-                        
-    <div class="flip-card animate-card delay-8">
+<div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
         <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
           
@@ -2799,8 +2979,8 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
         </div>
       </div>
     </div>
-                        
-    <div class="flip-card animate-card delay-8">
+
+<div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
         <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
           
@@ -2837,46 +3017,8 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
         </div>
       </div>
     </div>
-                  
-    <div class="flip-card animate-card delay-8">
-      <div class="flip-card-inner">
-        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
-          
-        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/dk7wd03-2c2c3b47-3fa8-481d-a2e0-3da64da43c7e.png/v1/fill/w_1254,h_637,q_70,strp/capture_by_itsharshitgoat_dk7wd03-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjUxIiwicGF0aCI6IlwvZlwvNWVhZjBjNTUtYTljZC00MzcxLTg2MDAtNjk2ZjYyNDhiNjdhXC9kazd3ZDAzLTJjMmMzYjQ3LTNmYTgtNDgxZC1hMmUwLTNkYTY0ZGE0M2M3ZS5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.NV8jEnsEBi4uF9VGnDukIgLzMFCBf7w13aIKRnrBIBk" alt="Project 4" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-6 z-10 flex flex-col md:flex-row md:justify-between md:items-center justify-end">
-          <h3 class="font-helvetica text-xl font-bold text-white mb-3 md:mb-0 text-center md:text-left">Wrap</h3>
-          
-      <div class="flex items-center justify-center gap-3 mt-1 md:mt-0 shrink-0">
-        <a href="https://github.com/Itsharshitgoat/Wrap-Discord-Bot" class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap flex items-center justify-center md:px-0 md:w-10 md:h-10 md:rounded-full group">
-            <span class="md:hidden">Instructions</span>
-            <i class="ri-arrow-right-up-line hidden md:block text-xl transition-transform duration-300 group-hover:rotate-45"></i>
-          </a>
-        <button onclick="this.closest('.flip-card-inner').classList.add('flipped'); event.stopPropagation();" class="w-10 h-10 rounded-full bg-white text-primary flex items-center justify-center shadow-md hover:bg-yellow-400 hover:text-white hover:border-yellow-400 border border-gray-100 transition-all duration-300 hover:shadow-[0_0_20px_rgba(250,204,21,0.8)] hover:scale-110 shrink-0" title="Idea behind Wrap ( By Harshit )">
-          <i class="ri-lightbulb-line text-lg"></i>
-        </button>
-      </div>
-    
-        </div>
-      
-        </div>
-        <div class="flip-card-back">
-          <div>
-            <h3 class="font-helvetica text-xl font-bold mb-4 flex items-center gap-2 text-gray-800">
-              <i class="ri-lightbulb-fill text-secondary text-2xl"></i> So, why I made it?
-            </h3>
-            <p class="font-inter text-gray-600 text-sm">
-              Because I thought it'd be super fun to see a yearly recap for Discord communities, so I designed this bot that not only invisibly logs server events for admins, but on December 31st it uses an AI model to post a whole "Spotify Wrapped" style story of everything that happened in the server all year.
-            </p>
-          </div>
-          <button onclick="this.closest('.flip-card-inner').classList.remove('flipped'); event.stopPropagation();" class="!rounded-button bg-gray-800 text-white px-6 py-2 font-medium hover:bg-gray-700 transition-colors w-full mt-4 flex items-center justify-center group">
-            <i class="ri-arrow-go-back-line mr-2"></i> Back
-          </button>
-        </div>
-      </div>
-    </div>
-                              
-    <div class="flip-card animate-card delay-8">
+
+<div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
         <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
           
@@ -2913,8 +3055,8 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
         </div>
       </div>
     </div>
-                  
-    <div class="flip-card animate-card delay-8">
+
+<div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
         <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
           
@@ -2951,8 +3093,8 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
         </div>
       </div>
     </div>
-                  
-    <div class="flip-card animate-card delay-10">
+
+<div class="flip-card animate-card delay-10">
       <div class="flip-card-inner">
         <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
           
@@ -2989,8 +3131,8 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
         </div>
       </div>
     </div>
-                              
-    <div class="flip-card animate-card delay-8">
+
+<div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
         <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
           
@@ -3027,8 +3169,8 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
         </div>
       </div>
     </div>
-            
-    <div class="flip-card animate-card delay-9">
+
+<div class="flip-card animate-card delay-9">
       <div class="flip-card-inner">
         <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
           
@@ -3065,8 +3207,8 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
         </div>
       </div>
     </div>
-            
-    <div class="flip-card animate-card delay-10">
+
+<div class="flip-card animate-card delay-10">
       <div class="flip-card-inner">
         <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
           
@@ -3103,8 +3245,8 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
         </div>
       </div>
     </div>
-            
-    <div class="flip-card animate-card delay-8">
+
+<div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
         <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
           
@@ -3141,46 +3283,8 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
         </div>
       </div>
     </div>
-      
-    <div class="flip-card animate-card delay-9">
-      <div class="flip-card-inner">
-        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
-          
-        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/djot3da-7726a9c7-4c16-4e01-9c86-027762cf91aa.png/v1/fit/w_828,h_616,q_70,strp/z_by_itsharshitgoat_djot3da-414w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzI1IiwicGF0aCI6IlwvZlwvNWVhZjBjNTUtYTljZC00MzcxLTg2MDAtNjk2ZjYyNDhiNjdhXC9kam90M2RhLTc3MjZhOWM3LTRjMTYtNGUwMS05Yzg2LTAyNzc2MmNmOTFhYS5wbmciLCJ3aWR0aCI6Ijw9OTczIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.7M7Y5CEobGXFZmTerMpN7jl3pmM68-Z-CL2rgmfgxCQ" alt="Project 5" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-6 z-10 flex flex-col md:flex-row md:justify-between md:items-center justify-end">
-          <h3 class="font-helvetica text-xl font-bold text-white mb-3 md:mb-0 text-center md:text-left">Quickset</h3>
-          
-      <div class="flex items-center justify-center gap-3 mt-1 md:mt-0 shrink-0">
-        <a href="https://itsharshitgoat.github.io/Softstack/quickset.html" class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap flex items-center justify-center md:px-0 md:w-10 md:h-10 md:rounded-full group">
-            <span class="md:hidden">Download</span>
-            <i class="ri-arrow-right-up-line hidden md:block text-xl transition-transform duration-300 group-hover:rotate-45"></i>
-          </a>
-        <button onclick="this.closest('.flip-card-inner').classList.add('flipped'); event.stopPropagation();" class="w-10 h-10 rounded-full bg-white text-primary flex items-center justify-center shadow-md hover:bg-yellow-400 hover:text-white hover:border-yellow-400 border border-gray-100 transition-all duration-300 hover:shadow-[0_0_20px_rgba(250,204,21,0.8)] hover:scale-110 shrink-0" title="Idea behind Quickset">
-          <i class="ri-lightbulb-line text-lg"></i>
-        </button>
-      </div>
-    
-        </div>
-      
-        </div>
-        <div class="flip-card-back">
-          <div>
-            <h3 class="font-helvetica text-xl font-bold mb-4 flex items-center gap-2 text-gray-800">
-              <i class="ri-lightbulb-fill text-secondary text-2xl"></i> So, why I made it?
-            </h3>
-            <p class="font-inter text-gray-600 text-sm">
-              Because my focus gets so easily shattered by complex setups, so I engineered this zero-friction tool to let me jump straight into deep work with just a single click, totally eliminating setup time.
-            </p>
-          </div>
-          <button onclick="this.closest('.flip-card-inner').classList.remove('flipped'); event.stopPropagation();" class="!rounded-button bg-gray-800 text-white px-6 py-2 font-medium hover:bg-gray-700 transition-colors w-full mt-4 flex items-center justify-center group">
-            <i class="ri-arrow-go-back-line mr-2"></i> Back
-          </button>
-        </div>
-      </div>
-    </div>
-      
-    <div class="flip-card animate-card delay-8">
+
+<div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
         <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
           
@@ -3217,8 +3321,8 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
         </div>
       </div>
     </div>
-                  
-    <div class="flip-card animate-card delay-8">
+
+<div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
         <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
           
@@ -3255,84 +3359,8 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
         </div>
       </div>
     </div>
-      
-    <div class="flip-card animate-card delay-8">
-      <div class="flip-card-inner">
-        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
-          
-        <img src="https://i.imgur.com/YQCMBld.png" alt="Project 1" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-6 z-10 flex flex-col md:flex-row md:justify-between md:items-center justify-end">
-          <h3 class="font-helvetica text-xl font-bold text-white mb-3 md:mb-0 text-center md:text-left">Novaweb</h3>
-          
-      <div class="flex items-center justify-center gap-3 mt-1 md:mt-0 shrink-0">
-          <a href="https://youtu.be/BtsuqDRf9rk" target="_blank" rel="noopener noreferrer" class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap flex items-center justify-center md:px-0 md:w-10 md:h-10 md:rounded-full group">
-            <span class="md:hidden">View Video</span>
-            <i class="ri-arrow-right-up-line hidden md:block text-xl transition-transform duration-300 group-hover:rotate-45"></i>
-          </a>
-          <button onclick="this.closest('.flip-card-inner').classList.add('flipped'); event.stopPropagation();" class="w-10 h-10 rounded-full bg-white text-primary flex items-center justify-center shadow-md hover:bg-yellow-400 hover:text-white hover:border-yellow-400 border border-gray-100 transition-all duration-300 hover:shadow-[0_0_20px_rgba(250,204,21,0.8)] hover:scale-110 shrink-0" title="Idea behind Novaweb">
-            <i class="ri-lightbulb-line text-lg"></i>
-          </button>
-        </div>
-    
-        </div>
-      
-        </div>
-        <div class="flip-card-back">
-          <div>
-            <h3 class="font-helvetica text-xl font-bold mb-4 flex items-center gap-2 text-gray-800">
-              <i class="ri-lightbulb-fill text-secondary text-2xl"></i> So, why I made it?
-            </h3>
-            <p class="font-inter text-gray-600 text-sm">
-              Because the way we look up info is fundamentally shifting, so I envisioned a search engine that doesn't just give you links but actually synthesizes answers, drastically cutting down the time it takes to resolve a question.
-            </p>
-          </div>
-          <button onclick="this.closest('.flip-card-inner').classList.remove('flipped'); event.stopPropagation();" class="!rounded-button bg-gray-800 text-white px-6 py-2 font-medium hover:bg-gray-700 transition-colors w-full mt-4 flex items-center justify-center group">
-            <i class="ri-arrow-go-back-line mr-2"></i> Back
-          </button>
-        </div>
-      </div>
-    </div>
-      
-    <div class="flip-card animate-card delay-9">
-      <div class="flip-card-inner">
-        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
-          
-        <img src="https://i.imgur.com/J0RXlcj.png" alt="Project 2" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-6 z-10 flex flex-col md:flex-row md:justify-between md:items-center justify-end">
-          <h3 class="font-helvetica text-xl font-bold text-white mb-3 md:mb-0 text-center md:text-left">Portfolio</h3>
-          
-      <div class="flex items-center justify-center gap-3 mt-1 md:mt-0 shrink-0">
-        <a href="https://itsharshitgoat.github.io/Website/" class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap flex items-center justify-center md:px-0 md:w-10 md:h-10 md:rounded-full group">
-            <span class="md:hidden">View Website</span>
-            <i class="ri-arrow-right-up-line hidden md:block text-xl transition-transform duration-300 group-hover:rotate-45"></i>
-          </a>
-        <button onclick="this.closest('.flip-card-inner').classList.add('flipped'); event.stopPropagation();" class="w-10 h-10 rounded-full bg-white text-primary flex items-center justify-center shadow-md hover:bg-yellow-400 hover:text-white hover:border-yellow-400 border border-gray-100 transition-all duration-300 hover:shadow-[0_0_20px_rgba(250,204,21,0.8)] hover:scale-110 shrink-0" title="Idea behind Personal Portfolio">
-          <i class="ri-lightbulb-line text-lg"></i>
-        </button>
-      </div>
-    
-        </div>
-      
-        </div>
-        <div class="flip-card-back">
-          <div>
-            <h3 class="font-helvetica text-xl font-bold mb-4 flex items-center gap-2 text-gray-800">
-              <i class="ri-lightbulb-fill text-secondary text-2xl"></i> So, why I made it?
-            </h3>
-            <p class="font-inter text-gray-600 text-sm">
-              Because your portfolio is basically your digital handshake, so I wanted to build a space that doesn't just list my skills but actually proves them through smooth animations, responsive layouts, and a really clean user experience.
-            </p>
-          </div>
-          <button onclick="this.closest('.flip-card-inner').classList.remove('flipped'); event.stopPropagation();" class="!rounded-button bg-gray-800 text-white px-6 py-2 font-medium hover:bg-gray-700 transition-colors w-full mt-4 flex items-center justify-center group">
-            <i class="ri-arrow-go-back-line mr-2"></i> Back
-          </button>
-        </div>
-      </div>
-    </div>
-      
-    <div class="flip-card animate-card delay-8">
+
+<div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
         <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
           
@@ -3369,8 +3397,8 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
         </div>
       </div>
     </div>
-                              
-    <div class="flip-card animate-card delay-8">
+
+<div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
         <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
           
@@ -3407,6 +3435,16 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
         </div>
       </div>
     </div>
+    </div>
+  </div>
+  
+  <!-- Load More Container -->
+  <div id="projects-load-more-container" class="absolute bottom-0 left-0 right-0 h-64 flex items-end justify-center pb-8 z-20 w-full transition-opacity duration-500 rounded-b-3xl" style="background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.9) 100%); pointer-events: none; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); -webkit-mask-image: linear-gradient(to bottom, transparent, black 60%); mask-image: linear-gradient(to bottom, transparent, black 60%);">
+    <div style="pointer-events: auto;" class="mb-2 hover:scale-105 transition-transform duration-300">
+      <button id="load-more-btn" onclick="loadMoreProjects()" class="flex items-center gap-2 px-6 py-3 bg-[#00aaff]/15 backdrop-blur-2xl border border-[#00aaff]/30 shadow-[0_8px_32px_rgba(0,170,255,0.15)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.6)] rounded-full hover:bg-[#00aaff]/25 transition-all hover:shadow-[0_8px_32px_rgba(0,170,255,0.25)] text-[#0059b2] text-base font-bold pointer-events-auto cursor-pointer group">
+        <span>Load More</span>
+        <i class="ri-arrow-down-line group-hover:translate-y-1 transition-transform duration-300"></i>
+      </button>
     </div>
   </div>
 </section>
@@ -5304,7 +5342,41 @@ new MobileCardStack('hell-cards-container', '.hell-stack-card');
     appendOutput('<div class="bg-white/5 pb-3 rounded-b-lg mb-4">' + userBlock + responseHTML + '</div>');
   }
 
-
+  // Load More Projects Logic
+  let projectsVisible = 6;
+  function loadMoreProjects() {
+    const isMobile = window.innerWidth < 768;
+    const itemsToAdd = isMobile ? 3 : 6;
+    const allProjects = document.querySelectorAll('#projects .grid > .flip-card');
+    const totalProjects = allProjects.length;
+    
+    let newVisible = projectsVisible + itemsToAdd;
+    if (newVisible > totalProjects) {
+      newVisible = totalProjects;
+    }
+    
+    let delay = 0;
+    for (let i = projectsVisible; i < newVisible; i++) {
+      if (allProjects[i]) {
+        allProjects[i].style.animationDelay = `${delay}s`;
+        allProjects[i].classList.add('show-project');
+        delay += 0.15;
+      }
+    }
+    
+    projectsVisible = newVisible;
+    
+    if (projectsVisible >= totalProjects) {
+      const container = document.getElementById('projects-load-more-container');
+      if (container) {
+        container.style.opacity = '0';
+        container.style.pointerEvents = 'none';
+        setTimeout(() => {
+          container.style.display = 'none';
+        }, 300);
+      }
+    }
+  }
 </script>
 
 </body>
