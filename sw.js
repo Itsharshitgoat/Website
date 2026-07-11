@@ -1,5 +1,4 @@
-const CACHE_NAME = 'portfolio-cache-v1';
-const DYNAMIC_CACHE_NAME = 'portfolio-dynamic-cache-v1';
+const CACHE_NAME = 'portfolio-cache-v2';
 
 const urlsToCache = [
   './',
@@ -26,7 +25,7 @@ self.addEventListener('activate', event => {
     caches.keys().then(cacheNames => {
       return Promise.all(
         cacheNames.map(cacheName => {
-          if (cacheName !== CACHE_NAME && cacheName !== DYNAMIC_CACHE_NAME) {
+          if (cacheName !== CACHE_NAME) {
             return caches.delete(cacheName);
           }
         })
@@ -36,19 +35,36 @@ self.addEventListener('activate', event => {
   self.clients.claim();
 });
 
-// Fetch event - Stale-While-Revalidate strategy
+// Fetch event
 self.addEventListener('fetch', event => {
   // Only handle GET requests
   if (event.request.method !== 'GET') return;
 
+  // Use Network First for HTML files (Navigation requests)
+  // This ensures the user always gets the latest version of the website
+  if (event.request.mode === 'navigate' || (event.request.headers.get('accept') && event.request.headers.get('accept').includes('text/html'))) {
+    event.respondWith(
+      fetch(event.request)
+        .then(networkResponse => {
+          const responseToCache = networkResponse.clone();
+          caches.open(CACHE_NAME).then(cache => {
+            cache.put(event.request, responseToCache);
+          });
+          return networkResponse;
+        })
+        .catch(() => caches.match(event.request))
+    );
+    return;
+  }
+
+  // Use Stale-While-Revalidate for everything else (images, styles, scripts)
+  // This makes the website load assets super fast while updating them in the background
   event.respondWith(
     caches.match(event.request).then(cachedResponse => {
-      // Fetch fresh version asynchronously
       const fetchPromise = fetch(event.request).then(networkResponse => {
-        // Cache the dynamically fetched response if it's valid
         if (networkResponse && (networkResponse.status === 200 || networkResponse.type === 'cors' || networkResponse.type === 'opaque')) {
           const responseToCache = networkResponse.clone();
-          caches.open(DYNAMIC_CACHE_NAME).then(cache => {
+          caches.open(CACHE_NAME).then(cache => {
             cache.put(event.request, responseToCache);
           });
         }
@@ -57,7 +73,6 @@ self.addEventListener('fetch', event => {
         // Fallback if offline
       });
 
-      // Return cached response immediately if available, otherwise wait for network
       return cachedResponse || fetchPromise;
     })
   );

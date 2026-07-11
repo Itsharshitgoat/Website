@@ -2437,20 +2437,42 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 bento-grid">
       <!-- Top Section: Featured block on Left, stacked 1/3 blocks on Right -->
 
-      <!-- 1. Machine Learning (Left, 2/3 Wide, 2 Rows High) -->
-      <div class="md:col-span-2 md:row-span-2 group cursor-pointer h-full" onclick="openCertModal('./Certificate/Az-900.png', 'Azure Fundamentals', 'Microsoft • 2026')">
-        <img src="./Certificate/Az-900.png" alt="Machine Learning" class="w-full h-full object-cover" loading="lazy">
+      <!-- 1. Harshit Prasad (Left, 2/3 Wide, 2 Rows High) -->
+      <div class="md:col-span-2 md:row-span-2 group cursor-pointer h-full" onclick="openCertModal('./Certificate/Harshit Prasad.png', 'Al with Machine Learning', 'Delhi Technological University')">
+        <img src="./Certificate/Harshit Prasad.png" alt="Harshit Prasad" class="w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
         <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
           <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-medium mb-3">Recent achievement</span>
-          <h3 class="font-helvetica text-xl md:text-2xl font-bold mb-1">Azure Fundamentals</h3>
-          <p class="font-inter text-xs md:text-sm text-white/70">Microsoft • 2026</p>
+          <h3 class="font-helvetica text-xl md:text-2xl font-bold mb-1">Al with Machine Learning</h3>
+          <p class="font-inter text-xs md:text-sm text-white/70">Delhi Technological University</p>
         </div>
       </div>
       
-      <!-- 2. Data Science (Top Right, 1/3) -->
+      <!-- 2. Go (Top Right, 1/3) -->
+      <div class="group cursor-pointer" onclick="openCertModal('./Certificate/go.jpeg', 'Go', 'HackerRank • 2026')">
+        <img src="./Certificate/go.jpeg" alt="Go" class="object-cover" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+          <h3 class="font-helvetica text-lg font-bold">Go</h3>
+          <p class="font-inter text-xs text-white/70">HackerRank • 2026</p>
+        </div>
+      </div>
+
+      <!-- 3. Azure Fundamentals (Bottom Right, 1/3, below Go) -->
+      <div class="group cursor-pointer" onclick="openCertModal('./Certificate/Az-900.png', 'Azure Fundamentals', 'Microsoft • 2026')">
+        <img src="./Certificate/Az-900.png" alt="Azure Fundamentals" class="object-cover" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+          <h3 class="font-helvetica text-lg font-bold">Azure Fundamentals</h3>
+          <p class="font-inter text-xs text-white/70">Microsoft • 2026</p>
+        </div>
+      </div>
+
+      <!-- Bottom Row: Three 1/3 blocks -->
+      
+      <!-- 4. Java -->
       <div class="group cursor-pointer" onclick="openCertModal('./Certificate/JAVA.png', 'Java', 'Codédex • 2026')">
-        <img src="./Certificate/JAVA.png" alt="Data Science" class="object-cover" loading="lazy">
+        <img src="./Certificate/JAVA.png" alt="Java" class="object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
         <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
           <h3 class="font-helvetica text-lg font-bold">Java</h3>
@@ -2458,9 +2480,9 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
         </div>
       </div>
 
-      <!-- 3. Java Programming (Bottom Right, 1/3, below Data Science) -->
+      <!-- 5. Python -->
       <div class="group cursor-pointer" onclick="openCertModal('./Certificate/Python.png', 'Python', 'Codédex • 2026')">
-        <img src="./Certificate/Python.png" alt="Java" class="object-cover" loading="lazy">
+        <img src="./Certificate/Python.png" alt="Python" class="object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
         <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
           <h3 class="font-helvetica text-lg font-bold">Python</h3>
@@ -2468,11 +2490,9 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
         </div>
       </div>
 
-      <!-- Bottom Row: Three 1/3 blocks -->
-      
-      <!-- 4. Python -->
+      <!-- 6. JavaScript -->
       <div class="group cursor-pointer" onclick="openCertModal('./Certificate/JS.png', 'JavaScript', 'Codédex • 2026')">
-        <img src="./Certificate/JS.png" alt="Python" class="object-cover" loading="lazy">
+        <img src="./Certificate/JS.png" alt="JavaScript" class="object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
         <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
           <h3 class="font-helvetica text-lg font-bold">JavaScript</h3>
@@ -2480,22 +2500,22 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
         </div>
       </div>
 
-      <!-- 5. Web Development -->
-      <div class="group cursor-pointer" onclick="openCertModal('./Certificate/CSS.png', 'CSS', 'Codédex • 2025')">
-        <img src="./Certificate/CSS.png" alt="Web Development" class="object-cover" loading="lazy">
+      <!-- 7. CSS (Spans 2 columns on desktop) -->
+      <div class="md:col-span-2 group cursor-pointer !h-[200px] md:!h-[240px]" onclick="openCertModal('./Certificate/CSS.png', 'CSS', 'Codédex • 2025')">
+        <img src="./Certificate/CSS.png" alt="CSS" class="object-cover w-full h-full" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
         <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
-          <h3 class="font-helvetica text-lg font-bold">Css</h3>
+          <h3 class="font-helvetica text-lg font-bold">CSS</h3>
           <p class="font-inter text-xs text-white/70">Codédex • 2025</p>
         </div>
       </div>
 
-      <!-- 6. Cybersecurity -->
-      <div class="group cursor-pointer" onclick="openCertModal('./Certificate/HTML.png', 'HTML', 'Codédex • 2025')">
-        <img src="./Certificate/HTML.png" alt="Cybersecurity" class="object-cover" loading="lazy">
+      <!-- 8. HTML (Spans 1 column on desktop) -->
+      <div class="group cursor-pointer !h-[200px] md:!h-[240px]" onclick="openCertModal('./Certificate/HTML.png', 'HTML', 'Codédex • 2025')">
+        <img src="./Certificate/HTML.png" alt="HTML" class="object-cover w-full h-full" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
         <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
-          <h3 class="font-helvetica text-lg font-bold">Html</h3>
+          <h3 class="font-helvetica text-lg font-bold">HTML</h3>
           <p class="font-inter text-xs text-white/70">Codédex • 2025</p>
         </div>
       </div>
@@ -4259,6 +4279,19 @@ document.addEventListener('DOMContentLoaded', function() {
       modalTitle.textContent = title;
       modalDesc.textContent = desc;
       modal.style.display = 'flex';
+      
+      // Trigger reflow to restart animation
+      void modal.offsetWidth;
+      
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modal.classList.add('opacity-100');
+      
+      const content = document.getElementById('cert-modal-content');
+      if (content) {
+        content.classList.remove('scale-95');
+        content.classList.add('scale-100');
+      }
+      
       document.body.style.overflow = 'hidden';
     }
   };
@@ -4266,8 +4299,19 @@ document.addEventListener('DOMContentLoaded', function() {
   window.closeCertModal = function() {
     const modal = document.getElementById('cert-modal');
     if (modal) {
-      modal.style.display = 'none';
-      document.body.style.overflow = 'auto';
+      modal.classList.remove('opacity-100');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      
+      const content = document.getElementById('cert-modal-content');
+      if (content) {
+        content.classList.remove('scale-100');
+        content.classList.add('scale-95');
+      }
+      
+      setTimeout(() => {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }, 300);
     }
   };
 
@@ -4894,14 +4938,20 @@ class MobileCardStack {
 new MobileCardStack('cards-container', '.stack-card');
 new MobileCardStack('hell-cards-container', '.hell-stack-card');
 </script>
-<!-- Certification Modal -->
-<div id="cert-modal" class="modal">
-  <div class="modal-content !max-w-4xl p-0 overflow-hidden bg-transparent shadow-none border-none rounded-[48px]">
-    <span class="modal-close !text-white !top-6 !right-6 z-50 bg-black/50 w-12 h-12 flex items-center justify-center rounded-full hover:bg-black/70 transition-colors" onclick="closeCertModal()">×</span>
+<!-- Enhanced Certification Modal -->
+<div id="cert-modal" class="fixed inset-0 z-[9999] hidden items-center justify-center p-4 transition-all duration-300 opacity-0 pointer-events-none bg-black/40 backdrop-blur-sm">
+  <div id="cert-modal-content" class="relative w-full max-w-4xl p-0 overflow-hidden bg-transparent shadow-none border-none rounded-[48px] transform scale-95 transition-all duration-300">
+    <button onclick="closeCertModal()" class="absolute top-6 right-6 z-50 w-12 h-12 flex items-center justify-center rounded-full bg-black/50 hover:bg-black/70 backdrop-blur-md text-white transition-colors cursor-pointer border-none">
+      <i class="ri-close-line text-2xl"></i>
+    </button>
     <div class="relative group">
       <img loading="lazy" id="modal-cert-img" src="" alt="Certificate" class="w-full h-auto max-h-[85vh] object-contain rounded-[48px] shadow-2xl">
-      <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/90 via-black/40 to-transparent text-left rounded-b-[48px]">
-        <h3 id="modal-cert-title" class="text-white text-3xl font-bold mb-2"></h3>
+      <!-- Deep gradient backdrop covering the bottom half -->
+      <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/90 via-black/50 to-transparent rounded-b-[48px] pointer-events-none"></div>
+      
+      <!-- Text Overlay -->
+      <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12 text-left z-10">
+        <h3 id="modal-cert-title" class="text-white text-3xl md:text-4xl font-helvetica font-bold mb-2 tracking-tight"></h3>
         <p id="modal-cert-desc" class="text-white/90 text-lg font-inter"></p>
       </div>
     </div>
