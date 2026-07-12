@@ -341,12 +341,14 @@ font-size: 16px;
   align-items: center;
 }
 .modal-content {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4));
-  backdrop-filter: blur(10px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.90));
+  backdrop-filter: blur(24px);
   padding: 24px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   width: 90%;
   max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   position: relative;
@@ -354,6 +356,10 @@ font-size: 16px;
   text-align: center;
   margin: 0 auto;
 }
+.modal-content::-webkit-scrollbar { width: 6px; }
+.modal-content::-webkit-scrollbar-track { background: transparent; }
+.modal-content::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.2); border-radius: 10px; }
+.modal-content::-webkit-scrollbar-thumb:hover { background: rgba(0, 0, 0, 0.4); }
 @keyframes modalFadeIn {
   from {
     opacity: 0;
@@ -2532,7 +2538,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 
         <div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
-        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)]">
           
         <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/dm5xj5p-caf05e6d-8304-4618-88ed-1eef98716619.jpg/v1/fill/w_1108,h_721,q_70,strp/harshit_prasad_profile_by_itsharshitgoat_dm5xj5p-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODMzIiwicGF0aCI6Ii9mLzVlYWYwYzU1LWE5Y2QtNDM3MS04NjAwLTY5NmY2MjQ4YjY3YS9kbTV4ajVwLWNhZjA1ZTZkLTgzMDQtNDYxOC04OGVkLTFlZWY5ODcxNjYxOS5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.3y_Yq7czXmpEPVKsEaCPtYgxvG8sGNqyhLqmCrLRQZ8" alt="Project 4" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
@@ -2573,7 +2579,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 
 <div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
-        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)]">
           
         <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/dm0jcsp-84044272-2af6-4580-badb-6290d92c8b37.png/v1/fill/w_1132,h_706,q_70,strp/screenshot_2026_05_09_at_6_53_11pm_by_itsharshitgoat_dm0jcsp-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9Nzk5IiwicGF0aCI6Ii9mLzVlYWYwYzU1LWE5Y2QtNDM3MS04NjAwLTY5NmY2MjQ4YjY3YS9kbTBqY3NwLTg0MDQ0MjcyLTJhZjYtNDU4MC1iYWRiLTYyOTBkOTJjOGIzNy5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.HnnST4BZ-LWLFV1sN5MrLiXtJAbfLC-4-mmXdONjsas" alt="Project 4" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
@@ -2614,7 +2620,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 
 <div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
-        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)]">
           
         <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/dk7wd03-2c2c3b47-3fa8-481d-a2e0-3da64da43c7e.png/v1/fill/w_1254,h_637,q_70,strp/capture_by_itsharshitgoat_dk7wd03-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjUxIiwicGF0aCI6IlwvZlwvNWVhZjBjNTUtYTljZC00MzcxLTg2MDAtNjk2ZjYyNDhiNjdhXC9kazd3ZDAzLTJjMmMzYjQ3LTNmYTgtNDgxZC1hMmUwLTNkYTY0ZGE0M2M3ZS5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.NV8jEnsEBi4uF9VGnDukIgLzMFCBf7w13aIKRnrBIBk" alt="Project 4" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
@@ -2655,7 +2661,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 
 <div class="flip-card animate-card delay-9">
       <div class="flip-card-inner">
-        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)]">
           
         <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/djot3da-7726a9c7-4c16-4e01-9c86-027762cf91aa.png/v1/fit/w_828,h_616,q_70,strp/z_by_itsharshitgoat_djot3da-414w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzI1IiwicGF0aCI6IlwvZlwvNWVhZjBjNTUtYTljZC00MzcxLTg2MDAtNjk2ZjYyNDhiNjdhXC9kam90M2RhLTc3MjZhOWM3LTRjMTYtNGUwMS05Yzg2LTAyNzc2MmNmOTFhYS5wbmciLCJ3aWR0aCI6Ijw9OTczIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.7M7Y5CEobGXFZmTerMpN7jl3pmM68-Z-CL2rgmfgxCQ" alt="Project 5" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
@@ -2696,7 +2702,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 
 <div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
-        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)]">
           
         <img src="https://i.imgur.com/YQCMBld.png" alt="Project 1" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
@@ -2737,7 +2743,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 
 <div class="flip-card animate-card delay-9">
       <div class="flip-card-inner">
-        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)]">
           
         <img src="https://i.imgur.com/J0RXlcj.png" alt="Project 2" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
@@ -2778,7 +2784,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 
 <div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
-        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)]">
           
         <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/dm8xnh6-262aa769-1e05-4d86-8463-eb4204b7eb5d.png/v1/fill/w_1108,h_721,q_70,strp/screenshot_2026_06_15_at_9_38_54pm_by_itsharshitgoat_dm8xnh6-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODMzIiwicGF0aCI6Ii9mLzVlYWYwYzU1LWE5Y2QtNDM3MS04NjAwLTY5NmY2MjQ4YjY3YS9kbTh4bmg2LTI2MmFhNzY5LTFlMDUtNGQ4Ni04NDYzLWViNDIwNGI3ZWI1ZC5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.W5DYqf1kFu-2cbxivpzfluaJ_gpGrFYinx-yexuqdtI" alt="Project 4" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
@@ -2816,7 +2822,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 
 <div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
-        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)]">
           
         <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/dm8xng7-9ec2558e-ff30-4eb2-9efc-478cf2f640aa.png/v1/fill/w_1108,h_721,q_70,strp/screenshot_2026_06_15_at_9_39_16pm_by_itsharshitgoat_dm8xng7-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODMzIiwicGF0aCI6Ii9mLzVlYWYwYzU1LWE5Y2QtNDM3MS04NjAwLTY5NmY2MjQ4YjY3YS9kbTh4bmc3LTllYzI1NThlLWZmMzAtNGViMi05ZWZjLTQ3OGNmMmY2NDBhYS5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.9d6-La32Q21XIjdCYhOh0gYyjccZMJtsDCDCqn_1a9M" alt="Project 4" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
@@ -2854,7 +2860,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 
 <div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
-        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)]">
           
         <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/dm8xnhw-fc14ed68-3f26-4c2b-9d99-b739a2e0eecf.png/v1/fill/w_1108,h_721,q_70,strp/screenshot_2026_06_15_at_9_38_32pm_by_itsharshitgoat_dm8xnhw-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODMzIiwicGF0aCI6Ii9mLzVlYWYwYzU1LWE5Y2QtNDM3MS04NjAwLTY5NmY2MjQ4YjY3YS9kbTh4bmh3LWZjMTRlZDY4LTNmMjYtNGMyYi05ZDk5LWI3MzlhMmUwZWVjZi5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.cyV27NVrOu5tAEO6GSStJUeOv8Z13Hw6RQ0Je6SJ7Oc" alt="Project 4" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
@@ -2892,7 +2898,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 
 <div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
-        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)]">
           
         <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/dm5xsk6-dca63d85-57d5-45fe-b7e7-46770628a62f.png/v1/fill/w_1032,h_774,q_70,strp/88shots_so_by_itsharshitgoat_dm5xsk6-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTYwIiwicGF0aCI6Ii9mLzVlYWYwYzU1LWE5Y2QtNDM3MS04NjAwLTY5NmY2MjQ4YjY3YS9kbTV4c2s2LWRjYTYzZDg1LTU3ZDUtNDVmZS1iN2U3LTQ2NzcwNjI4YTYyZi5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.rrzB4PA42-KwBC0pPCesiLPSzXksGh-B_CrcFiCsKs4" alt="Project 4" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
@@ -2930,7 +2936,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 
 <div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
-        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)]">
           
         <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/dm5xjaa-371cb39c-bb2f-42e1-a823-d377028de6de.png/v1/fill/w_1108,h_721,q_70,strp/screenshot_2026_06_02_at_3_39_03pm_by_itsharshitgoat_dm5xjaa-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODMzIiwicGF0aCI6Ii9mLzVlYWYwYzU1LWE5Y2QtNDM3MS04NjAwLTY5NmY2MjQ4YjY3YS9kbTV4amFhLTM3MWNiMzljLWJiMmYtNDJlMS1hODIzLWQzNzcwMjhkZTZkZS5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.i9WMmYvOPtt2Q6O1uBeAAMUB469DTm54A86LZUTHb-o" alt="Project 4" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
@@ -2968,7 +2974,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 
 <div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
-        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)]">
           
         <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/dm0jaqh-cb9a2b13-6c53-43d0-8129-acc6d84c5686.png/v1/fill/w_1132,h_706,q_70,strp/screenshot_2026_05_09_at_6_46_29pm_by_itsharshitgoat_dm0jaqh-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9Nzk5IiwicGF0aCI6Ii9mLzVlYWYwYzU1LWE5Y2QtNDM3MS04NjAwLTY5NmY2MjQ4YjY3YS9kbTBqYXFoLWNiOWEyYjEzLTZjNTMtNDNkMC04MTI5LWFjYzZkODRjNTY4Ni5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.SKRnSSiceb6mMezyJJEoNnKyrUQjUiTGNuGUb5_4QD4" alt="Project 4" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
@@ -3006,7 +3012,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 
 <div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
-        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)]">
           
         <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/dm0j8e1-9c1358a4-95ff-495a-8fa4-c341dc6db11c.png/v1/fill/w_1132,h_706,q_70,strp/screenshot_2026_05_09_at_6_37_19pm_by_itsharshitgoat_dm0j8e1-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9Nzk5IiwicGF0aCI6Ii9mLzVlYWYwYzU1LWE5Y2QtNDM3MS04NjAwLTY5NmY2MjQ4YjY3YS9kbTBqOGUxLTljMTM1OGE0LTk1ZmYtNDk1YS04ZmE0LWMzNDFkYzZkYjExYy5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.7q1kHySHj3QVs91JNQ5BUayZdAN8JJFXkJ6F8Y5wSlc" alt="Project 4" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
@@ -3044,7 +3050,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 
 <div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
-        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)]">
           
         <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/dkgdqf9-b5c3c6ec-cda8-4c2d-a35f-0510d3c109d6.png/v1/fill/w_1249,h_640,q_70,strp/screenshotrtt_2025_09_02_015758_by_itsharshitgoat_dkgdqf9-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjU2IiwicGF0aCI6IlwvZlwvNWVhZjBjNTUtYTljZC00MzcxLTg2MDAtNjk2ZjYyNDhiNjdhXC9ka2dkcWY5LWI1YzNjNmVjLWNkYTgtNGMyZC1hMzVmLTA1MTBkM2MxMDlkNi5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.pOhcI8aR3cWmewrEdNlBP3ftMdGZhqCwmN4vX5RvKdY" alt="Project 4" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
@@ -3082,7 +3088,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 
 <div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
-        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)]">
           
         <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/dk7w54c-58f82db4-0bca-4551-b7e5-4da67afe4df5.png/v1/fill/w_1239,h_645,q_70,strp/capture_by_itsharshitgoat_dk7w54c-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjY2IiwicGF0aCI6IlwvZlwvNWVhZjBjNTUtYTljZC00MzcxLTg2MDAtNjk2ZjYyNDhiNjdhXC9kazd3NTRjLTU4ZjgyZGI0LTBiY2EtNDU1MS1iN2U1LTRkYTY3YWZlNGRmNS5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.V6Qi0kVocHz6luaMEBIeRICdhi_kjwDeJzokx0tWRE8" alt="Project 4" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
@@ -3120,7 +3126,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 
 <div class="flip-card animate-card delay-10">
       <div class="flip-card-inner">
-        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)]">
           
         <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/djyi3e1-8d609c80-7aa3-4cbf-b56a-e7f663088a59.png/v1/fill/w_1259,h_634,q_70,strp/capture_by_itsharshitgoat_djyi3e1-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjQ1IiwicGF0aCI6IlwvZlwvNWVhZjBjNTUtYTljZC00MzcxLTg2MDAtNjk2ZjYyNDhiNjdhXC9kanlpM2UxLThkNjA5YzgwLTdhYTMtNGNiZi1iNTZhLWU3ZjY2MzA4OGE1OS5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.1XUhMAQpQY4fU0ayAK3K3g-BeFYqB0-67hqN-DCpZSQ" alt="Project 6" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
@@ -3158,7 +3164,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 
 <div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
-        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)]">
           
         <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/dkgdnf3-d4461f3e-3f70-47cf-93ed-51322c430553.png/v1/fill/w_1227,h_651,q_70,strp/screenshot_2025_09_02_0148278_by_itsharshitgoat_dkgdnf3-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjgwIiwicGF0aCI6IlwvZlwvNWVhZjBjNTUtYTljZC00MzcxLTg2MDAtNjk2ZjYyNDhiNjdhXC9ka2dkbmYzLWQ0NDYxZjNlLTNmNzAtNDdjZi05M2VkLTUxMzIyYzQzMDU1My5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.msL7CcA8ZWhBixw4NjReOFRiFZi5Nf68pTBB9pu1o9s" alt="Project 4" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
@@ -3196,7 +3202,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 
 <div class="flip-card animate-card delay-9">
       <div class="flip-card-inner">
-        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)]">
           
         <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/djtvpt2-a9deae50-5c35-4384-afb9-ed07514918ba.png/v1/fill/w_1251,h_639,q_70,strp/capture_by_itsharshitgoat_djtvpt2-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjU0IiwicGF0aCI6IlwvZlwvNWVhZjBjNTUtYTljZC00MzcxLTg2MDAtNjk2ZjYyNDhiNjdhXC9kanR2cHQyLWE5ZGVhZTUwLTVjMzUtNDM4NC1hZmI5LWVkMDc1MTQ5MThiYS5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.ErRyDI8rb6EFoywjHTubtN7f7D0c4WkIRqGeojigXZ0" alt="Project 5" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
@@ -3234,7 +3240,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 
 <div class="flip-card animate-card delay-10">
       <div class="flip-card-inner">
-        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)]">
           
         <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/djzkrau-553fe516-4269-4ed2-ab6f-a5f2b4c4268e.png/v1/fill/w_1225,h_652,q_70,strp/capture_by_itsharshitgoat_djzkrau-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjgyIiwicGF0aCI6IlwvZlwvNWVhZjBjNTUtYTljZC00MzcxLTg2MDAtNjk2ZjYyNDhiNjdhXC9kanprcmF1LTU1M2ZlNTE2LTQyNjktNGVkMi1hYjZmLWE1ZjJiNGM0MjY4ZS5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.qbkf2NXDFCReSZSp8iYNnns2WtWYQp1bIq0dcYjF2D8" alt="Project 6" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
@@ -3272,7 +3278,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 
 <div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
-        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)]">
           
         <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/djzpsm5-9d226eab-eabe-4a5b-9385-41f6866794d0.png/v1/fill/w_1227,h_651,q_70,strp/capture_by_itsharshitgoat_djzpsm5-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjgwIiwicGF0aCI6IlwvZlwvNWVhZjBjNTUtYTljZC00MzcxLTg2MDAtNjk2ZjYyNDhiNjdhXC9kanpwc201LTlkMjI2ZWFiLWVhYmUtNGE1Yi05Mzg1LTQxZjY4NjY3OTRkMC5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.N1lmk2PAUvXS_mZ9o6zwJVmcr1YVXrLCMg1_cFxZ3Jk" alt="Project 4" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
@@ -3310,7 +3316,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 
 <div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
-        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)]">
           
         <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/djx8yxq-63b5393e-c32d-4079-b962-e3fee7d7db74.png/v1/fill/w_1256,h_636,q_70,strp/capture_by_itsharshitgoat_djx8yxq-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjQ5IiwicGF0aCI6IlwvZlwvNWVhZjBjNTUtYTljZC00MzcxLTg2MDAtNjk2ZjYyNDhiNjdhXC9kang4eXhxLTYzYjUzOTNlLWMzMmQtNDA3OS1iOTYyLWUzZmVlN2Q3ZGI3NC5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.dLZpZDhy1M9gDioXe_r9u8NiUFKyrfn_Mcb2YMzIk48" alt="Project 4" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
@@ -3348,7 +3354,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 
 <div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
-        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)]">
           
         <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/dk7w7fp-d6b2e924-d401-4a19-aa89-0964d10d781b.png/v1/fill/w_1280,h_592,q_80,strp/capture_by_itsharshitgoat_dk7w7fp-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTkyIiwicGF0aCI6IlwvZlwvNWVhZjBjNTUtYTljZC00MzcxLTg2MDAtNjk2ZjYyNDhiNjdhXC9kazd3N2ZwLWQ2YjJlOTI0LWQ0MDEtNGExOS1hYTg5LTA5NjRkMTBkNzgxYi5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.3BOrl3jNzftya3Gb1Yb7RLZ43_dP2STd-fcP37huYbQ" alt="Project 4" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
@@ -3386,7 +3392,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 
 <div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
-        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)]">
           
         <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/djya8um-f0bdfcdf-9560-4248-a534-6762b85bfcc6.png/v1/fill/w_1259,h_635,q_70,strp/capture_by_itsharshitgoat_djya8um-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjQ2IiwicGF0aCI6IlwvZlwvNWVhZjBjNTUtYTljZC00MzcxLTg2MDAtNjk2ZjYyNDhiNjdhXC9kanlhOHVtLWYwYmRmY2RmLTk1NjAtNDI0OC1hNTM0LTY3NjJiODViZmNjNi5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.9SjhkezfEwJfcV36z_9AEqXmk0UlVAt9F_YlZqs-TPY" alt="Project 3" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
@@ -3424,7 +3430,7 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 
 <div class="flip-card animate-card delay-8">
       <div class="flip-card-inner">
-        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+        <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)]">
           
         <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/dkgdko3-0e2a0480-1b25-4cb8-9162-b77412667afa.png/v1/fill/w_1247,h_641,q_70,strp/screenshot_2025_09_02_013847_by_itsharshitgoat_dkgdko3-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjU4IiwicGF0aCI6IlwvZlwvNWVhZjBjNTUtYTljZC00MzcxLTg2MDAtNjk2ZjYyNDhiNjdhXC9ka2dka28zLTBlMmEwNDgwLTFiMjUtNGNiOC05MTYyLWI3NzQxMjY2N2FmYS5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.RGH9cq5lLotV6jgBNbgZi-fueLbUJQwEfRuqbNZiTlg" alt="Project 4" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
@@ -3478,11 +3484,69 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 <i class="ri-article-line text-3xl text-primary"></i>
 <h2 class="font-helvetica text-3xl font-bold text-center">Blog & Research</h2>
 </div>
-<div class="grid md:grid-cols-3 gap-8">
-  <!-- Blog 1 -->
-  <div class="flip-card animate-card delay-8">
+<div class="relative w-full" id="blog-carousel-container">
+  <button id="blog-prev" class="absolute left-1 md:-left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center shadow-xl hover:bg-gray-100 transition-colors border border-gray-200">
+    <i class="ri-arrow-left-s-line text-2xl text-gray-800"></i>
+  </button>
+  <button id="blog-next" class="absolute right-1 md:-right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center shadow-xl hover:bg-gray-100 transition-colors border border-gray-200">
+    <i class="ri-arrow-right-s-line text-2xl text-gray-800"></i>
+  </button>
+  <div class="overflow-hidden px-8 -mx-8 py-12 -my-12" style="width: calc(100% + 4rem); -webkit-mask-image: linear-gradient(to right, transparent, black 3rem, black calc(100% - 3rem), transparent); mask-image: linear-gradient(to right, transparent, black 3rem, black calc(100% - 3rem), transparent);">
+    <div id="blog-track" class="flex gap-4 md:gap-8 transition-transform duration-500 ease-in-out relative z-10">
+  <!-- Blog 4 -->
+  <div class="flip-card animate-card delay-8 flex-none w-full md:w-[calc(33.333%-1.333rem)] h-[400px] relative z-10 hover:z-50 transition-z duration-300">
     <div class="flip-card-inner">
-      <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+      <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)]">
+        <img src="https://images.unsplash.com/photo-1739296408127-b6cc9c5c094b?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGhhbG8lMjBlZmZlY3R8ZW58MHx8MHx8fDA%3D" alt="Blog 4" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-6 z-10 flex flex-col md:flex-row md:justify-between md:items-center justify-end">
+          <h3 class="font-helvetica text-xl font-bold text-white mb-3 md:mb-0 text-center md:text-left">it's been a while</h3>
+          <div class="flex items-center justify-center gap-3 mt-1 md:mt-0 shrink-0">
+            <button onclick="openModal('modal4')" class="!rounded-button bg-primary text-white px-6 py-2 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap flex items-center justify-center md:px-0 md:w-10 md:h-10 md:rounded-full group">
+            <span class="md:hidden">Read More</span>
+            <i class="ri-arrow-right-up-line hidden md:block text-xl transition-transform duration-300 group-hover:rotate-45"></i>
+          </button>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card-back flex flex-col">
+        <div class="flex-grow">
+          <h3 class="font-helvetica text-xl font-bold mb-4 flex items-center gap-2 text-gray-800">
+            <i class="ri-book-read-fill text-secondary text-2xl"></i> Summary
+          </h3>
+          <p class="font-inter text-gray-600 text-sm mb-6">
+            Today I am writing this blog not having any topic in mind, but just to lay out everything that has been on my mind these past few months.
+
+
+            So let me tell you about my personal life. To give you some context, my personal life is going ok-ish for the most part. Now that I am done with my 1st year (kind of like I have exam of my on 26…😭). In my 1st year I got an 8.1 GPA. Yeah yeah I know these aren't very good marks by any standard and no amount of excuses can hide it. But let me tell you something when I got my first computer at the age of 11 in 2017. Even in school, I never studied for computer exams, I just got some marks because “I did it because I love it.” There is a picture to depict this, and see those marks as a piece of paper that tells you how much you love it. The fact is simple someone love it more than I do, but that’s not an excuse for me to stop loving it. Instead, it's time to double down. I am going to do more and more work until I am the best at it, and someone will say when I arrive, "this is the guy who is the best at it."
+          </p>
+          <div class="w-full flex justify-center mb-2">
+            <div class="reaction-container" data-blog-id="blog4">
+              <div class="reaction-item" data-emoji="heart">
+                <img src="https://em-content.zobj.net/source/microsoft/379/red-heart_2764-fe0f.png" alt="Heart" loading="lazy">
+                <span class="reaction-count">0</span>
+              </div>
+              <div class="reaction-item" data-emoji="rocket">
+                <img src="https://images.emojiterra.com/microsoft/fluent-emoji/15.1/512px/1f680_color.png" alt="Rocket" loading="lazy">
+                <span class="reaction-count">0</span>
+              </div>
+              <div class="reaction-item" data-emoji="smile">
+                <img src="https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Grinning%20face%20with%20smiling%20eyes/3D/grinning_face_with_smiling_eyes_3d.png" alt="Smile" loading="lazy">
+                <span class="reaction-count">0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button onclick="this.closest('.flip-card-inner').classList.remove('flipped'); event.stopPropagation();" class="!rounded-button bg-gray-800 text-white px-6 py-2 font-medium hover:bg-gray-700 transition-colors w-full mt-4 flex items-center justify-center group">
+          <i class="ri-arrow-go-back-line mr-2"></i> Back
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- Blog 1 -->
+  <div class="flip-card animate-card delay-8 flex-none w-full md:w-[calc(33.333%-1.333rem)] h-[400px] relative z-10 hover:z-50 transition-z duration-300">
+    <div class="flip-card-inner">
+      <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)]">
         <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/dk0ehre-1a67b68a-c112-48a8-b4e6-ea1fa7da3341.png/v1/fill/w_1280,h_612,q_80,strp/capture_by_itsharshitgoat_dk0ehre-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjEyIiwicGF0aCI6IlwvZlwvNWVhZjBjNTUtYTljZC00MzcxLTg2MDAtNjk2ZjYyNDhiNjdhXC9kazBlaHJlLTFhNjdiNjhhLWMxMTItNDhhOC1iNGU2LWVhMWZhN2RhMzM0MS5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.51TTgY61wC4lWuoA2cOrefeVR8zMp_L85TPdf_TufPc" alt="Blog 1" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
         <div class="absolute bottom-0 left-0 right-0 p-6 z-10 flex flex-col md:flex-row md:justify-between md:items-center justify-end">
@@ -3528,11 +3592,10 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
       </div>
     </div>
   </div>
-
   <!-- Blog 2 -->
-  <div class="flip-card animate-card delay-8">
+  <div class="flip-card animate-card delay-8 flex-none w-full md:w-[calc(33.333%-1.333rem)] h-[400px] relative z-10 hover:z-50 transition-z duration-300">
     <div class="flip-card-inner">
-      <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+      <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)]">
         <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5eaf0c55-a9cd-4371-8600-696f6248b67a/dk08iev-bc408b68-ddd6-4a9a-9cd0-f82fec6b4146.png/v1/fill/w_1280,h_605,q_80,strp/capture_by_itsharshitgoat_dk08iev-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjA1IiwicGF0aCI6IlwvZlwvNWVhZjBjNTUtYTljZC00MzcxLTg2MDAtNjk2ZjYyNDhiNjdhXC9kazA4aWV2LWJjNDA4YjY4LWRkZDYtNGE5YS05Y2QwLWY4MmZlYzZiNDE0Ni5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.32Yz4yhsoFXSOz_KPXB_HWfwavGbTC6lmFIIHfGnGYo" alt="Blog 2" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
         <div class="absolute bottom-0 left-0 right-0 p-6 z-10 flex flex-col md:flex-row md:justify-between md:items-center justify-end">
@@ -3578,11 +3641,10 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
       </div>
     </div>
   </div>
-
   <!-- Blog 3 -->
-  <div class="flip-card animate-card delay-8">
+  <div class="flip-card animate-card delay-8 flex-none w-full md:w-[calc(33.333%-1.333rem)] h-[400px] relative z-10 hover:z-50 transition-z duration-300">
     <div class="flip-card-inner">
-      <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+      <div class="flip-card-front bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/20 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)]">
         <img src="https://img.freepik.com/free-photo/3d-rendering-kid-holding-brain_23-2150723106.jpg?t=st=1745911409~exp=1745915009~hmac=5d0809d835bf79601d8718bdde995b24433bc186b95d676d0fcede3ad06026c2&w=740" alt="Blog 3" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
         <div class="absolute bottom-0 left-0 right-0 p-6 z-10 flex flex-col md:flex-row md:justify-between md:items-center justify-end">
@@ -3626,6 +3688,8 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
           <i class="ri-arrow-go-back-line mr-2"></i> Back
         </button>
       </div>
+    </div>
+  </div>
     </div>
   </div>
 </div>
@@ -3752,6 +3816,25 @@ class="absolute inset-0 w-full h-full object-cover transition-transform duration
 <p>There’s a reason I’m creating these devices and services because I want to build something real, rooted in care and purpose. To me, technology should feel like an extension of you quietly powerful, intuitive, and respectful of your time and privacy. I’m not here to follow trends or add more noise. I’m here to bring stillness in the chaos, clarity in complexity, and to create tools that mean something.</p>
 <p>because I’ve always felt the gaps that others seem to ignore. I see the potential in technology not just as a tool, but as a bridge between human need and digital possibility. This work is personal it carries my philosophy, my values, and my hope for what the future could be. Something that doesn’t just work, but means something.</p>
 <blockquote>If no one’s crazy enough to fix it, I guess it’s my job now<br>- Harshit -</blockquote>
+</div>
+</div>
+<div id="modal4" class="modal">
+<div class="modal-content !max-w-2xl text-center">
+<span class="modal-close" onclick="closeModal('modal4')">×</span>
+<h3 class="text-3xl font-bold mb-6 text-gray-900">it's been a while</h3>
+<div class="space-y-6 text-gray-900 leading-relaxed font-inter text-base md:text-lg text-center font-medium">
+<p>Today I am writing this blog not having any topic in mind, but just to lay out everything that has been on my mind these past few months.</p>
+
+<p>So let me tell you about my personal life. To give you some context, my personal life is going ok-ish for the most part. Now that I am done with my 1st year (kind of like I have exam of my on 26…😭). In my 1st year I got an 8.1 GPA. Yeah yeah I know these aren't very good marks by any standard and no amount of excuses can hide it. But let me tell you something when I got my first computer at the age of 11 in 2017. Even in school, I never studied for computer exams, I just got some marks because “I did it because I love it.” There is a picture to depict this, and see those marks as a piece of paper that tells you how much you love it. The fact is simple someone love it more than I do, but that’s not an excuse for me to stop loving it. Instead, it's time to double down. I am going to do more and more work until I am the best at it, and someone will say when I arrive, "this is the guy who is the best at it."</p>
+
+<img src="https://pbs.twimg.com/media/Gu197UEWMAAOAEw.jpg" alt="Marks" class="mx-auto block max-w-full w-auto rounded-2xl shadow-xl my-8 object-contain max-h-[400px]" loading="lazy">
+
+<p>Now for the part I am writing this blog for the current development in AI has completely blown me away. Mythos 5, GPT 5.6, Grok 4.5, and Gemini—which will be arriving later this year will probably be a banger. Plus, all the Chinese AI lab models (yes, I am talking about GLM 5.2). But I have question where are the Indian AI labs in all of this (except Sarvam AI)-ans is no where to be found and one top of that I don’t even see anyone trying to build a Frontier AI models. Even Sarvam AI doesn't have a flagship model, and if Google wants to, they could easily outcompete Sarvam AI with their Gemini model( actually they did ). From where I am standing, I see no one from India even trying to compete against these big AI labs, and no one is doing anything about it. To be honest, I am frustrated and really sad, to the point I can’t even describe it in words. But let me make one thing very clear I don’t think we can't build a frontier AI model in India instead, I think we definitely can, and Sarvam AI is proof of that. It's just that we are deciding not to. And what the hell are we doing instead? “₹9 for an AI course,” “how to use ChatGPT to automate 90% of your work,” “AI master class” (you know who I am talking about).</p>
+
+<p>And let me tell you one thing when super intelligence arrives in 1-2 years yes, super intelligence, not a smarter chatbot, but a machine better than humans at essentially everything I believe whoever reaches it first doesn't just win the market, they win everything. Let me repeat that everything. A super intelligence can improve upon itself, break encryptions, design weapons, run economies, and the company or country that controls it first could open an exponential lead that nobody might ever catch. That is why it’s very important for us to make an open-source AI frontier model, because if Anthropic, Google, OpenAI, xAI, or any Chinese lab reaches it first, we will be cooked chat, and the consequences could be so fatal that I don’t even want to imagine them.</p>
+
+<p>If no one is up to the task, I think it’s my turn now. Mark my words: I will create a flagship super intelligence model before my next birthday, which will be 5 July 2027. And even if I fail, I think no one will be disappointed in me because no one was expecting it from me in the first place 😉. Maybe some people will be really sad on 5 July 2027 and wipe out a few trillion dollars from the stock market or it will be there happiest day “Time to lock in”</p>
+</div>
 </div>
 </div>
 
@@ -4146,7 +4229,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const reactionData = JSON.parse(localStorage.getItem('reactionData')) || {
     blog1: { heart: 0, rocket: 0, smile: 0 },
     blog2: { heart: 0, rocket: 0, smile: 0 },
-    blog3: { heart: 0, rocket: 0, smile: 0 }
+    blog3: { heart: 0, rocket: 0, smile: 0 },
+    blog4: { heart: 0, rocket: 0, smile: 0 }
   };
 
   function updateReactionCounts() {
@@ -5454,6 +5538,56 @@ new MobileCardStack('hell-cards-container', '.hell-stack-card');
     }
   }
 })();
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const track = document.getElementById('blog-track');
+  const prevBtn = document.getElementById('blog-prev');
+  const nextBtn = document.getElementById('blog-next');
+  let isTransitioning = false;
+
+  if (track && prevBtn && nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      const first = track.firstElementChild;
+      const cardWidth = first.offsetWidth;
+      const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
+      
+      track.style.transition = 'transform 0.5s ease-in-out';
+      track.style.transform = `translateX(-${cardWidth + gap}px)`;
+      
+      setTimeout(() => {
+        track.style.transition = 'none';
+        track.appendChild(first);
+        track.style.transform = 'translateX(0)';
+        isTransitioning = false;
+      }, 500);
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      const last = track.lastElementChild;
+      const cardWidth = last.offsetWidth;
+      const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
+      
+      track.style.transition = 'none';
+      track.insertBefore(last, track.firstElementChild);
+      track.style.transform = `translateX(-${cardWidth + gap}px)`;
+      
+      void track.offsetWidth; // Force reflow
+      
+      track.style.transition = 'transform 0.5s ease-in-out';
+      track.style.transform = 'translateX(0)';
+      
+      setTimeout(() => {
+        isTransitioning = false;
+      }, 500);
+    });
+  }
+});
 </script>
 
 </body>
