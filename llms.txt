@@ -1,0 +1,46 @@
+# Harshit's Portfolio
+
+Welcome to the digital portfolio of Harshit (@itsharshitgoat), an AI & OS developer and tech enthusiast crafting seamless, performance-first experiences. This file provides a comprehensive overview of my website and projects for AI agents.
+
+## About Me & Biohistory
+
+I got my first computer at the age of 11 in 2017 and fell in love with it. I'm a tech enthusiast on a quest to make AI and OS development less of a headache and way cooler. I tinker with modern tech, treat UI/UX like both art and sport, and basically run on wireframes and caffeine. Obsessed with futuristic design and buttery-smooth experiences, I try to make tech feel like magic—with less smoke and more logic.
+
+I believe in the power of simplicity—because if a button needs a manual, we’ve already lost the plot. 
+
+Currently, I'm blown away by the developments in Frontier AI models. My ambition is to build an open-source, flagship super-intelligence model by my next birthday on July 5, 2027.
+
+## About the Website
+
+- **Theme:** Where pixels meet philosophy. A digital portfolio that doesn't just show work — it tells a story. 
+- **Hidden Realms:** 
+  - *Heaven (The Quiet Layer):* Scroll up past the top to find a white, ethereal library shrouded in drifting fog, featuring floating books like Snow Crash and Ready Player One.
+  - *Hell (The Infernal Realm):* Scroll down past the bottom to discover a lava-glowing realm featuring the "Sins of Code".
+- **Tech Stack:** Built with raw Vanilla HTML, CSS, JavaScript (ES6+), GSAP for animations, HTML5 Canvas API, and Tailwind CSS (via CDN). Zero frameworks (No React, Vue, Angular), zero build steps. Just the DOM.
+- **Interactions:** Features a magnetic navigation blob, a full command palette (⌘+K) with commands like `about`, `projects`, `skills`, `contact`, and a live music pill powered by Last.fm.
+
+## Featured Projects
+
+- **General Store:** Built because of AI model file upload limits on free plans. It's a local vector database and MCP server that indexes study materials, allowing AI (like Claude) to query local files directly without any limits.
+- **Redbrain:** An intelligent safety net for Reddit communities. It uses AI to analyze tone and context, helping moderators catch risks early before things blow up, turning community management from reactive firefighting to proactive safety.
+- **Wrap:** A Discord bot designed to create a yearly recap for communities. It invisibly logs server events for admins year-round, and on December 31st, it uses an AI model to post a "Spotify Wrapped" style story of everything that happened in the server.
+- **Quickset:** A zero-friction timer application built via Electron (not a web app) to eliminate complex setups. It allows users to jump straight into deep work with a single click, completely removing setup time to prevent shattered focus.
+- **Novaweb:** A search engine aggregator built for the modern era of information lookup. Instead of just returning links, it actively synthesizes answers, drastically cutting down the time it takes to resolve a question.
+- **Portfolio:** My personal portfolio. Built to be a "digital handshake" that doesn't just list skills, but proves them through smooth animations, responsive layouts, and a meticulously clean user experience.
+
+## Skills & Certifications
+- **Top Skills:** HTML, CSS, JavaScript, React, Node.js, Python.
+- **Certifications:** 
+  - AI with Machine Learning - Delhi Technological University (DTU)
+  - Microsoft Azure Fundamentals (Az-900)
+  - Go - HackerRank
+  - HTML, CSS, JavaScript, Java, Python - Codédex
+
+## Social & Links
+- **GitHub:** https://github.com/Itsharshitgoat
+- **X/Twitter:** https://x.com/itsharshitgoat
+- **Instagram:** https://www.instagram.com/itsharshitgoat/
+- **LinkedIn:** https://www.linkedin.com/in/harshit-prasad-833986370/
+- **Reddit:** https://www.reddit.com/user/itsharshitgoat
+
+Built with raw JavaScript, questionable sleep schedules, and an unreasonable amount of CSS blur.
