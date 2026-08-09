@@ -17,7 +17,7 @@ Currently, I'm blown away by the developments in Frontier AI models. My ambition
   - *Heaven (The Quiet Layer):* Scroll up past the top to find a white, ethereal library shrouded in drifting fog, featuring floating books like Snow Crash and Ready Player One.
   - *Hell (The Infernal Realm):* Scroll down past the bottom to discover a lava-glowing realm featuring the "Sins of Code".
 - **Tech Stack:** Built with raw Vanilla HTML, CSS, JavaScript (ES6+), GSAP for animations, HTML5 Canvas API, and Tailwind CSS (via CDN). Zero frameworks (No React, Vue, Angular), zero build steps. Just the DOM.
-- **Interactions:** Features a magnetic navigation blob, a full command palette (⌘+K) with commands like `about`, `projects`, `skills`, `contact`, and a live music pill powered by Last.fm.
+- **Interactions:** Features a magnetic navigation blob and a live music pill powered by Last.fm.
 
 ## Featured Projects
 

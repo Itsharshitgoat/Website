@@ -417,6 +417,47 @@ font-size: 16px;
   color: transparent;
   text-shadow: 0 0 3px rgba(255, 255, 255, 0.2);
 }
+
+/* Updated Pill — Liquid Glass with Blue Glow */
+#hero-updated-pill .updated-pill {
+  background: linear-gradient(135deg, rgba(255,255,255,0.55), rgba(210,230,255,0.25) 50%, rgba(0,71,171,0.08));
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(0,71,171,0.25);
+  box-shadow:
+    0 4px 14px rgba(0,71,171,0.15),
+    0 10px 30px rgba(0,71,171,0.25),
+    0 0 20px rgba(0,71,171,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.8),
+    inset 0 -1px 0 rgba(255,255,255,0.15);
+  animation: updatedPillGlow 2.5s ease-in-out infinite;
+}
+#hero-updated-pill .updated-pill-dot {
+  box-shadow: 0 0 6px rgba(0,71,171,0.9), 0 0 14px rgba(0,71,171,0.6);
+  animation: updatedPillDotGlow 2.5s ease-in-out infinite;
+}
+@keyframes updatedPillGlow {
+  0%, 100% {
+    box-shadow:
+      0 4px 14px rgba(0,71,171,0.15),
+      0 10px 30px rgba(0,71,171,0.25),
+      0 0 20px rgba(0,71,171,0.15),
+      inset 0 1px 0 rgba(255,255,255,0.8),
+      inset 0 -1px 0 rgba(255,255,255,0.15);
+  }
+  50% {
+    box-shadow:
+      0 4px 16px rgba(0,71,171,0.25),
+      0 12px 36px rgba(0,71,171,0.4),
+      0 0 34px rgba(0,71,171,0.35),
+      inset 0 1px 0 rgba(255,255,255,0.9),
+      inset 0 -1px 0 rgba(255,255,255,0.2);
+  }
+}
+@keyframes updatedPillDotGlow {
+  0%, 100% { box-shadow: 0 0 6px rgba(0,71,171,0.9), 0 0 14px rgba(0,71,171,0.6); }
+  50% { box-shadow: 0 0 10px rgba(0,71,171,1), 0 0 22px rgba(0,71,171,0.85); }
+}
 @media (max-width: 768px) {
   /* Prevent anchored sections from being hidden under the fixed nav on small screens */
   section {
@@ -522,22 +563,6 @@ font-size: 16px;
   .bento-grid > div {
     min-height: 200px;
   }
-}
-
-/* Terminal Hint Glow Pulse */
-.terminal-hint-glow span {
-  animation: terminalTextGlow 2.5s ease-in-out infinite;
-}
-.terminal-hint-glow kbd {
-  animation: terminalKeyGlow 2.5s ease-in-out infinite;
-}
-@keyframes terminalTextGlow {
-  0%, 100% { text-shadow: 0 0 6px rgba(0,71,171,0.6), 0 0 15px rgba(0,71,171,0.4), 0 0 30px rgba(0,71,171,0.2); }
-  50% { text-shadow: 0 0 10px rgba(0,71,171,0.8), 0 0 25px rgba(0,71,171,0.5), 0 0 45px rgba(0,71,171,0.3); }
-}
-@keyframes terminalKeyGlow {
-  0%, 100% { box-shadow: 0 2px 0 rgba(0,71,171,0.2), 0 0 12px rgba(0,71,171,0.35), 0 0 25px rgba(0,71,171,0.15); }
-  50% { box-shadow: 0 2px 0 rgba(0,71,171,0.3), 0 0 18px rgba(0,71,171,0.5), 0 0 35px rgba(0,71,171,0.25); }
 }
 
 /* Typewriter Cursor */
@@ -1788,16 +1813,13 @@ body.hell-descent-2 .hell-bg-gradient { opacity: 0.95; }
   </a>
 </div>
 
-<div class="mt-8 hidden md:flex justify-center opacity-0 translate-y-4 transition-all duration-700 delay-300" id="hero-terminal-hint">
-  <button type="button" onclick="openTerminal()" class="flex items-center gap-2 text-[13px] font-mono cursor-pointer transition-all hover:scale-105 active:scale-95 group bg-transparent border-none outline-none p-2 terminal-hint-glow">
-    <span class="text-[#0047AB] font-medium" style="text-shadow: 0 0 6px rgba(0,71,171,0.6), 0 0 15px rgba(0,71,171,0.4), 0 0 30px rgba(0,71,171,0.2);">Press</span>
-    <kbd class="text-[#0047AB] font-sans font-semibold text-[11px] rounded px-2 py-0.5 transform group-hover:-translate-y-0.5 group-active:translate-y-0.5 group-active:shadow-none transition-all backdrop-blur-sm" style="background: rgba(255,255,255,0.85); border: 1px solid rgba(0,71,171,0.25); box-shadow: 0 2px 0 rgba(0,71,171,0.2), 0 0 12px rgba(0,71,171,0.35), 0 0 25px rgba(0,71,171,0.15);">⌘</kbd>
-    <kbd class="text-[#0047AB] font-sans font-semibold text-[11px] rounded px-2 py-0.5 transform group-hover:-translate-y-0.5 group-active:translate-y-0.5 group-active:shadow-none transition-all backdrop-blur-sm" style="background: rgba(255,255,255,0.85); border: 1px solid rgba(0,71,171,0.25); box-shadow: 0 2px 0 rgba(0,71,171,0.2), 0 0 12px rgba(0,71,171,0.35), 0 0 25px rgba(0,71,171,0.15);">K</kbd>
-    <span class="text-[#0047AB] font-medium ml-1" style="text-shadow: 0 0 6px rgba(0,71,171,0.6), 0 0 15px rgba(0,71,171,0.4), 0 0 30px rgba(0,71,171,0.2);">to open terminal</span>
-  </button>
+<div class="mt-8 hidden md:flex justify-center opacity-0 translate-y-4 transition-all duration-700 delay-300" id="hero-updated-pill">
+  <span class="updated-pill flex items-center gap-2 px-3 py-1.5 rounded-full font-mono text-[11px] font-medium text-[#0047AB] tracking-wide">
+    <span class="updated-pill-dot w-1.5 h-1.5 rounded-full" style="background: #0047AB;"></span>
+    <span style="text-shadow: 0 0 8px rgba(0,71,171,0.4);">Last updated : 10/08/2026</span>
+  </span>
 </div>
 
-</div>
 </div>
 </section>
 <section id="about" class="bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-md rounded-3xl shadow-xl mx-4 my-8 border border-white/20 animate-section">
@@ -3678,7 +3700,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const heroTitle = document.getElementById('hero-title');
   const heroDescription = document.getElementById('hero-description');
   const heroTaglineContainer = document.getElementById('hero-tagline-container');
-  const heroTerminalHint = document.getElementById('hero-terminal-hint');
+  const heroUpdatedPill = document.getElementById('hero-updated-pill');
   setTimeout(() => {
     if (heroTitle) heroTitle.classList.remove('opacity-0', 'translate-y-4');
   }, 300);
@@ -3689,7 +3711,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (heroTaglineContainer) heroTaglineContainer.classList.remove('opacity-0', 'translate-y-4');
   }, 900);
   setTimeout(() => {
-    if (heroTerminalHint) heroTerminalHint.classList.remove('opacity-0', 'translate-y-4');
+    if (heroUpdatedPill) heroUpdatedPill.classList.remove('opacity-0', 'translate-y-4');
   }, 1200);
 
   // Mobile menu toggle
@@ -4697,355 +4719,7 @@ new MobileCardStack('hell-cards-container', '.hell-stack-card');
   </div>
 </div>
 
-<!-- Terminal Overlay -->
-<div id="terminal-overlay" class="fixed inset-0 z-[9999] hidden flex items-center justify-center p-4 sm:p-10 transition-opacity duration-300 opacity-0 bg-black/40 backdrop-blur-sm">
-  <div id="terminal-window" class="w-full max-w-5xl h-[80vh] flex flex-col md:flex-row rounded-xl shadow-2xl overflow-hidden transition-transform duration-300 transform scale-95 border border-white/10" style="background: rgba(20, 20, 25, 0.85); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
-    
-    <!-- Sidebar / Manual (Hidden on small screens) -->
-    <div class="hidden md:flex flex-col w-64 bg-black/40 border-r border-white/10 p-4">
-      <div class="flex items-center gap-2 mb-6 text-white/50 px-2">
-        <div class="w-3 h-3 rounded-full bg-[#ff5f56] cursor-pointer hover:bg-[#ff5f56]/80 flex items-center justify-center group" onclick="closeTerminal()">
-          <i class="ri-close-line text-black text-[10px] opacity-0 group-hover:opacity-100 transition-opacity"></i>
-        </div>
-        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
-        <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
-      </div>
-      <div class="text-xs font-mono text-white/40 mb-4 px-2 uppercase tracking-wider">Manual & Shortcuts</div>
-      <div class="flex flex-col gap-1 font-mono text-sm max-h-[50vh] overflow-y-auto">
-        <div class="px-2 py-1 rounded text-white/70 hover:bg-white/10 transition-colors cursor-pointer" onclick="runCommand('help')">help <span class="text-white/30 text-[10px] float-right mt-0.5">commands</span></div>
-        <div class="px-2 py-1 rounded text-white/70 hover:bg-white/10 transition-colors cursor-pointer" onclick="runCommand('name')">name <span class="text-white/30 text-[10px] float-right mt-0.5">who am i</span></div>
-        <div class="px-2 py-1 rounded text-white/70 hover:bg-white/10 transition-colors cursor-pointer" onclick="runCommand('about')">about <span class="text-white/30 text-[10px] float-right mt-0.5">bio</span></div>
-        <div class="px-2 py-1 rounded text-white/70 hover:bg-white/10 transition-colors cursor-pointer" onclick="runCommand('projects')">projects <span class="text-white/30 text-[10px] float-right mt-0.5">my work</span></div>
-        <div class="px-2 py-1 rounded text-white/70 hover:bg-white/10 transition-colors cursor-pointer" onclick="runCommand('hobby')">hobby <span class="text-white/30 text-[10px] float-right mt-0.5">interests</span></div>
-        <div class="px-2 py-1 rounded text-white/70 hover:bg-white/10 transition-colors cursor-pointer" onclick="runCommand('blog')">blog <span class="text-white/30 text-[10px] float-right mt-0.5">writing</span></div>
-        <div class="px-2 py-1 rounded text-white/70 hover:bg-white/10 transition-colors cursor-pointer" onclick="runCommand('certification')">certification <span class="text-white/30 text-[10px] float-right mt-0.5">credentials</span></div>
-        <div class="px-2 py-1 rounded text-white/70 hover:bg-white/10 transition-colors cursor-pointer" onclick="runCommand('contact')">contact <span class="text-white/30 text-[10px] float-right mt-0.5">connect</span></div>
-        <div class="px-2 py-1 rounded text-white/70 hover:bg-white/10 transition-colors cursor-pointer" onclick="runCommand('clear')">clear <span class="text-white/30 text-[10px] float-right mt-0.5">clear screen</span></div>
-      </div>
-      <div class="mt-auto px-2 text-xs font-mono text-white/30">
-        Press <span class="bg-white/10 px-1 py-0.5 rounded">Esc</span> to close
-      </div>
-    </div>
-
-    <!-- Main Terminal Area -->
-    <div class="flex-1 flex flex-col relative h-full">
-      <!-- Mobile Header with X button -->
-      <div class="md:hidden flex items-center justify-between p-3 border-b border-white/10 bg-black/20">
-        <div class="text-white/50 text-xs font-mono">Terminal Mode</div>
-        <button onclick="closeTerminal()" class="text-white/50 hover:text-white transition-colors">
-          <i class="ri-close-line text-lg"></i>
-        </button>
-      </div>
-
-      <!-- Terminal Output History -->
-      <div id="terminal-history" class="flex-1 overflow-y-auto p-4 sm:p-6 font-mono text-sm sm:text-base text-white/80 scroll-smooth pb-2">
-        <div class="mb-4">
-          <div class="text-[#27c93f]">Welcome to Harshit's Terminal.</div>
-          <div class="text-white/50 mt-1">Type 'help' to see available commands. Warp terminal inspired.</div>
-        </div>
-      </div>
-
-      <!-- Terminal Input Block (Warp Style) -->
-      <div class="p-4 sm:p-6 pt-2 shrink-0">
-        <div class="bg-black/30 rounded-lg border border-white/10 focus-within:border-primary/50 focus-within:bg-black/50 transition-all flex items-center p-3">
-          <div class="text-[#ffbd2e] mr-3 shrink-0 flex items-center gap-2">
-            <i class="ri-arrow-right-s-line text-lg"></i>
-            <span class="text-white/40 text-sm hidden sm:inline">~/Harshit/Website</span>
-          </div>
-          <input type="text" id="terminal-input" autocomplete="off" spellcheck="false" class="bg-transparent border-none outline-none text-white font-mono w-full text-sm sm:text-base" autofocus>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
 <script>
-  // Terminal Logic
-  const terminalOverlay = document.getElementById('terminal-overlay');
-  const terminalWindow = document.getElementById('terminal-window');
-  const terminalInput = document.getElementById('terminal-input');
-  const terminalHistory = document.getElementById('terminal-history');
-
-  let terminalActive = false;
-
-  function openTerminal() {
-    terminalActive = true;
-    terminalOverlay.classList.remove('hidden');
-    setTimeout(() => {
-      terminalOverlay.classList.remove('opacity-0');
-      terminalWindow.classList.remove('scale-95');
-      terminalWindow.classList.add('scale-100');
-      terminalInput.focus();
-    }, 10);
-  }
-
-  function closeTerminal() {
-    terminalActive = false;
-    terminalOverlay.classList.add('opacity-0');
-    terminalWindow.classList.remove('scale-100');
-    terminalWindow.classList.add('scale-95');
-    
-    setTimeout(() => {
-      terminalOverlay.classList.add('hidden');
-    }, 300);
-  }
-
-  // Global Keyboard Shortcut Listener
-  document.addEventListener('keydown', (e) => {
-    const isCmdK = (e.metaKey || e.ctrlKey) && (e.key.toLowerCase() === 'k' || e.code === 'KeyK');
-    const activeEl = document.activeElement;
-    const isTyping = activeEl && (activeEl.tagName === 'INPUT' || activeEl.tagName === 'TEXTAREA' || activeEl.isContentEditable);
-    if (isCmdK || (e.key === '`' && !isTyping)) {
-      e.preventDefault();
-      if (terminalActive) {
-        closeTerminal();
-      } else {
-        openTerminal();
-      }
-    }
-    
-    if (e.key === 'Escape' && terminalActive) {
-      closeTerminal();
-    }
-  });
-
-  // Keep input focused when clicking inside terminal window
-  terminalWindow.addEventListener('click', () => {
-    if (terminalActive) {
-      terminalInput.focus();
-    }
-  });
-
-  // Handle Input Execution
-  terminalInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      const command = terminalInput.value.trim().toLowerCase();
-      if (command) {
-        executeCommand(command);
-        terminalInput.value = '';
-      }
-    }
-  });
-
-  // Exported for onclick usage
-  window.runCommand = function(cmd) {
-    executeCommand(cmd);
-  }
-
-  function appendOutput(htmlContent) {
-    const outputBlock = document.createElement('div');
-    outputBlock.className = 'mb-4 opacity-0 transform translate-y-2 transition-all duration-300';
-    outputBlock.innerHTML = htmlContent;
-    terminalHistory.appendChild(outputBlock);
-    
-    setTimeout(() => {
-      outputBlock.classList.remove('opacity-0', 'translate-y-2');
-    }, 10);
-
-    // Scroll to bottom with slight delay for animation
-    setTimeout(() => {
-        terminalHistory.scrollTop = terminalHistory.scrollHeight;
-    }, 50);
-  }
-
-  function executeCommand(cmd) {
-    const safeCmdDisplay = cmd.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-    const userBlock = `
-      <div class="flex items-center gap-2 mb-2 text-white/50 bg-white/5 p-2 rounded-t-lg border-b border-white/5">
-        <i class="ri-arrow-right-s-line text-[#ffbd2e]"></i>
-        <span class="text-white">${safeCmdDisplay}</span>
-      </div>
-    `;
-    
-    let responseHTML = '';
-    
-    switch(cmd) {
-      case 'help':
-        responseHTML = `
-          <div class="px-2">
-            <div class="text-[#27c93f] mb-2 font-bold">Available Commands:</div>
-            <table class="w-full text-left text-white/70 text-sm">
-              <tr><td class="pr-4 py-1 text-white">name</td><td>My identity</td></tr>
-              <tr><td class="pr-4 py-1 text-white">about</td><td>Brief biography</td></tr>
-              <tr><td class="pr-4 py-1 text-white">projects</td><td>List of featured works</td></tr>
-              <tr><td class="pr-4 py-1 text-white">hobby</td><td>What I do for fun</td></tr>
-              <tr><td class="pr-4 py-1 text-white">blog</td><td>Latest thoughts & writings</td></tr>
-              <tr><td class="pr-4 py-1 text-white">certification</td><td>Professional credentials</td></tr>
-              <tr><td class="pr-4 py-1 text-white">contact</td><td>Ways to reach me</td></tr>
-              <tr><td class="pr-4 py-1 text-white">clear</td><td>Clear terminal output</td></tr>
-            </table>
-          </div>
-        `;
-        break;
-      case 'name':
-      case 'whoami':
-        responseHTML = `
-          <div class="px-2">
-            <div class="text-[#00aaff] font-bold mb-1 text-xl">Harshit</div>
-            <div class="text-white/60 text-sm">@itsharshitgoat • Delhi, India</div>
-            <div class="text-white/80 mt-2 text-sm leading-relaxed">
-              AI & OS Developer crafting seamless, performance-first experiences.<br>
-              <i class="text-white/50 text-xs">"Code is poetry, but performance is the rhythm."</i>
-            </div>
-          </div>
-        `;
-        break;
-      case 'about':
-        responseHTML = `
-          <div class="px-2">
-            <div class="text-[#00aaff] font-bold mb-2 text-lg">About Me</div>
-            <div class="text-white/80 leading-relaxed text-sm">
-              I’m a tech enthusiast on a quest to make AI and OS development less of a headache and way cooler. 
-              I tinker with modern tech, treat UI/UX like both art and sport, and basically run on wireframes and caffeine. 
-              Obsessed with futuristic design and buttery-smooth experiences, I try to make tech feel like magic—with less smoke and more logic.<br><br>
-              <span class="text-white/60">I believe in the power of simplicity—because if a button needs a manual, we’ve already lost the plot.</span>
-            </div>
-          </div>
-        `;
-        break;
-      case 'projects':
-      case 'project':
-        responseHTML = `
-          <div class="px-2">
-            <div class="text-[#27c93f] font-bold mb-2 text-lg">Featured Projects</div>
-            <div class="space-y-3">
-              <div class="bg-white/5 border border-white/10 p-2 rounded">
-                <span class="text-[#ffbd2e] font-bold text-sm">1. The Big Question</span>
-                <p class="text-white/60 text-xs mt-1">An early major milestone built from the ground up.</p>
-              </div>
-              <div class="bg-white/5 border border-white/10 p-2 rounded">
-                <span class="text-[#ffbd2e] font-bold text-sm">2. AI & OS Integrations</span>
-                <p class="text-white/60 text-xs mt-1">Deep low-level OS architecture paired with high-level intelligence.</p>
-              </div>
-              <div class="bg-white/5 border border-white/10 p-2 rounded">
-                <span class="text-[#ffbd2e] font-bold text-sm">3. Visual Gallery & Web Apps</span>
-                <p class="text-white/60 text-xs mt-1">12+ beautifully designed web experiences emphasizing UI/UX magic.</p>
-              </div>
-            </div>
-            <div class="mt-3 text-white/40 text-xs italic flex items-center gap-1">
-              <i class="ri-mouse-line"></i> Close the terminal and scroll to the <span class="text-white">Projects</span> section to see the full visual gallery.
-            </div>
-          </div>
-        `;
-        break;
-      case 'hobby':
-      case 'hobbies':
-        responseHTML = `
-          <div class="px-2">
-            <div class="text-[#ff5f56] font-bold mb-3 text-lg">Hobbies & Interests</div>
-            <div class="space-y-3">
-              <div class="flex items-start gap-3">
-                <div class="w-8 h-8 rounded-full bg-[#ff5f56]/20 text-[#ff5f56] flex items-center justify-center shrink-0 border border-[#ff5f56]/30">
-                  <i class="ri-tv-line"></i>
-                </div>
-                <div>
-                  <span class="text-[#ff5f56] font-bold text-sm">Binge Watcher</span>
-                  <p class="text-white/60 text-xs leading-relaxed">Watching movies and anime nonstop, powered by snacks, caffeine, and zero regrets.</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <div class="w-8 h-8 rounded-full bg-[#00aaff]/20 text-[#00aaff] flex items-center justify-center shrink-0 border border-[#00aaff]/30">
-                  <i class="ri-music-2-line"></i>
-                </div>
-                <div>
-                  <span class="text-[#00aaff] font-bold text-sm">Music Listening</span>
-                  <p class="text-white/60 text-xs leading-relaxed">Passionate listener on a nonstop quest for perfect playlists —earbuds in, world off, vibe strong.</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <div class="w-8 h-8 rounded-full bg-[#ffbd2e]/20 text-[#ffbd2e] flex items-center justify-center shrink-0 border border-[#ffbd2e]/30">
-                  <i class="ri-book-line"></i>
-                </div>
-                <div>
-                  <span class="text-[#ffbd2e] font-bold text-sm">Reading</span>
-                  <p class="text-white/60 text-xs leading-relaxed">Constantly buried in design theory, philosophy, and sci-fi books because reality needs a plot twist.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        `;
-        break;
-      case 'blog':
-        responseHTML = `
-          <div class="px-2">
-            <div class="text-[#ffbd2e] font-bold mb-2 text-lg">Blog & Research</div>
-            <div class="border-l-2 border-[#ffbd2e]/30 pl-3 space-y-4">
-              <div>
-                <div class="text-white/90 text-sm font-bold hover:text-[#ffbd2e] transition-colors">Think AI is Cool Now..?</div>
-                <div class="text-white/60 text-xs mt-1">Building truly human-like AI by combining values, memory, simulation, and curiosity into a learning system for real progress.</div>
-              </div>
-              <div>
-                <div class="text-white/90 text-sm font-bold hover:text-[#ffbd2e] transition-colors">How Human think...?</div>
-                <div class="text-white/60 text-xs mt-1">Observe how humans, especially from different backgrounds and experiences, identify and classify everyday objects and symbols.</div>
-              </div>
-              <div>
-                <div class="text-white/90 text-sm font-bold hover:text-[#ffbd2e] transition-colors">Why I Am Doing This..?</div>
-                <div class="text-white/60 text-xs mt-1">A personal reflection on the purpose, philosophy, and soul behind the technology I’m building and why it matters more than ever.</div>
-              </div>
-            </div>
-          </div>
-        `;
-        break;
-      case 'certification':
-      case 'certifications':
-      case 'certs':
-        responseHTML = `
-          <div class="px-2">
-            <div class="text-[#00aaff] font-bold mb-3 text-lg">Certifications</div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
-              <div class="bg-white/5 border border-white/10 p-2 rounded hover:border-[#00aaff]/50 transition-colors">
-                <div class="text-white/90 font-bold"><i class="ri-award-line text-[#00aaff] mr-1"></i>Azure Fundamentals</div>
-                <div class="text-white/50 text-xs mt-1">Microsoft • 2026</div>
-              </div>
-              <div class="bg-white/5 border border-white/10 p-2 rounded hover:border-[#00aaff]/50 transition-colors">
-                <div class="text-white/90 font-bold"><i class="ri-award-line text-[#00aaff] mr-1"></i>Java</div>
-                <div class="text-white/50 text-xs mt-1">Codédex • 2026</div>
-              </div>
-              <div class="bg-white/5 border border-white/10 p-2 rounded hover:border-[#00aaff]/50 transition-colors">
-                <div class="text-white/90 font-bold"><i class="ri-award-line text-[#00aaff] mr-1"></i>Python</div>
-                <div class="text-white/50 text-xs mt-1">Codédex • 2026</div>
-              </div>
-              <div class="bg-white/5 border border-white/10 p-2 rounded hover:border-[#00aaff]/50 transition-colors">
-                <div class="text-white/90 font-bold"><i class="ri-award-line text-[#00aaff] mr-1"></i>JavaScript</div>
-                <div class="text-white/50 text-xs mt-1">Codédex • 2026</div>
-              </div>
-              <div class="bg-white/5 border border-white/10 p-2 rounded hover:border-[#00aaff]/50 transition-colors">
-                <div class="text-white/90 font-bold"><i class="ri-award-line text-[#00aaff] mr-1"></i>Css</div>
-                <div class="text-white/50 text-xs mt-1">Codédex • 2025</div>
-              </div>
-            </div>
-            <div class="mt-3 text-white/40 text-xs italic">Scroll to the Certifications section to view interactive certificates.</div>
-          </div>
-        `;
-        break;
-      case 'contact':
-        responseHTML = `
-          <div class="px-2">
-            <div class="text-[#ff5f56] font-bold mb-2 text-lg">Connect</div>
-            <div class="text-white/80 mb-4">I'm always open to discussing tech, OS, or AI.</div>
-            <div class="flex flex-col gap-2">
-              <a href="#contact" onclick="closeTerminal(); setTimeout(() => document.getElementById('contact').scrollIntoView({behavior:'smooth'}), 100);" class="bg-white/10 hover:bg-white/20 border border-white/10 inline-flex items-center gap-2 px-3 py-2 rounded transition-colors w-max text-sm">
-                <i class="ri-mail-send-line text-[#27c93f]"></i> Drop a message here
-              </a>
-              <div class="text-white/50 text-xs mt-1">Or simply close terminal to explore manually.</div>
-            </div>
-          </div>
-        `;
-        break;
-      case 'clear':
-        terminalHistory.innerHTML = '';
-        return; 
-      default:
-        const sanitizedCmd = cmd.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-        responseHTML = `
-          <div class="px-2 text-[#ff5f56]">command not found: ${sanitizedCmd}</div>
-        `;
-    }
-
-    appendOutput('<div class="bg-white/5 pb-3 rounded-b-lg mb-4">' + userBlock + responseHTML + '</div>');
-  }
-
   // Load More Projects Logic
   let projectsVisible = 6;
   function loadMoreProjects() {

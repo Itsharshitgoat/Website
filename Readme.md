@@ -129,21 +129,7 @@ Both realms feature full fade-out of fixed UI elements (nav, music pill, scroll 
 A frosted-glass blob that mathematically tracks your cursor across nav links, smoothly interpolating position and dimensions. Desktop has a top-center pill; mobile gets a bottom-anchored bar.
 
 ### ⌨️ Command Palette (`⌘ + K`)
-A full terminal emulator rendered in the browser. Not just a gimmick — it supports real commands:
-
-| Command | Action |
-|---|---|
-| `about` | Display bio & summary |
-| `projects` | List all featured works |
-| `skills` | Show technical proficiency |
-| `contact` | Open contact form |
-| `social` | Display social links |
-| `theme` | Toggle visual modes |
-| `resume` | Download the resume |
-| `help` | Show all available commands |
-| `clear` | Clear terminal history |
-
-The terminal features a glowing hint on the hero section — a pulsing `⌘ K` badge that radiates a `box-shadow` animation in the primary blue (`#0047AB`).
+*Removed.*
 
 ### 🎵 Live Music Pill (Last.fm)
 A floating "liquid glass" widget that polls the Last.fm API every 15 seconds:
@@ -158,7 +144,7 @@ A floating "liquid glass" widget that polls the Last.fm API every 15 seconds:
 
 | # | Section | What's Inside |
 |---|---|---|
-| 1 | **Hero** | Gradient title, typewriter loop cycling philosophies, `⌘K` terminal hint, resume download, GitHub + SoftStack links |
+| 1 | **Hero** | Gradient title, typewriter loop cycling philosophies, resume download, GitHub + SoftStack links |
 | 2 | **About** | Horizontal scroll timeline (`scroll-snap-type: x mandatory`) with milestone cards and programmatic navigation |
 | 3 | **Hobbies** | Bento grid of interests with rich imagery |
 | 4 | **Skills** | Animated progress bars for HTML, CSS, JS, React, Node.js, Python, VS Code, Photoshop, Premiere Pro, Notion |
