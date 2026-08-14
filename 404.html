@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W8JMZRFRVZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-W8JMZRFRVZ');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 | Harshit</title>
+    <meta name="description" content="This page doesn't exist — but plenty of others do. Head back to Harshit's portfolio.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="./icons/icon-192.png">
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+    <link rel="manifest" href="./manifest.webmanifest">
+    <meta name="theme-color" content="#0047AB">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#0047AB',
+              secondary: '#FFD700'
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+        body {
+            overscroll-behavior-y: none;
+            overflow-x: hidden;
+            /* The site's gradient background (image), with a green→blue
+               gradient fallback underneath so it's always teal/blue-ish */
+            background:
+                url('https://99designs-blog.imgix.net/blog/wp-content/uploads/2018/12/Gradient_builder_2.jpg?auto=format&q=60&w=1815&h=1020.9375&fit=crop&crop=faces') no-repeat center center / cover,
+                linear-gradient(160deg, #2a9d8f 0%, #118ab2 50%, #065a9e 100%);
+        }
+        .font-helvetica { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+        .font-mono { font-family: "Roboto Mono", monospace; }
+
+        /* Glassmorphism card matching the site sections */
+        .glass-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.88), rgba(255,255,255,0.5));
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.45);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.7);
+        }
+
+        /* "404" filled with the exact gradient from the footer
+           "HARSHIT" watermark — the site's background image itself */
+        .error-number {
+            background: url('https://99designs-blog.imgix.net/blog/wp-content/uploads/2018/12/Gradient_builder_2.jpg?auto=format&q=60&w=1815&h=1020.9375&fit=crop&crop=faces') no-repeat center center;
+            background-size: cover;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        /* Slide-up reveal on the button, matching hero buttons */
+        .btn-reveal { transition: all 0.3s; }
+        .btn-reveal .btn-sweep {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.12);
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        .btn-reveal:hover .btn-sweep { transform: translateY(0); }
+
+        /* Faint entrance animation */
+        @keyframes rise-in {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .rise-in { opacity: 0; animation: rise-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+        .rise-in-1 { animation-delay: 0.1s; }
+        .rise-in-2 { animation-delay: 0.25s; }
+        .rise-in-3 { animation-delay: 0.4s; }
+        .rise-in-4 { animation-delay: 0.55s; }
+
+        .divider-line {
+            width: 4rem;
+            height: 2px;
+            border-radius: 9999px;
+            background: rgba(0,0,0,0.12);
+        }
+    </style>
+</head>
+<body class="bg-[#F5F5F5] text-[#333333]">
+    <div class="relative min-h-screen flex items-center justify-center px-6">
+
+        <!-- Glass card -->
+        <div class="glass-card relative w-full max-w-lg text-center rounded-3xl shadow-xl px-6 py-12 md:px-12 md:py-14">
+            <!-- Mono error label -->
+            <p class="font-mono text-xs text-primary tracking-[0.35em] uppercase rise-in rise-in-1">Error_404 :: Missing_Realm</p>
+
+            <!-- Big number -->
+            <h1 class="font-helvetica text-[104px] leading-none md:text-[132px] font-bold mt-6 mb-4 error-number rise-in rise-in-2">404</h1>
+
+            <div class="divider-line mx-auto mb-6 rise-in rise-in-2"></div>
+
+            <!-- Message -->
+            <p class="font-inter text-gray-600 text-base md:text-lg leading-relaxed max-w-sm mx-auto mb-10 rise-in rise-in-3">
+                The void between Heaven and Hell.<br class="hidden md:block">
+                The rest of the site is still here, though.
+            </p>
+
+            <!-- Back to Home (hero-style button) -->
+            <a href="index.html" class="btn-reveal bg-primary text-white px-8 py-3 rounded-lg font-medium inline-flex items-center gap-2 relative overflow-hidden group rise-in rise-in-4">
+                <div class="btn-sweep"></div>
+                <span class="relative z-10 inline-flex items-center gap-2">
+                    <i class="ri-arrow-left-line text-lg"></i>
+                    <span>Back to Home</span>
+                </span>
+            </a>
+
+            <!-- Footer tagline -->
+            <p class="font-mono text-[10px] text-gray-400 tracking-[0.3em] uppercase mt-10 rise-in rise-in-4">
+                Where pixels meet philosophy
+            </p>
+        </div>
+    </div>
+</body>
+</html>

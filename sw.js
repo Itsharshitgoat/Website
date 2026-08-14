@@ -1,10 +1,17 @@
-const CACHE_NAME = 'portfolio-cache-v2';
+const CACHE_NAME = 'portfolio-cache-v3';
 
 const urlsToCache = [
   './',
   './index.html',
   './thanks.html',
   './Cs.html',
+  './404.html',
+  './manifest.webmanifest',
+  './robots.txt',
+  './sitemap.xml',
+  './icons/icon-192.png',
+  './icons/icon-512.png',
+  './icons/apple-touch-icon.png',
   './og.png',
   './snowcrash.jpg',
   './1.jpeg'

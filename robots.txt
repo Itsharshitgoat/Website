@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://itsharshitgoat.github.io/Website/sitemap.xml
