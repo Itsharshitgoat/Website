@@ -1,86 +1,61 @@
-const CACHE_NAME = 'portfolio-cache-v3';
+const CACHE_NAME = 'portfolio-cache-v5';
 
-const urlsToCache = [
+// Only small, first-party, always-needed files are precached. Large third-party
+// images, fonts and API responses are deliberately left to the browser cache so
+// the service worker does not eat up storage.
+const CORE_ASSETS = [
   './',
   './index.html',
-  './thanks.html',
-  './Cs.html',
-  './404.html',
+  './styles.css',
+  './background.webp',
   './manifest.webmanifest',
-  './robots.txt',
-  './sitemap.xml',
-  './icons/icon-192.png',
-  './icons/icon-512.png',
-  './icons/apple-touch-icon.png',
-  './og.png',
-  './snowcrash.jpg',
-  './1.jpeg'
+  './icons/icon-192.png'
 ];
 
-// Install event - cache core static assets
 self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(urlsToCache))
-  );
+  event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(CORE_ASSETS)));
   self.skipWaiting();
 });
 
-// Activate event - clean up old caches
 self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.map(cacheName => {
-          if (cacheName !== CACHE_NAME) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
+    caches.keys()
+      .then(keys => Promise.all(keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))))
+      .then(() => self.clients.claim())
   );
-  self.clients.claim();
 });
 
-// Fetch event
 self.addEventListener('fetch', event => {
-  // Only handle GET requests
-  if (event.request.method !== 'GET') return;
+  const request = event.request;
+  if (request.method !== 'GET') return;
 
-  // Use Network First for HTML files (Navigation requests)
-  // This ensures the user always gets the latest version of the website
-  if (event.request.mode === 'navigate' || (event.request.headers.get('accept') && event.request.headers.get('accept').includes('text/html'))) {
+  // Pages: always try the network first so content stays fresh, fall back offline.
+  if (request.mode === 'navigate') {
     event.respondWith(
-      fetch(event.request)
-        .then(networkResponse => {
-          const responseToCache = networkResponse.clone();
-          caches.open(CACHE_NAME).then(cache => {
-            cache.put(event.request, responseToCache);
-          });
-          return networkResponse;
-        })
-        .catch(() => caches.match(event.request))
+      fetch(request).then(response => {
+        const copy = response.clone();
+        caches.open(CACHE_NAME).then(cache => cache.put(request, copy));
+        return response;
+      }).catch(() => caches.match(request).then(cached => cached || caches.match('./index.html')))
     );
     return;
   }
 
-  // Use Stale-While-Revalidate for everything else (images, styles, scripts)
-  // This makes the website load assets super fast while updating them in the background
-  event.respondWith(
-    caches.match(event.request).then(cachedResponse => {
-      const fetchPromise = fetch(event.request).then(networkResponse => {
-        if (networkResponse && (networkResponse.status === 200 || networkResponse.type === 'cors' || networkResponse.type === 'opaque')) {
-          const responseToCache = networkResponse.clone();
-          caches.open(CACHE_NAME).then(cache => {
-            cache.put(event.request, responseToCache);
-          });
-        }
-        return networkResponse;
-      }).catch(() => {
-        // Fallback if offline
-      });
+  const url = new URL(request.url);
+  if (url.origin !== self.location.origin) return; // third-party assets are not cached here
 
-      return cachedResponse || fetchPromise;
+  // Local static assets: stale-while-revalidate, tiny payloads only.
+  event.respondWith(
+    caches.match(request).then(cached => {
+      const network = fetch(request).then(response => {
+        if (response && response.ok) {
+          const copy = response.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put(request, copy));
+        }
+        return response;
+      }).catch(() => cached);
+
+      return cached || network;
     })
   );
 });

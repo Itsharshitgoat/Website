@@ -33,53 +33,18 @@
     <link rel="manifest" href="./manifest.webmanifest">
     <meta name="theme-color" content="#0047AB">
     <link rel="canonical" href="https://itsharshitgoat.github.io/Website/thanks.html">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Helvetica+Neue:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    screens: {
-                        'sm': '640px',
-                        'md': '768px',
-                        'lg': '1024px',
-                        'xl': '1280px',
-                        '2xl': '1536px'
-                    },
-                    colors: {
-                        primary: '#0047AB',
-                        secondary: '#FFD700'
-                    },
-                    borderRadius: {
-                        'none': '0px',
-                        'sm': '4px',
-                        DEFAULT: '8px',
-                        'md': '12px',
-                        'lg': '16px',
-                        'xl': '20px',
-                        '2xl': '24px',
-                        '3xl': '32px',
-                        'full': '9999px',
-                        'button': '8px'
-                    },
-                    boxShadow: {
-                        'card': '0 8px 24px rgba(0,0,0,0.15)',
-                        'button': '0 4px 12px rgba(0,0,0,0.1)'
-                    }
-                }
-            }
-        }
-    </script>
     <style>
         html {
             scroll-behavior: smooth;
             -webkit-tap-highlight-color: transparent;
         }
         body {
-            background: url('https://99designs-blog.imgix.net/blog/wp-content/uploads/2018/12/Gradient_builder_2.jpg?auto=format&q=60&w=1815&h=1020.9375&fit=crop&crop=faces') no-repeat center center fixed;
+            background: #2a9d8f url('./background.webp') no-repeat center center;
             background-size: cover;
             overflow-x: hidden;
         }
@@ -188,7 +153,6 @@
             }
         }
     </style>
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <script>
         // Generate random Member ID
         function generateMemberID() {
@@ -233,17 +197,38 @@
             const url = `https://www.reddit.com/submit?title=${encodeURIComponent(title)}&text=${encodeURIComponent(text)}`;
             window.open(url, '_blank');
         }
+        // Load the screenshot library only when the VIP card is actually downloaded.
+        let html2canvasPromise;
+        function loadHtml2Canvas() {
+            if (window.html2canvas) return Promise.resolve(window.html2canvas);
+            if (html2canvasPromise) return html2canvasPromise;
+            html2canvasPromise = new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = 'https://html2canvas.hertzen.com/dist/html2canvas.min.js';
+                script.onload = () => resolve(window.html2canvas);
+                script.onerror = reject;
+                document.head.appendChild(script);
+            });
+            return html2canvasPromise;
+        }
         // Download Card as PNG
         function downloadCard() {
             const card = document.querySelector('.club-card');
-            html2canvas(card, { backgroundColor: null, scale: 2 }).then(canvas => {
+            if (!card) return;
+            loadHtml2Canvas().then(html2canvas => {
+                return html2canvas(card, { backgroundColor: null, scale: 2 });
+            }).then(canvas => {
                 const link = document.createElement('a');
                 link.href = canvas.toDataURL('image/png');
                 link.download = 'vip.png';
                 link.click();
+            }).catch(() => {
+                alert('Sorry, the VIP card could not be prepared. Please try again.');
             });
         }
     </script>
+    <!-- Precompiled Tailwind CSS (last so page custom styles keep their original precedence) -->
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body class="bg-[#F5F5F5] text-[#333333]">
     <div class="min-h-screen flex items-center justify-center px-4">
